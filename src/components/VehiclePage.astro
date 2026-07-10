@@ -4,7 +4,6 @@ import Nav from './Nav.astro';
 import Footer from './Footer.astro';
 import Faq from './Faq.astro';
 import CtaBand from './CtaBand.astro';
-import Picture from './Picture.astro';
 import { CONTACT } from '../lib/site';
 import { type Vehicle } from '../lib/vehicles-data';
 import { getLang, hrefFor, pick } from '../lib/i18n';
@@ -21,8 +20,6 @@ const heroStats = vehicle.heroStats;
 const galImages = vehicle.img.gallery;
 // Cabin backdrop = this vehicle's own interior shot (gallery slide 4), not a shared image.
 const kabineBg = galImages[3] ?? vehicle.img.kabineBg;
-const toWebp = (s: string) => s.replace(/\.(jpe?g|png)$/i, '.webp');
-const imageSet = (s: string) => `image-set(url('${toWebp(s)}') type('image/webp'), url('${s}') type('image/jpeg'))`;
 const pricing = vehicle.vprice.cards;
 const vorteilItems = vehicle.vben.items;
 
@@ -71,7 +68,7 @@ const priceIncludes = pick(lang,
   <main>
     <!-- ============ HERO ============ -->
     <section class="vhero" aria-labelledby="vhero-title">
-      <div class="vhero__bg" style={`--vhero-bg: ${imageSet(vehicle.img.hero)}`} aria-hidden="true"></div>
+      <div class="vhero__bg" style={`--vhero-bg: url('${vehicle.img.hero}')`} aria-hidden="true"></div>
       <div class="container-x vhero__inner">
         <div class="vhero__top">
           <span class="vhero__pill"><span class="vhero__dot" aria-hidden="true"></span>{L.fleet} / {vehicle.klass}</span>
@@ -112,7 +109,7 @@ const priceIncludes = pick(lang,
           </ul>
         </div>
         <div class="vover__media" data-reveal style="--reveal-delay:0.1s">
-          <Picture src={vehicle.img.ueberblick} alt={`${vehicle.heroTitle} — ${vehicle.klass}`} width="1792" height="2400" loading="lazy" />
+          <img src={vehicle.img.ueberblick} alt={`${vehicle.heroTitle} — ${vehicle.klass}`} width="1792" height="2400" loading="lazy" />
         </div>
       </div>
     </section>
@@ -135,7 +132,7 @@ const priceIncludes = pick(lang,
         </div>
         <div class="vgal__track" data-gal-track>
           {galImages.map((src, i) => (
-            <figure class="vgal__slide"><Picture src={src} alt={`${vehicle.name} — ${L.altView} ${i + 1}`} loading="lazy" /></figure>
+            <figure class="vgal__slide"><img src={src} alt={`${vehicle.name} — ${L.altView} ${i + 1}`} loading="lazy" /></figure>
           ))}
         </div>
         <div class="vgal__bar" aria-hidden="true"><span data-gal-bar></span></div>
@@ -144,7 +141,7 @@ const priceIncludes = pick(lang,
 
     <!-- ============ INNENRAUM / KABINE ============ -->
     <section class="vkab" aria-labelledby="vkab-title">
-      <div class="vkab__bg" style={`--vkab-bg: ${imageSet(kabineBg)}`} aria-hidden="true"></div>
+      <div class="vkab__bg" style={`--vkab-bg: url('${kabineBg}')`} aria-hidden="true"></div>
       <div class="container-x vkab__inner">
         <div class="vkab__head" data-reveal>
           <div class="vkab__intro">
@@ -176,7 +173,7 @@ const priceIncludes = pick(lang,
       <div class="container-x vben__grid">
         <div class="vben__media" data-reveal>
           <div class="vben__frame">
-            <Picture src={vehicle.img.vorteil} alt={`${L.interior} ${vehicle.heroTitle}`} width="1792" height="2400" loading="lazy" />
+            <img src={vehicle.img.vorteil} alt={`${L.interior} ${vehicle.heroTitle}`} width="1792" height="2400" loading="lazy" />
             <div class="vben__badge">
               <span class="vben__badge-big">{vehicle.vben.badge.big}</span>
               <span class="vben__badge-sm">{vehicle.vben.badge.sm}</span>
@@ -242,7 +239,7 @@ const priceIncludes = pick(lang,
         <div class="vflotte__grid">
           {flotte.map((v) => (
             <a class="vflotte__card" href={`${fahrzeugeBase}${v.slug}`} data-reveal>
-              <Picture src={v.img.card} alt={v.heroTitle} loading="lazy" />
+              <img src={v.img.card} alt={v.heroTitle} loading="lazy" />
               <div class="vflotte__overlay">
                 <span class="vflotte__label">{v.cardKlass}</span>
                 <h3 class="vflotte__name">{v.name}</h3>

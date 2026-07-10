@@ -5,7 +5,6 @@ import Footer from './Footer.astro';
 import PageHero from './PageHero.astro';
 import { CONTACT } from '../lib/site';
 import { getVehicles } from '../lib/vehicles-data';
-import Picture from './Picture.astro';
 import { getLang, hrefFor, pick } from '../lib/i18n';
 
 const lang = getLang(Astro.url);
@@ -119,7 +118,7 @@ const T = pick(lang,
                 <label class="bveh__card">
                   <input type="radio" name="fahrzeug" value={v.name} checked={i === 0} />
                   <span class="bveh__inner">
-                    <Picture class="bveh__img" src={v.img} alt={v.name} loading="lazy" />
+                    <img class="bveh__img" src={v.img} alt={v.name} loading="lazy" />
                     <span class="bveh__meta">
                       <span class="bveh__klass">{v.klass}</span>
                       <span class="bveh__name">{v.name}</span>

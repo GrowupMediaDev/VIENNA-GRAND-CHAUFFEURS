@@ -6,7 +6,6 @@ import Faq from './Faq.astro';
 import CtaBand from './CtaBand.astro';
 import FleetShowcase from './FleetShowcase.astro';
 import ServicesCarousel from './ServicesCarousel.astro';
-import Picture from './Picture.astro';
 import { CONTACT } from '../lib/site';
 import { type Service } from '../lib/services-data';
 import { getLang, hrefFor, pick } from '../lib/i18n';
@@ -48,7 +47,7 @@ const seoRight = seoParas.slice(seoHalf);
   <main>
     <!-- ============ HERO ============ -->
     <section class="shero" aria-labelledby="shero-title">
-      <div class="shero__bg" style={`--shero-bg: image-set(url('${service.heroImg.replace(/\.jpe?g$/i, '.webp')}') type('image/webp'), url('${service.heroImg}') type('image/jpeg'))`} aria-hidden="true"></div>
+      <div class="shero__bg" style={`--shero-bg: url('${service.heroImg}')`} aria-hidden="true"></div>
       <div class="container-x shero__inner">
         <div class="shero__top">
           <nav class="shero__crumbs" aria-label={L.crumbAria}>
@@ -113,7 +112,7 @@ const seoRight = seoParas.slice(seoHalf);
           </div>
         </div>
         <div class="sintro__media" data-reveal style="--reveal-delay:0.1s">
-          <Picture src={service.intro.image.src} alt={service.intro.image.alt} width="1792" height="2400" loading="lazy" />
+          <img src={service.intro.image.src} alt={service.intro.image.alt} width="1792" height="2400" loading="lazy" />
         </div>
       </div>
     </section>
@@ -143,7 +142,7 @@ const seoRight = seoParas.slice(seoHalf);
       <div class="container-x sben__grid">
         <div class="sben__media" data-reveal>
           <div class="sben__frame">
-            <Picture src={service.benefit.image.src} alt={service.benefit.image.alt} width="1792" height="2400" loading="lazy" />
+            <img src={service.benefit.image.src} alt={service.benefit.image.alt} width="1792" height="2400" loading="lazy" />
             <div class="sben__badge">
               <span class="sben__badge-big">{service.benefit.badge.big}</span>
               <span class="sben__badge-sm">{service.benefit.badge.sm}</span>

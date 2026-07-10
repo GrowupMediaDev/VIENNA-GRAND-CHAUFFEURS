@@ -4,7 +4,6 @@ import Nav from './Nav.astro';
 import Footer from './Footer.astro';
 import CtaBand from './CtaBand.astro';
 import PageHero from './PageHero.astro';
-import Picture from './Picture.astro';
 import { getVehicles } from '../lib/vehicles-data';
 import { getLang, hrefFor, pick } from '../lib/i18n';
 
@@ -30,7 +29,7 @@ const L = pick(lang,
         <div class="flist__grid">
           {vehicles.map((v) => (
             <a class="vcard" href={`${base}${v.slug}`} data-reveal>
-              <Picture class="vcard__img" src={v.img.card} alt={v.heroTitle} loading="lazy" />
+              <img class="vcard__img" src={v.img.card} alt={v.heroTitle} loading="lazy" />
               <span class="vcard__badge">{v.cardKlass}</span>
               <div class="vcard__body">
                 <h2 class="vcard__name">{v.name}</h2>
