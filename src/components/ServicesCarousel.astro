@@ -151,8 +151,8 @@ const L = pick(lang,
     transition: transform 0.45s cubic-bezier(0.22, 1, 0.36, 1), box-shadow 0.45s ease,
                 border-color 0.45s ease, background 0.45s ease;
   }
-  .scard__media { block-size: 320px; inline-size: 100%; border-radius: 30px; overflow: hidden; }
-  .scard__media img { inline-size: 100%; block-size: 100%; object-fit: cover; transition: transform 0.7s cubic-bezier(0.2, 0, 0.15, 1); }
+  .scard__media { position: relative; block-size: 320px; inline-size: 100%; border-radius: 30px; overflow: hidden; }
+  .scard__media img { position: absolute; inset: 0; inline-size: 100%; block-size: 100%; object-fit: cover; transition: transform 0.7s cubic-bezier(0.2, 0, 0.15, 1); }
   /* Cool hover — lift, image zoom, brighten glass, glow, arrow nudge. */
   .scard:hover {
     transform: translateY(-10px);

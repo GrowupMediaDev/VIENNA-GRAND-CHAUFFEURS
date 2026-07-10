@@ -300,8 +300,8 @@ const seoRight = seoParas.slice(seoHalf);
   .sintro__cta:hover { filter: brightness(1.04); transform: translateY(-2px); }
   .sintro__phone { display: inline-flex; align-items: center; padding: 15px 37px; border-radius: 999px; background: rgba(0, 0, 0, 0.04); border: 1px solid rgba(12, 10, 8, 0.14); color: #0c0a08; font-weight: 500; font-size: 15.5px; letter-spacing: 0.155px; text-decoration: none; transition: background 0.3s ease; }
   .sintro__phone:hover { background: rgba(0, 0, 0, 0.08); }
-  .sintro__media { flex: 1 1 0; min-inline-size: 0; border-radius: 12px; overflow: hidden; }
-  .sintro__media img { inline-size: 100%; block-size: 100%; object-fit: cover; }
+  .sintro__media { position: relative; flex: 1 1 0; min-inline-size: 0; border-radius: 12px; overflow: hidden; }
+  .sintro__media img { position: absolute; inset: 0; inline-size: 100%; block-size: 100%; object-fit: cover; }
 
   /* ============ VALUES STRIP ============ */
   .vals { background: var(--color-cream); padding-block: clamp(1rem, 2vw, 1.25rem) clamp(3rem, 6vw, 5rem); }
@@ -329,7 +329,7 @@ const seoRight = seoParas.slice(seoHalf);
   .sben__grid { display: flex; gap: clamp(2.5rem, 5vw, 90px); align-items: center; }
   .sben__media { flex: 1 1 0; min-inline-size: 0; }
   .sben__frame { position: relative; inline-size: 100%; aspect-ratio: 621 / 709; border-radius: 12px; overflow: hidden; }
-  .sben__frame img { inline-size: 100%; block-size: 100%; object-fit: cover; }
+  .sben__frame img { position: absolute; inset: 0; inline-size: 100%; block-size: 100%; object-fit: cover; }
   .sben__badge { position: absolute; top: clamp(16px, 4%, 30px); right: clamp(16px, 4%, 30px); background: rgba(15, 10, 6, 0.72); backdrop-filter: blur(6px); -webkit-backdrop-filter: blur(6px); border-radius: 14px; padding: 20px 26px; display: flex; flex-direction: column; gap: 4px; }
   .sben__badge-big { font-family: var(--font-oswald); font-size: 38px; font-weight: 500; line-height: 1; color: #e9b79a; }
   .sben__badge-sm { font-size: 12.5px; letter-spacing: 0.1em; text-transform: uppercase; color: rgba(255, 255, 255, 0.8); }

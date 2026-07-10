@@ -297,7 +297,7 @@ const L = pick(lang,
     z-index: 0;
   }
   .hero__media { overflow: hidden; }
-  .hero__media img { inline-size: 100%; block-size: 100%; object-fit: cover; object-position: 50% 55%; }
+  .hero__media img { position: absolute; inset: 0; inline-size: 100%; block-size: 100%; object-fit: cover; object-position: 50% 55%; }
   .hero__scrim {
     z-index: 1;
     background: linear-gradient(
@@ -573,10 +573,11 @@ const L = pick(lang,
 
   .benefits__media { flex: 1 1 0; min-inline-size: 0; display: flex; flex-direction: column; justify-content: flex-end; }
   .benefits__media-frame {
+    position: relative;
     inline-size: 100%; aspect-ratio: 560.63 / 700.78;
     border-radius: 5px; overflow: hidden; background: #15100b;
   }
-  .benefits__media-frame img { inline-size: 100%; block-size: 100%; object-fit: cover; }
+  .benefits__media-frame img { position: absolute; inset: 0; inline-size: 100%; block-size: 100%; object-fit: cover; }
 
   @media (max-width: 860px) {
     .benefits__grid { flex-direction: column; gap: 2.5rem; }
