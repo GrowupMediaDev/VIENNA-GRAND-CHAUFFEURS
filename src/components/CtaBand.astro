@@ -18,7 +18,7 @@ const {
 const phoneHref = `tel:${CONTACT.phone.tel}`;
 ---
 <section class="cta" id={id} aria-label={ct.aria}>
-  <div class="cta__bg" style={`--cta-bg: url('${bg}')`} aria-hidden="true"></div>
+  <div class="cta__bg" style={`--cta-bg: image-set(url('${bg.replace(/\.(jpe?g|png)$/i, '.webp')}') type('image/webp'), url('${bg}') type('image/jpeg'))`} aria-hidden="true"></div>
   <div class="container-x cta__inner">
     <div class="cta__row">
       <h2 class="cta__title" data-reveal>{heading}</h2>
