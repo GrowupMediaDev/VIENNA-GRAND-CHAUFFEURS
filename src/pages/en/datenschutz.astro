@@ -1,0 +1,79 @@
+---
+import LegalLayout from '../../layouts/LegalLayout.astro';
+import { CONTACT } from '../../lib/site';
+---
+<LegalLayout
+  title="Privacy Policy"
+  metaTitle="Privacy Policy — Vienna Grand Chauffeurs"
+  description="Privacy Policy of Vienna Grand Chauffeurs in accordance with the GDPR — how we collect, process and protect your personal data."
+  eyebrow="Legal"
+>
+  <p class="legal__note">
+    <strong>Note:</strong> This privacy policy is a draft and must be reviewed for legal compliance and
+    adapted to the services actually used before publication. Placeholders in [square brackets] are to be replaced.
+  </p>
+
+  <h2>1. Controller</h2>
+  <p>
+    The controller responsible for data processing on this website is:<br />
+    <strong>[Company name]</strong>, [Address], 1010 Vienna.<br />
+    Email: <a href={CONTACT.email.mailto}>{CONTACT.email.display}</a> · Phone:
+    <a href={`tel:${CONTACT.phone.tel}`}>{CONTACT.phone.display}</a>
+  </p>
+
+  <h2>2. General Information on Data Processing</h2>
+  <p>
+    As a matter of principle, we process our users' personal data only to the extent necessary to
+    provide a functional website as well as our content and services. Processing is carried out on the
+    basis of the General Data Protection Regulation (GDPR) and the Austrian Data Protection Act (DSG).
+  </p>
+
+  <h2>3. Collection of Data for Enquiries and Bookings</h2>
+  <p>
+    When you contact us via the contact or booking form, by email or by telephone, we process the data
+    you provide (e.g. name, contact details, journey details) in order to handle your enquiry and to
+    carry out the chauffeur service. The legal basis is Art. 6(1)(b) GDPR (performance of a contract or
+    pre-contractual measures).
+  </p>
+
+  <h2>4. Server Log Files</h2>
+  <p>
+    When this website is accessed, the hosting provider automatically stores information in server log
+    files (including IP address, date and time of access, and the page accessed). This serves to ensure
+    trouble-free operation and security. The legal basis is Art. 6(1)(f) GDPR.
+  </p>
+
+  <h2>5. Cookies</h2>
+  <p>
+    This website uses [technically necessary cookies / no cookies]. Insofar as cookies are used that
+    are not technically necessary, this only occurs with your consent in accordance with Art. 6(1)(a)
+    GDPR. You may withdraw your consent at any time.
+  </p>
+
+  <h2>6. Your Rights</h2>
+  <p>As a data subject, you have the following rights:</p>
+  <ul>
+    <li>Right of access (Art. 15 GDPR)</li>
+    <li>Right to rectification (Art. 16 GDPR)</li>
+    <li>Right to erasure (Art. 17 GDPR)</li>
+    <li>Right to restriction of processing (Art. 18 GDPR)</li>
+    <li>Right to data portability (Art. 20 GDPR)</li>
+    <li>Right to object (Art. 21 GDPR)</li>
+  </ul>
+  <p>
+    In addition, you have the right to lodge a complaint with the Austrian Data Protection Authority
+    (<a href="https://www.dsb.gv.at" rel="noreferrer">www.dsb.gv.at</a>).
+  </p>
+
+  <h2>7. Storage Period</h2>
+  <p>
+    We store personal data only for as long as is necessary for the stated purposes or as required by
+    statutory retention periods (e.g. tax and commercial law periods).
+  </p>
+
+  <h2>8. Contact for Data Protection Matters</h2>
+  <p>
+    If you have any questions regarding data protection, you can reach us at
+    <a href={CONTACT.email.mailto}>{CONTACT.email.display}</a>.
+  </p>
+</LegalLayout>

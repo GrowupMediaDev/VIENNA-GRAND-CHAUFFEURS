@@ -1,0 +1,97 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Nav from './Nav.astro';
+import Footer from './Footer.astro';
+import CtaBand from './CtaBand.astro';
+import PageHero from './PageHero.astro';
+import { getVehicles } from '../lib/vehicles-data';
+import { getLang, hrefFor, pick } from '../lib/i18n';
+
+const lang = getLang(Astro.url);
+const vehicles = getVehicles(lang);
+const base = hrefFor('/fahrzeuge/', lang);
+const L = pick(lang,
+  { title: 'Fahrzeuge & Flotte — Vienna Grand Chauffeurs', desc: 'Unsere Premiumflotte: Mercedes-Benz E-Klasse, S-Klasse, V-Klasse, EQE und Sprinter sowie BMW 5er. Das passende Fahrzeug für jeden Anlass in Wien und ganz Österreich.', eyebrow: 'Fahrzeuge', heroTitle: 'Eine Flotte für <span>jeden Anlass.</span>', heroSub: 'Von der Business-Limousine über den geräumigen Van bis zum vollelektrischen Antrieb — wählen Sie das Fahrzeug, das zu Ihrer Fahrt passt. Alle gepflegt, klimatisiert und mit erfahrenem Chauffeur.', gridAria: 'Alle Fahrzeuge', ourFleet: 'Unsere Flotte', count: `${vehicles.length} Fahrzeuge` },
+  { title: 'Fleet & Vehicles — Vienna Grand Chauffeurs', desc: 'Our premium fleet: Mercedes-Benz E-Class, S-Class, V-Class, EQE and Sprinter, plus the BMW 5 Series. The right vehicle for every occasion in Vienna and throughout Austria.', eyebrow: 'Fleet', heroTitle: 'A fleet for <span>every occasion.</span>', heroSub: 'From the business sedan and the spacious van to the all-electric drive — choose the vehicle that suits your journey. All immaculately kept, air-conditioned and with an experienced chauffeur.', gridAria: 'All vehicles', ourFleet: 'Our fleet', count: `${vehicles.length} vehicles` });
+---
+<Layout title={L.title} description={L.desc}>
+  <Nav />
+  <main>
+    <PageHero eyebrow={L.eyebrow} title={L.heroTitle} sub={L.heroSub} />
+
+    <!-- ============ FLEET GRID ============ -->
+    <section class="flist" aria-label={L.gridAria}>
+      <div class="container-x">
+        <div class="flist__head" data-reveal>
+          <div class="flist__eyebrow"><span class="flist__line" aria-hidden="true"></span><span>{L.ourFleet}</span></div>
+          <span class="flist__count">{L.count}</span>
+        </div>
+        <div class="flist__grid">
+          {vehicles.map((v) => (
+            <a class="vcard" href={`${base}${v.slug}`} data-reveal>
+              <img class="vcard__img" src={v.img.card} alt={v.heroTitle} loading="lazy" decoding="async" />
+              <span class="vcard__badge">{v.cardKlass}</span>
+              <div class="vcard__body">
+                <h2 class="vcard__name">{v.name}</h2>
+                <div class="vcard__foot">
+                  <span class="vcard__specs">{v.cardSpecs}</span>
+                  <span class="vcard__arrow" aria-hidden="true">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17L17 7M7 7h10v10"/></svg>
+                  </span>
+                </div>
+              </div>
+            </a>
+          ))}
+        </div>
+      </div>
+    </section>
+
+    <CtaBand />
+  </main>
+  <Footer />
+</Layout>
+
+<style>
+  .flist { background: var(--color-cream); color: #0c0a08; padding-block: clamp(2.5rem, 5vw, 4rem) var(--section-py); }
+  .flist__head { display: flex; align-items: baseline; justify-content: space-between; gap: 1.5rem; flex-wrap: wrap; margin-block-end: clamp(1.75rem, 3vw, 2.5rem); }
+  .flist__eyebrow { display: flex; align-items: center; gap: 15px; }
+  .flist__eyebrow span:not(.flist__line) { font-family: var(--font-display); font-weight: 600; font-size: 24px; letter-spacing: -1px; text-transform: uppercase; color: #c46a2d; }
+  .flist__line { inline-size: 60px; block-size: 1.429px; background: #c46a2d; opacity: 0.6; flex: none; }
+  .flist__count { font-family: var(--font-oswald); font-size: 14px; letter-spacing: 0.14em; text-transform: uppercase; color: rgba(12, 10, 8, 0.5); }
+  .flist__grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 320px), 1fr)); gap: clamp(1rem, 1.6vw, 1.5rem); }
+
+  /* Vehicle card */
+  .vcard {
+    position: relative; isolation: isolate; display: block; overflow: hidden;
+    aspect-ratio: 4 / 5; border-radius: 18px; text-decoration: none;
+    background: #14100b; box-shadow: 0 20px 50px -34px rgba(0, 0, 0, 0.55);
+  }
+  .vcard__img { position: absolute; inset: 0; inline-size: 100%; block-size: 100%; object-fit: cover; transition: transform 0.7s cubic-bezier(0.22, 1, 0.36, 1); }
+  .vcard:hover .vcard__img { transform: scale(1.06); }
+  .vcard::after { content: ''; position: absolute; inset: 0; z-index: 1; background: linear-gradient(180deg, rgba(0, 0, 0, 0.28) 0%, rgba(0, 0, 0, 0) 30%, rgba(0, 0, 0, 0.15) 55%, rgba(13, 7, 3, 0.9) 100%); }
+
+  .vcard__badge {
+    position: absolute; z-index: 2; inset-block-start: clamp(1rem, 2vw, 1.35rem); inset-inline-start: clamp(1rem, 2vw, 1.35rem);
+    display: inline-flex; align-items: center; padding: 8px 15px; border-radius: 999px;
+    background: rgba(20, 15, 10, 0.42); border: 1px solid rgba(255, 255, 255, 0.24);
+    backdrop-filter: blur(8px); -webkit-backdrop-filter: blur(8px);
+    font-family: var(--font-oswald); font-size: 11.5px; font-weight: 500; letter-spacing: 0.12em; text-transform: uppercase; color: #f6e4d6;
+  }
+
+  .vcard__body { position: absolute; inset-inline: 0; inset-block-end: 0; z-index: 2; padding: clamp(1.4rem, 2.5vw, 2rem); color: #fff; }
+  .vcard__name { font-family: var(--font-display); font-weight: 700; font-size: clamp(1.7rem, 2.8vw, 2.35rem); line-height: 1.02; letter-spacing: -0.02em; color: #fff; }
+  .vcard__foot { display: flex; align-items: flex-end; justify-content: space-between; gap: 14px; margin-block-start: 10px; }
+  .vcard__specs { font-size: 13px; line-height: 1.45; color: rgba(255, 255, 255, 0.74); max-inline-size: 26ch; }
+  .vcard__arrow { flex: none; inline-size: 42px; block-size: 42px; border-radius: 999px; border: 1px solid rgba(255, 255, 255, 0.35); display: grid; place-items: center; color: #fff; transition: background 0.3s ease, border-color 0.3s ease, transform 0.3s ease; }
+  .vcard__arrow svg { inline-size: 18px; block-size: 18px; }
+  .vcard:hover .vcard__arrow { background: var(--color-terracotta); border-color: var(--color-terracotta); transform: translate(2px, -2px); }
+
+  @media (max-width: 640px) {
+    .flist__eyebrow span:not(.flist__line) { font-size: 1.05rem; }
+    .vcard { aspect-ratio: 5 / 5; }
+  }
+</style>
+
+<style is:global>
+  body { background: var(--color-cream); }
+</style>

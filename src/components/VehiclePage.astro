@@ -1,0 +1,529 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Nav from './Nav.astro';
+import Footer from './Footer.astro';
+import Faq from './Faq.astro';
+import CtaBand from './CtaBand.astro';
+import { CONTACT } from '../lib/site';
+import { type Vehicle } from '../lib/vehicles-data';
+import { getLang, hrefFor, pick } from '../lib/i18n';
+
+interface Props { vehicle: Vehicle; flotte: Vehicle[] }
+const { vehicle, flotte } = Astro.props;
+const lang = getLang(Astro.url);
+const phoneHref = `tel:${CONTACT.phone.tel}`;
+const bookHref = hrefFor('/online-buchung', lang);
+const kontaktHref = hrefFor('/kontakt', lang);
+const fahrzeugeBase = hrefFor('/fahrzeuge/', lang);
+
+const heroStats = vehicle.heroStats;
+const galImages = vehicle.img.gallery;
+const pricing = vehicle.vprice.cards;
+const vorteilItems = vehicle.vben.items;
+
+const L = pick(lang,
+  { fleet: 'Fahrzeuge', book: 'Jetzt buchen', overview: 'Überblick', gallery: 'Galerie', interior: 'Innenraum', request: 'Jetzt anfragen', advantage: 'Ihr Vorteil', prices: 'Preise', popular: 'Beliebt', from: 'ab', theFleet: 'Die Flotte', flotteTitle: 'Nicht ganz die richtige Größe?', flotteLead: 'Für mehr Repräsentation oder mehr Platz steht die übrige Flotte bereit.', prevImg: 'Vorheriges Bild', nextImg: 'Nächstes Bild', altView: 'Ansicht' },
+  { fleet: 'Fleet', book: 'Book now', overview: 'Overview', gallery: 'Gallery', interior: 'Interior', request: 'Request now', advantage: 'Your advantage', prices: 'Rates', popular: 'Popular', from: 'from', theFleet: 'The fleet', flotteTitle: 'Not quite the right size?', flotteLead: 'For more presence or more space, the rest of the fleet stands ready.', prevImg: 'Previous image', nextImg: 'Next image', altView: 'View' });
+
+const chips = pick(lang,
+  [
+    { icon: '/images/fahrzeuge/chip-briefcase.svg', label: 'Nappa-Lederausstattung' },
+    { icon: '/images/fahrzeuge/chip-clock.svg', label: 'Klimaautomatik' },
+    { icon: '/images/fahrzeuge/chip-wifi.svg', label: 'WLAN & USB-C' },
+    { icon: '/images/fahrzeuge/chip-drink.svg', label: 'Stilles Wasser' },
+  ],
+  [
+    { icon: '/images/fahrzeuge/chip-briefcase.svg', label: 'Nappa leather' },
+    { icon: '/images/fahrzeuge/chip-clock.svg', label: 'Climate control' },
+    { icon: '/images/fahrzeuge/chip-wifi.svg', label: 'Wi-Fi & USB-C' },
+    { icon: '/images/fahrzeuge/chip-drink.svg', label: 'Still water' },
+  ]);
+
+const kabineFeatures = pick(lang,
+  [
+    { icon: '/images/fahrzeuge/kab-1.svg', title: 'Nappa-Ledersitze', text: 'Beheizt und großzügig geschnitten — auch auf der Langstrecke entspannt.' },
+    { icon: '/images/fahrzeuge/kab-2.svg', title: 'Klimaautomatik', text: 'Individuelle Temperatur vorn und hinten — Ihre Wunschluft ist eingestellt.' },
+    { icon: '/images/fahrzeuge/kab-3.svg', title: 'WLAN & Laden', text: 'Schnelles WLAN, USB-C und Steckdose — arbeiten oder durchatmen, ganz wie Sie wollen.' },
+    { icon: '/images/fahrzeuge/kab-4.svg', title: 'Stilles Wasser', text: 'Gekühltes Wasser und frische Tücher stehen bei jeder Fahrt für Sie bereit.' },
+    { icon: '/images/fahrzeuge/kab-5.svg', title: 'Privatsphäre', text: 'Getönte Scheiben und absolute Diskretion — Ihr Gespräch bleibt im Wagen.' },
+    { icon: '/images/fahrzeuge/kab-6.svg', title: 'Persönlicher Chauffeur', text: 'Ortskundig, im Anzug, mit Meet & Greet am Gate — wenn Sie es wünschen.' },
+  ],
+  [
+    { icon: '/images/fahrzeuge/kab-1.svg', title: 'Nappa leather seats', text: 'Heated and generously sized — relaxed even on the long haul.' },
+    { icon: '/images/fahrzeuge/kab-2.svg', title: 'Climate control', text: 'Individual temperature front and rear — your preferred air is set.' },
+    { icon: '/images/fahrzeuge/kab-3.svg', title: 'Wi-Fi & charging', text: 'Fast Wi-Fi, USB-C and a power socket — work or unwind, just as you like.' },
+    { icon: '/images/fahrzeuge/kab-4.svg', title: 'Still water', text: 'Chilled water and fresh towels are ready for you on every journey.' },
+    { icon: '/images/fahrzeuge/kab-5.svg', title: 'Privacy', text: 'Tinted windows and absolute discretion — your conversation stays in the car.' },
+    { icon: '/images/fahrzeuge/kab-6.svg', title: 'Personal chauffeur', text: 'Local knowledge, in a suit, with meet & greet at the gate — if you wish.' },
+  ]);
+
+const priceIncludes = pick(lang,
+  ['Wartezeit inklusive', 'Maut & Parkgebühren inklusive', 'Fixpreis bei Buchung garantiert', 'Alle Preise inkl. USt.'],
+  ['Waiting time included', 'Tolls & parking included', 'Fixed price guaranteed at booking', 'All prices incl. VAT']);
+---
+<Layout title={vehicle.metaTitle} description={vehicle.metaDescription}>
+  <Nav />
+  <main>
+    <!-- ============ HERO ============ -->
+    <section class="vhero" aria-labelledby="vhero-title">
+      <div class="vhero__bg" style={`--vhero-bg: url('${vehicle.img.hero}')`} aria-hidden="true"></div>
+      <div class="container-x vhero__inner">
+        <div class="vhero__top">
+          <span class="vhero__pill"><span class="vhero__dot" aria-hidden="true"></span>{L.fleet} / {vehicle.klass}</span>
+          <h1 class="vhero__title" id="vhero-title" data-reveal>{vehicle.heroTitle}</h1>
+          <p class="vhero__sub" data-reveal style="--reveal-delay:0.08s">{vehicle.heroSub}</p>
+          <div class="vhero__cta" data-reveal style="--reveal-delay:0.14s">
+            <a class="vhero__btn" href={bookHref}>{L.book}</a>
+            <a class="vhero__phone" href={phoneHref}>
+              <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M6.62 10.79a15.05 15.05 0 0 0 6.59 6.59l2.2-2.2a1 1 0 0 1 1.02-.24c1.12.37 2.33.57 3.57.57a1 1 0 0 1 1 1V20a1 1 0 0 1-1 1A17 17 0 0 1 3 4a1 1 0 0 1 1-1h3.5a1 1 0 0 1 1 1c0 1.25.2 2.45.57 3.57.11.35.03.74-.25 1.02l-2.2 2.2Z"/></svg>
+              <span>{CONTACT.phone.display}</span>
+            </a>
+          </div>
+        </div>
+
+        <ul class="vhero__stats" data-reveal style="--reveal-delay:0.2s">
+          {heroStats.map((s) => (
+            <li>
+              <span class="vhero__stat-label">{s.label}</span>
+              <span class="vhero__stat-val">{s.accent ? <><em>{s.accent}</em>{s.value.replace(s.accent, '')}</> : s.value}</span>
+            </li>
+          ))}
+        </ul>
+      </div>
+    </section>
+
+    <!-- ============ ÜBERBLICK ============ -->
+    <section class="vover" aria-labelledby="vover-title">
+      <div class="container-x vover__grid">
+        <div class="vover__content" data-reveal>
+          <div class="vover__eyebrow"><span class="vover__line" aria-hidden="true"></span><span>{L.overview}</span></div>
+          <h2 class="vover__title" id="vover-title">{vehicle.vover.titleLead} <span>{vehicle.vover.titleAccent}</span></h2>
+          <span class="vover__rule" aria-hidden="true"></span>
+          <p class="vover__body">{vehicle.vover.body}</p>
+          <ul class="vover__chips">
+            {chips.map((c) => (
+              <li><img src={c.icon} alt="" width="18" height="18" /><span>{c.label}</span></li>
+            ))}
+          </ul>
+        </div>
+        <div class="vover__media" data-reveal style="--reveal-delay:0.1s">
+          <img src={vehicle.img.ueberblick} alt={`${vehicle.heroTitle} — ${vehicle.klass}`} width="1792" height="2400" loading="lazy" decoding="async" />
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ GALERIE ============ -->
+    <section class="vgal" aria-labelledby="vgal-title">
+      <div class="container-x">
+        <div class="vgal__head" data-reveal>
+          <div class="vgal__intro">
+            <div class="vgal__eyebrow"><span class="vgal__line" aria-hidden="true"></span><span>{L.gallery}</span></div>
+            <h2 class="vgal__title" id="vgal-title">{vehicle.galTitle}</h2>
+          </div>
+          <div class="vgal__nav">
+            <span class="vgal__count" data-gal-count>01 / 0{galImages.length}</span>
+            <div class="vgal__btns">
+              <button class="vgal__btn" type="button" data-gal-prev aria-label={L.prevImg}><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 18l-6-6 6-6"/></svg></button>
+              <button class="vgal__btn" type="button" data-gal-next aria-label={L.nextImg}><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 18l6-6-6-6"/></svg></button>
+            </div>
+          </div>
+        </div>
+        <div class="vgal__track" data-gal-track>
+          {galImages.map((src, i) => (
+            <figure class="vgal__slide"><img src={src} alt={`${vehicle.name} — ${L.altView} ${i + 1}`} loading="lazy" decoding="async" /></figure>
+          ))}
+        </div>
+        <div class="vgal__bar" aria-hidden="true"><span data-gal-bar></span></div>
+      </div>
+    </section>
+
+    <!-- ============ INNENRAUM / KABINE ============ -->
+    <section class="vkab" aria-labelledby="vkab-title">
+      <div class="vkab__bg" style={`--vkab-bg: url('${vehicle.img.kabineBg}')`} aria-hidden="true"></div>
+      <div class="container-x vkab__inner">
+        <div class="vkab__head" data-reveal>
+          <div class="vkab__intro">
+            <div class="vkab__eyebrow"><span class="vkab__line" aria-hidden="true"></span><span>{L.interior}</span></div>
+            <h2 class="vkab__title" id="vkab-title">{vehicle.kab.title}</h2>
+          </div>
+          <div class="vkab__aside">
+            <p class="vkab__lead">{vehicle.kab.lead}</p>
+            <div class="vkab__actions">
+              <a class="vkab__cta" href={kontaktHref}>{L.request} <span aria-hidden="true">→</span></a>
+              <a class="vkab__phone" href={phoneHref}>{CONTACT.phone.display}</a>
+            </div>
+          </div>
+        </div>
+        <div class="vkab__grid" data-reveal style="--reveal-delay:0.08s">
+          {kabineFeatures.map((f) => (
+            <div class="vkab__card">
+              <span class="vkab__ic" aria-hidden="true"><img src={f.icon} alt="" width="20" height="20" /></span>
+              <h3>{f.title}</h3>
+              <p>{f.text}</p>
+            </div>
+          ))}
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ IHR VORTEIL ============ -->
+    <section class="vben" aria-labelledby="vben-title">
+      <div class="container-x vben__grid">
+        <div class="vben__media" data-reveal>
+          <div class="vben__frame">
+            <img src={vehicle.img.vorteil} alt={`${L.interior} ${vehicle.heroTitle}`} width="1792" height="2400" loading="lazy" decoding="async" />
+            <div class="vben__badge">
+              <span class="vben__badge-big">{vehicle.vben.badge.big}</span>
+              <span class="vben__badge-sm">{vehicle.vben.badge.sm}</span>
+            </div>
+          </div>
+        </div>
+        <div class="vben__content" data-reveal style="--reveal-delay:0.1s">
+          <div class="vben__eyebrow"><span class="vben__line" aria-hidden="true"></span><span>{L.advantage}</span></div>
+          <h2 class="vben__title" id="vben-title">{vehicle.vben.title}</h2>
+          <p class="vben__body">{vehicle.vben.body}</p>
+          <ul class="vben__list">
+            {vorteilItems.map((it) => (
+              <li class="vben__item">
+                <span class="vben__check" aria-hidden="true">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg>
+                </span>
+                <span>{it}</span>
+              </li>
+            ))}
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ PREISE ============ -->
+    <section class="vprice" aria-labelledby="vprice-title">
+      <div class="container-x">
+        <div class="vprice__head" data-reveal>
+          <div class="vprice__eyebrow"><span class="vprice__line" aria-hidden="true"></span><span>{L.prices}</span></div>
+          <h2 class="vprice__title" id="vprice-title">{vehicle.vprice.title}</h2>
+          <p class="vprice__sub">{vehicle.vprice.sub}</p>
+        </div>
+        <div class="vprice__grid">
+          {pricing.map((p, i) => (
+            <div class:list={['vprice__card', p.featured && 'is-featured']} data-reveal style={`--reveal-delay:${0.06 * i}s`}>
+              <div class="vprice__card-head">
+                <h3>{p.title}</h3>
+                {p.featured && <span class="vprice__badge">{L.popular}</span>}
+              </div>
+              <p class="vprice__card-sub">{p.sub}</p>
+              <p class="vprice__price"><span class="vprice__ab">{L.from}</span> <strong>{p.price}</strong> <span class="vprice__unit">{p.unit}</span></p>
+              <p class="vprice__desc">{p.desc}</p>
+              <a class="vprice__cta" href={bookHref}>{p.cta}</a>
+            </div>
+          ))}
+        </div>
+        <ul class="vprice__incl" data-reveal>
+          {priceIncludes.map((i) => <li>{i}</li>)}
+        </ul>
+      </div>
+    </section>
+
+    <!-- ============ DIE FLOTTE ============ -->
+    <section class="vflotte" aria-labelledby="vflotte-title">
+      <div class="container-x">
+        <div class="vflotte__head" data-reveal>
+          <div class="vflotte__intro">
+            <div class="vflotte__eyebrow"><span class="vflotte__line" aria-hidden="true"></span><span>{L.theFleet}</span></div>
+            <h2 class="vflotte__title" id="vflotte-title">{L.flotteTitle}</h2>
+          </div>
+          <p class="vflotte__lead">{L.flotteLead}</p>
+        </div>
+        <div class="vflotte__grid">
+          {flotte.map((v) => (
+            <a class="vflotte__card" href={`${fahrzeugeBase}${v.slug}`} data-reveal>
+              <img src={v.img.card} alt={v.heroTitle} loading="lazy" decoding="async" />
+              <div class="vflotte__overlay">
+                <span class="vflotte__label">{v.cardKlass}</span>
+                <h3 class="vflotte__name">{v.name}</h3>
+                <div class="vflotte__foot">
+                  <span class="vflotte__specs">{v.cardSpecs}</span>
+                  <span class="vflotte__arrow" aria-hidden="true">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17L17 7M7 7h10v10"/></svg>
+                  </span>
+                </div>
+              </div>
+            </a>
+          ))}
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ FAQ ============ -->
+    <Faq faqs={vehicle.faq} />
+
+    <!-- ============ CTA BAND ============ -->
+    <CtaBand />
+  </main>
+  <Footer />
+</Layout>
+
+<script>
+  // Galerie — scroll-snap carousel with arrows, counter and progress bar.
+  const track = document.querySelector<HTMLElement>('[data-gal-track]');
+  if (track) {
+    const slides = [...track.children] as HTMLElement[];
+    const count = document.querySelector('[data-gal-count]');
+    const bar = document.querySelector<HTMLElement>('[data-gal-bar]');
+    const step = () => (slides[1] ? slides[1].offsetLeft - slides[0].offsetLeft : track.clientWidth);
+    const update = () => {
+      const i = Math.min(slides.length, Math.round(track.scrollLeft / step()) + 1);
+      if (count) count.textContent = String(i).padStart(2, '0') + ' / ' + String(slides.length).padStart(2, '0');
+      if (bar) bar.style.inlineSize = Math.min(100, ((track.scrollLeft + track.clientWidth) / track.scrollWidth) * 100) + '%';
+    };
+    document.querySelector('[data-gal-prev]')?.addEventListener('click', () => track.scrollBy({ left: -step(), behavior: 'smooth' }));
+    document.querySelector('[data-gal-next]')?.addEventListener('click', () => track.scrollBy({ left: step(), behavior: 'smooth' }));
+    track.addEventListener('scroll', update, { passive: true });
+    update();
+  }
+</script>
+
+<style>
+  /* ============ VEHICLE HERO ============ */
+  .vhero { position: relative; isolation: isolate; overflow: hidden; color: #fff; min-block-size: 100svh; display: flex; }
+  .vhero__bg {
+    position: absolute; inset: 0; z-index: 0;
+    background-image:
+      linear-gradient(90deg, rgba(0, 0, 0, 0.62) 14%, rgba(255, 255, 255, 0.26) 100%),
+      linear-gradient(180deg, rgba(0, 0, 0, 0.64) 0%, rgba(255, 255, 255, 0.4) 52%, rgba(0, 0, 0, 0.48) 100%),
+      var(--vhero-bg);
+    background-size: cover; background-position: 50% 55%; background-repeat: no-repeat;
+    background-blend-mode: multiply, multiply, normal;
+    background-color: #100a06;
+  }
+  .vhero__inner {
+    position: relative; z-index: 1; inline-size: 100%;
+    display: flex; flex-direction: column; justify-content: space-between; gap: 3rem;
+    padding-block: clamp(8.5rem, 20vh, 13rem) clamp(1.5rem, 3vh, 2.2rem);
+  }
+  .vhero__top { display: flex; flex-direction: column; align-items: flex-start; gap: clamp(1.4rem, 2.2vw, 1.9rem); max-inline-size: 620px; }
+  .vhero__pill {
+    display: inline-flex; align-items: center; gap: 8px; padding: 7px 13px; border-radius: 999px;
+    background: rgba(196, 106, 45, 0.2); border: 1px solid rgba(255, 255, 255, 0.2);
+    font-size: 12px; font-weight: 600; letter-spacing: 0.96px; text-transform: uppercase; color: #fff;
+  }
+  .vhero__dot { inline-size: 6px; block-size: 6px; border-radius: 3px; background: #c46a2d; box-shadow: 0 0 0 4px rgba(196, 106, 45, 0.18); flex: none; }
+  .vhero__title {
+    font-family: var(--font-display); font-weight: 700;
+    font-size: clamp(2.6rem, 8vw, 5rem); line-height: 0.92; letter-spacing: -0.03em; color: #fff;
+    max-inline-size: 11ch;
+  }
+  .vhero__sub { margin: 0; font-size: clamp(1rem, 1.4vw, 1.25rem); line-height: 1.5; color: rgba(255, 255, 255, 0.8); max-inline-size: 30ch; }
+  .vhero__cta { display: flex; flex-wrap: wrap; gap: 18px; margin-block-start: 0.5rem; }
+  .vhero__btn {
+    display: inline-flex; align-items: center; justify-content: center; padding: 16px 36px;
+    border-radius: 42px; background: linear-gradient(90deg, #c46a2d 0%, #e9b79a 100%);
+    box-shadow: 0 10px 30px -12px rgba(196, 106, 45, 0.55), inset 0 0 0 1px rgba(255, 255, 255, 0.09);
+    color: rgba(0, 0, 0, 0.9); font-weight: 500; font-size: 16px; text-decoration: none; white-space: nowrap;
+    transition: filter 0.3s ease, transform 0.25s ease;
+  }
+  .vhero__btn:hover { filter: brightness(1.05); transform: translateY(-2px); }
+  .vhero__phone {
+    display: inline-flex; align-items: center; gap: 10px; padding: 16px 26px;
+    border-radius: 45px; background: rgba(255, 255, 255, 0.05); box-shadow: inset 0 0 0 1px rgba(255, 255, 255, 0.3);
+    backdrop-filter: blur(9.3px); -webkit-backdrop-filter: blur(9.3px);
+    color: #fff; font-size: 16px; text-decoration: none; white-space: nowrap; transition: background 0.3s ease;
+  }
+  .vhero__phone:hover { background: rgba(255, 255, 255, 0.12); }
+  .vhero__phone svg { inline-size: 20px; block-size: 20px; }
+
+  .vhero__stats {
+    list-style: none; margin: 0; padding: clamp(1.4rem, 2.5vw, 1.75rem) 0 0;
+    display: flex; flex-wrap: wrap; gap: 1.5rem clamp(2.5rem, 5.5vw, 5.5rem);
+    border-block-start: 1px solid rgba(255, 255, 255, 0.2);
+  }
+  .vhero__stats li { display: flex; flex-direction: column; gap: 12px; padding-inline: clamp(0, 1.4vw, 20px); position: relative; }
+  .vhero__stats li:not(:first-child)::before {
+    content: ''; position: absolute; inset-block: 4px; inset-inline-start: calc(-1 * clamp(1.25rem, 2.75vw, 2.75rem));
+    inline-size: 1px; background: rgba(255, 255, 255, 0.2);
+  }
+  .vhero__stat-label { font-size: 12px; letter-spacing: 0.06em; text-transform: uppercase; color: rgba(255, 255, 255, 0.8); }
+  .vhero__stat-val { font-family: var(--font-display); font-weight: 700; font-size: clamp(1.5rem, 2.4vw, 2rem); color: #fff; }
+  .vhero__stat-val em { font-style: normal; color: #e8b79a; }
+
+  /* ============ INNENRAUM / KABINE ============ */
+  .vkab { position: relative; isolation: isolate; overflow: hidden; color: #fff; padding-block: var(--section-py); margin-block-start: -1px; }
+  .vkab__bg {
+    position: absolute; inset: 0; z-index: 0;
+    background-image:
+      linear-gradient(90deg, rgba(0, 0, 0, 0.62) 14%, rgba(255, 255, 255, 0.26) 100%),
+      linear-gradient(180deg, rgba(0, 0, 0, 0.64) 0%, rgba(0, 0, 0, 0.48) 100%),
+      var(--vkab-bg);
+    background-size: cover; background-position: 50% 40%; background-repeat: no-repeat;
+    background-blend-mode: multiply, multiply, normal; background-color: #0d0703;
+  }
+  .vkab__inner { position: relative; z-index: 1; display: flex; flex-direction: column; gap: clamp(2.5rem, 4vw, 60px); }
+  .vkab__head { display: flex; gap: 40px; align-items: center; }
+  .vkab__intro { flex: 1 1 0; min-inline-size: 0; }
+  .vkab__eyebrow { display: flex; align-items: center; gap: 15px; margin-block-end: 20px; }
+  .vkab__eyebrow span:not(.vkab__line) { font-family: var(--font-display); font-weight: 600; font-size: 24px; letter-spacing: -1px; text-transform: uppercase; color: #c46a2d; }
+  .vkab__line { inline-size: 60px; block-size: 1.429px; background: #c46a2d; opacity: 0.6; flex: none; }
+  .vkab__title { font-family: var(--font-display); font-weight: 700; font-size: clamp(2.2rem, 4.2vw, 4.375rem); line-height: 1; letter-spacing: -0.03em; color: #fff; max-inline-size: 12ch; }
+  .vkab__aside { flex: 1 1 0; min-inline-size: 0; display: flex; flex-direction: column; align-items: flex-end; gap: 26px; }
+  .vkab__lead { margin: 0; font-size: 18px; line-height: 1.78; color: rgba(255, 255, 255, 0.9); text-align: right; }
+  .vkab__actions { display: flex; flex-wrap: wrap; gap: 16px; justify-content: flex-end; }
+  .vkab__cta { display: inline-flex; align-items: center; gap: 10px; padding: 15px 36px; border-radius: 999px; background: linear-gradient(100.08deg, #c46a2d 0%, #eac1a9 100%); box-shadow: 0 12px 32px -12px rgba(196, 106, 45, 0.65), inset 0 1px 0 rgba(255, 255, 255, 0.25); color: #1a0e04; font-weight: 600; font-size: 15.5px; letter-spacing: 0.155px; text-decoration: none; transition: filter 0.3s ease, transform 0.25s ease; }
+  .vkab__cta:hover { filter: brightness(1.04); transform: translateY(-2px); }
+  .vkab__phone { display: inline-flex; align-items: center; padding: 15px 37px; border-radius: 999px; background: rgba(0, 0, 0, 0.21); border: 1px solid rgba(255, 255, 255, 0.25); backdrop-filter: blur(2.85px); -webkit-backdrop-filter: blur(2.85px); color: #fff; font-weight: 500; font-size: 15.5px; letter-spacing: 0.155px; text-decoration: none; transition: background 0.3s ease; }
+  .vkab__phone:hover { background: rgba(0, 0, 0, 0.4); }
+  .vkab__grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 2px; background: rgba(255, 255, 255, 0.18); border: 1px solid rgba(255, 255, 255, 0.16); border-radius: 18px; overflow: hidden; backdrop-filter: blur(11px); -webkit-backdrop-filter: blur(11px); }
+  .vkab__card { background: rgba(13, 7, 3, 0.82); backdrop-filter: blur(3px); -webkit-backdrop-filter: blur(3px); padding: clamp(1.5rem, 2.5vw, 2.4rem); display: flex; flex-direction: column; gap: 8px; }
+  .vkab__ic { inline-size: 46px; block-size: 46px; border-radius: 23px; border: 1px solid rgba(255, 255, 255, 0.16); display: grid; place-items: center; margin-block-end: 4px; }
+  .vkab__ic img { inline-size: 20px; block-size: 20px; }
+  .vkab__card h3 { font-family: var(--font-display); font-weight: 600; font-size: 21px; letter-spacing: -0.42px; color: #fff; margin-block-start: 8px; }
+  .vkab__card p { margin: 0; font-size: 14.5px; line-height: 1.7; color: rgba(255, 255, 255, 0.46); }
+
+  /* ============ GALERIE ============ */
+  .vgal { background: var(--color-cream); color: #0c0a08; padding-block: var(--section-py); }
+  .vgal__head { display: flex; justify-content: space-between; align-items: flex-end; gap: 2rem; flex-wrap: wrap; margin-block-end: clamp(1.5rem, 3vw, 2.5rem); }
+  .vgal__eyebrow { display: flex; align-items: center; gap: 15px; margin-block-end: 16px; }
+  .vgal__eyebrow span:not(.vgal__line) { font-family: var(--font-display); font-weight: 600; font-size: 24px; letter-spacing: -1px; text-transform: uppercase; color: #c46a2d; }
+  .vgal__line { inline-size: 60px; block-size: 1.429px; background: #c46a2d; opacity: 0.6; flex: none; }
+  .vgal__title { font-family: var(--font-display); font-weight: 700; font-size: clamp(2rem, 3.4vw, 3rem); line-height: 1.05; letter-spacing: -0.02em; color: #0c0a08; }
+  .vgal__nav { display: flex; align-items: center; gap: 24px; }
+  .vgal__count { font-family: var(--font-oswald); font-size: 20px; letter-spacing: 0.05em; color: #0c0a08; }
+  .vgal__btns { display: flex; gap: 12px; }
+  .vgal__btn { inline-size: 52px; block-size: 52px; border-radius: 999px; border: 1px solid rgba(0, 0, 0, 0.2); background: transparent; color: #0c0a08; display: grid; place-items: center; cursor: pointer; transition: background 0.3s ease, color 0.3s ease, border-color 0.3s ease; }
+  .vgal__btn:hover { background: var(--color-terracotta); border-color: var(--color-terracotta); color: #fff; }
+  .vgal__btn svg { inline-size: 20px; block-size: 20px; }
+  .vgal__track { display: flex; gap: 30px; overflow-x: auto; scroll-snap-type: x mandatory; scroll-behavior: smooth; scrollbar-width: none; -ms-overflow-style: none; padding-block-end: 4px; }
+  .vgal__track::-webkit-scrollbar { display: none; }
+  .vgal__slide { flex: 0 0 clamp(280px, 44vw, 584px); margin: 0; scroll-snap-align: start; border-radius: 16px; overflow: hidden; aspect-ratio: 584 / 426; background: #15100b; }
+  .vgal__slide img { inline-size: 100%; block-size: 100%; object-fit: cover; }
+  .vgal__bar { margin-block-start: clamp(1.5rem, 3vw, 2rem); block-size: 3px; border-radius: 999px; background: rgba(0, 0, 0, 0.1); overflow: hidden; }
+  .vgal__bar span { display: block; block-size: 100%; inline-size: 40%; background: var(--color-terracotta); border-radius: 999px; transition: inline-size 0.2s ease; }
+
+  /* ============ ÜBERBLICK ============ */
+  .vover { background: var(--color-cream); color: #0c0a08; padding-block: var(--section-py) clamp(2rem, 4vw, 3rem); }
+  .vover__grid { display: flex; gap: clamp(2rem, 3.5vw, 40px); align-items: stretch; }
+  .vover__content { flex: 1 1 0; min-inline-size: 0; display: flex; flex-direction: column; gap: 24px; justify-content: center; }
+  .vover__eyebrow { display: flex; align-items: center; gap: 15px; }
+  .vover__eyebrow span:not(.vover__line) { font-family: var(--font-display); font-weight: 600; font-size: 24px; letter-spacing: -1px; text-transform: uppercase; color: #c46a2d; }
+  .vover__line { inline-size: 60px; block-size: 1.429px; background: #c46a2d; opacity: 0.6; flex: none; }
+  .vover__title { font-family: var(--font-display); font-weight: 700; font-size: clamp(2.2rem, 4.2vw, 4.375rem); line-height: 1.02; letter-spacing: -0.03em; color: #0c0a08; }
+  .vover__title span { color: #c46a2d; }
+  .vover__rule { block-size: 1px; inline-size: 100%; background: rgba(0, 0, 0, 0.12); }
+  .vover__body { margin: 0; font-size: 18px; line-height: 1.78; color: #0c0a089e; }
+  .vover__chips { list-style: none; margin: 0; padding: 4px 0 0; display: flex; flex-wrap: wrap; gap: 12px; }
+  .vover__chips li { display: inline-flex; align-items: center; gap: 6px; padding: 8px 14px; border-radius: 44px; background: rgba(255, 255, 255, 0.5); border: 1px solid rgba(0, 0, 0, 0.14); font-size: 13px; color: #0c0a08; }
+  .vover__chips img { inline-size: 18px; block-size: 18px; }
+  .vover__media { flex: 1 1 0; min-inline-size: 0; border-radius: 12px; overflow: hidden; min-block-size: 460px; }
+  .vover__media img { inline-size: 100%; block-size: 100%; object-fit: cover; }
+
+  /* ============ IHR VORTEIL ============ */
+  .vben { background: var(--color-cream); color: #0c0a08; padding-block: var(--section-py); }
+  .vben__grid { display: flex; gap: clamp(2.5rem, 5vw, 90px); align-items: center; }
+  .vben__media { flex: 1 1 0; min-inline-size: 0; }
+  .vben__frame { position: relative; inline-size: 100%; aspect-ratio: 621 / 741; border-radius: 12px; overflow: hidden; }
+  .vben__frame img { inline-size: 100%; block-size: 100%; object-fit: cover; }
+  .vben__badge { position: absolute; top: clamp(16px, 4%, 30px); right: clamp(16px, 4%, 30px); background: rgba(15, 10, 6, 0.72); backdrop-filter: blur(6px); -webkit-backdrop-filter: blur(6px); border-radius: 14px; padding: 20px 26px; display: flex; flex-direction: column; gap: 4px; }
+  .vben__badge-big { font-family: var(--font-oswald); font-size: 38px; font-weight: 500; line-height: 1; color: #e9b79a; }
+  .vben__badge-sm { font-size: 12.5px; letter-spacing: 0.1em; text-transform: uppercase; color: rgba(255, 255, 255, 0.8); }
+  .vben__content { flex: 1 1 0; min-inline-size: 0; display: flex; flex-direction: column; gap: 20px; }
+  .vben__eyebrow { display: flex; align-items: center; gap: 15px; }
+  .vben__eyebrow span:not(.vben__line) { font-family: var(--font-display); font-weight: 600; font-size: 24px; letter-spacing: -1px; text-transform: uppercase; color: #c46a2d; }
+  .vben__line { inline-size: 60px; block-size: 1.429px; background: #c46a2d; opacity: 0.6; flex: none; }
+  .vben__title { font-family: var(--font-display); font-weight: 700; font-size: clamp(2.2rem, 3.8vw, 3.25rem); line-height: 1.02; letter-spacing: -0.03em; color: #0c0a08; }
+  .vben__body { margin: 0; font-size: 17px; line-height: 1.7; color: #0c0a089e; }
+  .vben__list { list-style: none; margin: 0.5rem 0 0; padding: 0; display: flex; flex-direction: column; }
+  .vben__item { display: flex; align-items: center; gap: 22px; padding-block: 22px; border-block-start: 1px solid rgba(20, 15, 10, 0.12); font-size: 17px; font-weight: 500; color: #0c0a08; }
+  .vben__item:last-child { border-block-end: 1px solid rgba(20, 15, 10, 0.12); }
+  .vben__check { flex: none; inline-size: 44px; block-size: 44px; border-radius: 999px; background: #14100b; color: #fff; display: grid; place-items: center; }
+  .vben__check svg { inline-size: 18px; block-size: 18px; }
+
+  /* ============ DIE FLOTTE ============ */
+  .vflotte { background: var(--color-cream); color: #0c0a08; padding-block: var(--section-py); }
+  .vflotte__head { display: flex; justify-content: space-between; align-items: flex-end; gap: 2rem; flex-wrap: wrap; margin-block-end: clamp(2rem, 4vw, 3.25rem); }
+  .vflotte__eyebrow { display: flex; align-items: center; gap: 15px; margin-block-end: 18px; }
+  .vflotte__eyebrow span:not(.vflotte__line) { font-family: var(--font-display); font-weight: 600; font-size: 24px; letter-spacing: -1px; text-transform: uppercase; color: #c46a2d; }
+  .vflotte__line { inline-size: 60px; block-size: 1.429px; background: #c46a2d; opacity: 0.6; flex: none; }
+  .vflotte__title { font-family: var(--font-display); font-weight: 700; font-size: clamp(2rem, 3.6vw, 3rem); line-height: 1.05; letter-spacing: -0.02em; color: #0c0a08; max-inline-size: 14ch; }
+  .vflotte__lead { margin: 0; font-size: 16px; line-height: 1.6; color: #0c0a089e; max-inline-size: 44ch; }
+  .vflotte__grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 270px), 1fr)); gap: clamp(1rem, 1.5vw, 1.5rem); }
+  .vflotte__card { position: relative; display: block; aspect-ratio: 517 / 557; border-radius: 16px; overflow: hidden; text-decoration: none; isolation: isolate; }
+  .vflotte__card img { position: absolute; inset: 0; inline-size: 100%; block-size: 100%; object-fit: cover; transition: transform 0.7s cubic-bezier(0.2, 0, 0.15, 1); }
+  .vflotte__card:hover img { transform: scale(1.05); }
+  .vflotte__overlay { position: absolute; inset: 0; z-index: 1; display: flex; flex-direction: column; justify-content: flex-end; padding: clamp(1.4rem, 2vw, 2.2rem); background: linear-gradient(180deg, rgba(0, 0, 0, 0.2) 0%, rgba(0, 0, 0, 0) 36%, rgba(0, 0, 0, 0.82) 64%, #0d0703 100%); color: #fff; }
+  .vflotte__label { font-size: 12px; letter-spacing: 0.08em; text-transform: uppercase; color: rgba(233, 183, 154, 0.9); }
+  .vflotte__name { font-family: var(--font-display); font-weight: 700; font-size: clamp(1.6rem, 2.2vw, 2rem); margin: 10px 0 16px; color: #fff; }
+  .vflotte__foot { display: flex; align-items: center; justify-content: space-between; gap: 1rem; padding-block-start: 16px; border-block-start: 1px solid rgba(255, 255, 255, 0.2); }
+  .vflotte__specs { font-size: 13px; color: rgba(255, 255, 255, 0.8); }
+  .vflotte__arrow { flex: none; inline-size: 44px; block-size: 44px; border-radius: 999px; border: 1px solid rgba(255, 255, 255, 0.3); display: grid; place-items: center; color: #fff; transition: background 0.3s ease, border-color 0.3s ease; }
+  .vflotte__card:hover .vflotte__arrow { background: var(--color-terracotta); border-color: var(--color-terracotta); }
+  .vflotte__arrow svg { inline-size: 17px; block-size: 17px; }
+
+  @media (max-width: 860px) {
+    .vkab__head { flex-direction: column; align-items: flex-start; gap: 1.75rem; }
+    .vkab__aside { align-items: flex-start; }
+    .vkab__lead { text-align: left; }
+    .vkab__actions { justify-content: flex-start; }
+    .vkab__grid { grid-template-columns: 1fr 1fr; }
+    .vover__grid { flex-direction: column; align-items: stretch; }
+    .vover__content { flex: none; }
+    .vover__media { flex: none; inline-size: 100%; aspect-ratio: 16 / 11; }
+    .vben__grid { flex-direction: column; align-items: stretch; }
+    .vben__frame { aspect-ratio: 4 / 3; }
+  }
+
+  /* ============ PREISE ============ */
+  .vprice { position: relative; isolation: isolate; overflow: hidden; background: #0d0703; color: #fff; padding-block: var(--section-py); margin-block-start: -1px; }
+  .vprice::before { content: ''; position: absolute; inset-block-start: 6%; inset-inline: 18%; block-size: 62%; background: radial-gradient(ellipse at center, rgba(196, 106, 45, 0.2), transparent 70%); z-index: 0; pointer-events: none; }
+  .vprice > .container-x { position: relative; z-index: 1; }
+  .vprice__head { margin-block-end: clamp(2rem, 4vw, 3.5rem); }
+  .vprice__eyebrow { display: flex; align-items: center; gap: 15px; margin-block-end: 18px; }
+  .vprice__eyebrow span:not(.vprice__line) { font-family: var(--font-display); font-weight: 600; font-size: 24px; letter-spacing: -1px; text-transform: uppercase; color: #c46a2d; }
+  .vprice__line { inline-size: 60px; block-size: 1.429px; background: #c46a2d; opacity: 0.6; flex: none; }
+  .vprice__title { font-family: var(--font-display); font-weight: 700; font-size: clamp(2rem, 3.4vw, 3rem); line-height: 1.05; letter-spacing: -0.02em; color: #fff; }
+  .vprice__sub { margin: 16px 0 0; font-size: 16px; line-height: 1.6; color: rgba(255, 255, 255, 0.65); max-inline-size: 46ch; }
+  .vprice__grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 250px), 1fr)); gap: clamp(1rem, 1.5vw, 1.5rem); }
+  .vprice__card { display: flex; flex-direction: column; padding: clamp(1.5rem, 2vw, 2.35rem); border-radius: 20px; background: rgba(255, 255, 255, 0.03); border: 1px solid rgba(255, 255, 255, 0.1); }
+  .vprice__card.is-featured { background: rgba(196, 106, 45, 0.07); border-color: rgba(196, 106, 45, 0.4); }
+  .vprice__card-head { display: flex; align-items: center; gap: 12px; }
+  .vprice__card-head h3 { font-family: var(--font-display); font-weight: 600; font-size: 1.5rem; color: #fff; }
+  .vprice__badge { font-size: 11px; font-weight: 600; letter-spacing: 0.08em; text-transform: uppercase; color: #1a0e04; background: linear-gradient(90deg, #c46a2d, #e9b79a); padding: 5px 10px; border-radius: 999px; }
+  .vprice__card-sub { margin: 8px 0 0; font-size: 14px; color: rgba(255, 255, 255, 0.55); }
+  .vprice__price { margin: clamp(1.5rem, 3vw, 2.2rem) 0; display: flex; align-items: baseline; gap: 8px; }
+  .vprice__ab { font-size: 15px; color: rgba(255, 255, 255, 0.6); }
+  .vprice__price strong { font-family: var(--font-display); font-weight: 700; font-size: clamp(2.4rem, 4vw, 3rem); color: #fff; letter-spacing: -0.02em; }
+  .vprice__unit { font-size: 15px; color: rgba(255, 255, 255, 0.6); }
+  .vprice__desc { margin: 0 0 clamp(1.5rem, 3vw, 2rem); font-size: 14px; line-height: 1.6; color: rgba(255, 255, 255, 0.62); }
+  .vprice__cta { margin-block-start: auto; display: inline-flex; align-items: center; justify-content: center; padding: 14px 24px; border-radius: 999px; font-weight: 500; font-size: 15px; text-decoration: none; text-align: center; background: rgba(255, 255, 255, 0.05); border: 1px solid rgba(255, 255, 255, 0.14); color: #fff; transition: background 0.3s ease, transform 0.25s ease, filter 0.3s ease; }
+  .vprice__cta:hover { background: rgba(255, 255, 255, 0.1); transform: translateY(-1px); }
+  .vprice__card.is-featured .vprice__cta { background: linear-gradient(90deg, #c46a2d 0%, #e9b79a 100%); border-color: transparent; color: #1a0e04; box-shadow: 0 12px 32px -14px rgba(196, 106, 45, 0.6); }
+  .vprice__card.is-featured .vprice__cta:hover { filter: brightness(1.05); }
+  .vprice__incl { list-style: none; margin: clamp(2rem, 3.5vw, 3rem) 0 0; padding: 0; display: flex; flex-wrap: wrap; gap: 0.5rem 2.2rem; font-size: 14px; color: rgba(255, 255, 255, 0.55); }
+
+  @media (max-width: 640px) {
+    .vprice__eyebrow span:not(.vprice__line) { font-size: 1.05rem; }
+    .vprice__title { font-size: 2rem; }
+    .vkab__eyebrow span:not(.vkab__line), .vgal__eyebrow span:not(.vgal__line), .vover__eyebrow span:not(.vover__line), .vben__eyebrow span:not(.vben__line), .vflotte__eyebrow span:not(.vflotte__line) { font-size: 1.05rem; }
+    .vkab__title, .vgal__title, .vover__title, .vben__title, .vflotte__title { font-size: 2rem; }
+    .vkab__grid { grid-template-columns: 1fr; }
+    .vkab__lead { font-size: 16px; }
+    .vgal__nav { gap: 14px; }
+    .vgal__btn { inline-size: 44px; block-size: 44px; }
+    .vover__body { font-size: 16px; line-height: 1.6; }
+    .vben__body { font-size: 16px; }
+    .vben__item { font-size: 15.5px; gap: 16px; padding-block: 18px; }
+    .vben__check { inline-size: 38px; block-size: 38px; }
+    .vben__check svg { inline-size: 16px; block-size: 16px; }
+    .vben__badge-big { font-size: 32px; }
+    .vhero__title { font-size: clamp(2.4rem, 12vw, 3.4rem); max-inline-size: 12ch; }
+    .vhero__cta { flex-wrap: nowrap; gap: 0.5rem; }
+    .vhero__btn, .vhero__phone { padding: 0.85rem 1.4rem; font-size: 0.9rem; }
+    .vhero__phone svg { inline-size: 15px; block-size: 15px; }
+    .vhero__stats { gap: 1.25rem 2rem; }
+    .vhero__stats li { padding-inline: 0; }
+    .vhero__stats li:not(:first-child)::before { inset-inline-start: -1rem; }
+    .vhero__stat-val { font-size: 1.5rem; }
+  }
+</style>
+
+<style is:global>
+  body { background: var(--color-cream); }
+</style>

@@ -1,0 +1,400 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Nav from './Nav.astro';
+import Footer from './Footer.astro';
+import Faq from './Faq.astro';
+import CtaBand from './CtaBand.astro';
+import FleetShowcase from './FleetShowcase.astro';
+import ServicesCarousel from './ServicesCarousel.astro';
+import { CONTACT } from '../lib/site';
+import { type Service } from '../lib/services-data';
+import { getLang, hrefFor, pick } from '../lib/i18n';
+
+interface Props { service: Service }
+const { service } = Astro.props;
+const lang = getLang(Astro.url);
+const phoneHref = `tel:${CONTACT.phone.tel}`;
+const kontaktHref = hrefFor('/kontakt', lang);
+const leistungenHref = hrefFor('/#leistungen', lang);
+
+const L = pick(lang,
+  { services: 'Leistungen', request: 'Jetzt anfragen', yourAdvantage: 'Ihr Vorteil', valuesAria: 'Unsere Werte', crumbAria: 'Brotkrümelnavigation' },
+  { services: 'Services', request: 'Request now', yourAdvantage: 'Your advantage', valuesAria: 'Our values', crumbAria: 'Breadcrumb' });
+
+// Values strip is shared across every service.
+const values = pick(lang,
+  [
+    { icon: '/images/services/val-diskretion.png', label: 'Diskretion', sub: 'Stets vertraulich' },
+    { icon: '/images/services/val-puenktlichkeit.png', label: 'Pünktlichkeit', sub: 'Auf die Minute' },
+    { icon: '/images/services/val-komfort.png', label: 'Komfort', sub: 'Premium-Oberklasse' },
+    { icon: '/images/services/val-erfahrung.png', label: 'Erfahrung', sub: 'Geschulte Chauffeure' },
+  ],
+  [
+    { icon: '/images/services/val-diskretion.png', label: 'Discretion', sub: 'Always confidential' },
+    { icon: '/images/services/val-puenktlichkeit.png', label: 'Punctuality', sub: 'To the minute' },
+    { icon: '/images/services/val-komfort.png', label: 'Comfort', sub: 'Premium luxury class' },
+    { icon: '/images/services/val-erfahrung.png', label: 'Experience', sub: 'Trained chauffeurs' },
+  ]);
+
+// Long-form SEO copy: split the paragraphs into two stacked columns.
+const seoParas = service.seo.paragraphs;
+const seoHalf = Math.ceil(seoParas.length / 2);
+const seoLeft = seoParas.slice(0, seoHalf);
+const seoRight = seoParas.slice(seoHalf);
+---
+<Layout title={service.metaTitle} description={service.metaDescription}>
+  <Nav />
+  <main>
+    <!-- ============ HERO ============ -->
+    <section class="shero" aria-labelledby="shero-title">
+      <div class="shero__bg" style={`--shero-bg: url('${service.heroImg}')`} aria-hidden="true"></div>
+      <div class="container-x shero__inner">
+        <div class="shero__top">
+          <nav class="shero__crumbs" aria-label={L.crumbAria}>
+            <a href={leistungenHref}>{L.services}</a>
+            <span class="shero__crumb-sep" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 6l6 6-6 6"/></svg></span>
+            <span class="is-current" aria-current="page">{service.hero.title}</span>
+          </nav>
+          <h1 class="shero__title" id="shero-title" data-reveal>{service.hero.title}</h1>
+          <p class="shero__sub" data-reveal style="--reveal-delay:0.08s">{service.hero.sub}</p>
+          <div class="shero__cta" data-reveal style="--reveal-delay:0.14s">
+            <a class="shero__btn" href={kontaktHref}>{L.request}</a>
+            <a class="shero__phone" href={phoneHref}>
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="M6.62 10.79a15.05 15.05 0 0 0 6.59 6.59l2.2-2.2a1 1 0 0 1 1.02-.24c1.12.37 2.33.57 3.57.57a1 1 0 0 1 1 1V20a1 1 0 0 1-1 1A17 17 0 0 1 3 4a1 1 0 0 1 1-1h3.5a1 1 0 0 1 1 1c0 1.25.2 2.45.57 3.57.11.35.03.74-.25 1.02l-2.2 2.2Z"/></svg>
+              <span>{CONTACT.phone.display}</span>
+            </a>
+          </div>
+        </div>
+
+        <ul class="shero__feats" data-reveal style="--reveal-delay:0.2s">
+          {service.heroFeatures.map((f) => (
+            <li><img src={f.icon} alt="" width="18" height="18" /><span>{f.label}</span></li>
+          ))}
+        </ul>
+      </div>
+    </section>
+
+    <!-- ============ MARQUEE STRIP ============ -->
+    <div class="marquee" aria-hidden="true">
+      <div class="marquee__track">
+        {Array.from({ length: 2 }).map(() => (
+          <div class="marquee__group">
+            {service.marquee.map((m) => (
+              <><span>{m}</span><span class="marquee__dot">◆</span></>
+            ))}
+          </div>
+        ))}
+      </div>
+    </div>
+
+    <!-- ============ SERVICE INTRO ============ -->
+    <section class="sintro" aria-labelledby="sintro-title">
+      <div class="container-x sintro__grid">
+        <div class="sintro__content" data-reveal>
+          <div class="sintro__eyebrow">
+            <span class="sintro__line" aria-hidden="true"></span><span>{service.intro.eyebrow}</span>
+          </div>
+          <h2 class="sintro__title" id="sintro-title">{service.intro.title}</h2>
+          <span class="sintro__rule" aria-hidden="true"></span>
+          <p class="sintro__body">{service.intro.body}</p>
+          <div class="sintro__cards">
+            {service.intro.cards.map((c) => (
+              <div class="sintro__card">
+                <span class="sintro__ic"><img src={c.icon} alt="" width="22" height="22" /></span>
+                <h3>{c.title}</h3>
+                <p>{c.text}</p>
+              </div>
+            ))}
+          </div>
+          <div class="sintro__actions">
+            <a class="sintro__cta" href={kontaktHref}>{L.request} <span aria-hidden="true">→</span></a>
+            <a class="sintro__phone" href={phoneHref}>{CONTACT.phone.display}</a>
+          </div>
+        </div>
+        <div class="sintro__media" data-reveal style="--reveal-delay:0.1s">
+          <img src={service.intro.image.src} alt={service.intro.image.alt} width="1792" height="2400" loading="lazy" decoding="async" />
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ VALUES STRIP ============ -->
+    <section class="vals" aria-label={L.valuesAria}>
+      <div class="container-x vals__grid" data-reveal>
+        {values.map((v, i) => (
+          <>
+            <div class="vals__item">
+              <img src={v.icon} alt="" width="130" height="130" loading="lazy" decoding="async" />
+              <span class="vals__label">{v.label}</span>
+              <span class="vals__sub">{v.sub}</span>
+            </div>
+            {i < values.length - 1 && <span class="vals__div" aria-hidden="true"></span>}
+          </>
+        ))}
+      </div>
+    </section>
+
+    <!-- ============ FLEET + SERVICES CAROUSEL ============ -->
+    <FleetShowcase />
+    <ServicesCarousel />
+
+    <!-- ============ IHR VORTEIL / BENEFITS ============ -->
+    <section class="sben" aria-labelledby="sben-title">
+      <div class="container-x sben__grid">
+        <div class="sben__media" data-reveal>
+          <div class="sben__frame">
+            <img src={service.benefit.image.src} alt={service.benefit.image.alt} width="1792" height="2400" loading="lazy" decoding="async" />
+            <div class="sben__badge">
+              <span class="sben__badge-big">{service.benefit.badge.big}</span>
+              <span class="sben__badge-sm">{service.benefit.badge.sm}</span>
+            </div>
+          </div>
+        </div>
+        <div class="sben__content" data-reveal style="--reveal-delay:0.1s">
+          <div class="sben__eyebrow"><span class="sben__line" aria-hidden="true"></span><span>{L.yourAdvantage}</span></div>
+          <h2 class="sben__title" id="sben-title">{service.benefit.title}</h2>
+          <p class="sben__body">{service.benefit.body}</p>
+          <ul class="sben__list">
+            {service.benefit.items.map((it) => (
+              <li class="sben__item">
+                <span class="sben__check" aria-hidden="true">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg>
+                </span>
+                <span>{it}</span>
+              </li>
+            ))}
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ SEO TEXT ============ -->
+    <section class="sseo" aria-labelledby="sseo-title">
+      <div class="container-x">
+        <div class="sseo__head" data-reveal>
+          <div class="sseo__eyebrow"><span class="sseo__line" aria-hidden="true"></span><span>{service.seo.eyebrow}</span></div>
+          <h2 class="sseo__title" id="sseo-title">{service.seo.title}</h2>
+        </div>
+        <div class="sseo__cols" data-reveal style="--reveal-delay:0.08s">
+          <div class="sseo__col">{seoLeft.map((p) => <p>{p}</p>)}</div>
+          <div class="sseo__col">{seoRight.map((p) => <p>{p}</p>)}</div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ FAQ ============ -->
+    <Faq faqs={service.faq} />
+
+    <!-- ============ CTA BAND ============ -->
+    <CtaBand />
+  </main>
+  <Footer />
+</Layout>
+
+<style>
+  /* ============ SERVICE HERO ============ */
+  .shero {
+    position: relative; isolation: isolate; overflow: hidden; color: #fff;
+    min-block-size: 100svh; display: flex;
+  }
+  .shero__bg {
+    position: absolute; inset: 0; z-index: 0;
+    background-image:
+      linear-gradient(90deg, rgba(0, 0, 0, 0.62) 14%, rgba(255, 255, 255, 0.26) 100%),
+      linear-gradient(180deg, rgba(0, 0, 0, 0.52) 0%, rgba(102, 102, 102, 0.34) 100%),
+      var(--shero-bg);
+    background-size: cover; background-position: 60% 50%; background-repeat: no-repeat;
+    background-blend-mode: multiply, multiply, normal;
+    background-color: #100a06;
+  }
+  .shero__inner {
+    position: relative; z-index: 1; inline-size: 100%;
+    display: flex; flex-direction: column; justify-content: space-between; gap: 3rem;
+    padding-block: clamp(7rem, 14vh, 11rem) clamp(2.5rem, 5vh, 4rem);
+  }
+  .shero__top { display: flex; flex-direction: column; align-items: flex-start; gap: clamp(1.1rem, 2vw, 1.6rem); }
+
+  .shero__crumbs {
+    display: inline-flex; flex-wrap: wrap; align-items: center; gap: 8px;
+    padding: 8px 16px; border-radius: 999px;
+    background: rgba(255, 255, 255, 0.06); border: 1px solid rgba(255, 255, 255, 0.14);
+    backdrop-filter: blur(8px); -webkit-backdrop-filter: blur(8px);
+    font-size: 12px; letter-spacing: 0.11em; text-transform: uppercase;
+  }
+  .shero__crumbs a { display: inline-flex; align-items: center; gap: 6px; color: rgba(255, 255, 255, 0.72); text-decoration: none; transition: color 0.3s ease; }
+  .shero__crumbs a:hover { color: #fff; }
+  .shero__crumb-home { inline-size: 14px; block-size: 14px; margin-block-start: -1px; }
+  .shero__crumb-sep { display: inline-flex; color: rgba(255, 255, 255, 0.32); }
+  .shero__crumb-sep svg { inline-size: 13px; block-size: 13px; }
+  .shero__crumbs .is-current { color: #e9b79a; font-weight: 500; }
+
+  .shero__title {
+    font-family: var(--font-display); font-weight: 700; text-transform: capitalize;
+    font-size: clamp(2.6rem, 10vw, 6.25rem); line-height: 0.95; letter-spacing: -0.03em; color: #fff;
+    max-inline-size: 8em;
+  }
+  .shero__sub {
+    margin: 0; font-size: clamp(1rem, 1.3vw, 1.19rem); line-height: 1.6;
+    color: rgba(255, 255, 255, 0.86); max-inline-size: 56ch;
+  }
+  .shero__cta { display: flex; flex-wrap: wrap; gap: 18px; margin-block-start: 0.5rem; }
+  .shero__btn {
+    display: inline-flex; align-items: center; justify-content: center; padding: 17px 36px;
+    border-radius: 42px; background: linear-gradient(90deg, #c46a2d 0%, #e9b79a 100%);
+    box-shadow: 0 10px 30px -12px rgba(196, 106, 45, 0.55), inset 0 0 0 1px rgba(255, 255, 255, 0.09);
+    color: rgba(0, 0, 0, 0.9); font-weight: 500; font-size: 16px; text-decoration: none; white-space: nowrap;
+    transition: filter 0.3s ease, transform 0.25s ease;
+  }
+  .shero__btn:hover { filter: brightness(1.05); transform: translateY(-2px); }
+  .shero__phone {
+    display: inline-flex; align-items: center; gap: 10px; padding: 17px 36px;
+    border-radius: 42px; background: rgba(255, 255, 255, 0.05); box-shadow: inset 0 0 0 1px rgba(255, 255, 255, 0.3);
+    backdrop-filter: blur(9px); -webkit-backdrop-filter: blur(9px);
+    color: #fff; font-weight: 500; font-size: 16px; text-decoration: none; white-space: nowrap;
+    transition: background 0.3s ease;
+  }
+  .shero__phone:hover { background: rgba(255, 255, 255, 0.12); }
+  .shero__phone svg { inline-size: 18px; block-size: 18px; }
+
+  .shero__feats {
+    list-style: none; margin: 0; padding: clamp(1.4rem, 2vw, 1.8rem) 0 0;
+    display: flex; flex-wrap: wrap; gap: 14px 60px;
+    border-block-start: 1px solid rgba(255, 255, 255, 0.16);
+  }
+  .shero__feats li { display: flex; align-items: center; gap: 10px; font-size: 15px; color: rgba(255, 255, 255, 0.82); }
+  .shero__feats img { inline-size: 18px; block-size: 18px; }
+
+  /* ============ MARQUEE ============ */
+  .marquee {
+    background: var(--color-terracotta); color: #1a0e04; overflow: hidden;
+    display: flex; align-items: center; block-size: 52px; margin-block-start: -1px;
+  }
+  .marquee__track { display: flex; flex: none; animation: marquee 34s linear infinite; }
+  .marquee__group { display: flex; align-items: center; flex: none; }
+  .marquee__group span {
+    padding-inline: 28px; white-space: nowrap;
+    font-size: 15px; font-weight: 600; letter-spacing: 1.2px; text-transform: uppercase;
+  }
+  .marquee__dot { padding-inline: 0 !important; font-size: 8px; opacity: 0.7; }
+  @keyframes marquee { to { transform: translateX(-50%); } }
+  @media (prefers-reduced-motion: reduce) { .marquee__track { animation: none; } }
+
+  /* ============ SERVICE INTRO ============ */
+  .sintro { background: var(--color-cream); color: #0c0a08; padding-block: var(--section-py); }
+  .sintro__grid { display: flex; gap: clamp(2rem, 3.5vw, 50px); align-items: stretch; }
+  .sintro__content { flex: 1 1 0; min-inline-size: 0; display: flex; flex-direction: column; gap: 24px; }
+  .sintro__eyebrow { display: flex; align-items: center; gap: 15px; }
+  .sintro__eyebrow span:not(.sintro__line) { font-family: var(--font-display); font-weight: 600; font-size: 24px; letter-spacing: -1px; text-transform: uppercase; color: #c46a2d; }
+  .sintro__line { inline-size: 60px; block-size: 1.429px; background: #c46a2d; opacity: 0.6; flex: none; }
+  .sintro__title { font-family: var(--font-display); font-weight: 700; font-size: clamp(2.4rem, 4.8vw, 4.375rem); line-height: 1; letter-spacing: -0.03em; color: #0c0a08; }
+  .sintro__rule { block-size: 1px; inline-size: 100%; background: rgba(0, 0, 0, 0.12); }
+  .sintro__body { margin: 0; font-size: 18px; line-height: 1.78; color: #0c0a089e; }
+  .sintro__cards { display: flex; gap: 20px; padding-block-start: 4px; }
+  .sintro__card { flex: 1 1 0; min-inline-size: 0; background: #fff; border: 1px solid rgba(0, 0, 0, 0.14); border-radius: 18px; padding: 20px; display: flex; flex-direction: column; }
+  .sintro__ic { inline-size: 49px; block-size: 49px; border-radius: 27px; background: linear-gradient(90deg, #c46a2d 0%, #e9b79a 100%); display: grid; place-items: center; margin-block-end: 22px; }
+  .sintro__ic img { inline-size: 22px; block-size: 22px; }
+  .sintro__card h3 { font-family: var(--font-display); font-weight: 600; font-size: 21px; letter-spacing: -0.63px; color: #000; margin-block-end: 10px; }
+  .sintro__card p { margin: 0; font-size: 14px; line-height: 1.57; color: #0c0a089e; }
+  .sintro__actions { display: flex; flex-wrap: wrap; gap: 16px; align-items: center; padding-block-start: 6px; }
+  .sintro__cta { display: inline-flex; align-items: center; gap: 10px; padding: 15px 36px; border-radius: 999px; background: linear-gradient(100.08deg, #c46a2d 0%, #eac1a9 100%); box-shadow: 0 12px 32px -12px rgba(196, 106, 45, 0.65), inset 0 1px 0 rgba(255, 255, 255, 0.25); color: #1a0e04; font-weight: 600; font-size: 15.5px; letter-spacing: 0.155px; text-decoration: none; transition: filter 0.3s ease, transform 0.25s ease; }
+  .sintro__cta:hover { filter: brightness(1.04); transform: translateY(-2px); }
+  .sintro__phone { display: inline-flex; align-items: center; padding: 15px 37px; border-radius: 999px; background: rgba(0, 0, 0, 0.04); border: 1px solid rgba(12, 10, 8, 0.14); color: #0c0a08; font-weight: 500; font-size: 15.5px; letter-spacing: 0.155px; text-decoration: none; transition: background 0.3s ease; }
+  .sintro__phone:hover { background: rgba(0, 0, 0, 0.08); }
+  .sintro__media { flex: 1 1 0; min-inline-size: 0; border-radius: 12px; overflow: hidden; }
+  .sintro__media img { inline-size: 100%; block-size: 100%; object-fit: cover; }
+
+  /* ============ VALUES STRIP ============ */
+  .vals { background: var(--color-cream); padding-block: clamp(1rem, 2vw, 1.25rem) clamp(3rem, 6vw, 5rem); }
+  .vals__grid { display: flex; align-items: center; justify-content: center; gap: clamp(1.25rem, 3vw, 3rem); }
+  .vals__item { flex: 1 1 0; min-inline-size: 0; display: flex; flex-direction: column; align-items: center; text-align: center; }
+  .vals__item img { inline-size: 130px; block-size: 130px; object-fit: contain; margin-block-end: 22px; }
+  .vals__label { font-family: var(--font-display); font-weight: 600; font-size: 20px; text-transform: uppercase; color: #222; }
+  .vals__sub { font-size: 16px; color: rgba(0, 0, 0, 0.7); margin-block-start: 8px; }
+  .vals__div { inline-size: 1px; block-size: 150px; background: rgba(0, 0, 0, 0.12); flex: none; }
+
+  @media (max-width: 900px) {
+    .vals__grid { display: grid; grid-template-columns: 1fr 1fr; gap: 0; }
+    .vals__div { display: none; }
+    .vals__item { flex: none; padding: clamp(1.6rem, 6vw, 2.6rem) 0.5rem; }
+    .vals__item:nth-child(1) { border-inline-end: 1px solid rgba(0, 0, 0, 0.12); border-block-end: 1px solid rgba(0, 0, 0, 0.12); }
+    .vals__item:nth-child(3) { border-block-end: 1px solid rgba(0, 0, 0, 0.12); }
+    .vals__item:nth-child(5) { border-inline-end: 1px solid rgba(0, 0, 0, 0.12); }
+    .vals__item img { inline-size: 92px; block-size: 92px; margin-block-end: 14px; }
+    .vals__label { font-size: 17px; }
+    .vals__sub { font-size: 14px; }
+  }
+
+  /* ============ IHR VORTEIL / BENEFITS ============ */
+  .sben { background: var(--color-cream); color: #0c0a08; padding-block: var(--section-py); }
+  .sben__grid { display: flex; gap: clamp(2.5rem, 5vw, 90px); align-items: center; }
+  .sben__media { flex: 1 1 0; min-inline-size: 0; }
+  .sben__frame { position: relative; inline-size: 100%; aspect-ratio: 621 / 709; border-radius: 12px; overflow: hidden; }
+  .sben__frame img { inline-size: 100%; block-size: 100%; object-fit: cover; }
+  .sben__badge { position: absolute; top: clamp(16px, 4%, 30px); right: clamp(16px, 4%, 30px); background: rgba(15, 10, 6, 0.72); backdrop-filter: blur(6px); -webkit-backdrop-filter: blur(6px); border-radius: 14px; padding: 20px 26px; display: flex; flex-direction: column; gap: 4px; }
+  .sben__badge-big { font-family: var(--font-oswald); font-size: 38px; font-weight: 500; line-height: 1; color: #e9b79a; }
+  .sben__badge-sm { font-size: 12.5px; letter-spacing: 0.1em; text-transform: uppercase; color: rgba(255, 255, 255, 0.8); }
+  .sben__content { flex: 1 1 0; min-inline-size: 0; display: flex; flex-direction: column; gap: 20px; }
+  .sben__eyebrow { display: flex; align-items: center; gap: 15px; }
+  .sben__eyebrow span:not(.sben__line) { font-family: var(--font-display); font-weight: 600; font-size: 24px; letter-spacing: -1px; text-transform: uppercase; color: #c46a2d; }
+  .sben__line { inline-size: 60px; block-size: 1.429px; background: #c46a2d; opacity: 0.6; flex: none; }
+  .sben__title { font-family: var(--font-display); font-weight: 700; font-size: clamp(2.2rem, 3.8vw, 3.25rem); line-height: 1.02; letter-spacing: -0.03em; color: #0c0a08; max-inline-size: 15ch; text-wrap: balance; }
+  .sben__body { margin: 0; font-size: 17px; line-height: 1.7; color: #0c0a089e; }
+  .sben__list { list-style: none; margin: 0.5rem 0 0; padding: 0; display: flex; flex-direction: column; }
+  .sben__item { display: flex; align-items: center; gap: 22px; padding-block: 22px; border-block-start: 1px solid rgba(20, 15, 10, 0.12); font-size: 17px; font-weight: 500; color: #0c0a08; }
+  .sben__item:last-child { border-block-end: 1px solid rgba(20, 15, 10, 0.12); }
+  .sben__check { flex: none; inline-size: 44px; block-size: 44px; border-radius: 999px; background: #14100b; color: #fff; display: grid; place-items: center; }
+  .sben__check svg { inline-size: 18px; block-size: 18px; }
+
+  /* ============ SEO TEXT ============ */
+  .sseo { background: var(--color-cream); color: #0c0a08; padding-block: var(--section-py); }
+  .sseo__head { max-inline-size: 55%; }
+  .sseo__eyebrow { display: flex; align-items: center; gap: 15px; margin-block-end: 20px; }
+  .sseo__eyebrow span:not(.sseo__line) { font-family: var(--font-display); font-weight: 600; font-size: 24px; letter-spacing: -1px; text-transform: uppercase; color: #c46a2d; }
+  .sseo__line { inline-size: 60px; block-size: 1.429px; background: #c46a2d; opacity: 0.6; flex: none; }
+  .sseo__title { font-family: var(--font-display); font-weight: 700; font-size: clamp(1.9rem, 3.2vw, 2.9rem); line-height: 1.12; letter-spacing: -0.02em; color: #0c0a08; }
+  .sseo__cols { display: grid; grid-template-columns: 1fr 1fr; gap: clamp(2rem, 4vw, 65px); margin-block-start: clamp(2rem, 3.5vw, 3.5rem); padding-block-start: clamp(2rem, 3vw, 3.5rem); border-block-start: 1px solid rgba(0, 0, 0, 0.12); }
+  .sseo__col { display: flex; flex-direction: column; gap: clamp(1rem, 1.5vw, 1.4rem); }
+  .sseo__col p { margin: 0; font-size: 16px; line-height: 1.75; color: #0c0a089e; }
+
+  @media (max-width: 860px) {
+    .sintro__grid { flex-direction: column; }
+    .sintro__media { aspect-ratio: 16 / 11; }
+    .sben__grid { flex-direction: column; align-items: stretch; }
+    .sben__frame { aspect-ratio: 4 / 3; }
+    .sseo__head { max-inline-size: 100%; }
+    .sseo__cols { grid-template-columns: 1fr; gap: 1.5rem; }
+  }
+
+  @media (max-width: 640px) {
+    .shero__title { font-size: clamp(2.2rem, 9.6vw, 3.6rem); }
+    .shero__cta { flex-wrap: nowrap; gap: 0.5rem; }
+    .shero__btn, .shero__phone { padding: 0.85rem 1.4rem; font-size: 0.9rem; }
+    .shero__phone svg { inline-size: 15px; block-size: 15px; }
+    .shero__feats { gap: 12px 28px; }
+    .shero__feats li { font-size: 13.5px; }
+
+    .sintro__content { gap: 18px; }
+    .sintro__eyebrow span:not(.sintro__line) { font-size: 1.05rem; }
+    .sintro__title { font-size: 2rem; margin-block-start: -0.4rem; }
+    .sintro__body { font-size: 16px; line-height: 1.6; }
+    .sintro__cards { flex-direction: column; }
+    .sintro__actions { flex-wrap: nowrap; }
+    .sintro__cta, .sintro__phone { padding: 0.85rem 1.4rem; font-size: 0.9rem; }
+    .sintro__media { aspect-ratio: 4 / 3; }
+
+    .sben__content { gap: 16px; }
+    .sben__eyebrow span:not(.sben__line) { font-size: 1.05rem; }
+    .sben__title { font-size: 2rem; margin-block-start: -0.3rem; }
+    .sben__body { font-size: 16px; }
+    .sben__item { font-size: 15.5px; gap: 16px; padding-block: 18px; }
+    .sben__check { inline-size: 38px; block-size: 38px; }
+    .sben__check svg { inline-size: 16px; block-size: 16px; }
+    .sben__badge-big { font-size: 32px; }
+
+    .sseo__eyebrow span:not(.sseo__line) { font-size: 1.05rem; }
+    .sseo__title { font-size: 2rem; }
+  }
+</style>
+
+<style is:global>
+  body { background: var(--color-cream); }
+</style>

@@ -1,0 +1,111 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Nav from './Nav.astro';
+import Footer from './Footer.astro';
+import { CONTACT } from '../lib/site';
+import { getLang, hrefFor, pick } from '../lib/i18n';
+
+const lang = getLang(Astro.url);
+const phoneHref = `tel:${CONTACT.phone.tel}`;
+const homeHref = hrefFor('/', lang);
+const L = pick(lang,
+  {
+    title: 'Vielen Dank — Vienna Grand Chauffeurs', desc: 'Vielen Dank für Ihre Buchung bei Vienna Grand Chauffeurs. Wir haben Ihre Anfrage erhalten und melden uns umgehend.',
+    eyebrow: 'Buchung abgeschlossen', heading: 'Vielen Dank für Ihre Buchung.',
+    sub: 'Wir haben Ihre Anfrage erhalten und kümmern uns umgehend darum. Eine Bestätigung mit allen Details erreicht Sie in Kürze.',
+    toHome: 'Zur Startseite',
+    next: [
+      { title: 'Bestätigung per E-Mail', text: 'Sie erhalten in Kürze eine Bestätigung mit allen Details Ihrer Fahrt.' },
+      { title: 'Wir melden uns', text: 'Bei Rückfragen kontaktiert Sie unser Team persönlich und unkompliziert.' },
+      { title: 'Entspannt ankommen', text: 'Ihr Chauffeur ist pünktlich zur Stelle — Sie müssen sich um nichts kümmern.' },
+    ],
+  },
+  {
+    title: 'Thank You — Vienna Grand Chauffeurs', desc: 'Thank you for your booking with Vienna Grand Chauffeurs. We have received your enquiry and will get back to you shortly.',
+    eyebrow: 'Booking complete', heading: 'Thank you for your booking.',
+    sub: 'We have received your enquiry and will take care of it right away. A confirmation with all the details will reach you shortly.',
+    toHome: 'To the homepage',
+    next: [
+      { title: 'Confirmation by email', text: 'You will shortly receive a confirmation with all the details of your journey.' },
+      { title: 'We will be in touch', text: 'If we have any questions, our team will contact you personally and without fuss.' },
+      { title: 'Arrive relaxed', text: 'Your chauffeur will be there on time — you need not worry about a thing.' },
+    ],
+  });
+---
+<Layout title={L.title} description={L.desc}>
+  <Nav />
+  <main>
+    <section class="abschluss">
+      <div class="abschluss__bg" aria-hidden="true"></div>
+      <div class="container-x abschluss__inner">
+        <span class="abschluss__check" data-reveal aria-hidden="true">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 12.5l5 5L20 6.5"/></svg>
+        </span>
+        <div class="abschluss__eyebrow" data-reveal><span class="abschluss__line" aria-hidden="true"></span><span>{L.eyebrow}</span></div>
+        <h1 class="abschluss__title" data-reveal style="--reveal-delay:0.06s">{L.heading}</h1>
+        <p class="abschluss__sub" data-reveal style="--reveal-delay:0.12s">{L.sub}</p>
+
+        <ul class="abschluss__next" data-reveal style="--reveal-delay:0.18s">
+          {L.next.map((n) => (
+            <li class="abschluss__step">
+              <h2 class="abschluss__step-title">{n.title}</h2>
+              <p class="abschluss__step-text">{n.text}</p>
+            </li>
+          ))}
+        </ul>
+
+        <div class="abschluss__cta" data-reveal style="--reveal-delay:0.24s">
+          <a class="abschluss__btn" href={homeHref}>{L.toHome}</a>
+          <a class="abschluss__phone" href={phoneHref}>
+            <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M6.62 10.79a15.05 15.05 0 0 0 6.59 6.59l2.2-2.2a1 1 0 0 1 1.02-.24c1.12.37 2.33.57 3.57.57a1 1 0 0 1 1 1V20a1 1 0 0 1-1 1A17 17 0 0 1 3 4a1 1 0 0 1 1-1h3.5a1 1 0 0 1 1 1c0 1.25.2 2.45.57 3.57.11.35.03.74-.25 1.02l-2.2 2.2Z"/></svg>
+            <span>{CONTACT.phone.display}</span>
+          </a>
+        </div>
+      </div>
+    </section>
+  </main>
+  <Footer />
+</Layout>
+
+<style>
+  .abschluss { position: relative; isolation: isolate; overflow: hidden; background: #0d0703; color: #fff; }
+  .abschluss__bg {
+    position: absolute; inset: 0; z-index: 0;
+    background: radial-gradient(120% 80% at 50% 0%, rgba(196, 106, 45, 0.22), transparent 60%), #0d0703;
+  }
+  .abschluss__inner {
+    position: relative; z-index: 1;
+    min-block-size: 100svh; display: flex; flex-direction: column; align-items: center; text-align: center;
+    padding-block: clamp(8rem, 20vh, 13rem) clamp(4rem, 8vh, 6rem);
+  }
+  .abschluss__check {
+    inline-size: clamp(72px, 11vw, 96px); block-size: clamp(72px, 11vw, 96px); border-radius: 999px;
+    display: grid; place-items: center; color: #1a0e04;
+    background: linear-gradient(135deg, #c46a2d 0%, #e9b79a 100%);
+    box-shadow: 0 20px 50px -18px rgba(196, 106, 45, 0.7);
+    margin-block-end: clamp(1.75rem, 3.5vw, 2.5rem);
+  }
+  .abschluss__check svg { inline-size: 46%; block-size: 46%; }
+  .abschluss__eyebrow { display: flex; align-items: center; gap: 15px; margin-block-end: 18px; }
+  .abschluss__eyebrow span:not(.abschluss__line) { font-family: var(--font-display); font-weight: 600; font-size: clamp(1.05rem, 2vw, 1.4rem); letter-spacing: -0.5px; text-transform: uppercase; color: #e9b79a; }
+  .abschluss__line { inline-size: 48px; block-size: 1.429px; background: #c46a2d; opacity: 0.7; flex: none; }
+  .abschluss__title { font-family: var(--font-display); font-weight: 700; font-size: clamp(2.4rem, 6vw, 4.5rem); line-height: 1; letter-spacing: -0.03em; max-inline-size: 16ch; }
+  .abschluss__sub { margin: clamp(1.2rem, 2.5vw, 1.75rem) 0 0; font-size: clamp(1rem, 1.3vw, 1.19rem); line-height: 1.7; color: rgba(255, 255, 255, 0.78); max-inline-size: 56ch; }
+
+  .abschluss__next { list-style: none; margin: clamp(2.5rem, 5vw, 4rem) 0 0; padding: 0; display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 220px), 1fr)); gap: clamp(1rem, 2vw, 1.75rem); inline-size: min(100%, 900px); text-align: left; }
+  .abschluss__step { padding: clamp(1.4rem, 2.5vw, 1.9rem); border-radius: 16px; background: rgba(255, 255, 255, 0.04); border: 1px solid rgba(255, 255, 255, 0.1); }
+  .abschluss__step-title { font-family: var(--font-display); font-weight: 600; font-size: 1.15rem; color: #fff; margin-block-end: 0.4rem; }
+  .abschluss__step-text { margin: 0; font-size: 14.5px; line-height: 1.6; color: rgba(255, 255, 255, 0.62); }
+
+  .abschluss__cta { display: flex; flex-wrap: wrap; justify-content: center; gap: 16px; margin-block-start: clamp(2.5rem, 5vw, 3.5rem); }
+  .abschluss__btn { display: inline-flex; align-items: center; padding: 16px 38px; border-radius: 999px; background: linear-gradient(90deg, #c46a2d 0%, #e9b79a 100%); color: #1a0e04; font-weight: 600; font-size: 16px; text-decoration: none; transition: filter 0.3s ease, transform 0.25s ease; }
+  .abschluss__btn:hover { filter: brightness(1.05); transform: translateY(-2px); }
+  .abschluss__phone { display: inline-flex; align-items: center; gap: 10px; padding: 16px 34px; border-radius: 999px; background: rgba(255, 255, 255, 0.05); border: 1px solid rgba(255, 255, 255, 0.28); color: #fff; font-weight: 500; font-size: 16px; text-decoration: none; transition: background 0.3s ease; }
+  .abschluss__phone:hover { background: rgba(255, 255, 255, 0.12); }
+  .abschluss__phone svg { inline-size: 18px; block-size: 18px; }
+
+  @media (max-width: 640px) {
+    .abschluss__cta { flex-wrap: nowrap; }
+    .abschluss__btn, .abschluss__phone { padding: 0.85rem 1.4rem; font-size: 0.9rem; }
+  }
+</style>

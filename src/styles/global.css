@@ -1,0 +1,143 @@
+@import 'tailwindcss';
+
+/* Self-hosted variable fonts (never from Google CDN) */
+@import '@fontsource-variable/bricolage-grotesque';
+@import '@fontsource-variable/inter';
+@import '@fontsource-variable/oswald';
+
+/* ---------------------------------------------------------------
+   Vienna Grand Chauffeurs — design tokens
+   Brand: quiet luxury, Viennese elegance. Burnt terracotta accent.
+--------------------------------------------------------------- */
+@theme {
+  /* Fonts */
+  --font-display: 'Bricolage Grotesque Variable', 'Bricolage Grotesque', Georgia, serif;
+  --font-body: 'Inter Variable', 'Inter', system-ui, -apple-system, sans-serif;
+  --font-oswald: 'Oswald Variable', 'Oswald', 'Inter Variable', sans-serif;
+
+  /* Brand colors */
+  --color-terracotta: #c46a2d;
+  --color-terracotta-600: #ac5a24;
+  --color-terracotta-300: #d98f5f;
+
+  --color-ink: #1e1e1e;      /* primary dark background */
+  --color-ink-800: #262626;  /* raised dark panel */
+  --color-ink-700: #333333;  /* borders on dark */
+
+  --color-cream: #f4efe9;    /* light alternating section */
+  --color-cream-200: #e9e1d7;
+
+  --color-paper: #ffffff;
+  --color-muted: #8a8178;    /* muted text on light */
+  --color-muted-dark: #a39d95; /* muted text on dark */
+}
+
+:root {
+  color-scheme: dark;
+  --nav-h: 84px;
+  /* Shared section vertical rhythm — one scale so every section breathes alike. */
+  --section-py: clamp(3.5rem, 7vw, 6.25rem);
+  --section-py-tight: clamp(3rem, 6vw, 5.25rem);
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+  /* Offset anchor scrolls so sections land below the fixed header. */
+  scroll-padding-top: 88px;
+  /* Root-level guard against any horizontal scroll (e.g. off-screen fixed panels). */
+  overflow-x: clip;
+}
+
+body {
+  margin: 0;
+  background: var(--color-ink);
+  color: var(--color-paper);
+  font-family: var(--font-body);
+  font-synthesis-weight: none;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+  /* Safety net: no section can trigger a horizontal scrollbar on mobile.
+     `clip` (not hidden) keeps position:fixed + scroll anchoring intact. */
+  overflow-x: clip;
+}
+
+h1, h2, h3, h4 {
+  font-family: var(--font-display);
+  font-weight: 600;
+  line-height: 1.05;
+  margin: 0;
+}
+
+/* Shared layout width */
+.container-x {
+  width: 100%;
+  max-width: 1440px;
+  margin-inline: auto;
+  padding-inline: clamp(20px, 3.5vw, 50px);
+}
+
+/* Eyebrow label used across sections */
+/* One eyebrow treatment site-wide: a terracotta line + uppercase label.
+   Sub-page sections render the same shape with their own line span. */
+.eyebrow {
+  display: inline-flex;
+  align-items: center;
+  gap: 15px;
+  font-family: var(--font-display);
+  font-weight: 600;
+  font-size: 1.5rem;           /* 24px */
+  letter-spacing: -0.042em;    /* ≈ -1px @24px */
+  text-transform: uppercase;
+  color: var(--color-terracotta);
+}
+.eyebrow::before {
+  content: '';
+  flex: none;
+  inline-size: 60px;
+  block-size: 1.429px;
+  background: var(--color-terracotta);
+  opacity: 0.6;
+}
+@media (max-width: 640px) {
+  .eyebrow { font-size: 1.05rem; gap: 12px; }
+  .eyebrow::before { inline-size: 42px; }
+}
+
+/* Vertical rhythm for full-width sections */
+.section {
+  padding-block: clamp(4.5rem, 9vw, 9rem);
+}
+
+img { max-width: 100%; }
+
+/* Consistent keyboard focus ring across all interactive elements.
+   :where() keeps specificity low so components can still override. */
+:where(a, button, [tabindex]):focus-visible {
+  outline: 2px solid var(--color-terracotta);
+  outline-offset: 3px;
+  border-radius: 3px;
+}
+
+/* Scroll-reveal — elements fade + rise into view. Handled by index script.
+   Reduced-motion users see them immediately; the <noscript> fallback in the
+   layout shows everything when JS is disabled. */
+[data-reveal] {
+  opacity: 0;
+  transform: translateY(34px);
+  transition:
+    opacity 0.9s cubic-bezier(0.25, 0.46, 0.45, 0.94),
+    transform 0.9s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  transition-delay: var(--reveal-delay, 0s);
+}
+[data-reveal].is-visible {
+  opacity: 1;
+  transform: none;
+}
+@media (prefers-reduced-motion: reduce) {
+  [data-reveal] { opacity: 1; transform: none; transition: none; }
+  html { scroll-behavior: auto; }
+}

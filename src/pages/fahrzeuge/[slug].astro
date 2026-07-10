@@ -1,0 +1,14 @@
+---
+import VehiclePage from '../../components/VehiclePage.astro';
+import { getVehicles } from '../../lib/vehicles-data';
+
+export function getStaticPaths() {
+  const vehicles = getVehicles('de');
+  return vehicles.map((vehicle) => ({
+    params: { slug: vehicle.slug },
+    props: { vehicle, flotte: vehicles.filter((v) => v.slug !== vehicle.slug).slice(0, 3) },
+  }));
+}
+const { vehicle, flotte } = Astro.props;
+---
+<VehiclePage vehicle={vehicle} flotte={flotte} />

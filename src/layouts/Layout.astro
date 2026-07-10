@@ -1,0 +1,125 @@
+---
+import '../styles/global.css';
+import { getLang, htmlLang } from '../lib/i18n';
+
+interface Props {
+  title?: string;
+  description?: string;
+}
+
+const {
+  title = 'Vienna Grand Chauffeurs — Chauffeurservice der Extraklasse',
+  description = 'Premium Chauffeurservice in Wien: erfahrene, diskrete Chauffeure, gepflegte Mercedes-Benz Oberklasse und transparente Fixpreise. Flughafentransfer, Business- und Langstreckenfahrten.',
+} = Astro.props;
+
+const lang = getLang(Astro.url);
+const canonical = new URL(Astro.url.pathname, Astro.site).href;
+---
+
+<!doctype html>
+<html lang={htmlLang[lang]}>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <title>{title}</title>
+    <meta name="description" content={description} />
+    <link rel="canonical" href={canonical} />
+
+    <!-- Open Graph -->
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content={title} />
+    <meta property="og:description" content={description} />
+    <meta property="og:url" content={canonical} />
+    <meta property="og:locale" content={lang === 'en' ? 'en_GB' : 'de_AT'} />
+    <slot name="head" />
+    <noscript><style>[data-reveal]{opacity:1 !important;transform:none !important}.pxn{display:none !important}</style></noscript>
+  </head>
+  <body>
+    <!-- Preloader (first visit) + page-transition curtain (on navigation). -->
+    <div class="pxn" data-pxn aria-hidden="true">
+      <div class="pxn__inner">
+        <img class="pxn__logo" src="/images/logo-stacked-white.png" alt="" width="852" height="750" />
+        <span class="pxn__bar" aria-hidden="true"><i></i></span>
+      </div>
+    </div>
+    <style is:global>
+      .pxn {
+        position: fixed; inset: 0; z-index: 9999;
+        background: #0d0703; color: #fff;
+        display: grid; place-items: center;
+        transform: translateY(0);
+        transition: transform 0.72s cubic-bezier(0.76, 0, 0.24, 1);
+        will-change: transform;
+      }
+      .pxn.is-revealed { transform: translateY(-100%); }
+      .pxn.is-covering { transition-duration: 0.46s; }
+      .pxn__inner { display: flex; flex-direction: column; align-items: center; gap: 26px; }
+      .pxn__logo {
+        inline-size: clamp(84px, 11vw, 120px); block-size: auto;
+        opacity: 0; transform: translateY(10px) scale(0.96);
+        animation: pxn-logo 0.9s cubic-bezier(0.22, 1, 0.36, 1) 0.1s forwards;
+      }
+      .pxn__bar { position: relative; inline-size: 150px; block-size: 2px; background: rgba(255, 255, 255, 0.13); border-radius: 2px; overflow: hidden; }
+      .pxn__bar i { position: absolute; inset-block: 0; inset-inline-start: 0; inline-size: 0; background: linear-gradient(90deg, #c46a2d, #e9b79a); animation: pxn-bar 1.05s ease-out 0.15s forwards; }
+      @keyframes pxn-logo { to { opacity: 1; transform: none; } }
+      @keyframes pxn-bar { to { inline-size: 100%; } }
+      @media (prefers-reduced-motion: reduce) { .pxn { display: none; } }
+    </style>
+    <slot />
+    <script>
+      // Scroll-reveal, shared across all pages.
+      const els = document.querySelectorAll('[data-reveal]');
+      const reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+      if (reduce || !('IntersectionObserver' in window)) {
+        els.forEach((el) => el.classList.add('is-visible'));
+      } else {
+        const io = new IntersectionObserver((entries, obs) => {
+          entries.forEach((e) => { if (e.isIntersecting) { e.target.classList.add('is-visible'); obs.unobserve(e.target); } });
+        }, { threshold: 0.1, rootMargin: '0px 0px -6% 0px' });
+        els.forEach((el) => io.observe(el));
+      }
+    </script>
+    <script>
+      // Preloader + curtain page transition.
+      const pxn = document.querySelector('[data-pxn]');
+      const softMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+      if (pxn && !softMotion) {
+        const first = !sessionStorage.getItem('vgc-in');
+        sessionStorage.setItem('vgc-in', '1');
+        let done = false;
+        const reveal = () => { if (!done) { done = true; pxn.classList.add('is-revealed'); } };
+
+        // Reveal after content is ready — min dwell on first visit, snappy after.
+        const minDwell = first ? 1100 : 300;
+        const cap = first ? 2600 : 1300;
+        const t0 = Date.now();
+        const finish = () => {
+          const el = Date.now() - t0;
+          if (el >= minDwell) reveal(); else setTimeout(reveal, minDwell - el);
+        };
+        if (document.readyState === 'complete') finish();
+        else window.addEventListener('load', finish);
+        setTimeout(reveal, cap);
+
+        // Cover the screen before an internal navigation, then go.
+        document.addEventListener('click', (e) => {
+          if (e.defaultPrevented || e.button !== 0 || e.metaKey || e.ctrlKey || e.shiftKey || e.altKey) return;
+          const a = e.target.closest && e.target.closest('a');
+          if (!a) return;
+          const href = a.getAttribute('href');
+          if (!href || a.target === '_blank' || a.hasAttribute('download')) return;
+          if (href.startsWith('#') || href.startsWith('mailto:') || href.startsWith('tel:') || /^https?:\/\//.test(href)) return;
+          if (href === location.pathname || href === location.pathname + location.search) return;
+          e.preventDefault();
+          pxn.classList.add('is-covering');
+          pxn.classList.remove('is-revealed');
+          setTimeout(() => { location.href = href; }, 470);
+        });
+
+        // Returning via the back/forward cache: don't leave the curtain down.
+        window.addEventListener('pageshow', (e) => { if (e.persisted) { done = true; pxn.classList.add('is-revealed'); } });
+      }
+    </script>
+  </body>
+</html>

@@ -1,0 +1,347 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Nav from './Nav.astro';
+import Footer from './Footer.astro';
+import PageHero from './PageHero.astro';
+import { CONTACT } from '../lib/site';
+import { getVehicles } from '../lib/vehicles-data';
+import { getLang, hrefFor, pick } from '../lib/i18n';
+
+const lang = getLang(Astro.url);
+const phoneHref = `tel:${CONTACT.phone.tel}`;
+const datenschutzHref = hrefFor('/datenschutz', lang);
+const doneHref = hrefFor('/buchung-abschluss', lang);
+const vehicles = getVehicles(lang).map((v) => ({
+  slug: v.slug, name: v.name, klass: v.cardKlass, img: v.img.card,
+  from: v.vprice.cards[0].price, pax: v.heroStats[0]?.value ?? '',
+}));
+
+const L = pick(lang,
+  {
+    title: 'Online Buchung — Vienna Grand Chauffeurs', desc: 'Buchen Sie Ihren Chauffeur- und Limousinenservice in Wien online. Fahrt angeben, Fahrzeug wählen, Fixpreis-Anfrage senden — schnell, sicher und rund um die Uhr.',
+    eyebrow: 'Online Buchung', heroTitle: 'In wenigen Schritten <span>gebucht.</span>',
+    heroSub: 'Geben Sie Ihre Fahrt an, wählen Sie das passende Fahrzeug und senden Sie Ihre Anfrage. Sie erhalten umgehend einen transparenten Fixpreis und Ihre Bestätigung.',
+    formAria: 'Buchungsformular', step1: 'Ihre Fahrt', tripAria: 'Fahrttyp',
+    trip1: 'Einzelfahrt', trip2: 'Hin- & Rückfahrt', trip3: 'Stundenbuchung',
+    pickup: 'Abholadresse', pickupPh: 'Straße, Hausnummer, Ort',
+    dest: 'Zieladresse', destPh: 'Straße, Hausnummer, Ort oder Flughafen',
+    duration: 'Dauer', durationOpts: ['2 Stunden', '3 Stunden', '4 Stunden', '6 Stunden', '8 Stunden (Tagessatz)'],
+    date: 'Datum', time: 'Uhrzeit', persons: 'Personen', luggage: 'Gepäck',
+    step2: 'Fahrzeug wählen', vehAria: 'Fahrzeug', paxSuffix: 'Passagiere', from: 'ab',
+    step3: 'Ihre Kontaktdaten', name: 'Name', namePh: 'Ihr Name', phone: 'Telefon', email: 'E-Mail', emailPh: 'ihre@email.at',
+    notes: 'Anmerkungen', notesPh: 'Flugnummer, Kindersitz, besondere Wünsche …',
+    consent1: 'Ich habe die', consent2: 'Datenschutzerklärung', consent3: 'gelesen und stimme der Verarbeitung meiner Daten zu.',
+    submit: 'Buchungsanfrage senden', note1: 'Unverbindlich — Sie erhalten umgehend Ihren Fixpreis. Oder rufen Sie an:',
+    asideSm: 'Rund um die Uhr buchbar', aside: ['Transparenter Fixpreis', 'Flugüberwachung inklusive', 'Meet & Greet am Gate', 'Kostenlose Stornierung*'],
+    asideAria: 'Vorteile',
+  },
+  {
+    title: 'Online Booking — Vienna Grand Chauffeurs', desc: 'Book your chauffeur and limousine service in Vienna online. Enter your journey, choose a vehicle, send a fixed-price request — fast, secure and around the clock.',
+    eyebrow: 'Online Booking', heroTitle: 'Booked in <span>a few steps.</span>',
+    heroSub: 'Enter your journey, choose the right vehicle and send your request. You will immediately receive a transparent fixed price and your confirmation.',
+    formAria: 'Booking form', step1: 'Your journey', tripAria: 'Trip type',
+    trip1: 'One-way', trip2: 'Return trip', trip3: 'Hourly booking',
+    pickup: 'Pickup address', pickupPh: 'Street, number, city',
+    dest: 'Destination address', destPh: 'Street, number, city or airport',
+    duration: 'Duration', durationOpts: ['2 hours', '3 hours', '4 hours', '6 hours', '8 hours (daily rate)'],
+    date: 'Date', time: 'Time', persons: 'Passengers', luggage: 'Luggage',
+    step2: 'Choose vehicle', vehAria: 'Vehicle', paxSuffix: 'passengers', from: 'from',
+    step3: 'Your contact details', name: 'Name', namePh: 'Your name', phone: 'Phone', email: 'Email', emailPh: 'you@email.com',
+    notes: 'Notes', notesPh: 'Flight number, child seat, special requests …',
+    consent1: 'I have read the', consent2: 'Privacy Policy', consent3: 'and consent to the processing of my data.',
+    submit: 'Send booking request', note1: 'No obligation — you will receive your fixed price straight away. Or call us:',
+    asideSm: 'Bookable around the clock', aside: ['Transparent fixed price', 'Flight monitoring included', 'Meet & greet at the gate', 'Free cancellation*'],
+    asideAria: 'Advantages',
+  });
+
+const T = pick(lang,
+  { sending: 'Wird gesendet …', err: 'Es ist ein Fehler aufgetreten. Bitte rufen Sie uns an.', mailtoOpened: 'Ihr E-Mail-Programm wurde geöffnet. Alternativ erreichen Sie uns telefonisch.', subject: 'Buchungsanfrage', lTrip: 'Fahrttyp', lPickup: 'Abholadresse', lDuration: 'Dauer', lDest: 'Zieladresse', lWhen: 'Datum / Uhrzeit', at: 'um', lPersons: 'Personen', lLuggage: 'Gepäck', lVehicle: 'Fahrzeug', lName: 'Name', lPhone: 'Telefon', lEmail: 'E-Mail', lNotes: 'Anmerkungen' },
+  { sending: 'Sending …', err: 'An error occurred. Please call us.', mailtoOpened: 'Your email application has opened. Alternatively you can reach us by phone.', subject: 'Booking request', lTrip: 'Trip type', lPickup: 'Pickup address', lDuration: 'Duration', lDest: 'Destination address', lWhen: 'Date / time', at: 'at', lPersons: 'Passengers', lLuggage: 'Luggage', lVehicle: 'Vehicle', lName: 'Name', lPhone: 'Phone', lEmail: 'Email', lNotes: 'Notes' });
+---
+<Layout title={L.title} description={L.desc}>
+  <Nav />
+  <main>
+    <PageHero eyebrow={L.eyebrow} title={L.heroTitle} sub={L.heroSub} />
+
+    <section class="buchung" aria-label={L.formAria}>
+      <div class="container-x buchung__wrap">
+        <form class="bform" data-booking-form novalidate>
+          <!-- Step 1 — Trip -->
+          <fieldset class="bstep">
+            <legend class="bstep__head"><span class="bstep__num">1</span> {L.step1}</legend>
+
+            <div class="bform__types" role="radiogroup" aria-label={L.tripAria}>
+              <label class="btype"><input type="radio" name="fahrttyp" value="Einzelfahrt" checked /><span>{L.trip1}</span></label>
+              <label class="btype"><input type="radio" name="fahrttyp" value="Hin- & Rückfahrt" /><span>{L.trip2}</span></label>
+              <label class="btype"><input type="radio" name="fahrttyp" value="Stundenbuchung" /><span>{L.trip3}</span></label>
+            </div>
+
+            <div class="bform__grid">
+              <label class="bfield bfield--wide">
+                <span class="bfield__label">{L.pickup} <em>*</em></span>
+                <input type="text" name="abholadresse" required placeholder={L.pickupPh} autocomplete="off" />
+              </label>
+              <label class="bfield bfield--wide" data-ziel>
+                <span class="bfield__label">{L.dest} <em>*</em></span>
+                <input type="text" name="zieladresse" required placeholder={L.destPh} autocomplete="off" />
+              </label>
+              <label class="bfield" data-dauer hidden>
+                <span class="bfield__label">{L.duration}</span>
+                <select name="dauer">
+                  {L.durationOpts.map((o) => <option>{o}</option>)}
+                </select>
+              </label>
+              <label class="bfield">
+                <span class="bfield__label">{L.date} <em>*</em></span>
+                <input type="date" name="datum" required />
+              </label>
+              <label class="bfield">
+                <span class="bfield__label">{L.time} <em>*</em></span>
+                <input type="time" name="uhrzeit" required />
+              </label>
+              <label class="bfield">
+                <span class="bfield__label">{L.persons}</span>
+                <select name="personen"><option>1</option><option>2</option><option>3</option><option>4</option><option>5</option><option>6</option><option>7</option><option>8+</option></select>
+              </label>
+              <label class="bfield">
+                <span class="bfield__label">{L.luggage}</span>
+                <select name="gepaeck"><option>0</option><option>1–2</option><option>3–4</option><option>5–7</option><option>7+</option></select>
+              </label>
+            </div>
+          </fieldset>
+
+          <!-- Step 2 — Vehicle -->
+          <fieldset class="bstep">
+            <legend class="bstep__head"><span class="bstep__num">2</span> {L.step2}</legend>
+            <div class="bveh" role="radiogroup" aria-label={L.vehAria}>
+              {vehicles.map((v, i) => (
+                <label class="bveh__card">
+                  <input type="radio" name="fahrzeug" value={v.name} checked={i === 0} />
+                  <span class="bveh__inner">
+                    <img class="bveh__img" src={v.img} alt={v.name} loading="lazy" decoding="async" />
+                    <span class="bveh__meta">
+                      <span class="bveh__klass">{v.klass}</span>
+                      <span class="bveh__name">{v.name}</span>
+                      <span class="bveh__pax">{v.pax} {L.paxSuffix}</span>
+                    </span>
+                    <span class="bveh__price"><span>{L.from}</span> {v.from}</span>
+                    <span class="bveh__check" aria-hidden="true">
+                      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg>
+                    </span>
+                  </span>
+                </label>
+              ))}
+            </div>
+          </fieldset>
+
+          <!-- Step 3 — Contact -->
+          <fieldset class="bstep">
+            <legend class="bstep__head"><span class="bstep__num">3</span> {L.step3}</legend>
+            <div class="bform__grid">
+              <label class="bfield">
+                <span class="bfield__label">{L.name} <em>*</em></span>
+                <input type="text" name="name" required autocomplete="name" placeholder={L.namePh} />
+              </label>
+              <label class="bfield">
+                <span class="bfield__label">{L.phone} <em>*</em></span>
+                <input type="tel" name="telefon" required autocomplete="tel" placeholder="+43 …" />
+              </label>
+              <label class="bfield bfield--wide">
+                <span class="bfield__label">{L.email} <em>*</em></span>
+                <input type="email" name="email" required autocomplete="email" placeholder={L.emailPh} />
+              </label>
+              <label class="bfield bfield--wide">
+                <span class="bfield__label">{L.notes}</span>
+                <textarea name="anmerkungen" rows="3" placeholder={L.notesPh}></textarea>
+              </label>
+            </div>
+            <label class="bcheck">
+              <input type="checkbox" name="datenschutz" required />
+              <span>{L.consent1} <a href={datenschutzHref}>{L.consent2}</a> {L.consent3}</span>
+            </label>
+          </fieldset>
+
+          <div class="bform__foot">
+            <button type="submit" class="bform__submit">{L.submit}</button>
+            <p class="bform__note">{L.note1} <a href={phoneHref}>{CONTACT.phone.display}</a>.</p>
+          </div>
+          <p class="bform__status" data-form-status role="status" aria-live="polite"></p>
+        </form>
+
+        <aside class="baside" aria-label={L.asideAria}>
+          <div class="baside__card">
+            <span class="baside__big">24/7</span>
+            <span class="baside__sm">{L.asideSm}</span>
+          </div>
+          <ul class="baside__list">
+            {L.aside.map((a) => (
+              <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg><span>{a}</span></li>
+            ))}
+          </ul>
+        </aside>
+      </div>
+    </section>
+  </main>
+  <Footer />
+</Layout>
+
+<script define:vars={{ mailto: CONTACT.email.mailto, T, doneHref }}>
+  // Booking form. Set FORM_ENDPOINT to submit via fetch and redirect to the
+  // confirmation page. Empty = pre-filled email fallback.
+  const FORM_ENDPOINT = '';
+
+  const form = document.querySelector('[data-booking-form]');
+  if (form) {
+    const status = form.querySelector('[data-form-status]');
+    const ziel = form.querySelector('[data-ziel]');
+    const dauer = form.querySelector('[data-dauer]');
+    const zielInput = ziel?.querySelector('input');
+
+    // Toggle destination vs. duration based on trip type.
+    form.querySelectorAll('input[name="fahrttyp"]').forEach((r) =>
+      r.addEventListener('change', () => {
+        const hourly = form.querySelector('input[name="fahrttyp"]:checked')?.value === 'Stundenbuchung';
+        ziel.hidden = hourly;
+        if (zielInput) zielInput.required = !hourly;
+        dauer.hidden = !hourly;
+      })
+    );
+
+    // Default date min = today.
+    const d = form.querySelector('input[name="datum"]');
+    if (d && !d.value) { const t = new Date(); d.min = t.toISOString().slice(0, 10); }
+
+    form.addEventListener('submit', async (e) => {
+      e.preventDefault();
+      if (!form.reportValidity()) return;
+      const btn = form.querySelector('button[type="submit"]');
+      const data = new FormData(form);
+
+      if (FORM_ENDPOINT) {
+        btn.disabled = true;
+        status.className = 'bform__status';
+        status.textContent = T.sending;
+        try {
+          const res = await fetch(FORM_ENDPOINT, { method: 'POST', body: data, headers: { Accept: 'application/json' } });
+          if (!res.ok) throw new Error();
+          window.location.href = doneHref;
+        } catch {
+          btn.disabled = false;
+          status.className = 'bform__status is-err';
+          status.textContent = T.err;
+        }
+        return;
+      }
+
+      const g = (k) => data.get(k) || '';
+      const subject = `${T.subject}: ${g('fahrzeug')} — ${g('datum')} ${g('uhrzeit')}`;
+      const body = [
+        `${T.lTrip}: ${g('fahrttyp')}`,
+        `${T.lPickup}: ${g('abholadresse')}`,
+        g('fahrttyp') === 'Stundenbuchung' ? `${T.lDuration}: ${g('dauer')}` : `${T.lDest}: ${g('zieladresse')}`,
+        `${T.lWhen}: ${g('datum')} ${T.at} ${g('uhrzeit')}`,
+        `${T.lPersons}: ${g('personen')} · ${T.lLuggage}: ${g('gepaeck')}`,
+        `${T.lVehicle}: ${g('fahrzeug')}`,
+        '',
+        `${T.lName}: ${g('name')}`,
+        `${T.lPhone}: ${g('telefon')}`,
+        `${T.lEmail}: ${g('email')}`,
+        `${T.lNotes}: ${g('anmerkungen')}`,
+      ].join('\n');
+      window.location.href = `${mailto}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
+      status.className = 'bform__status is-ok';
+      status.textContent = T.mailtoOpened;
+    });
+  }
+</script>
+
+<style>
+  .buchung { background: var(--color-cream); color: #0c0a08; padding-block: clamp(2.5rem, 5vw, 4rem) var(--section-py); }
+  .buchung__wrap { display: grid; grid-template-columns: minmax(0, 1fr) 300px; gap: clamp(1.5rem, 3vw, 2.5rem); align-items: start; }
+
+  /* Form shell */
+  .bform { background: #fff; border: 1px solid rgba(20, 15, 10, 0.12); border-radius: 22px; padding: clamp(1.5rem, 3vw, 2.5rem); box-shadow: 0 24px 60px -42px rgba(0, 0, 0, 0.35); }
+  .bstep { border: 0; margin: 0; padding: 0; }
+  .bstep + .bstep { margin-block-start: clamp(1.75rem, 3vw, 2.5rem); padding-block-start: clamp(1.75rem, 3vw, 2.5rem); border-block-start: 1px solid rgba(20, 15, 10, 0.1); }
+  .bstep__head { display: flex; align-items: center; gap: 12px; font-family: var(--font-display); font-weight: 700; font-size: clamp(1.2rem, 2vw, 1.5rem); letter-spacing: -0.02em; color: #0c0a08; margin-block-end: 1.25rem; padding: 0; }
+  .bstep__num { flex: none; inline-size: 32px; block-size: 32px; border-radius: 999px; background: linear-gradient(135deg, #c46a2d, #e9b79a); color: #1a0e04; font-family: var(--font-oswald); font-size: 16px; display: grid; place-items: center; }
+
+  /* Trip-type pills */
+  .bform__types { display: flex; flex-wrap: wrap; gap: 10px; margin-block-end: 1.25rem; }
+  .btype { position: relative; }
+  .btype input { position: absolute; opacity: 0; inset: 0; cursor: pointer; }
+  .btype span { display: inline-flex; padding: 10px 20px; border-radius: 999px; border: 1px solid rgba(20, 15, 10, 0.18); background: var(--color-cream); font-size: 14.5px; font-weight: 500; color: #0c0a08c9; cursor: pointer; transition: all 0.2s ease; }
+  .btype input:checked + span { background: #14100b; border-color: #14100b; color: #fff; }
+  .btype input:focus-visible + span { outline: 2px solid var(--color-terracotta); outline-offset: 2px; }
+
+  /* Fields */
+  .bform__grid { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+  .bfield { display: flex; flex-direction: column; gap: 7px; min-inline-size: 0; }
+  .bfield--wide { grid-column: 1 / -1; }
+  .bfield__label { font-size: 12.5px; letter-spacing: 0.06em; text-transform: uppercase; color: rgba(12, 10, 8, 0.6); font-weight: 500; }
+  .bfield__label em { color: #c46a2d; font-style: normal; }
+  .bform input, .bform select, .bform textarea {
+    inline-size: 100%; font-family: var(--font-body); font-size: 15px; color: #0c0a08;
+    background: var(--color-cream); border: 1px solid rgba(20, 15, 10, 0.16); border-radius: 12px;
+    padding: 12px 14px; transition: border-color 0.25s ease, box-shadow 0.25s ease;
+  }
+  .bform textarea { resize: vertical; }
+  .bform input:focus, .bform select:focus, .bform textarea:focus { outline: none; border-color: #c46a2d; box-shadow: 0 0 0 3px rgba(196, 106, 45, 0.14); }
+  .bform input::placeholder, .bform textarea::placeholder { color: rgba(12, 10, 8, 0.4); }
+
+  /* Vehicle radio cards */
+  .bveh { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
+  .bveh__card { position: relative; cursor: pointer; }
+  .bveh__card input { position: absolute; opacity: 0; inset: 0; cursor: pointer; }
+  .bveh__inner { display: flex; align-items: center; gap: 14px; padding: 12px; border-radius: 14px; border: 1.5px solid rgba(20, 15, 10, 0.14); background: var(--color-cream); transition: border-color 0.2s ease, background 0.2s ease; }
+  .bveh__card input:checked + .bveh__inner { border-color: #c46a2d; background: rgba(196, 106, 45, 0.06); }
+  .bveh__card input:focus-visible + .bveh__inner { outline: 2px solid var(--color-terracotta); outline-offset: 2px; }
+  .bveh__img { flex: none; inline-size: 64px; block-size: 48px; object-fit: cover; border-radius: 8px; }
+  .bveh__meta { display: flex; flex-direction: column; gap: 1px; min-inline-size: 0; flex: 1; }
+  .bveh__klass { font-family: var(--font-oswald); font-size: 10.5px; letter-spacing: 0.1em; text-transform: uppercase; color: #c46a2d; }
+  .bveh__name { font-family: var(--font-display); font-weight: 600; font-size: 1.05rem; color: #0c0a08; }
+  .bveh__pax { font-size: 12px; color: rgba(12, 10, 8, 0.55); }
+  .bveh__price { flex: none; font-family: var(--font-display); font-weight: 700; font-size: 1rem; color: #0c0a08; text-align: end; }
+  .bveh__price span { display: block; font-family: var(--font-body); font-weight: 400; font-size: 11px; color: rgba(12, 10, 8, 0.5); }
+  .bveh__check { position: absolute; inset-block-start: -7px; inset-inline-end: -7px; inline-size: 24px; block-size: 24px; border-radius: 999px; background: #c46a2d; color: #fff; display: grid; place-items: center; opacity: 0; transform: scale(0.6); transition: opacity 0.2s ease, transform 0.2s ease; }
+  .bveh__check svg { inline-size: 14px; block-size: 14px; }
+  .bveh__card input:checked ~ .bveh__inner .bveh__check, .bveh__card input:checked + .bveh__inner .bveh__check { opacity: 1; transform: scale(1); }
+
+  /* Consent + submit */
+  .bcheck { display: flex; align-items: flex-start; gap: 11px; margin-block-start: 1.25rem; font-size: 14px; line-height: 1.5; color: #0c0a08c9; }
+  .bcheck input { inline-size: 18px; block-size: 18px; flex: none; margin-block-start: 1px; accent-color: #c46a2d; }
+  .bcheck a { color: #c46a2d; text-decoration: underline; text-underline-offset: 2px; }
+  .bform__foot { margin-block-start: clamp(1.75rem, 3vw, 2.5rem); padding-block-start: clamp(1.5rem, 3vw, 2rem); border-block-start: 1px solid rgba(20, 15, 10, 0.1); display: flex; flex-wrap: wrap; align-items: center; gap: 1rem 1.5rem; }
+  .bform__submit { padding: 15px 40px; border: 0; border-radius: 999px; background: linear-gradient(90deg, #c46a2d 0%, #e9b79a 100%); color: #1a0e04; font-family: var(--font-body); font-weight: 600; font-size: 16px; cursor: pointer; transition: filter 0.3s ease, transform 0.25s ease; }
+  .bform__submit:hover { filter: brightness(1.05); transform: translateY(-2px); }
+  .bform__submit:disabled { opacity: 0.6; transform: none; cursor: default; }
+  .bform__note { margin: 0; font-size: 13.5px; line-height: 1.5; color: #0c0a089e; }
+  .bform__note a { color: #c46a2d; text-decoration: none; }
+  .bform__status { margin: 1rem 0 0; font-size: 14.5px; }
+  .bform__status.is-ok { color: #2f7d4f; }
+  .bform__status.is-err { color: #c0492d; }
+
+  /* Aside */
+  .baside { display: flex; flex-direction: column; gap: 1rem; position: sticky; top: 110px; }
+  .baside__card { background: #14100b; color: #fff; border-radius: 18px; padding: clamp(1.4rem, 2.5vw, 1.9rem); display: flex; flex-direction: column; gap: 4px; }
+  .baside__big { font-family: var(--font-oswald); font-size: clamp(2.4rem, 4vw, 3rem); font-weight: 500; line-height: 1; color: #e9b79a; }
+  .baside__sm { font-size: 14px; color: rgba(255, 255, 255, 0.72); }
+  .baside__list { list-style: none; margin: 0; padding: clamp(1.25rem, 2.5vw, 1.6rem); background: #fff; border: 1px solid rgba(20, 15, 10, 0.12); border-radius: 18px; display: flex; flex-direction: column; gap: 14px; }
+  .baside__list li { display: flex; align-items: center; gap: 11px; font-size: 14.5px; color: #0c0a08; }
+  .baside__list svg { flex: none; inline-size: 18px; block-size: 18px; color: #c46a2d; }
+
+  @media (max-width: 980px) {
+    .buchung__wrap { grid-template-columns: 1fr; }
+    .baside { position: static; flex-direction: row; flex-wrap: wrap; }
+    .baside__card, .baside__list { flex: 1 1 220px; }
+  }
+  @media (max-width: 620px) {
+    .bform__grid { grid-template-columns: 1fr; }
+    .bveh { grid-template-columns: 1fr; }
+    .bform__submit { inline-size: 100%; }
+  }
+</style>
+
+<style is:global>
+  body { background: var(--color-cream); }
+</style>

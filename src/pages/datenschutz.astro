@@ -1,0 +1,84 @@
+---
+import LegalLayout from '../layouts/LegalLayout.astro';
+import { CONTACT } from '../lib/site';
+---
+<LegalLayout
+  title="Datenschutzerklärung"
+  metaTitle="Datenschutz — Vienna Grand Chauffeurs"
+  description="Datenschutzerklärung von Vienna Grand Chauffeurs gemäß DSGVO — wie wir Ihre personenbezogenen Daten erheben, verarbeiten und schützen."
+  eyebrow="Datenschutz"
+  updated="[Datum einfügen]"
+>
+  <p class="legal__note">
+    <strong>Hinweis:</strong> Diese Datenschutzerklärung ist ein Entwurf und muss vor der
+    Veröffentlichung rechtlich geprüft und an die tatsächlich eingesetzten Dienste angepasst werden.
+    Platzhalter in [eckigen Klammern] sind zu ersetzen.
+  </p>
+
+  <h2>1. Verantwortlicher</h2>
+  <p>
+    Verantwortlich für die Datenverarbeitung auf dieser Website ist:<br />
+    <strong>[Firmenname]</strong>, [Adresse], 1010 Wien.<br />
+    E-Mail: <a href={CONTACT.email.mailto}>{CONTACT.email.display}</a> · Telefon:
+    <a href={`tel:${CONTACT.phone.tel}`}>{CONTACT.phone.display}</a>
+  </p>
+
+  <h2>2. Allgemeines zur Datenverarbeitung</h2>
+  <p>
+    Wir verarbeiten personenbezogene Daten unserer Nutzer grundsätzlich nur, soweit dies zur
+    Bereitstellung einer funktionsfähigen Website sowie unserer Inhalte und Leistungen erforderlich
+    ist. Die Verarbeitung erfolgt auf Grundlage der Datenschutz-Grundverordnung (DSGVO) und des
+    österreichischen Datenschutzgesetzes (DSG).
+  </p>
+
+  <h2>3. Erhebung von Daten bei Anfragen und Buchungen</h2>
+  <p>
+    Wenn Sie uns über das Kontakt- oder Buchungsformular, per E-Mail oder telefonisch kontaktieren,
+    verarbeiten wir die von Ihnen übermittelten Daten (z. B. Name, Kontaktdaten, Fahrtdetails) zur
+    Bearbeitung Ihrer Anfrage und zur Durchführung des Chauffeurservices. Rechtsgrundlage ist
+    Art. 6 Abs. 1 lit. b DSGVO (Vertragserfüllung bzw. vorvertragliche Maßnahmen).
+  </p>
+
+  <h2>4. Server-Logfiles</h2>
+  <p>
+    Beim Aufruf dieser Website werden durch den Hosting-Anbieter automatisch Informationen in
+    Server-Logfiles gespeichert (u. a. IP-Adresse, Datum und Uhrzeit des Zugriffs, aufgerufene Seite).
+    Dies dient der Sicherstellung eines störungsfreien Betriebs und der Sicherheit. Rechtsgrundlage
+    ist Art. 6 Abs. 1 lit. f DSGVO.
+  </p>
+
+  <h2>5. Cookies</h2>
+  <p>
+    Diese Website verwendet [technisch notwendige Cookies / keine Cookies]. Sofern Cookies eingesetzt
+    werden, die nicht technisch notwendig sind, erfolgt dies nur mit Ihrer Einwilligung gemäß
+    Art. 6 Abs. 1 lit. a DSGVO. Sie können Ihre Einwilligung jederzeit widerrufen.
+  </p>
+
+  <h2>6. Ihre Rechte</h2>
+  <p>Ihnen stehen als betroffene Person folgende Rechte zu:</p>
+  <ul>
+    <li>Recht auf Auskunft (Art. 15 DSGVO)</li>
+    <li>Recht auf Berichtigung (Art. 16 DSGVO)</li>
+    <li>Recht auf Löschung (Art. 17 DSGVO)</li>
+    <li>Recht auf Einschränkung der Verarbeitung (Art. 18 DSGVO)</li>
+    <li>Recht auf Datenübertragbarkeit (Art. 20 DSGVO)</li>
+    <li>Recht auf Widerspruch (Art. 21 DSGVO)</li>
+  </ul>
+  <p>
+    Zudem haben Sie das Recht, sich bei der österreichischen Datenschutzbehörde
+    (<a href="https://www.dsb.gv.at" rel="noreferrer">www.dsb.gv.at</a>) zu beschweren.
+  </p>
+
+  <h2>7. Speicherdauer</h2>
+  <p>
+    Wir speichern personenbezogene Daten nur so lange, wie dies für die genannten Zwecke erforderlich
+    ist oder gesetzliche Aufbewahrungsfristen (z. B. steuer- und handelsrechtliche Fristen) dies
+    verlangen.
+  </p>
+
+  <h2>8. Kontakt in Datenschutzfragen</h2>
+  <p>
+    Bei Fragen zum Datenschutz erreichen Sie uns unter
+    <a href={CONTACT.email.mailto}>{CONTACT.email.display}</a>.
+  </p>
+</LegalLayout>

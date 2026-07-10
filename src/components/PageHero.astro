@@ -1,0 +1,45 @@
+---
+// Dark page hero — used by content/utility pages so the transparent white nav
+// stays legible over the top of the page (matches the service/vehicle heroes).
+interface Props {
+  eyebrow: string;
+  title: string;
+  sub?: string;
+  align?: 'left' | 'center';
+}
+const { eyebrow, title, sub, align = 'left' } = Astro.props;
+---
+<section class:list={['phero', align === 'center' && 'phero--center']} aria-labelledby="phero-title">
+  <div class="phero__bg" aria-hidden="true"></div>
+  <div class="container-x phero__inner">
+    <div class="phero__eyebrow"><span class="phero__line" aria-hidden="true"></span><span>{eyebrow}</span></div>
+    <h1 class="phero__title" id="phero-title" data-reveal set:html={title} />
+    {sub && <p class="phero__sub" data-reveal style="--reveal-delay:0.08s">{sub}</p>}
+  </div>
+</section>
+
+<style>
+  .phero { position: relative; isolation: isolate; overflow: hidden; background: #0d0703; color: #fff; margin-block-end: -1px; }
+  .phero__bg {
+    position: absolute; inset: 0; z-index: 0;
+    background: radial-gradient(115% 80% at 12% 0%, rgba(196, 106, 45, 0.22), transparent 55%), #0d0703;
+  }
+  .phero__inner {
+    position: relative; z-index: 1;
+    padding-block: clamp(9rem, 21vh, 13rem) clamp(3.5rem, 7vw, 6rem);
+  }
+  .phero--center .phero__inner { text-align: center; display: flex; flex-direction: column; align-items: center; }
+  .phero__eyebrow { display: flex; align-items: center; gap: 15px; margin-block-end: 22px; }
+  .phero--center .phero__eyebrow { justify-content: center; }
+  .phero__eyebrow span:not(.phero__line) { font-family: var(--font-display); font-weight: 600; font-size: 24px; letter-spacing: -1px; text-transform: uppercase; color: #c46a2d; }
+  .phero__line { inline-size: 60px; block-size: 1.429px; background: #c46a2d; opacity: 0.6; flex: none; }
+  .phero__title { font-family: var(--font-display); font-weight: 700; font-size: clamp(2.6rem, 6.5vw, 4.75rem); line-height: 0.98; letter-spacing: -0.03em; color: #fff; max-inline-size: 16ch; }
+  .phero--center .phero__title { max-inline-size: 18ch; }
+  .phero__title :global(span) { color: #c46a2d; }
+  .phero__sub { margin: clamp(1.2rem, 2.5vw, 1.75rem) 0 0; font-size: clamp(1rem, 1.3vw, 1.19rem); line-height: 1.7; color: rgba(255, 255, 255, 0.82); max-inline-size: 60ch; }
+
+  @media (max-width: 640px) {
+    .phero__eyebrow span:not(.phero__line) { font-size: 1.05rem; }
+    .phero__title { font-size: clamp(2.2rem, 11vw, 3rem); }
+  }
+</style>

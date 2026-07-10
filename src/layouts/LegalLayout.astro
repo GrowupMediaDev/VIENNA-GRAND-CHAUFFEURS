@@ -1,0 +1,54 @@
+---
+import Layout from './Layout.astro';
+import Nav from '../components/Nav.astro';
+import Footer from '../components/Footer.astro';
+import PageHero from '../components/PageHero.astro';
+import { getLang, pick } from '../lib/i18n';
+
+interface Props {
+  title: string;
+  metaTitle: string;
+  description: string;
+  eyebrow?: string;
+  updated?: string;
+}
+const { title, metaTitle, description, eyebrow = 'Rechtliches', updated } = Astro.props;
+const lang = getLang(Astro.url);
+const updatedLabel = pick(lang, 'Zuletzt aktualisiert:', 'Last updated:');
+---
+<Layout title={metaTitle} description={description}>
+  <Nav />
+  <main>
+    <PageHero eyebrow={eyebrow} title={title} />
+    <section class="legal">
+      <div class="container-x legal__inner">
+        {updated && <p class="legal__updated">{updatedLabel} {updated}</p>}
+        <div class="legal__body">
+          <slot />
+        </div>
+      </div>
+    </section>
+  </main>
+  <Footer />
+</Layout>
+
+<style>
+  .legal { background: var(--color-cream); color: #0c0a08; padding-block: clamp(2.5rem, 5vw, 4rem) var(--section-py); }
+  .legal__updated { margin: 0 0 clamp(1.5rem, 3vw, 2.25rem); font-size: 14px; letter-spacing: 0.02em; color: rgba(12, 10, 8, 0.5); }
+  .legal__updated, .legal__body { max-inline-size: 820px; }
+
+  .legal__body :global(h2) { font-family: var(--font-display); font-weight: 700; font-size: clamp(1.4rem, 2.4vw, 1.85rem); letter-spacing: -0.02em; color: #0c0a08; margin-block: clamp(2.5rem, 4vw, 3rem) 0.9rem; }
+  .legal__body :global(h2:first-child) { margin-block-start: 0; }
+  .legal__body :global(h3) { font-family: var(--font-display); font-weight: 600; font-size: 1.2rem; color: #0c0a08; margin-block: 1.75rem 0.6rem; }
+  .legal__body :global(p) { margin: 0 0 1.1rem; font-size: 16px; line-height: 1.78; color: #0c0a08c9; }
+  .legal__body :global(ul) { margin: 0 0 1.1rem; padding-inline-start: 1.3rem; display: flex; flex-direction: column; gap: 0.5rem; }
+  .legal__body :global(li) { font-size: 16px; line-height: 1.7; color: #0c0a08c9; }
+  .legal__body :global(a) { color: #c46a2d; text-decoration: none; border-block-end: 1px solid rgba(196, 106, 45, 0.35); transition: border-color 0.3s ease; }
+  .legal__body :global(a:hover) { border-block-end-color: #c46a2d; }
+  .legal__body :global(strong) { color: #0c0a08; font-weight: 600; }
+  .legal__body :global(.legal__note) { margin-block-end: 2.5rem; padding: 1.1rem 1.3rem; border-radius: 12px; background: rgba(196, 106, 45, 0.08); border: 1px solid rgba(196, 106, 45, 0.22); font-size: 14.5px; color: #0c0a08c9; }
+</style>
+
+<style is:global>
+  body { background: var(--color-cream); }
+</style>

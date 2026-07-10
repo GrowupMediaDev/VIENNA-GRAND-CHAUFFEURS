@@ -1,0 +1,292 @@
+---
+import { getNav, CONTACT } from '../lib/site';
+import { getLang, altLang, hrefFor, t } from '../lib/i18n';
+const lang = getLang(Astro.url);
+const NAV = getNav(lang);
+const nt = t(lang).nav;
+const alt = altLang(Astro.url);
+const phoneHref = `tel:${CONTACT.phone.tel}`;
+const homeHref = hrefFor('/', lang);
+
+// Highlight the current page. Compare on locale-stripped, trailing-slash-free
+// paths so the same logic works for DE (root) and EN (/en/…).
+const strip = (p: string) => p.replace(/^\/en(?=\/|$)/, '') || '/';
+const path = strip(Astro.url.pathname.replace(/\/+$/, '') || '/');
+// A top-level item is active when the current page is inside its section
+// (e.g. any /leistungen/* page lights up "Leistungen"). Hash links never match.
+const sectionActive = (href: string) => {
+  const h = strip(href.replace(/\/+$/, '') || '/');
+  if (h === '/') return path === '/';
+  const seg = h.split('/')[1] ?? '';
+  if (!seg || seg.startsWith('#')) return false;
+  return path === `/${seg}` || path.startsWith(`/${seg}/`);
+};
+// A dropdown/sub link is active only on its exact page.
+const linkActive = (href: string) => path === strip(href.replace(/\/+$/, '') || '/');
+---
+<header class="nav" data-nav>
+  <nav class="nav__links" aria-label={nt.services}>
+    {NAV.map((l) => (
+      l.children ? (
+        <div class="nav__item">
+          <a class:list={['nav__link', 'nav__link--parent', sectionActive(l.href) && 'is-active']} href={l.href} aria-current={sectionActive(l.href) ? 'true' : undefined}>
+            {l.label}
+            <svg class="nav__chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 9l6 6 6-6"/></svg>
+          </a>
+          <div class="nav__menu">
+            {l.children.map((c) => (
+              <a class:list={['nav__menu-link', linkActive(c.href) && 'is-active']} href={c.href} aria-current={linkActive(c.href) ? 'page' : undefined}>{c.label}</a>
+            ))}
+          </div>
+        </div>
+      ) : (
+        <a class:list={['nav__link', sectionActive(l.href) && 'is-active']} href={l.href} aria-current={sectionActive(l.href) ? 'page' : undefined}>{l.label}</a>
+      )
+    ))}
+  </nav>
+
+  <a href={homeHref} class="nav__logo" aria-label={nt.home_aria}>
+    <img src="/images/logo-stacked-white.png" alt="Vienna Grand Chauffeurs" width="852" height="750" />
+  </a>
+
+  <div class="nav__actions">
+    <a class="nav__lang" href={alt.href} aria-label={nt.langAria} hreflang={alt.lang}>{alt.label}</a>
+    <a class="nav__contact" href={phoneHref}>
+      <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M6.62 10.79a15.05 15.05 0 0 0 6.59 6.59l2.2-2.2a1 1 0 0 1 1.02-.24c1.12.37 2.33.57 3.57.57a1 1 0 0 1 1 1V20a1 1 0 0 1-1 1A17 17 0 0 1 3 4a1 1 0 0 1 1-1h3.5a1 1 0 0 1 1 1c0 1.25.2 2.45.57 3.57.11.35.03.74-.25 1.02l-2.2 2.2Z"/></svg>
+      <span>{nt.contactCta}</span>
+    </a>
+  </div>
+
+  <button class="nav__burger" type="button" aria-label={nt.menuOpen} aria-expanded="false" data-burger>
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" aria-hidden="true">
+      <path d="M4 7h16M4 12h16M4 17h10"/>
+    </svg>
+  </button>
+</header>
+
+<aside class="nav__overlay" data-overlay aria-hidden="true">
+  <div class="nav__panel">
+    <button class="nav__close" type="button" aria-label={nt.menuClose} data-close>
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" aria-hidden="true"><path d="M6 6 18 18 M18 6 6 18"/></svg>
+    </button>
+    <nav class="nav__panel-links" aria-label={nt.services}>
+      {NAV.map((l) => (
+        <>
+          <a class:list={['nav__panel-link', sectionActive(l.href) && 'is-active']} href={l.href} data-overlay-link aria-current={sectionActive(l.href) ? 'true' : undefined}>{l.label}</a>
+          {l.children && (
+            <div class="nav__panel-sub">
+              {l.children.map((c) => (
+                <a class:list={['nav__panel-sublink', linkActive(c.href) && 'is-active']} href={c.href} data-overlay-link aria-current={linkActive(c.href) ? 'page' : undefined}>{c.label}</a>
+              ))}
+            </div>
+          )}
+        </>
+      ))}
+    </nav>
+    <a class="nav__panel-phone" href={phoneHref} data-overlay-link>{CONTACT.phone.display}</a>
+  </div>
+</aside>
+
+<script>
+  const burger = document.querySelector<HTMLButtonElement>('[data-burger]');
+  const overlay = document.querySelector<HTMLElement>('[data-overlay]');
+  const closeBtn = document.querySelector<HTMLButtonElement>('[data-close]');
+  const setOpen = (open: boolean) => {
+    if (!overlay || !burger) return;
+    overlay.setAttribute('aria-hidden', String(!open));
+    burger.setAttribute('aria-expanded', String(open));
+    document.body.classList.toggle('is-nav-open', open);
+    if (open) document.querySelector('[data-nav]')?.classList.remove('is-hidden');
+  };
+  // Solidify the header once it scrolls off the hero, and hide it on
+  // scroll-down / reveal it on scroll-up (kept visible near the top and
+  // while the mobile menu is open).
+  const nav = document.querySelector('[data-nav]');
+  let lastY = window.scrollY;
+  const onScroll = () => {
+    const y = Math.max(0, window.scrollY);
+    nav?.classList.toggle('is-scrolled', y > 40);
+    if (!document.body.classList.contains('is-nav-open') && Math.abs(y - lastY) > 6) {
+      if (y > lastY && y > 140) nav?.classList.add('is-hidden');
+      else if (y < lastY) nav?.classList.remove('is-hidden');
+    }
+    lastY = y;
+  };
+  onScroll();
+  window.addEventListener('scroll', onScroll, { passive: true });
+
+  burger?.addEventListener('click', () => setOpen(true));
+  closeBtn?.addEventListener('click', () => setOpen(false));
+  overlay?.addEventListener('click', (e) => { if (e.target === overlay) setOpen(false); });
+  overlay?.querySelectorAll('[data-overlay-link]').forEach((a) => a.addEventListener('click', () => setOpen(false)));
+  document.addEventListener('keydown', (e) => { if (e.key === 'Escape') setOpen(false); });
+</script>
+
+<style>
+  /* Fixed overlay header — transparent over the hero, solid on scroll. */
+  .nav {
+    position: fixed;
+    inset: 0 0 auto 0;
+    z-index: 100;
+    display: grid;
+    grid-template-columns: 1fr auto 1fr;
+    align-items: center;
+    /* Content aligned to the 1440px .container-x width; bar stays full-width. */
+    padding-inline: max(clamp(20px, 3.5vw, 50px), calc((100% - 1440px) / 2));
+    padding-block: 15px;
+    color: #fff;
+    transition: background 0.35s ease, padding-block 0.35s ease, box-shadow 0.35s ease, border-color 0.35s ease, transform 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+  }
+  /* Once scrolled off the hero: dark blurred bar so white text stays legible. */
+  .nav.is-scrolled {
+    background: rgba(13, 7, 3, 0.82);
+    backdrop-filter: blur(14px); -webkit-backdrop-filter: blur(14px);
+    padding-block: 8px;
+    box-shadow: 0 10px 34px -14px rgba(0, 0, 0, 0.7);
+    border-block-end: 1px solid rgba(255, 255, 255, 0.08);
+  }
+  /* Hide on scroll-down, reveal on scroll-up. */
+  .nav.is-hidden { transform: translateY(-100%); }
+  @media (prefers-reduced-motion: reduce) { .nav.is-hidden { transform: none; } }
+  .nav.is-scrolled .nav__logo img { block-size: clamp(48px, 4.5vw, 60px); }
+
+  .nav__links { display: flex; align-items: center; gap: clamp(1.2rem, 2.1vw, 2.4rem); }
+  .nav__link {
+    color: rgba(255, 255, 255, 0.92);
+    font-size: 0.875rem;
+    font-weight: 500;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    text-decoration: none;
+    position: relative;
+    padding-block: 0.35rem;
+    transition: color 0.3s ease;
+  }
+  .nav__link::after {
+    content: '';
+    position: absolute; inset: auto 0 0 0; block-size: 1.5px;
+    background: var(--color-terracotta);
+    transform: scaleX(0); transform-origin: left;
+    transition: transform 0.35s ease;
+  }
+  .nav__link:hover { color: #fff; }
+  .nav__link:hover::after { transform: scaleX(1); }
+
+  /* Leistungen dropdown */
+  .nav__item { position: relative; display: inline-flex; align-items: center; }
+  .nav__link--parent { display: inline-flex; align-items: center; gap: 5px; }
+  .nav__chev { inline-size: 12px; block-size: 12px; opacity: 0.7; transition: transform 0.3s ease; }
+  .nav__item:hover .nav__chev, .nav__item:focus-within .nav__chev { transform: rotate(180deg); }
+  .nav__menu {
+    position: absolute; inset-block-start: calc(100% + 16px); inset-inline-start: -18px;
+    min-inline-size: 250px; padding: 10px;
+    display: flex; flex-direction: column;
+    background: rgba(13, 7, 3, 0.94); backdrop-filter: blur(16px); -webkit-backdrop-filter: blur(16px);
+    border: 1px solid rgba(255, 255, 255, 0.1); border-radius: 14px;
+    box-shadow: 0 24px 60px -20px rgba(0, 0, 0, 0.75);
+    opacity: 0; visibility: hidden; transform: translateY(8px);
+    transition: opacity 0.25s ease, transform 0.25s ease, visibility 0s linear 0.25s;
+  }
+  /* Invisible bridge so the pointer can cross the gap without closing. */
+  .nav__menu::before { content: ''; position: absolute; inset-block-end: 100%; inset-inline: 0; block-size: 16px; }
+  .nav__item:hover .nav__menu, .nav__item:focus-within .nav__menu {
+    opacity: 1; visibility: visible; transform: translateY(0);
+    transition: opacity 0.25s ease, transform 0.25s ease;
+  }
+  .nav__menu-link {
+    padding: 10px 14px; border-radius: 8px;
+    color: rgba(255, 255, 255, 0.82); font-size: 0.82rem; font-weight: 500;
+    letter-spacing: 0.01em; text-decoration: none; white-space: nowrap;
+    transition: background 0.2s ease, color 0.2s ease;
+  }
+  .nav__menu-link:hover { background: rgba(255, 255, 255, 0.08); color: #fff; }
+
+  /* Active page states */
+  .nav__link.is-active { color: #fff; }
+  .nav__link.is-active::after { transform: scaleX(1); }
+  .nav__menu-link.is-active { background: rgba(196, 106, 45, 0.16); color: #fff; }
+  .nav__menu-link.is-active:hover { background: rgba(196, 106, 45, 0.24); }
+
+  .nav__logo { justify-self: center; display: inline-flex; line-height: 0; }
+  .nav__logo img { block-size: clamp(64px, 6vw, 88px); inline-size: auto; transition: block-size 0.35s ease; }
+
+  .nav__actions { justify-self: end; display: inline-flex; align-items: center; gap: clamp(1.1rem, 1.8vw, 1.8rem); }
+  .nav__lang {
+    background: none; border: 0; cursor: pointer; text-decoration: none;
+    color: #fff; font-size: 0.875rem; font-weight: 500; letter-spacing: 0.14em; text-transform: uppercase;
+    padding: 0 0 0.2rem; border-bottom: 1.5px solid rgba(255, 255, 255, 0.9);
+    transition: opacity 0.3s ease;
+  }
+  .nav__lang:hover { opacity: 0.75; }
+  .nav__contact {
+    display: inline-flex; align-items: center; gap: 0.5rem;
+    color: #fff; text-decoration: none;
+    font-size: 0.875rem; font-weight: 500; letter-spacing: 0.14em; text-transform: uppercase;
+    padding-block-end: 0.35rem;
+    border-block-end: 1.5px solid rgba(255, 255, 255, 0.9);
+    transition: color 0.3s ease, border-color 0.3s ease;
+  }
+  .nav__contact svg { inline-size: 15px; block-size: 15px; }
+  .nav__contact:hover { color: var(--color-terracotta-300); border-block-end-color: var(--color-terracotta-300); }
+
+  .nav__burger {
+    display: none; justify-self: end;
+    inline-size: 46px; block-size: 46px; align-items: center; justify-content: center;
+    background: transparent; border: 0; color: #fff; cursor: pointer;
+  }
+  .nav__burger svg { inline-size: 26px; block-size: 26px; }
+
+  /* Mobile overlay */
+  .nav__overlay {
+    position: fixed; inset: 0; z-index: 200;
+    background: rgba(0, 0, 0, 0.55);
+    opacity: 0; visibility: hidden;
+    /* Contain the off-screen panel so it can't widen the document. */
+    overflow: hidden;
+    transition: opacity 0.35s ease, visibility 0s linear 0.35s;
+  }
+  .nav__overlay[aria-hidden='false'] { opacity: 1; visibility: visible; transition: opacity 0.35s ease; }
+  .nav__panel {
+    position: absolute; inset: 0 0 0 auto;
+    inline-size: min(88vw, 380px);
+    display: flex; flex-direction: column; gap: 0.5rem;
+    padding: 5rem 2rem 2rem;
+    overflow-y: auto; overscroll-behavior: contain;
+    background: rgba(18, 18, 18, 0.98);
+    border-inline-start: 1px solid rgba(255, 255, 255, 0.08);
+    transform: translateX(100%);
+    transition: transform 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  }
+  .nav__overlay[aria-hidden='false'] .nav__panel { transform: translateX(0); }
+  .nav__close {
+    position: absolute; inset: 1.4rem 1.6rem auto auto;
+    inline-size: 44px; block-size: 44px; display: grid; place-items: center;
+    background: transparent; border: 1px solid rgba(255, 255, 255, 0.2); border-radius: 999px;
+    color: #fff; cursor: pointer;
+  }
+  .nav__close svg { inline-size: 20px; block-size: 20px; }
+  .nav__panel-links { display: flex; flex-direction: column; }
+  .nav__panel-link {
+    padding-block: 1rem; color: #fff;
+    font-family: var(--font-display); font-size: 1.5rem; text-decoration: none;
+    border-block-end: 1px solid rgba(255, 255, 255, 0.07);
+    transition: color 0.3s ease;
+  }
+  .nav__panel-link:hover, .nav__panel-link.is-active { color: var(--color-terracotta); }
+  .nav__panel-sub { display: flex; flex-direction: column; margin-block: -0.2rem 0.4rem; }
+  .nav__panel-sublink {
+    padding-block: 0.65rem; padding-inline-start: 0.9rem;
+    color: rgba(255, 255, 255, 0.58); font-size: 1rem; text-decoration: none;
+    border-inline-start: 1px solid rgba(255, 255, 255, 0.12);
+    transition: color 0.3s ease, border-color 0.3s ease;
+  }
+  .nav__panel-sublink:hover, .nav__panel-sublink.is-active { color: var(--color-terracotta); border-inline-start-color: var(--color-terracotta); }
+  .nav__panel-phone { margin-block-start: 1.5rem; color: var(--color-terracotta); font-weight: 600; text-decoration: none; }
+
+  @media (max-width: 1024px) {
+    .nav { display: flex; align-items: center; justify-content: space-between; }
+    .nav__links, .nav__actions { display: none; }
+    .nav__burger { display: inline-flex; }
+  }
+  :global(body.is-nav-open) { overflow: hidden; }
+</style>

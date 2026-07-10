@@ -1,0 +1,113 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Nav from './Nav.astro';
+import Footer from './Footer.astro';
+import CtaBand from './CtaBand.astro';
+import PageHero from './PageHero.astro';
+import { getVehicles } from '../lib/vehicles-data';
+import { getLang, hrefFor, pick } from '../lib/i18n';
+
+const lang = getLang(Astro.url);
+const vehicles = getVehicles(lang);
+const base = hrefFor('/fahrzeuge/', lang);
+const L = pick(lang,
+  { title: 'Preise — Vienna Grand Chauffeurs', desc: 'Transparente Festpreise für Chauffeur- und Limousinenservice in Wien. Flughafentransfer, Stundensatz und Tagessatz für jede Fahrzeugklasse — ohne versteckte Kosten.', eyebrow: 'Preise', heroTitle: 'Transparente <span>Festpreise.</span>', heroSub: 'Keine versteckten Kosten. Wartezeit, Maut und Parkgebühren sind immer inklusive — Ihr Endpreis steht schon bei der Buchung fest. Wählen Sie die Klasse, die zu Ihrer Fahrt passt.', aria: 'Preisübersicht', view: 'Fahrzeug ansehen', note: 'Alle Preise verstehen sich als Richtwerte für Fahrten in Wien und Umgebung. Für Langstrecken, Sonderwünsche und individuelle Angebote kontaktieren Sie uns gerne — Sie erhalten umgehend einen verbindlichen Fixpreis.', included: ['Wartezeit inklusive', 'Maut & Parkgebühren inklusive', 'Fixpreis bei Buchung garantiert', 'Alle Preise inkl. USt.'] },
+  { title: 'Rates — Vienna Grand Chauffeurs', desc: 'Transparent fixed prices for chauffeur and limousine service in Vienna. Airport transfer, hourly and daily rates for every vehicle class — with no hidden costs.', eyebrow: 'Rates', heroTitle: 'Transparent <span>fixed prices.</span>', heroSub: 'No hidden costs. Waiting time, tolls and parking fees are always included — your final price is fixed at the time of booking. Choose the class that suits your journey.', aria: 'Price overview', view: 'View vehicle', note: 'All prices are guide values for journeys in Vienna and the surrounding area. For long-distance travel, special requests and individual offers, please contact us — you will receive a binding fixed price straight away.', included: ['Waiting time included', 'Tolls & parking included', 'Fixed price guaranteed at booking', 'All prices incl. VAT'] });
+---
+<Layout title={L.title} description={L.desc}>
+  <Nav />
+  <main>
+    <PageHero eyebrow={L.eyebrow} title={L.heroTitle} sub={L.heroSub} />
+
+    <!-- ============ PRICE OVERVIEW ============ -->
+    <section class="prices" aria-label={L.aria}>
+      <div class="container-x">
+        <ul class="prices__incl" data-reveal>
+          {L.included.map((i) => (
+            <li>
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg>
+              <span>{i}</span>
+            </li>
+          ))}
+        </ul>
+
+        <div class="prices__grid">
+          {vehicles.map((v) => (
+            <article class="pcard" data-reveal>
+              <div class="pcard__media">
+                <img src={v.img.card} alt={v.heroTitle} loading="lazy" decoding="async" />
+                <span class="pcard__klass">{v.cardKlass}</span>
+                <h2 class="pcard__name">{v.name}</h2>
+              </div>
+              <div class="pcard__body">
+                <ul class="pcard__rows">
+                  {v.vprice.cards.map((c) => (
+                    <li class="pcard__row">
+                      <span class="pcard__type">{c.title}</span>
+                      <span class="pcard__price"><strong>{c.price}</strong> <span class="pcard__unit">{c.unit}</span></span>
+                    </li>
+                  ))}
+                </ul>
+                <a class="pcard__link" href={`${base}${v.slug}`}>
+                  {L.view}
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 5l7 7-7 7"/></svg>
+                </a>
+              </div>
+            </article>
+          ))}
+        </div>
+
+        <p class="prices__note" data-reveal>{L.note}</p>
+      </div>
+    </section>
+
+    <CtaBand />
+  </main>
+  <Footer />
+</Layout>
+
+<style>
+  .prices { background: var(--color-cream); color: #0c0a08; padding-block: clamp(2.5rem, 5vw, 4rem) var(--section-py); }
+
+  .prices__incl { list-style: none; margin: 0 0 clamp(2rem, 4vw, 3rem); padding: 0; display: flex; flex-wrap: wrap; gap: 12px 28px; }
+  .prices__incl li { display: inline-flex; align-items: center; gap: 9px; font-size: 15px; font-weight: 500; color: #0c0a08; }
+  .prices__incl svg { inline-size: 18px; block-size: 18px; flex: none; color: #c46a2d; }
+
+  .prices__grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: clamp(1rem, 1.6vw, 1.5rem); align-items: stretch; }
+
+  .pcard { display: flex; flex-direction: column; background: #fff; border: 1px solid rgba(20, 15, 10, 0.1); border-radius: 20px; overflow: hidden; box-shadow: 0 22px 50px -38px rgba(0, 0, 0, 0.4); transition: transform 0.35s ease, box-shadow 0.35s ease; }
+  .pcard:hover { transform: translateY(-6px); box-shadow: 0 34px 66px -34px rgba(0, 0, 0, 0.45); }
+  .pcard__media { position: relative; isolation: isolate; aspect-ratio: 16 / 10; overflow: hidden; }
+  .pcard__media img { position: absolute; inset: 0; inline-size: 100%; block-size: 100%; object-fit: cover; transition: transform 0.7s cubic-bezier(0.22, 1, 0.36, 1); }
+  .pcard:hover .pcard__media img { transform: scale(1.06); }
+  .pcard__media::after { content: ''; position: absolute; inset: 0; background: linear-gradient(180deg, rgba(0, 0, 0, 0.22) 0%, transparent 30%, rgba(13, 7, 3, 0.9) 100%); }
+  .pcard__klass { position: absolute; z-index: 1; inset-block-start: 14px; inset-inline-start: 14px; padding: 6px 13px; border-radius: 999px; background: rgba(20, 15, 10, 0.42); border: 1px solid rgba(255, 255, 255, 0.24); backdrop-filter: blur(8px); -webkit-backdrop-filter: blur(8px); font-family: var(--font-oswald); font-size: 11px; letter-spacing: 0.12em; text-transform: uppercase; color: #f6e4d6; }
+  .pcard__name { position: absolute; z-index: 1; inset-block-end: 16px; inset-inline: 20px; font-family: var(--font-display); font-weight: 700; font-size: clamp(1.6rem, 2.4vw, 2.1rem); letter-spacing: -0.02em; color: #fff; }
+  .pcard__body { display: flex; flex-direction: column; flex: 1; padding: clamp(1.5rem, 2.5vw, 2rem); }
+  .pcard__rows { list-style: none; margin: 0 0 clamp(1.3rem, 2.2vw, 1.75rem); padding: 0; display: flex; flex-direction: column; }
+  .pcard__row { display: flex; align-items: baseline; justify-content: space-between; gap: 14px; padding-block: 14px; border-block-start: 1px solid rgba(20, 15, 10, 0.09); }
+  .pcard__row:first-child { border-block-start: 0; padding-block-start: 0; }
+  .pcard__type { font-size: 15px; color: #0c0a08c9; }
+  .pcard__price { white-space: nowrap; display: flex; align-items: baseline; gap: 5px; }
+  .pcard__price strong { font-family: var(--font-display); font-weight: 700; font-size: 1.25rem; color: #0c0a08; letter-spacing: -0.01em; }
+  .pcard__unit { font-size: 12.5px; color: rgba(12, 10, 8, 0.5); }
+  /* Emphasise the headline transfer price. */
+  .pcard__row:first-child .pcard__price strong { font-size: 1.85rem; color: #c46a2d; }
+  .pcard__link { margin-block-start: auto; display: inline-flex; align-items: center; justify-content: center; gap: 9px; padding: 14px 24px; border-radius: 999px; background: #14100b; color: #fff; font-weight: 600; font-size: 14.5px; text-decoration: none; transition: background 0.3s ease, transform 0.25s ease; }
+  .pcard__link:hover { background: #c46a2d; transform: translateY(-1px); }
+  .pcard__link svg { inline-size: 16px; block-size: 16px; }
+
+  @media (max-width: 960px) { .prices__grid { grid-template-columns: repeat(2, 1fr); } }
+  @media (max-width: 600px) { .prices__grid { grid-template-columns: 1fr; } }
+
+  .prices__note { margin: clamp(2.5rem, 5vw, 3.5rem) 0 0; font-size: 15px; line-height: 1.7; color: #0c0a089e; max-inline-size: 70ch; }
+
+  @media (max-width: 640px) {
+    .prices__incl { gap: 10px 20px; }
+    .prices__incl li { font-size: 14px; }
+  }
+</style>
+
+<style is:global>
+  body { background: var(--color-cream); }
+</style>
