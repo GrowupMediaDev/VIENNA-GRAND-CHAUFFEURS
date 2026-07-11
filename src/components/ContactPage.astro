@@ -8,6 +8,7 @@ import { getLang, hrefFor, pick } from '../lib/i18n';
 
 const lang = getLang(Astro.url);
 const phoneHref = `tel:${CONTACT.phone.tel}`;
+const turnstileSiteKey = import.meta.env.PUBLIC_TURNSTILE_SITE_KEY;
 
 const L = pick(lang,
   {
@@ -51,6 +52,9 @@ const details = [
 const optionValues = ['Allgemeine Anfrage', 'Flughafentransfer', 'Chauffeurservice', 'Chauffeur pro Stunde', 'Limousinenservice', 'Fahrdienst Diplomaten', 'Privatchauffeur', 'Shuttle-Service', 'Langstreckenfahrten'];
 ---
 <Layout title={L.title} description={L.desc}>
+  <Fragment slot="head">
+    <script src="https://challenges.cloudflare.com/turnstile/v0/api.js" async defer is:inline></script>
+  </Fragment>
   <Nav />
   <main>
     <PageHero eyebrow={L.eyebrow} title={L.heroTitle} sub={L.heroSub} />
@@ -80,7 +84,7 @@ const optionValues = ['Allgemeine Anfrage', 'Flughafentransfer', 'Chauffeurservi
           </aside>
 
           <div class="kontakt__form" data-reveal style="--reveal-delay:0.1s">
-            <form class="kform" data-contact-form novalidate>
+            <form class="kform" data-contact-form action="/api/contact" method="POST" novalidate>
               <div class="kform__grid">
                 <label class="kform__field">
                   <span class="kform__label">{L.fName} <em>*</em></span>
@@ -109,6 +113,10 @@ const optionValues = ['Allgemeine Anfrage', 'Flughafentransfer', 'Chauffeurservi
                 <input type="checkbox" name="datenschutz" required />
                 <span>{L.consent1} <a href={datenschutzHref}>{L.consent2}</a> {L.consent3}</span>
               </label>
+              <!-- Honeypot — hidden from users, bots that fill it are silently dropped. -->
+              <input type="text" name="_gotcha" tabindex="-1" autocomplete="off" aria-hidden="true" style="display:none" />
+              <input type="hidden" name="lang" value={lang} />
+              <div class="cf-turnstile" data-sitekey={turnstileSiteKey} data-theme="light"></div>
               <button type="submit" class="kform__submit">{L.submit}</button>
               <p class="kform__status" data-form-status role="status" aria-live="polite"></p>
             </form>
@@ -120,50 +128,37 @@ const optionValues = ['Allgemeine Anfrage', 'Flughafentransfer', 'Chauffeurservi
   <Footer />
 </Layout>
 
-<script define:vars={{ mailto: CONTACT.email.mailto, T }}>
-  // Contact form handling. Set FORM_ENDPOINT (Formspree/Web3Forms/own backend)
-  // to submit via fetch; if empty, the form opens a pre-filled email.
-  const FORM_ENDPOINT = '';
-
+<script define:vars={{ T }}>
+  // Submits to the Cloudflare Pages Function at /api/contact (Resend + Turnstile).
   const form = document.querySelector('[data-contact-form]');
   const status = form?.querySelector('[data-form-status]');
   form?.addEventListener('submit', async (e) => {
     e.preventDefault();
     if (!form.reportValidity()) return;
     const btn = form.querySelector('button[type="submit"]');
-    const data = new FormData(form);
-
-    if (FORM_ENDPOINT) {
-      btn.disabled = true;
-      status.className = 'kform__status';
-      status.textContent = T.sending;
-      try {
-        const res = await fetch(FORM_ENDPOINT, { method: 'POST', body: data, headers: { Accept: 'application/json' } });
-        if (!res.ok) throw new Error();
+    btn.disabled = true;
+    status.className = 'kform__status';
+    status.textContent = T.sending;
+    try {
+      const res = await fetch('/api/contact', { method: 'POST', body: new FormData(form), headers: { Accept: 'application/json' } });
+      const data = await res.json().catch(() => ({}));
+      if (res.ok && data.ok) {
         form.reset();
+        window.turnstile && window.turnstile.reset();
         status.className = 'kform__status is-ok';
         status.textContent = T.ok;
-      } catch {
+      } else {
+        window.turnstile && window.turnstile.reset();
         status.className = 'kform__status is-err';
         status.textContent = T.err;
-      } finally {
-        btn.disabled = false;
       }
-      return;
+    } catch {
+      window.turnstile && window.turnstile.reset();
+      status.className = 'kform__status is-err';
+      status.textContent = T.err;
+    } finally {
+      btn.disabled = false;
     }
-
-    const subject = `${T.subject}: ${data.get('leistung') || T.general}`;
-    const body = [
-      `${T.lName}: ${data.get('name') || ''}`,
-      `${T.lEmail}: ${data.get('email') || ''}`,
-      `${T.lPhone}: ${data.get('telefon') || ''}`,
-      `${T.lService}: ${data.get('leistung') || ''}`,
-      '',
-      `${data.get('nachricht') || ''}`,
-    ].join('\n');
-    window.location.href = `${mailto}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
-    status.className = 'kform__status is-ok';
-    status.textContent = T.mailtoOpened;
   });
 </script>
 
