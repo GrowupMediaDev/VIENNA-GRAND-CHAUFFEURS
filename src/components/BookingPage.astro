@@ -11,6 +11,7 @@ const lang = getLang(Astro.url);
 const phoneHref = `tel:${CONTACT.phone.tel}`;
 const datenschutzHref = hrefFor('/datenschutz', lang);
 const doneHref = hrefFor('/buchung-abschluss', lang);
+const turnstileSiteKey = import.meta.env.PUBLIC_TURNSTILE_SITE_KEY;
 const vehicles = getVehicles(lang).map((v) => ({
   slug: v.slug, name: v.name, klass: v.cardKlass, img: v.img.card,
   from: v.vprice.cards[0].price, pax: v.heroStats[0]?.value ?? '',
@@ -59,6 +60,9 @@ const T = pick(lang,
   { sending: 'Sending …', err: 'An error occurred. Please call us.', mailtoOpened: 'Your email application has opened. Alternatively you can reach us by phone.', subject: 'Booking request', lTrip: 'Trip type', lPickup: 'Pickup address', lDuration: 'Duration', lDest: 'Destination address', lWhen: 'Date / time', at: 'at', lPersons: 'Passengers', lLuggage: 'Luggage', lVehicle: 'Vehicle', lName: 'Name', lPhone: 'Phone', lEmail: 'Email', lNotes: 'Notes' });
 ---
 <Layout title={L.title} description={L.desc}>
+  <Fragment slot="head">
+    <script src="https://challenges.cloudflare.com/turnstile/v0/api.js" async defer is:inline></script>
+  </Fragment>
   <Nav />
   <main>
     <PageHero eyebrow={L.eyebrow} title={L.heroTitle} sub={L.heroSub} />
@@ -161,6 +165,10 @@ const T = pick(lang,
             </label>
           </fieldset>
 
+          <input type="text" name="_gotcha" tabindex="-1" autocomplete="off" aria-hidden="true" style="display:none" />
+          <input type="hidden" name="lang" value={lang} />
+          <div class="cf-turnstile bform__turnstile" data-sitekey={turnstileSiteKey} data-theme="light"></div>
+
           <div class="bform__foot">
             <button type="submit" class="bform__submit">{L.submit}</button>
             <p class="bform__note">{L.note1} <a href={phoneHref}>{CONTACT.phone.display}</a>.</p>
@@ -186,9 +194,10 @@ const T = pick(lang,
 </Layout>
 
 <script define:vars={{ mailto: CONTACT.email.mailto, T, doneHref }}>
-  // Booking form. Set FORM_ENDPOINT to submit via fetch and redirect to the
-  // confirmation page. Empty = pre-filled email fallback.
-  const FORM_ENDPOINT = '';
+  // Booking form → Cloudflare Pages Function (Resend + Turnstile). On success
+  // the visitor is redirected to the confirmation page. Empty endpoint would
+  // fall back to a pre-filled email draft.
+  const FORM_ENDPOINT = '/api/booking';
 
   const form = document.querySelector('[data-booking-form]');
   if (form) {
@@ -223,12 +232,14 @@ const T = pick(lang,
         status.textContent = T.sending;
         try {
           const res = await fetch(FORM_ENDPOINT, { method: 'POST', body: data, headers: { Accept: 'application/json' } });
-          if (!res.ok) throw new Error();
+          const out = await res.json().catch(() => ({}));
+          if (!res.ok || !out.ok) throw new Error();
           window.location.href = doneHref;
         } catch {
           btn.disabled = false;
           status.className = 'bform__status is-err';
           status.textContent = T.err;
+          if (window.turnstile) window.turnstile.reset();
         }
         return;
       }
@@ -311,6 +322,7 @@ const T = pick(lang,
   .bcheck { display: flex; align-items: flex-start; gap: 11px; margin-block-start: 1.25rem; font-size: 14px; line-height: 1.5; color: #0c0a08c9; }
   .bcheck input { inline-size: 18px; block-size: 18px; flex: none; margin-block-start: 1px; accent-color: #c46a2d; }
   .bcheck a { color: #c46a2d; text-decoration: underline; text-underline-offset: 2px; }
+  .bform__turnstile { margin-block-start: clamp(1.75rem, 3vw, 2.5rem); }
   .bform__foot { margin-block-start: clamp(1.75rem, 3vw, 2.5rem); padding-block-start: clamp(1.5rem, 3vw, 2rem); border-block-start: 1px solid rgba(20, 15, 10, 0.1); display: flex; flex-wrap: wrap; align-items: center; gap: 1rem 1.5rem; }
   .bform__submit { padding: 15px 40px; border: 0; border-radius: 999px; background: linear-gradient(90deg, #c46a2d 0%, #e9b79a 100%); color: #1a0e04; font-family: var(--font-body); font-weight: 600; font-size: 16px; cursor: pointer; transition: filter 0.3s ease, transform 0.25s ease; }
   .bform__submit:hover { filter: brightness(1.05); transform: translateY(-2px); }
