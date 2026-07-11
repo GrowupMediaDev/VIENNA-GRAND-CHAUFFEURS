@@ -142,7 +142,10 @@ const L = pick(lang,
   .scard {
     flex: 0 0 calc((100% - 2 * var(--gap)) / 3);
     display: flex; flex-direction: column; align-items: flex-start;
-    background: rgba(255, 255, 255, 0.1);
+    /* Semi-opaque dark base so the card stays legible even where backdrop-filter
+       is dropped (Safari inside transforms, iOS Low Power / Reduce Transparency).
+       The blur enhances it where supported. */
+    background: rgba(16, 11, 7, 0.55);
     border: 1px solid rgba(255, 255, 255, 0.15);
     border-radius: 30px;
     backdrop-filter: blur(17.5px); -webkit-backdrop-filter: blur(17.5px);
@@ -157,7 +160,7 @@ const L = pick(lang,
     transform: translateY(-10px);
     box-shadow: 0 34px 72px -26px rgba(0, 0, 0, 0.6);
     border-color: rgba(196, 106, 45, 0.55);
-    background: rgba(255, 255, 255, 0.14);
+    background: rgba(24, 17, 11, 0.62);
   }
   .scard:hover .scard__media img { transform: scale(1.07); }
   .scard:hover .scard__cta { filter: brightness(1.05); }
