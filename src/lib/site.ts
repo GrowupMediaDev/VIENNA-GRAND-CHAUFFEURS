@@ -5,11 +5,11 @@
 
 export const CONTACT = {
   phone: {
-    display: '+43 660 123 4567', // PLACEHOLDER — client to confirm
-    tel: '+436601234567',
+    display: '+43 676 4221825',
+    tel: '+436764221825',
   },
   whatsapp: {
-    url: 'https://wa.me/436601234567', // PLACEHOLDER
+    url: 'https://wa.me/436764221825',
   },
   email: {
     display: 'office@viennagrandchauffeurs.at', // PLACEHOLDER
