@@ -10,7 +10,7 @@ interface Props {
 const lang = getLang(Astro.url);
 const fq = t(lang).faq;
 const { faqs, num = '04', heading = pick(lang, 'Häufige Fragen zum Transfer.', 'Frequently asked questions.'), ctaHref = hrefFor('/kontakt', lang) } = Astro.props;
-const phoneHref = `tel:${CONTACT.phone.tel}`;
+const phoneHref = `tel:${CONTACT.phonePrimary.tel}`;
 ---
 <section class="faq" id="faq" aria-label={fq.aria}>
   <div class="container-x faq__grid">
@@ -22,7 +22,7 @@ const phoneHref = `tel:${CONTACT.phone.tel}`;
       <h2 class="faq__title">{heading}</h2>
       <div class="faq__actions">
         <a class="faq__cta" href={ctaHref}>{fq.cta} <span aria-hidden="true">→</span></a>
-        <a class="faq__phone" href={phoneHref}>{CONTACT.phone.display}</a>
+        <a class="faq__phone" href={phoneHref}>{CONTACT.phonePrimary.display}</a>
       </div>
     </div>
 

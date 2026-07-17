@@ -5,7 +5,7 @@ const lang = getLang(Astro.url);
 const NAV = getNav(lang);
 const nt = t(lang).nav;
 const alt = altLang(Astro.url);
-const phoneHref = `tel:${CONTACT.phone.tel}`;
+const phoneHref = `tel:${CONTACT.phonePrimary.tel}`;
 const homeHref = hrefFor('/', lang);
 
 // Highlight the current page. Compare on locale-stripped, trailing-slash-free
@@ -83,7 +83,7 @@ const linkActive = (href: string) => path === strip(href.replace(/\/+$/, '') || 
         </>
       ))}
     </nav>
-    <a class="nav__panel-phone" href={phoneHref} data-overlay-link>{CONTACT.phone.display}</a>
+    <a class="nav__panel-phone" href={phoneHref} data-overlay-link>{CONTACT.phonePrimary.display}</a>
   </div>
 </aside>
 

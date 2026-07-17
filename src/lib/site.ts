@@ -4,7 +4,11 @@
 // without touching markup.
 
 export const CONTACT = {
-  phone: {
+  phonePrimary: {
+    display: '+43 1 941262850',
+    tel: '+431941262850',
+  },
+  phoneSecondary: {
     display: '+43 676 4221825',
     tel: '+436764221825',
   },

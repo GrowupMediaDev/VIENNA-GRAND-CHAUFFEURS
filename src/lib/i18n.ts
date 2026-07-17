@@ -43,6 +43,7 @@ const UI = {
       services: 'Leistungen', fleet: 'Fahrzeuge', prices: 'Preise', airport: 'Flughafentransfer',
       aboutUs: 'Über uns', contactLink: 'Kontakt', imprint: 'Impressum', privacy: 'Datenschutz', terms: 'AGB',
       rights: 'Alle Rechte vorbehalten.',
+      landline: 'Festnetz', mobile: 'Mobil & WhatsApp',
     },
   },
   en: {
@@ -56,6 +57,7 @@ const UI = {
       services: 'Services', fleet: 'Fleet', prices: 'Rates', airport: 'Airport transfer',
       aboutUs: 'About us', contactLink: 'Contact', imprint: 'Imprint', privacy: 'Privacy', terms: 'Terms',
       rights: 'All rights reserved.',
+      landline: 'Landline', mobile: 'Mobile & WhatsApp',
     },
   },
 } as const;

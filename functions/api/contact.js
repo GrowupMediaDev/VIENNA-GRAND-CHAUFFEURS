@@ -18,7 +18,7 @@ const DOMAIN = 'viennagrandchauffeurs.at';
 const WEB = 'https://viennagrandchauffeurs.at';
 const FROM = 'Vienna Grand Chauffeurs <noreply@viennagrandchauffeurs.at>'; // must be on the Resend-verified domain
 const ADMIN_TO = 'office@viennagrandchauffeurs.at'; // where inquiries land
-const PHONE = '+43 676 4221825';
+const PHONE = '+43 1 941262850';
 const CONTACT_EMAIL = 'office@viennagrandchauffeurs.at'; // PLACEHOLDER
 const LEGAL = 'VT-Limousinen Service GmbH · 1010 Wien, Österreich';
 

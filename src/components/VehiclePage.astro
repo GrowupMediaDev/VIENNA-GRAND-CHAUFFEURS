@@ -11,7 +11,7 @@ import { getLang, hrefFor, pick } from '../lib/i18n';
 interface Props { vehicle: Vehicle; flotte: Vehicle[] }
 const { vehicle, flotte } = Astro.props;
 const lang = getLang(Astro.url);
-const phoneHref = `tel:${CONTACT.phone.tel}`;
+const phoneHref = `tel:${CONTACT.phonePrimary.tel}`;
 const bookHref = hrefFor('/online-buchung', lang);
 const kontaktHref = hrefFor('/kontakt', lang);
 const fahrzeugeBase = hrefFor('/fahrzeuge/', lang);
@@ -78,7 +78,7 @@ const priceIncludes = pick(lang,
             <a class="vhero__btn" href={bookHref}>{L.book}</a>
             <a class="vhero__phone" href={phoneHref}>
               <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M6.62 10.79a15.05 15.05 0 0 0 6.59 6.59l2.2-2.2a1 1 0 0 1 1.02-.24c1.12.37 2.33.57 3.57.57a1 1 0 0 1 1 1V20a1 1 0 0 1-1 1A17 17 0 0 1 3 4a1 1 0 0 1 1-1h3.5a1 1 0 0 1 1 1c0 1.25.2 2.45.57 3.57.11.35.03.74-.25 1.02l-2.2 2.2Z"/></svg>
-              <span>{CONTACT.phone.display}</span>
+              <span>{CONTACT.phonePrimary.display}</span>
             </a>
           </div>
         </div>
@@ -152,7 +152,7 @@ const priceIncludes = pick(lang,
             <p class="vkab__lead">{vehicle.kab.lead}</p>
             <div class="vkab__actions">
               <a class="vkab__cta" href={kontaktHref}>{L.request} <span aria-hidden="true">→</span></a>
-              <a class="vkab__phone" href={phoneHref}>{CONTACT.phone.display}</a>
+              <a class="vkab__phone" href={phoneHref}>{CONTACT.phonePrimary.display}</a>
             </div>
           </div>
         </div>
