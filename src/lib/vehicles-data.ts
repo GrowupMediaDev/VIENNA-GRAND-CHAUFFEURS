@@ -329,7 +329,7 @@ export const VEHICLES_DATA: Vehicle[] = [
       cards: [
         { title: 'Flughafentransfer', sub: 'Festpreis pro Strecke', price: '€170', unit: '/ Strecke', desc: 'Inkl. 60 Min. Wartezeit und Gepäckservice — die ganze Gruppe in einem Fahrzeug.', cta: 'Transfer buchen', featured: true },
         { title: 'Stundensatz', sub: 'Mindestens 3 Stunden', price: '€80', unit: '/ Stunde', desc: 'Chauffeur zur freien Verfügung — ideal für Events, Ausflüge und Gruppenprogramme. Inkl. max. 20 km pro Stunde.', cta: 'Stunden buchen' },
-        { title: 'Tagessatz', sub: '8 Stunden inklusive', price: '€640', unit: '/ Tag', desc: 'Ein Chauffeur für den ganzen Tag — für Betriebsausflüge, Touren und Events.', cta: 'Tag buchen' },
+        { title: 'Tagessatz', sub: '8 Stunden inklusive', price: '€590', unit: '/ Tag', desc: 'Ein Chauffeur für den ganzen Tag — für Betriebsausflüge, Touren und Events.', cta: 'Tag buchen' },
       ],
     },
     faq: [
@@ -634,7 +634,7 @@ export const VEHICLES_DATA_EN: Vehicle[] = [
       cards: [
         { title: 'Airport transfer', sub: 'Fixed price per trip', price: '€170', unit: '/ trip', desc: 'Incl. 60 min. waiting time and luggage service — the whole group in one vehicle.', cta: 'Book transfer', featured: true },
         { title: 'Hourly rate', sub: 'Minimum 3 hours', price: '€80', unit: '/ hour', desc: 'A chauffeur at your disposal — ideal for events, excursions and group programmes. Incl. max. 20 km per hour.', cta: 'Book hours' },
-        { title: 'Daily rate', sub: '8 hours included', price: '€640', unit: '/ day', desc: 'A chauffeur for the whole day — for corporate outings, tours and events.', cta: 'Book day' },
+        { title: 'Daily rate', sub: '8 hours included', price: '€590', unit: '/ day', desc: 'A chauffeur for the whole day — for corporate outings, tours and events.', cta: 'Book day' },
       ],
     },
     faq: [
