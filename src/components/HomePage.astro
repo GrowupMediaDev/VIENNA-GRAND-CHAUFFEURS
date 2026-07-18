@@ -218,6 +218,19 @@ const L = pick(lang,
               </button>
             </div>
           </form>
+
+          <template id="hb-stop-tpl">
+            <div class="hbook__stop">
+              <label class="hbook__flabel">{L.hbookStop}</label>
+              <div class="hbook__inwrap">
+                <svg class="hbook__pin" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><circle cx="12" cy="10" r="3"/><path d="M12 2a8 8 0 0 0-8 8c0 5.25 8 12 8 12s8-6.75 8-12a8 8 0 0 0-8-8Z"/></svg>
+                <input class="hbook__input hbook__stop-input" type="text" placeholder={L.hbookStopV} autocomplete="off" />
+              </div>
+              <button type="button" class="hbook__stop-remove" aria-label={L.hbookRemoveStop}>
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" aria-hidden="true"><path d="M6 6l12 12M18 6L6 18"/></svg>
+              </button>
+            </div>
+          </template>
         </div>
       </div>
     </section>
@@ -293,28 +306,18 @@ const L = pick(lang,
 
         function stopCount() { return stopsWrap.querySelectorAll('.hbook__stop').length; }
 
+        const stopTpl = document.getElementById('hb-stop-tpl');
         function addStop() {
-          if (stopCount() >= MAX_STOPS) return;
+          if (stopCount() >= MAX_STOPS || !stopTpl) return;
+          // Aus dem <template> klonen -- so behalten die Elemente Astros
+          // Scope-Attribut, das per JS erzeugte Elemente NICHT bekaemen (sonst
+          // greift das gescopte CSS nicht -> unstyled/riesige Icons).
+          const cell = stopTpl.content.firstElementChild.cloneNode(true);
           const id = 'hb-stop-' + (stopSeq++);
-          const cell = document.createElement('div');
-          cell.className = 'hbook__stop';
-          const label = document.createElement('label');
-          label.className = 'hbook__flabel';
-          label.textContent = addBtn.dataset.labelStop;
-          label.setAttribute('for', id);
-          const inwrap = document.createElement('div');
-          inwrap.className = 'hbook__inwrap';
-          inwrap.innerHTML = '<svg class="hbook__pin" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><circle cx="12" cy="10" r="3"/><path d="M12 2a8 8 0 0 0-8 8c0 5.25 8 12 8 12s8-6.75 8-12a8 8 0 0 0-8-8Z"/></svg>';
-          const input = document.createElement('input');
-          input.className = 'hbook__input hbook__stop-input';
-          input.type = 'text'; input.id = id; input.placeholder = addBtn.dataset.labelStopv; input.autocomplete = 'off';
-          inwrap.appendChild(input);
-          const remove = document.createElement('button');
-          remove.type = 'button'; remove.className = 'hbook__stop-remove';
-          remove.setAttribute('aria-label', addBtn.dataset.labelRemove);
-          remove.innerHTML = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" aria-hidden="true"><path d="M6 6l12 12M18 6L6 18"/></svg>';
-          remove.addEventListener('click', () => { cell.remove(); addBtn.hidden = false; });
-          cell.appendChild(label); cell.appendChild(inwrap); cell.appendChild(remove);
+          const label = cell.querySelector('.hbook__flabel');
+          const input = cell.querySelector('.hbook__stop-input');
+          input.id = id; label.setAttribute('for', id);
+          cell.querySelector('.hbook__stop-remove').addEventListener('click', () => { cell.remove(); addBtn.hidden = false; });
           stopsWrap.appendChild(cell);
           input.focus();
           attach(input);
