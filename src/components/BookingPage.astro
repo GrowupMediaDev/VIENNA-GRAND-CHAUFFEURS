@@ -73,6 +73,11 @@ const T = pick(lang,
         <div id="vt-booking" data-theme="light" data-lang={lang}></div>
       </div>
     </section>
+    <style>
+      /* Abstand zu den Nachbar-Abschnitten: Desktop großzügig, Handy knapp. */
+      .vgc-booking { padding-block: 100px; }
+      @media (max-width: 768px) { .vgc-booking { padding-block: 28px; } }
+    </style>
     <script src="https://vgc-buchung-oezdemircagri-7244s-projects.vercel.app/widget/vgc-widget.js" async is:inline></script>
 
     <!-- Altes 3-Schritt-Formular — ausgeblendet, NICHT gelöscht (Rückfall verfügbar) -->
