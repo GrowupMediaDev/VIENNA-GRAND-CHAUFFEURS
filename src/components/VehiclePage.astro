@@ -496,8 +496,8 @@ const priceIncludes = pick(lang,
   .vflotte__viewport { overflow: hidden; }
   .vflotte__track {
     --gap: clamp(1rem, 1.5vw, 1.5rem);
-    display: flex; gap: var(--gap);
-    overflow-x: auto; scroll-snap-type: x mandatory; scroll-behavior: smooth;
+    display: flex; align-items: flex-start; gap: var(--gap);
+    overflow-x: auto; overflow-y: hidden; scroll-snap-type: x mandatory; scroll-behavior: smooth;
     scrollbar-width: none; -ms-overflow-style: none; -webkit-overflow-scrolling: touch;
     padding-block-end: 4px;
   }
