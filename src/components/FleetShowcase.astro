@@ -3,19 +3,19 @@ import { getLang, hrefFor, pick } from '../lib/i18n';
 const lang = getLang(Astro.url);
 
 const g = (slug: string) => [1, 2, 3, 4].map((n) => `/images/fahrzeuge/${slug}-gal-${n}.jpg`);
-const BASE = [
+const BASE: { slug: string; tab: { de: string; en: string }; name: { de: string; en: string }; tier: { de: string; en: string }; pax: number; bags: number; img?: string; gallery?: string[] }[] = [
   { slug: 'e-klasse', tab: { de: 'E-Klasse', en: 'E-Class' }, name: { de: 'Mercedes E-Klasse', en: 'Mercedes E-Class' }, tier: { de: 'Business Class Limousine', en: 'Business Class Sedan' }, pax: 3, bags: 3 },
   { slug: 'bmw-5er', tab: { de: 'BMW 5er', en: 'BMW 5 Series' }, name: { de: 'BMW 5er', en: 'BMW 5 Series' }, tier: { de: 'Business Class Limousine', en: 'Business Class Sedan' }, pax: 3, bags: 3 },
   { slug: 's-klasse', tab: { de: 'S-Klasse', en: 'S-Class' }, name: { de: 'Mercedes S-Klasse', en: 'Mercedes S-Class' }, tier: { de: 'First Class Limousine', en: 'First Class Sedan' }, pax: 3, bags: 4 },
   { slug: 'maybach', tab: { de: 'Maybach', en: 'Maybach' }, name: { de: 'Mercedes-Maybach', en: 'Mercedes-Maybach' }, tier: { de: 'Luxury Class Limousine', en: 'Luxury Class Sedan' }, pax: 3, bags: 3 },
   { slug: 'mercedes-eqe', tab: { de: 'EQE', en: 'EQE' }, name: { de: 'Mercedes EQE', en: 'Mercedes EQE' }, tier: { de: 'Elektro Limousine', en: 'Electric Sedan' }, pax: 3, bags: 3 },
   { slug: 'v-klasse', tab: { de: 'V-Klasse', en: 'V-Class' }, name: { de: 'Mercedes V-Klasse', en: 'Mercedes V-Class' }, tier: { de: 'Business Van & Shuttle', en: 'Business Van & Shuttle' }, pax: 7, bags: 7 },
-  { slug: 'vip-minibus', tab: { de: 'VIP Minibus', en: 'VIP Minibus' }, name: { de: 'VIP Sprinter', en: 'VIP Sprinter' }, tier: { de: 'VIP Lounge Minibus', en: 'VIP Lounge Minibus' }, pax: 12, bags: 8 },
-  { slug: 'business-sprinter', tab: { de: 'Sprinter', en: 'Sprinter' }, name: { de: 'Mercedes Sprinter', en: 'Mercedes Sprinter' }, tier: { de: 'Gruppen & Events', en: 'Groups & Events' }, pax: 19, bags: 10 },
+  { slug: 'vip-minibus', tab: { de: 'VIP Minibus', en: 'VIP Minibus' }, name: { de: 'VIP Sprinter', en: 'VIP Sprinter' }, tier: { de: 'VIP Lounge Minibus', en: 'VIP Lounge Minibus' }, pax: 12, bags: 8, img: '/images/fahrzeuge/card-vip-minibus.webp' },
+  { slug: 'business-sprinter', tab: { de: 'Sprinter', en: 'Sprinter' }, name: { de: 'Mercedes Sprinter', en: 'Mercedes Sprinter' }, tier: { de: 'Gruppen & Events', en: 'Groups & Events' }, pax: 19, bags: 10, gallery: ['/images/fahrzeuge/business-sprinter-gal-1.webp', '/images/fahrzeuge/business-sprinter-gal-2.webp', '/images/fahrzeuge/business-sprinter-gal-4.jpg', '/images/fahrzeuge/business-sprinter-gal-5.webp'] },
 ];
 const vehicles = BASE.map((v) => ({
   tab: pick(lang, v.tab.de, v.tab.en), name: pick(lang, v.name.de, v.name.en), tier: pick(lang, v.tier.de, v.tier.en),
-  pax: v.pax, bags: v.bags, slug: v.slug, img: `/images/fahrzeuge/card-${v.slug}.jpg`, w: 1400, h: 1400, gallery: g(v.slug),
+  pax: v.pax, bags: v.bags, slug: v.slug, img: v.img ?? `/images/fahrzeuge/card-${v.slug}.jpg`, w: 1400, h: 1400, gallery: v.gallery ?? g(v.slug),
 }));
 const galleryData = vehicles.map((v) => ({ name: v.name, slug: v.slug, gallery: v.gallery }));
 const viewBase = hrefFor('/fahrzeuge/', lang);
