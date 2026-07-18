@@ -33,6 +33,11 @@ const L = pick(lang,
     hbookAria: 'Online buchen', hbookEyebrow: 'In 30 Sekunden zum Fixpreis',
     hbookFrom: 'Von', hbookTo: 'Nach', hbookDate: 'Datum', hbookTime: 'Uhrzeit', hbookStop: 'Zwischenstopp', hbookFlight: 'Flugnummer',
     hbookFromV: 'Abholadresse', hbookToV: 'Zieladresse', hbookStopV: 'Adresse Zwischenstopp', hbookFlightV: 'z. B. OS 052', hbookCta: 'Preis berechnen', hbookAddStop: 'Zwischenstopp hinzufügen', hbookRemoveStop: 'Zwischenstopp entfernen', hbookFlightReq: 'Bitte Flugnummer angeben (Flughafen-Abholung).',
+    hbookDatePh: 'TT.MM.JJJJ', hbookTimePh: 'HH:MM',
+    calPrev: 'Vorheriger Monat', calNext: 'Nächster Monat',
+    calMonths: ['Januar','Februar','März','April','Mai','Juni','Juli','August','September','Oktober','November','Dezember'],
+    calDows: ['Mo','Di','Mi','Do','Fr','Sa','So'],
+    hbookLeadNotice: 'Für Buchungen mit weniger als 2 Stunden Vorlaufzeit kontaktieren Sie uns bitte direkt telefonisch oder per WhatsApp — wir finden gerne kurzfristig die passende Lösung für Sie.',
     aboutEyebrow: 'Über uns',
     aboutTitle: 'Unser Chauffeurservice verbindet Wiener Diskretion mit modernem Komfort',
     aboutBody: 'Professionelle Chauffeure, eine gepflegte Premiumflotte und ein durchdachter Ablauf sorgen dafür, dass Sie sich auf jeder Fahrt einfach zurücklehnen können, ob Flughafentransfer, Geschäftstermin oder Langstrecke in ganz Österreich. Pünktlichkeit, Diskretion und persönliche Betreuung begleiten Sie dabei vom ersten Kontakt bis zur Ankunft.',
@@ -80,6 +85,11 @@ const L = pick(lang,
     hbookAria: 'Book online', hbookEyebrow: 'Your fixed price in 30 seconds',
     hbookFrom: 'From', hbookTo: 'To', hbookDate: 'Date', hbookTime: 'Time', hbookStop: 'Stop', hbookFlight: 'Flight no.',
     hbookFromV: 'Pickup address', hbookToV: 'Destination address', hbookStopV: 'Stop address', hbookFlightV: 'e.g. OS 052', hbookCta: 'Calculate price', hbookAddStop: 'Add stop', hbookRemoveStop: 'Remove stop', hbookFlightReq: 'Please enter the flight number (airport pickup).',
+    hbookDatePh: 'DD.MM.YYYY', hbookTimePh: 'HH:MM',
+    calPrev: 'Previous month', calNext: 'Next month',
+    calMonths: ['January','February','March','April','May','June','July','August','September','October','November','December'],
+    calDows: ['Mo','Tu','We','Th','Fr','Sa','Su'],
+    hbookLeadNotice: 'For bookings with less than 2 hours lead time, please contact us directly by phone or WhatsApp — we are happy to find a short-notice solution for you.',
     aboutEyebrow: 'About us',
     aboutTitle: 'Our chauffeur service combines Viennese discretion with modern comfort',
     aboutBody: 'Professional chauffeurs, an immaculate premium fleet and a well-thought-out process ensure that you can simply sit back on every journey — whether an airport transfer, a business appointment or a long-distance trip across Austria. Punctuality, discretion and personal care accompany you from the first contact to your arrival.',
@@ -174,7 +184,7 @@ const L = pick(lang,
       <div class="container-x">
         <div class="hbook__inner" data-reveal>
           <span class="hbook__eyebrow"><span class="hbook__dot" aria-hidden="true"></span>{L.hbookEyebrow}</span>
-          <form class="hbook__bar" id="hbook-form" data-book-base={bookHref} data-flight-req={L.hbookFlightReq} novalidate>
+          <form class="hbook__bar" id="hbook-form" data-book-base={bookHref} data-flight-req={L.hbookFlightReq} data-cal-months={JSON.stringify(L.calMonths)} data-cal-dows={JSON.stringify(L.calDows)} novalidate>
             <div class="hbook__row">
               <div class="hbook__cell" data-cell="from">
                 <label class="hbook__flabel" for="hb-from">{L.hbookFrom}</label>
@@ -194,13 +204,33 @@ const L = pick(lang,
                 </div>
               </div>
 
-              <div class="hbook__cell hbook__cell--sm" data-cell="date">
-                <label class="hbook__flabel" for="hb-date">{L.hbookDate}</label>
-                <input class="hbook__input hbook__input--dt" id="hb-date" name="date" type="date" />
+              <div class="hbook__cell hbook__cell--sm hbook__cell--picker" data-cell="date">
+                <label class="hbook__flabel" for="hb-date-display">{L.hbookDate}</label>
+                <div class="hbook__inwrap">
+                  <svg class="hbook__pin" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="4.5" width="18" height="16" rx="2.5"/><path d="M3 9h18M8 2.5v4M16 2.5v4"/></svg>
+                  <input class="hbook__input hbook__input--picker" id="hb-date-display" type="text" placeholder={L.hbookDatePh} readonly inputmode="none" autocomplete="off" aria-haspopup="dialog" aria-expanded="false" />
+                </div>
+                <input type="hidden" id="hb-date" name="date" />
+                <div class="hbook__pop hbook__cal" id="hb-cal" role="dialog" aria-label={L.hbookDate} hidden>
+                  <div class="hbook__cal-head">
+                    <button type="button" class="hbook__cal-nav" id="hb-cal-prev" aria-label={L.calPrev}>
+                      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M15 6l-6 6 6 6"/></svg>
+                    </button>
+                    <div class="hbook__cal-month" id="hb-cal-month" aria-live="polite"></div>
+                    <button type="button" class="hbook__cal-nav" id="hb-cal-next" aria-label={L.calNext}>
+                      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9 6l6 6-6 6"/></svg>
+                    </button>
+                  </div>
+                  <div class="hbook__cal-grid" id="hb-cal-grid"></div>
+                </div>
               </div>
-              <div class="hbook__cell hbook__cell--sm" data-cell="time">
+              <div class="hbook__cell hbook__cell--sm hbook__cell--picker" data-cell="time">
                 <label class="hbook__flabel" for="hb-time">{L.hbookTime}</label>
-                <input class="hbook__input hbook__input--dt" id="hb-time" name="time" type="time" />
+                <div class="hbook__inwrap">
+                  <svg class="hbook__pin" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="8.5"/><path d="M12 7.5v5l3.2 1.8"/></svg>
+                  <input class="hbook__input hbook__input--picker" id="hb-time" name="time" type="text" placeholder={L.hbookTimePh} inputmode="numeric" autocomplete="off" aria-haspopup="listbox" aria-expanded="false" />
+                </div>
+                <div class="hbook__pop hbook__times" id="hb-time-pop" role="listbox" hidden></div>
               </div>
               <div class="hbook__cell hbook__cell--sm" data-cell="flight" id="hb-flight-cell" hidden>
                 <label class="hbook__flabel" for="hb-flight">{L.hbookFlight}</label>
@@ -218,6 +248,23 @@ const L = pick(lang,
               </button>
             </div>
           </form>
+
+          <div class="hbook__notice" id="hb-notice" role="alert" hidden>
+            <svg class="hbook__notice-ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="9.5"/><path d="M12 8h.01M11 12h1v4h1"/></svg>
+            <div class="hbook__notice-body">
+              <p class="hbook__notice-text">{L.hbookLeadNotice}</p>
+              <div class="hbook__notice-links">
+                <a class="hbook__notice-link" href="tel:+431941262850">
+                  <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M6.62 10.79a15.05 15.05 0 0 0 6.59 6.59l2.2-2.2a1 1 0 0 1 1.02-.24c1.12.37 2.33.57 3.57.57a1 1 0 0 1 1 1V20a1 1 0 0 1-1 1A17 17 0 0 1 3 4a1 1 0 0 1 1-1h3.5a1 1 0 0 1 1 1c0 1.25.2 2.45.57 3.57.11.35.03.74-.25 1.02l-2.2 2.2Z"/></svg>
+                  +43 1 941262850
+                </a>
+                <a class="hbook__notice-link hbook__notice-link--wa" href="https://wa.me/436764221825" target="_blank" rel="noopener">
+                  <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12.04 2a9.9 9.9 0 0 0-8.4 15.17L2 22l4.95-1.3A9.9 9.9 0 1 0 12.04 2Zm0 1.8a8.1 8.1 0 1 1-4.13 15.06l-.3-.18-2.94.77.78-2.86-.2-.3A8.1 8.1 0 0 1 12.04 3.8Zm-2.6 4.02c-.15-.36-.3-.35-.45-.36h-.38c-.13 0-.35.05-.53.26-.18.2-.7.68-.7 1.66 0 .98.71 1.92.81 2.05.1.13 1.4 2.24 3.5 3.05 1.74.67 2.1.53 2.48.5.38-.04 1.22-.5 1.4-.98.17-.48.17-.9.12-.98-.05-.09-.18-.13-.38-.23-.2-.1-1.22-.6-1.4-.67-.19-.07-.33-.1-.47.1-.13.2-.53.66-.65.8-.12.13-.24.15-.44.05-.2-.1-.86-.32-1.63-1.01-.6-.54-1.01-1.2-1.13-1.4-.12-.2-.01-.31.09-.41.09-.09.2-.24.3-.36.1-.12.13-.2.2-.34.06-.13.03-.25-.02-.35-.05-.1-.44-1.12-.62-1.53Z"/></svg>
+                  +43 676 4221825
+                </a>
+              </div>
+            </div>
+          </div>
 
           <template id="hb-stop-tpl">
             <div class="hbook__stop">
@@ -254,6 +301,218 @@ const L = pick(lang,
         const flightInput = document.getElementById('hb-flight');
         const MAX_STOPS = 3;
         let mapsPromise = null, stopSeq = 0;
+
+        // ===== Custom Datum-/Uhrzeit-Picker (VGC) =====
+        // dateEl = verstecktes Feld mit YYYY-MM-DD (fuer den Prefill-Submit),
+        // dateDisplay = sichtbares, schreibgeschuetztes Feld mit TT.MM.JJJJ.
+        // timeEl = Textfeld mit HH:MM (Freitext erlaubt). Kalendertage/Zeitslots
+        // werden per innerHTML erzeugt und im gescopten <style> ueber :global()
+        // gestyled (per createElement erzeugte Elemente bekommen Astros
+        // Scope-Attribut nicht -> gescopte Klassen greifen sonst nicht).
+        const MIN_LEAD_HOURS = 2;
+        const TIME_INTERVAL = 15;
+        const pad = (n) => String(n).padStart(2, '0');
+        const dateDisplay = document.getElementById('hb-date-display');
+        const calEl = document.getElementById('hb-cal');
+        const calGrid = document.getElementById('hb-cal-grid');
+        const calMonthLabel = document.getElementById('hb-cal-month');
+        const timePop = document.getElementById('hb-time-pop');
+        const notice = document.getElementById('hb-notice');
+        const calMonths = JSON.parse(form.dataset.calMonths || '[]');
+        const calDows = JSON.parse(form.dataset.calDows || '[]');
+        const dateCell = dateEl ? dateEl.closest('.hbook__cell') : null;
+        const timeCell = timeEl ? timeEl.closest('.hbook__cell') : null;
+        let calCursor = new Date();
+        let defaultTime = '';
+
+        // jetzt + MIN_LEAD_HOURS, aufgerundet auf den naechsten TIME_INTERVAL.
+        // strict schiebt bei exakter Rasterlage einen Schritt weiter (Default
+        // entkommt so garantiert dem <2h-Live-Hinweis). Portiert aus dem
+        // Buchungs-Widget (computeDefaultDateTime / computeLeadDateTime).
+        function computeLeadDateTime(strict) {
+          const t = new Date();
+          t.setSeconds(0, 0);
+          t.setHours(t.getHours() + MIN_LEAD_HOURS);
+          const mins = t.getMinutes();
+          let rounded = Math.ceil(mins / TIME_INTERVAL) * TIME_INTERVAL;
+          if (strict && rounded === mins) rounded += TIME_INTERVAL;
+          if (rounded >= 60) { t.setHours(t.getHours() + 1); t.setMinutes(rounded - 60); }
+          else { t.setMinutes(rounded); }
+          return t;
+        }
+        function computeDefaultDateTime() {
+          const t = computeLeadDateTime(true);
+          return {
+            date: `${t.getFullYear()}-${pad(t.getMonth() + 1)}-${pad(t.getDate())}`,
+            time: `${pad(t.getHours())}:${pad(t.getMinutes())}`,
+          };
+        }
+        // HH:MM aus Freitext parsen -- akzeptiert "20:30", "2030", "830".
+        function parseTimeInput(raw) {
+          const c = (raw || '').trim();
+          let m = c.match(/^([0-2]?\d):([0-5]\d)$/) || c.match(/^([0-2]?\d)([0-5]\d)$/);
+          if (!m) return null;
+          const h = parseInt(m[1], 10), mi = parseInt(m[2], 10);
+          if (h > 23 || mi > 59) return null;
+          return pad(h) + ':' + pad(mi);
+        }
+        // Gewaehltes Datum+Uhrzeit < jetzt+2h ?
+        function leadBlocked() {
+          const iso = dateEl ? dateEl.value : '';
+          const tm = timeEl ? timeEl.value : '';
+          if (!iso || !/^\d{2}:\d{2}$/.test(tm)) return false;
+          const [y, mo, d] = iso.split('-').map(Number);
+          const [h, mi] = tm.split(':').map(Number);
+          const chosen = new Date(y, mo - 1, d, h, mi, 0, 0);
+          const min = new Date(); min.setSeconds(0, 0); min.setHours(min.getHours() + MIN_LEAD_HOURS);
+          return chosen.getTime() < min.getTime();
+        }
+        function updateNotice() {
+          if (notice) notice.hidden = !leadBlocked();
+        }
+
+        function renderCal() {
+          const y = calCursor.getFullYear(), m = calCursor.getMonth();
+          calMonthLabel.textContent = (calMonths[m] || '') + ' ' + y;
+          const firstDow = (new Date(y, m, 1).getDay() + 6) % 7; // Woche ab Montag
+          const daysInMonth = new Date(y, m + 1, 0).getDate();
+          const today = new Date(); today.setHours(0, 0, 0, 0);
+          let html = '';
+          calDows.forEach((d) => { html += '<span class="hbook__dow">' + d + '</span>'; });
+          for (let i = 0; i < firstDow; i++) html += '<span class="hbook__day hbook__day--empty"></span>';
+          for (let d = 1; d <= daysInMonth; d++) {
+            const dt = new Date(y, m, d);
+            const iso = y + '-' + pad(m + 1) + '-' + pad(d);
+            let cls = 'hbook__day';
+            let dis = '';
+            if (dt < today) { dis = 'disabled'; cls += ' is-past'; }
+            if (dt.getTime() === today.getTime()) cls += ' is-today';
+            if (dateEl && dateEl.value === iso) cls += ' is-selected';
+            html += '<button type="button" class="' + cls + '" data-iso="' + iso + '" ' + dis + '>' + d + '</button>';
+          }
+          calGrid.innerHTML = html;
+          calGrid.querySelectorAll('button[data-iso]').forEach((btn) => {
+            btn.addEventListener('click', () => { selectDate(btn.dataset.iso); closeCal(); });
+          });
+        }
+        function selectDate(iso) {
+          if (dateEl) dateEl.value = iso;
+          const [y, mo, d] = iso.split('-');
+          if (dateDisplay) dateDisplay.value = d + '.' + mo + '.' + y;
+          updateNotice();
+        }
+
+        function buildTimes() {
+          let html = '';
+          for (let h = 0; h < 24; h++) {
+            for (let mn = 0; mn < 60; mn += TIME_INTERVAL) {
+              const v = pad(h) + ':' + pad(mn);
+              html += '<button type="button" class="hbook__time' + (timeEl && v === timeEl.value ? ' is-selected' : '') + '" data-v="' + v + '" role="option">' + v + '</button>';
+            }
+          }
+          timePop.innerHTML = html;
+          timePop.querySelectorAll('button[data-v]').forEach((btn) => {
+            // pointerdown (Maus/Pen) committet vor dem Outside-Click-Capture;
+            // click deckt Touch/Tastatur ab. selectTime/closeTime sind idempotent.
+            btn.addEventListener('pointerdown', (e) => {
+              if (e.pointerType === 'touch') return;
+              e.preventDefault(); selectTime(btn.dataset.v); closeTime();
+            });
+            btn.addEventListener('click', () => { selectTime(btn.dataset.v); closeTime(); });
+          });
+        }
+        function selectTime(v) {
+          if (timeEl) timeEl.value = v;
+          updateNotice();
+        }
+
+        function anyPopOpen() { return (calEl && !calEl.hidden) || (timePop && !timePop.hidden); }
+        function attachGlobal() {
+          document.addEventListener('click', onDocClick, true);
+          document.addEventListener('keydown', onEsc, true);
+        }
+        function detachGlobal() {
+          if (!anyPopOpen()) {
+            document.removeEventListener('click', onDocClick, true);
+            document.removeEventListener('keydown', onEsc, true);
+          }
+        }
+        function onDocClick(e) {
+          const path = typeof e.composedPath === 'function' ? e.composedPath() : [];
+          if (calEl && !calEl.hidden && !path.includes(calEl) && !path.includes(dateCell)) closeCal();
+          if (timePop && !timePop.hidden && !path.includes(timePop) && !path.includes(timeCell)) closeTime();
+        }
+        function onEsc(e) { if (e.key === 'Escape') { closeCal(); closeTime(); } }
+
+        function openCal() {
+          if (!calEl || !calEl.hidden) return;
+          closeTime();
+          if (dateEl && dateEl.value) { const [yy, mm] = dateEl.value.split('-'); calCursor = new Date(+yy, +mm - 1, 1); }
+          else { calCursor = new Date(); calCursor.setDate(1); }
+          renderCal();
+          calEl.hidden = false;
+          if (dateDisplay) dateDisplay.setAttribute('aria-expanded', 'true');
+          attachGlobal();
+        }
+        function closeCal() {
+          if (!calEl || calEl.hidden) return;
+          calEl.hidden = true;
+          if (dateDisplay) dateDisplay.setAttribute('aria-expanded', 'false');
+          detachGlobal();
+        }
+        function openTime() {
+          if (!timePop || !timePop.hidden) return;
+          closeCal();
+          buildTimes();
+          timePop.hidden = false;
+          if (timeEl) timeEl.setAttribute('aria-expanded', 'true');
+          const target = timePop.querySelector('.is-selected') || (defaultTime ? timePop.querySelector('[data-v="' + defaultTime + '"]') : null);
+          if (target) timePop.scrollTop = Math.max(0, target.offsetTop - 70);
+          attachGlobal();
+        }
+        function closeTime() {
+          if (!timePop || timePop.hidden) return;
+          timePop.hidden = true;
+          if (timeEl) timeEl.setAttribute('aria-expanded', 'false');
+          detachGlobal();
+        }
+
+        if (dateDisplay && calEl) {
+          dateDisplay.addEventListener('focus', openCal);
+          dateDisplay.addEventListener('click', openCal);
+          const calPrev = document.getElementById('hb-cal-prev');
+          const calNext = document.getElementById('hb-cal-next');
+          if (calPrev) calPrev.addEventListener('click', (e) => { e.stopPropagation(); calCursor.setMonth(calCursor.getMonth() - 1); renderCal(); });
+          if (calNext) calNext.addEventListener('click', (e) => { e.stopPropagation(); calCursor.setMonth(calCursor.getMonth() + 1); renderCal(); });
+        }
+        if (timeEl && timePop) {
+          timeEl.addEventListener('focus', openTime);
+          timeEl.addEventListener('input', updateNotice);
+          timeEl.addEventListener('blur', () => {
+            window.setTimeout(() => {
+              const parsed = parseTimeInput(timeEl.value);
+              if (parsed) selectTime(parsed);
+              else if (timeEl.value.trim() === '') { timeEl.value = ''; updateNotice(); }
+              closeTime();
+            }, 120);
+          });
+          timeEl.addEventListener('keydown', (e) => {
+            if (e.key === 'Enter') { e.preventDefault(); const p = parseTimeInput(timeEl.value); if (p) selectTime(p); closeTime(); }
+            if (e.key === 'Tab') { const p = parseTimeInput(timeEl.value); if (p) selectTime(p); closeTime(); }
+          });
+        }
+
+        // Defaults beim Laden: heute (rollt mit, wenn jetzt+2h auf morgen faellt)
+        // + Uhrzeit auf naechsten 15er aufgerundet (gleiche Logik wie im Widget).
+        (function initDefaults() {
+          const def = computeDefaultDateTime();
+          defaultTime = def.time;
+          const [yy, mm] = def.date.split('-');
+          calCursor = new Date(+yy, +mm - 1, 1);
+          selectDate(def.date);
+          if (timeEl) timeEl.value = def.time;
+          updateNotice();
+        })();
 
         // Flugnummer-Feld nur zeigen, wenn die Abholadresse ein Flughafen ist.
         function updateFlight() {
@@ -347,6 +606,21 @@ const L = pick(lang,
             if (flightCell) { flightCell.hidden = false; flightCell.classList.add('hbook__cell--err'); }
             flightInput.addEventListener('input', () => flightCell.classList.remove('hbook__cell--err'), { once: true });
             flightInput.focus();
+            return;
+          }
+          // 2h-Vorlaufregel: Klick bleibt erlaubt, leitet aber NICHT weiter --
+          // stattdessen den Live-Hinweis einblenden/hervorheben und Fokus aufs
+          // Zeitfeld setzen, damit klar ist, warum nichts passiert.
+          if (leadBlocked()) {
+            if (notice) {
+              notice.hidden = false;
+              notice.classList.remove('is-flash');
+              // Reflow erzwingen, damit die Flash-Animation erneut startet.
+              void notice.offsetWidth;
+              notice.classList.add('is-flash');
+              notice.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+            }
+            if (timeEl) timeEl.focus();
             return;
           }
           const stops = Array.from(stopsWrap.querySelectorAll('.hbook__stop-input')).map(readField).filter(Boolean);
@@ -835,8 +1109,121 @@ const L = pick(lang,
   .hbook__input { inline-size: 100%; min-inline-size: 0; border: none; background: transparent; padding: 0; margin: 0; font-family: var(--font-display); font-weight: 600; font-size: 15px; color: #0c0a08; line-height: 1.35; }
   .hbook__input::placeholder { color: rgba(12, 10, 8, 0.4); font-weight: 500; }
   .hbook__input:focus { outline: none; }
-  .hbook__input--dt { color-scheme: light; cursor: pointer; font-variant-numeric: tabular-nums; }
-  .hbook__input--dt::-webkit-calendar-picker-indicator { opacity: 0.5; cursor: pointer; }
+  .hbook__input--picker { cursor: pointer; font-variant-numeric: tabular-nums; }
+  #hb-date-display { caret-color: transparent; }
+
+  /* ===== Datum-/Uhrzeit-Popover ===== */
+  .hbook__cell--picker { position: relative; }
+  .hbook__pop {
+    position: absolute; z-index: 60;
+    inset-block-start: calc(100% + 8px);
+    inset-inline-end: 0; inset-inline-start: auto;
+    display: block;
+    background: #fff;
+    border: 1px solid rgba(20, 15, 10, 0.12);
+    border-radius: 16px;
+    box-shadow: 0 24px 60px -22px rgba(40, 20, 5, 0.5), 0 4px 14px -8px rgba(0, 0, 0, 0.18);
+    transform-origin: top center;
+    animation: hbPop 0.18s cubic-bezier(0.16, 1, 0.3, 1);
+  }
+  .hbook__pop[hidden] { display: none; }
+  @keyframes hbPop {
+    from { opacity: 0; transform: translateY(-6px) scale(0.98); }
+    to   { opacity: 1; transform: none; }
+  }
+
+  /* Kalender */
+  .hbook__cal { inline-size: 296px; max-inline-size: calc(100vw - 2.5rem); padding: 14px; }
+  .hbook__cal-head { display: flex; align-items: center; justify-content: space-between; margin-block-end: 10px; }
+  .hbook__cal-month { font-family: var(--font-display); font-weight: 700; font-size: 15px; letter-spacing: -0.01em; color: #0c0a08; }
+  .hbook__cal-nav {
+    inline-size: 30px; block-size: 30px; display: inline-grid; place-items: center;
+    border: 1px solid rgba(20, 15, 10, 0.12); border-radius: 9px;
+    background: #faf7f2; color: #7a4a2b; cursor: pointer;
+    transition: background 0.18s ease, border-color 0.18s ease, color 0.18s ease;
+  }
+  .hbook__cal-nav svg { inline-size: 15px; block-size: 15px; }
+  .hbook__cal-nav:hover { background: rgba(196, 106, 45, 0.12); border-color: #c46a2d; color: #a4531f; }
+  .hbook__cal-nav:focus-visible { outline: 2px solid #c46a2d; outline-offset: 2px; }
+  .hbook__cal-grid { display: grid; grid-template-columns: repeat(7, 1fr); gap: 2px; }
+  .hbook__cal-grid :global(.hbook__dow) {
+    display: grid; place-items: center; block-size: 26px;
+    font-family: var(--font-display); font-weight: 600; font-size: 10.5px;
+    letter-spacing: 0.04em; text-transform: uppercase; color: rgba(12, 10, 8, 0.4);
+  }
+  .hbook__cal-grid :global(.hbook__day) {
+    aspect-ratio: 1 / 1; min-block-size: 34px;
+    display: grid; place-items: center;
+    border: none; border-radius: 10px; background: transparent;
+    font-family: var(--font-display); font-weight: 600; font-size: 13.5px;
+    color: #0c0a08; cursor: pointer;
+    transition: background 0.16s ease, color 0.16s ease, transform 0.16s ease;
+  }
+  .hbook__cal-grid :global(.hbook__day--empty) { cursor: default; }
+  .hbook__cal-grid :global(.hbook__day:not(:disabled):hover) { background: rgba(196, 106, 45, 0.14); transform: translateY(-1px); }
+  .hbook__cal-grid :global(.hbook__day:focus-visible) { outline: 2px solid #c46a2d; outline-offset: 1px; }
+  .hbook__cal-grid :global(.hbook__day.is-today) { color: #c46a2d; box-shadow: inset 0 0 0 1px rgba(196, 106, 45, 0.45); }
+  .hbook__cal-grid :global(.hbook__day.is-selected) { background: #c46a2d; color: #fff; box-shadow: none; }
+  .hbook__cal-grid :global(.hbook__day.is-selected:hover) { background: #b25f26; }
+  .hbook__cal-grid :global(.hbook__day.is-past) { color: rgba(12, 10, 8, 0.26); cursor: not-allowed; }
+
+  /* Zeit-Dropdown */
+  .hbook__times { inline-size: 148px; max-inline-size: calc(100vw - 2.5rem); max-block-size: 264px; overflow-y: auto; padding: 6px; scrollbar-width: thin; scrollbar-color: rgba(196, 106, 45, 0.4) transparent; }
+  .hbook__times::-webkit-scrollbar { inline-size: 7px; }
+  .hbook__times::-webkit-scrollbar-thumb { background: rgba(196, 106, 45, 0.35); border-radius: 4px; }
+  .hbook__times :global(.hbook__time) {
+    inline-size: 100%; display: block; padding: 9px 12px;
+    border: none; border-radius: 9px; background: transparent;
+    font-family: var(--font-display); font-weight: 600; font-size: 14px;
+    color: #0c0a08; text-align: left; cursor: pointer; font-variant-numeric: tabular-nums;
+    transition: background 0.14s ease, color 0.14s ease;
+  }
+  .hbook__times :global(.hbook__time:hover) { background: rgba(196, 106, 45, 0.12); }
+  .hbook__times :global(.hbook__time.is-selected) { background: #c46a2d; color: #fff; }
+
+  /* 2h-Vorlauf-Hinweis */
+  .hbook__notice {
+    display: flex; align-items: flex-start; gap: 12px;
+    margin-block-start: 4px; padding: 14px 18px;
+    border-radius: 16px;
+    background: rgba(196, 106, 45, 0.08);
+    border: 1px solid rgba(196, 106, 45, 0.28);
+    color: #5c3316;
+  }
+  .hbook__notice[hidden] { display: none; }
+  .hbook__notice.is-flash { animation: hbFlash 0.7s ease; }
+  @keyframes hbFlash {
+    0%, 100% { box-shadow: 0 0 0 0 rgba(196, 106, 45, 0); }
+    25% { box-shadow: 0 0 0 4px rgba(196, 106, 45, 0.28); border-color: #c46a2d; }
+    60% { box-shadow: 0 0 0 6px rgba(196, 106, 45, 0.12); }
+  }
+  .hbook__notice-ic { inline-size: 22px; block-size: 22px; color: #c46a2d; flex: none; margin-block-start: 1px; }
+  .hbook__notice-body { display: flex; flex-direction: column; gap: 9px; min-inline-size: 0; }
+  .hbook__notice-text { margin: 0; font-size: 14px; line-height: 1.55; color: #5c3316; }
+  .hbook__notice-links { display: flex; flex-wrap: wrap; gap: 10px; }
+  .hbook__notice-link {
+    display: inline-flex; align-items: center; gap: 7px;
+    padding: 8px 15px; border-radius: 999px;
+    background: #fff; border: 1px solid rgba(196, 106, 45, 0.4);
+    color: #a4531f; text-decoration: none;
+    font-family: var(--font-display); font-weight: 600; font-size: 13.5px; white-space: nowrap;
+    transition: background 0.2s ease, transform 0.2s ease, border-color 0.2s ease;
+  }
+  .hbook__notice-link:hover { background: rgba(196, 106, 45, 0.1); border-color: #c46a2d; transform: translateY(-1px); }
+  .hbook__notice-link svg { inline-size: 15px; block-size: 15px; flex: none; }
+  .hbook__notice-link--wa { color: #1f7a44; border-color: rgba(31, 122, 68, 0.4); }
+  .hbook__notice-link--wa:hover { background: rgba(31, 122, 68, 0.1); border-color: #1f7a44; }
+
+  @media (max-width: 620px) {
+    .hbook__pop { inset-inline-start: 0; inset-inline-end: auto; }
+    .hbook__cal { inline-size: min(320px, calc(100vw - 2.5rem)); }
+  }
+  @media (prefers-reduced-motion: reduce) {
+    .hbook__pop { animation: none; }
+    .hbook__notice.is-flash { animation: none; }
+    .hbook__cal-grid :global(.hbook__day:not(:disabled):hover) { transform: none; }
+    .hbook__notice-link:hover { transform: none; }
+  }
   .hbook__stops { display: contents; }
   .hbook__stop { padding-inline-end: 34px; }
   .hbook__stop-remove {
