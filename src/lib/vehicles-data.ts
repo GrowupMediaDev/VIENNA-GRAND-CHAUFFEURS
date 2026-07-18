@@ -283,7 +283,7 @@ export const VEHICLES_DATA: Vehicle[] = [
     },
     vprice: {
       title: 'Transparente Festpreise.',
-      sub: 'Keine versteckten Kosten — Wartezeit, Maut und Parkgebühren sind immer inklusive. Bei Buchung garantiert. Für allgemeine Langstrecken wie Wien nach Salzburg nutzen Sie einfach unser Buchungssystem: Strecke eingeben und den Preis sofort sehen.',
+      sub: 'Keine versteckten Kosten — Wartezeit, Maut und Parkgebühren sind immer inklusive. Bei Buchung garantiert.',
       cards: [
         { title: 'Flughafentransfer', sub: 'Festpreis pro Strecke', price: '€220', unit: '/ Strecke', desc: 'Inkl. 60 Min. Wartezeit und Gepäckservice — die ganze Gruppe im VIP-Lounge-Interieur.', cta: 'Transfer buchen', featured: true },
         { title: 'Stundensatz', sub: 'Mindestens 3 Stunden', price: '€90', unit: '/ Stunde', desc: 'Chauffeur zur freien Verfügung — ideal für Roadshows, Firmenevents und VIP-Programme. Inkl. max. 20 km pro Stunde.', cta: 'Stunden buchen' },
@@ -588,7 +588,7 @@ export const VEHICLES_DATA_EN: Vehicle[] = [
     },
     vprice: {
       title: 'Transparent fixed prices.',
-      sub: 'No hidden costs — waiting time, tolls and parking are always included. Guaranteed at booking. For general long-distance routes like Vienna to Salzburg, simply use our booking system: enter your route and see the price right away.',
+      sub: 'No hidden costs — waiting time, tolls and parking are always included. Guaranteed at booking.',
       cards: [
         { title: 'Airport transfer', sub: 'Fixed price per trip', price: '€220', unit: '/ trip', desc: 'Incl. 60 min waiting time and luggage service — the whole group in the VIP lounge interior.', cta: 'Book transfer', featured: true },
         { title: 'Hourly rate', sub: 'Minimum 3 hours', price: '€90', unit: '/ hour', desc: 'Chauffeur at your disposal — ideal for roadshows, corporate events and VIP programmes. Incl. max. 20 km per hour.', cta: 'Book by the hour' },

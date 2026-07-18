@@ -24,8 +24,8 @@ const pricing = vehicle.vprice.cards;
 const vorteilItems = vehicle.vben.items;
 
 const L = pick(lang,
-  { fleet: 'Fahrzeuge', book: 'Jetzt buchen', overview: 'Überblick', gallery: 'Galerie', interior: 'Innenraum', request: 'Jetzt anfragen', advantage: 'Ihr Vorteil', prices: 'Preise', popular: 'Beliebt', from: 'ab', theFleet: 'Die Flotte', flotteTitle: 'Nicht ganz die richtige Größe?', flotteLead: 'Für mehr Repräsentation oder mehr Platz steht die übrige Flotte bereit.', prevImg: 'Vorheriges Bild', nextImg: 'Nächstes Bild', altView: 'Ansicht' },
-  { fleet: 'Fleet', book: 'Book now', overview: 'Overview', gallery: 'Gallery', interior: 'Interior', request: 'Request now', advantage: 'Your advantage', prices: 'Rates', popular: 'Popular', from: 'from', theFleet: 'The fleet', flotteTitle: 'Not quite the right size?', flotteLead: 'For more presence or more space, the rest of the fleet stands ready.', prevImg: 'Previous image', nextImg: 'Next image', altView: 'View' });
+  { fleet: 'Fahrzeuge', book: 'Jetzt buchen', overview: 'Überblick', gallery: 'Galerie', interior: 'Innenraum', request: 'Jetzt anfragen', advantage: 'Ihr Vorteil', prices: 'Preise', popular: 'Beliebt', from: 'ab', theFleet: 'Die Flotte', flotteTitle: 'Nicht ganz die richtige Größe?', flotteLead: 'Für mehr Repräsentation oder mehr Platz steht die übrige Flotte bereit.', prevImg: 'Vorheriges Bild', nextImg: 'Nächstes Bild', altView: 'Ansicht', longDistance: 'Für Langstrecken einfach Strecke im Buchungssystem eingeben und den Preis sofort sehen.' },
+  { fleet: 'Fleet', book: 'Book now', overview: 'Overview', gallery: 'Gallery', interior: 'Interior', request: 'Request now', advantage: 'Your advantage', prices: 'Rates', popular: 'Popular', from: 'from', theFleet: 'The fleet', flotteTitle: 'Not quite the right size?', flotteLead: 'For more presence or more space, the rest of the fleet stands ready.', prevImg: 'Previous image', nextImg: 'Next image', altView: 'View', longDistance: 'For long-distance journeys, simply enter your route in our booking system and see the price right away.' });
 
 const chips = pick(lang,
   [
@@ -223,6 +223,10 @@ const priceIncludes = pick(lang,
         <ul class="vprice__incl" data-reveal>
           {priceIncludes.map((i) => <li>{i}</li>)}
         </ul>
+        <div class="vprice__long" data-reveal>
+          <p class="vprice__long-text">{L.longDistance}</p>
+          <a class="vprice__long-cta" href={bookHref}>{L.book}</a>
+        </div>
       </div>
     </section>
 
@@ -499,6 +503,10 @@ const priceIncludes = pick(lang,
   .vprice__card.is-featured .vprice__cta { background: linear-gradient(90deg, #c46a2d 0%, #e9b79a 100%); border-color: transparent; color: #1a0e04; box-shadow: 0 12px 32px -14px rgba(196, 106, 45, 0.6); }
   .vprice__card.is-featured .vprice__cta:hover { filter: brightness(1.05); }
   .vprice__incl { list-style: none; margin: clamp(2rem, 3.5vw, 3rem) 0 0; padding: 0; display: flex; flex-wrap: wrap; gap: 0.5rem 2.2rem; font-size: 14px; color: rgba(255, 255, 255, 0.55); }
+  .vprice__long { margin-block-start: clamp(2rem, 3.5vw, 3rem); padding-block-start: clamp(1.5rem, 3vw, 2rem); border-block-start: 1px solid rgba(255, 255, 255, 0.12); display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 1rem 2rem; }
+  .vprice__long-text { margin: 0; font-size: 15px; line-height: 1.6; color: rgba(255, 255, 255, 0.75); max-inline-size: 46ch; }
+  .vprice__long-cta { flex: none; display: inline-flex; align-items: center; justify-content: center; padding: 13px 28px; border-radius: 999px; background: linear-gradient(90deg, #c46a2d 0%, #e9b79a 100%); color: #1a0e04; font-weight: 600; font-size: 14.5px; text-decoration: none; white-space: nowrap; transition: filter 0.3s ease, transform 0.25s ease; }
+  .vprice__long-cta:hover { filter: brightness(1.05); transform: translateY(-1px); }
 
   @media (max-width: 640px) {
     .vprice__eyebrow span:not(.vprice__line) { font-size: 1.05rem; }
