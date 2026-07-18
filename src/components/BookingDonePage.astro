@@ -14,6 +14,8 @@ const L = pick(lang,
     eyebrow: 'Buchung abgeschlossen', heading: 'Vielen Dank für Ihre Buchung.',
     sub: 'Wir haben Ihre Anfrage erhalten und kümmern uns umgehend darum. Eine Bestätigung mit allen Details erreicht Sie in Kürze.',
     toHome: 'Zur Startseite',
+    lblNumber: 'Buchungsnummer', lblVehicle: 'Fahrzeug', lblFrom: 'Von', lblTo: 'Nach', lblWhen: 'Datum & Uhrzeit', lblPrice: 'Preis', lblPay: 'Zahlung', lblReturn: 'inkl. Rückfahrt',
+    payPaid: 'Bezahlt', payOnsite: 'Zahlung vor Ort', payProcessing: 'Zahlung in Bearbeitung',
     next: [
       { title: 'Bestätigung per E-Mail', text: 'Sie erhalten in Kürze eine Bestätigung mit allen Details Ihrer Fahrt.' },
       { title: 'Wir melden uns', text: 'Bei Rückfragen kontaktiert Sie unser Team persönlich und unkompliziert.' },
@@ -25,6 +27,8 @@ const L = pick(lang,
     eyebrow: 'Booking complete', heading: 'Thank you for your booking.',
     sub: 'We have received your enquiry and will take care of it right away. A confirmation with all the details will reach you shortly.',
     toHome: 'To the homepage',
+    lblNumber: 'Booking number', lblVehicle: 'Vehicle', lblFrom: 'From', lblTo: 'To', lblWhen: 'Date & time', lblPrice: 'Price', lblPay: 'Payment', lblReturn: 'incl. return',
+    payPaid: 'Paid', payOnsite: 'Payment on site', payProcessing: 'Payment processing',
     next: [
       { title: 'Confirmation by email', text: 'You will shortly receive a confirmation with all the details of your journey.' },
       { title: 'We will be in touch', text: 'If we have any questions, our team will contact you personally and without fuss.' },
@@ -44,6 +48,48 @@ const L = pick(lang,
         <div class="abschluss__eyebrow" data-reveal><span class="abschluss__line" aria-hidden="true"></span><span>{L.eyebrow}</span></div>
         <h1 class="abschluss__title" data-reveal style="--reveal-delay:0.06s">{L.heading}</h1>
         <p class="abschluss__sub" data-reveal style="--reveal-delay:0.12s">{L.sub}</p>
+
+        <div class="abschluss__summary" id="booking-summary" hidden data-reveal style="--reveal-delay:0.16s">
+          <div class="abschluss__sum-head">
+            <span class="abschluss__sum-label">{L.lblNumber}</span>
+            <strong class="abschluss__sum-num" id="bs-num"></strong>
+          </div>
+          <dl class="abschluss__sum-rows">
+            <div class="abschluss__sum-row" id="bs-veh-row"><dt>{L.lblVehicle}</dt><dd id="bs-veh"></dd></div>
+            <div class="abschluss__sum-row" id="bs-from-row"><dt>{L.lblFrom}</dt><dd id="bs-from"></dd></div>
+            <div class="abschluss__sum-row" id="bs-to-row"><dt>{L.lblTo}</dt><dd id="bs-to"></dd></div>
+            <div class="abschluss__sum-row" id="bs-dt-row"><dt>{L.lblWhen}</dt><dd id="bs-dt"></dd></div>
+            <div class="abschluss__sum-row" id="bs-price-row"><dt>{L.lblPrice}</dt><dd id="bs-price"></dd></div>
+            <div class="abschluss__sum-row" id="bs-pay-row"><dt>{L.lblPay}</dt><dd id="bs-pay"></dd></div>
+          </dl>
+        </div>
+
+        <script is:inline define:vars={{ payPaid: L.payPaid, payOnsite: L.payOnsite, payProcessing: L.payProcessing, returnTxt: L.lblReturn }}>
+          (function () {
+            var p = new URLSearchParams(window.location.search);
+            var bn = p.get('bn');
+            if (!bn) return;
+            function fill(id, rowId, val) {
+              var el = document.getElementById(id);
+              if (val) { if (el) el.textContent = val; }
+              else { var r = document.getElementById(rowId); if (r) r.hidden = true; }
+            }
+            document.getElementById('bs-num').textContent = bn;
+            fill('bs-veh', 'bs-veh-row', p.get('veh'));
+            fill('bs-from', 'bs-from-row', p.get('from'));
+            fill('bs-to', 'bs-to-row', p.get('to'));
+            fill('bs-dt', 'bs-dt-row', p.get('dt'));
+            var price = p.get('price');
+            if (price) {
+              document.getElementById('bs-price').textContent = '€ ' + price + (p.get('rt') === '1' ? ' · ' + returnTxt : '');
+            } else {
+              document.getElementById('bs-price-row').hidden = true;
+            }
+            var payMap = { paid: payPaid, onsite: payOnsite, processing: payProcessing };
+            document.getElementById('bs-pay').textContent = payMap[p.get('pay')] || payOnsite;
+            document.getElementById('booking-summary').hidden = false;
+          })();
+        </script>
 
         <ul class="abschluss__next" data-reveal style="--reveal-delay:0.18s">
           {L.next.map((n) => (
@@ -91,6 +137,17 @@ const L = pick(lang,
   .abschluss__line { inline-size: 48px; block-size: 1.429px; background: #c46a2d; opacity: 0.7; flex: none; }
   .abschluss__title { font-family: var(--font-display); font-weight: 700; font-size: clamp(2.4rem, 6vw, 4.5rem); line-height: 1; letter-spacing: -0.03em; max-inline-size: 16ch; }
   .abschluss__sub { margin: clamp(1.2rem, 2.5vw, 1.75rem) 0 0; font-size: clamp(1rem, 1.3vw, 1.19rem); line-height: 1.7; color: rgba(255, 255, 255, 0.78); max-inline-size: 56ch; }
+
+  .abschluss__summary { inline-size: min(100%, 560px); margin: clamp(2rem, 4vw, 3rem) 0 0; text-align: left; border-radius: 20px; background: rgba(255, 255, 255, 0.045); border: 1px solid rgba(233, 183, 154, 0.28); box-shadow: 0 24px 60px -34px rgba(0, 0, 0, 0.7); overflow: hidden; }
+  .abschluss__sum-head { display: flex; align-items: baseline; justify-content: space-between; gap: 12px; flex-wrap: wrap; padding: clamp(1.1rem, 2.2vw, 1.5rem) clamp(1.3rem, 2.5vw, 1.8rem); background: linear-gradient(90deg, rgba(196, 106, 45, 0.22), rgba(196, 106, 45, 0.05)); border-block-end: 1px solid rgba(233, 183, 154, 0.2); }
+  .abschluss__sum-label { font-family: var(--font-display); font-size: 12px; letter-spacing: 0.12em; text-transform: uppercase; color: #e9b79a; }
+  .abschluss__sum-num { font-family: var(--font-display); font-weight: 700; font-size: clamp(1.15rem, 2.4vw, 1.5rem); color: #fff; letter-spacing: 0.02em; }
+  .abschluss__sum-rows { margin: 0; padding: clamp(0.4rem, 1vw, 0.6rem) clamp(1.3rem, 2.5vw, 1.8rem) clamp(0.9rem, 1.8vw, 1.2rem); }
+  .abschluss__sum-row { display: flex; align-items: baseline; justify-content: space-between; gap: 18px; padding-block: clamp(0.6rem, 1.2vw, 0.8rem); border-block-end: 1px solid rgba(255, 255, 255, 0.07); }
+  .abschluss__sum-row:last-child { border-block-end: none; }
+  .abschluss__sum-row dt { margin: 0; font-size: 13px; letter-spacing: 0.02em; color: rgba(255, 255, 255, 0.55); flex: none; }
+  .abschluss__sum-row dd { margin: 0; font-family: var(--font-display); font-weight: 600; font-size: 15px; color: #fff; text-align: right; }
+  #bs-price { color: #e9b79a; }
 
   .abschluss__next { list-style: none; margin: clamp(2.5rem, 5vw, 4rem) 0 0; padding: 0; display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 220px), 1fr)); gap: clamp(1rem, 2vw, 1.75rem); inline-size: min(100%, 900px); text-align: left; }
   .abschluss__step { padding: clamp(1.4rem, 2.5vw, 1.9rem); border-radius: 16px; background: rgba(255, 255, 255, 0.04); border: 1px solid rgba(255, 255, 255, 0.1); }
