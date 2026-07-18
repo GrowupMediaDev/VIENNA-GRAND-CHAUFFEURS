@@ -86,47 +86,6 @@ export const VEHICLES_DATA: Vehicle[] = [
     ],
   },
 
-  {
-    slug: 'bmw-5er',
-    name: 'BMW 5er',
-    heroTitle: 'BMW 5er Limousine',
-    klass: 'Business Class',
-    group: 'Business Class Limousine',
-    cardKlass: 'Business Class · Limousine',
-    cardSpecs: '3 Gäste · 2–3 Koffer · Business & Transfer',
-    metaTitle: 'BMW 5er — Vienna Grand Chauffeurs',
-    metaDescription: 'Der BMW 5er als Business-Class-Limousine für Chauffeurfahrten in Wien und ganz Österreich. Bis zu 3 Gäste, dynamischer Komfort, transparente Fixpreise.',
-    heroSub: 'Premium Chauffeurservice in Wien & Österreich, ganz nach Ihren Wünschen',
-    heroStats: [
-      { label: 'Passagiere', value: 'Max. 3', accent: 'Max.' },
-      { label: 'Gepäck', value: '2–3 Koffer' },
-      { label: 'Karosserie', value: 'Sedan' },
-    ],
-    img: { hero: '/images/fahrzeuge/bmw-5er-gal-1.jpg', ueberblick: '/images/fahrzeuge/ueberblick-bmw-5er.jpg', vorteil: '/images/fahrzeuge/vorteil-bmw-5er.jpg', kabineBg: KAB_BG, gallery: ['/images/fahrzeuge/bmw-5er-gal-1.jpg', '/images/fahrzeuge/bmw-5er-gal-2.jpg', '/images/fahrzeuge/bmw-5er-gal-3.jpg', '/images/fahrzeuge/bmw-5er-gal-4.jpg', '/images/fahrzeuge/bmw-5er-gal-5.jpg'], card: '/images/fahrzeuge/card-bmw-5er.jpg' },
-    vover: { titleLead: 'Dynamischer Komfort für', titleAccent: 'Business & Transfer.', body: 'Der BMW 5er verbindet sportliche Eleganz mit dem ruhigen Komfort einer echten Business-Limousine. Souverän auf Geschäftsfahrten, entspannt beim Flughafentransfer — mit Platz für drei Gäste und Gepäck sowie einem Innenraum, der Konzentration und Erholung gleichermaßen erlaubt.' },
-    galTitle: 'Der 5er in Wien.',
-    kab: { title: 'Ruhe trifft Dynamik.', lead: 'Ein Innenraum, der auf das Wesentliche ausgerichtet ist: gedämpfte Geräusche, angenehmes Klima und alles griffbereit. So wird jede Fahrt zur ruhigen, konzentrierten Etappe.' },
-    vben: {
-      title: 'Souverän und angenehm zurückhaltend.',
-      body: 'Der BMW 5er ist die ideale Wahl für Reisende, die dynamischen Fahrkomfort mit diskreter Eleganz verbinden möchten. Ein ausgewogenes Fahrzeug für Business, Transfer und den souveränen Auftritt im Alltag.',
-      items: ['Hochwertige Lederausstattung und ruhiger Innenraum', 'Bis zu 3 Gäste mit Gepäck, ideal für Business und Transfer', 'Erfahrene Chauffeure, diskret, pünktlich, mit Flugüberwachung', 'Fixpreise ohne versteckte Kosten'],
-      badge: { big: '24/7', sm: 'Für Sie bereit' },
-    },
-    vprice: {
-      title: 'Transparente Festpreise.',
-      sub: 'Keine versteckten Kosten — Wartezeit, Maut und Parkgebühren sind immer inklusive. Bei Buchung garantiert.',
-      cards: [
-        { title: 'Flughafentransfer', sub: 'Festpreis pro Strecke', price: '€60', unit: '/ Strecke', desc: 'Inkl. 60 Min. Wartezeit, Meet & Greet und Gepäckservice — vom Gate bis zur Haustür.', cta: 'Transfer buchen', featured: true },
-        { title: 'Stundensatz', sub: 'Mindestens 2 Stunden', price: '€60', unit: '/ Stunde', desc: 'Chauffeur zur freien Verfügung — ideal für Termine, Shopping oder Events in der Stadt.', cta: 'Stunden buchen' },
-        { title: 'Tagessatz', sub: '8 Stunden inklusive', price: '€480', unit: '/ Tag', desc: 'Ein Chauffeur für den ganzen Tag — für Ganztagestermine, Ausflüge und Roadshows.', cta: 'Tag buchen' },
-      ],
-    },
-    faq: [
-      ...INCLUDED_FAQ('BMW 5er'),
-      { q: 'Wie viele Gäste passen in den BMW 5er?', a: 'Der 5er bietet Platz für bis zu 3 Gäste mit 2–3 Koffern — ideal für Business und Flughafentransfer.' },
-      { q: 'Worin unterscheidet sich der 5er von der E-Klasse?', a: 'Beide sind Business-Class-Limousinen. Der BMW 5er setzt einen etwas sportlicheren Akzent, während die E-Klasse klassisch-komfortabel auftritt. Wählen Sie, was besser zu Ihnen passt.' },
-    ],
-  },
 
   {
     slug: 'v-klasse',
@@ -242,9 +201,9 @@ export const VEHICLES_DATA: Vehicle[] = [
       title: 'Transparente Festpreise.',
       sub: 'Keine versteckten Kosten — Wartezeit, Maut und Parkgebühren sind immer inklusive. Bei Buchung garantiert.',
       cards: [
-        { title: 'Flughafentransfer', sub: 'Festpreis pro Strecke', price: '€420', unit: '/ Strecke', desc: 'Inkl. 60 Min. Wartezeit, Meet & Greet und Gepäckservice — Ankunft im Luxusklasse-Fond.', cta: 'Transfer buchen', featured: true },
-        { title: 'Stundensatz', sub: 'Mindestens 3 Stunden', price: '€360', unit: '/ Stunde', desc: 'Chauffeur zur freien Verfügung — für Staatsgäste, VIP-Programme und exklusive Anlässe.', cta: 'Stunden buchen' },
-        { title: 'Tagessatz', sub: '8 Stunden inklusive', price: '€2.880', unit: '/ Tag', desc: 'Ein Chauffeur für den ganzen Tag — für Staatsbesuche, Roadshows und repräsentative Termine.', cta: 'Tag buchen' },
+        { title: 'Flughafentransfer', sub: 'Festpreis pro Strecke', price: '€220', unit: '/ Strecke', desc: 'Inkl. 60 Min. Wartezeit, Meet & Greet und Gepäckservice — Ankunft im Luxusklasse-Fond.', cta: 'Transfer buchen', featured: true },
+        { title: 'Stundensatz', sub: 'Mindestens 3 Stunden', price: '€190', unit: '/ Stunde', desc: 'Chauffeur zur freien Verfügung — für Staatsgäste, VIP-Programme und exklusive Anlässe.', cta: 'Stunden buchen' },
+        { title: 'Tagessatz', sub: '8 Stunden inklusive', price: '€1.520', unit: '/ Tag', desc: 'Ein Chauffeur für den ganzen Tag — für Staatsbesuche, Roadshows und repräsentative Termine.', cta: 'Tag buchen' },
       ],
     },
     faq: [
@@ -432,47 +391,6 @@ export const VEHICLES_DATA_EN: Vehicle[] = [
     ],
   },
 
-  {
-    slug: 'bmw-5er',
-    name: 'BMW 5 Series',
-    heroTitle: 'BMW 5 Series Sedan',
-    klass: 'Business Class',
-    group: 'Business Class Sedan',
-    cardKlass: 'Business Class · Sedan',
-    cardSpecs: '3 guests · 2–3 cases · Business & Transfer',
-    metaTitle: 'BMW 5 Series — Vienna Grand Chauffeurs',
-    metaDescription: 'The BMW 5 Series as a business-class sedan for chauffeur journeys in Vienna and throughout Austria. Up to 3 guests, dynamic comfort, transparent fixed prices.',
-    heroSub: 'Premium chauffeur service in Vienna & Austria, entirely tailored to your wishes',
-    heroStats: [
-      { label: 'Passengers', value: 'Max. 3', accent: 'Max.' },
-      { label: 'Luggage', value: '2–3 cases' },
-      { label: 'Body', value: 'Sedan' },
-    ],
-    img: { hero: '/images/fahrzeuge/bmw-5er-gal-1.jpg', ueberblick: '/images/fahrzeuge/ueberblick-bmw-5er.jpg', vorteil: '/images/fahrzeuge/vorteil-bmw-5er.jpg', kabineBg: KAB_BG, gallery: ['/images/fahrzeuge/bmw-5er-gal-1.jpg', '/images/fahrzeuge/bmw-5er-gal-2.jpg', '/images/fahrzeuge/bmw-5er-gal-3.jpg', '/images/fahrzeuge/bmw-5er-gal-4.jpg', '/images/fahrzeuge/bmw-5er-gal-5.jpg'], card: '/images/fahrzeuge/card-bmw-5er.jpg' },
-    vover: { titleLead: 'Dynamic comfort for', titleAccent: 'Business & Transfer.', body: 'The BMW 5 Series combines sporty elegance with the quiet comfort of a true business sedan. Commanding on business journeys, relaxed on the airport transfer — with room for three guests and luggage, plus an interior that allows for concentration and recovery in equal measure.' },
-    galTitle: 'The 5 Series in Vienna.',
-    kab: { title: 'Calm meets dynamism.', lead: 'An interior geared towards the essentials: muted sounds, a pleasant climate and everything within reach. This turns every journey into a calm, focused stage.' },
-    vben: {
-      title: 'Commanding and pleasantly understated.',
-      body: 'The BMW 5 Series is the ideal choice for travellers who wish to combine dynamic ride comfort with discreet elegance. A well-balanced vehicle for business, transfer and a composed presence in everyday life.',
-      items: ['High-quality leather appointments and a quiet interior', 'Up to 3 guests with luggage, ideal for business and transfer', 'Experienced chauffeurs, discreet, punctual, with flight monitoring', 'Fixed prices with no hidden costs'],
-      badge: { big: '24/7', sm: 'Ready for you' },
-    },
-    vprice: {
-      title: 'Transparent fixed prices.',
-      sub: 'No hidden costs — waiting time, tolls and parking fees are always included. Guaranteed at the time of booking.',
-      cards: [
-        { title: 'Airport transfer', sub: 'Fixed price per trip', price: '€60', unit: '/ trip', desc: 'Incl. 60 min. waiting time, meet & greet and luggage service — from the gate to your front door.', cta: 'Book transfer', featured: true },
-        { title: 'Hourly rate', sub: 'Minimum 2 hours', price: '€60', unit: '/ hour', desc: 'A chauffeur at your disposal — ideal for appointments, shopping or events in the city.', cta: 'Book hours' },
-        { title: 'Daily rate', sub: '8 hours included', price: '€480', unit: '/ day', desc: 'A chauffeur for the whole day — for full-day appointments, excursions and roadshows.', cta: 'Book day' },
-      ],
-    },
-    faq: [
-      ...INCLUDED_FAQ_EN('BMW 5 Series'),
-      { q: 'How many guests fit in the BMW 5 Series?', a: 'The 5 Series offers room for up to 3 guests with 2–3 cases — ideal for business and airport transfers.' },
-      { q: 'How does the 5 Series differ from the E-Class?', a: 'Both are business-class sedans. The BMW 5 Series sets a slightly sportier accent, while the E-Class has a classic, comfortable character. Choose whichever suits you better.' },
-    ],
-  },
 
   {
     slug: 'v-klasse',
@@ -588,9 +506,9 @@ export const VEHICLES_DATA_EN: Vehicle[] = [
       title: 'Transparent fixed prices.',
       sub: 'No hidden costs — waiting time, tolls and parking are always included. Guaranteed at booking.',
       cards: [
-        { title: 'Airport transfer', sub: 'Fixed price per trip', price: '€420', unit: '/ trip', desc: 'Incl. 60 min waiting time, meet & greet and luggage service — arrive in the luxury-class rear.', cta: 'Book transfer', featured: true },
-        { title: 'Hourly rate', sub: 'Minimum 3 hours', price: '€360', unit: '/ hour', desc: 'Chauffeur at your disposal — for state guests, VIP programmes and exclusive occasions.', cta: 'Book by the hour' },
-        { title: 'Daily rate', sub: '8 hours included', price: '€2,880', unit: '/ day', desc: 'A chauffeur for the whole day — for state visits, roadshows and prestigious appointments.', cta: 'Book a day' },
+        { title: 'Airport transfer', sub: 'Fixed price per trip', price: '€220', unit: '/ trip', desc: 'Incl. 60 min waiting time, meet & greet and luggage service — arrive in the luxury-class rear.', cta: 'Book transfer', featured: true },
+        { title: 'Hourly rate', sub: 'Minimum 3 hours', price: '€190', unit: '/ hour', desc: 'Chauffeur at your disposal — for state guests, VIP programmes and exclusive occasions.', cta: 'Book by the hour' },
+        { title: 'Daily rate', sub: '8 hours included', price: '€1.520', unit: '/ day', desc: 'A chauffeur for the whole day — for state visits, roadshows and prestigious appointments.', cta: 'Book a day' },
       ],
     },
     faq: [
