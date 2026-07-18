@@ -1,6 +1,7 @@
 ---
 import '../styles/global.css';
 import { getLang, htmlLang } from '../lib/i18n';
+import ContactRail from '../components/ContactRail.astro';
 
 interface Props {
   title?: string;
@@ -78,6 +79,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
       @media (prefers-reduced-motion: reduce) { .pxn { display: none; } }
     </style>
     <slot />
+    <ContactRail />
     <script>
       // Scroll-reveal, shared across all pages.
       const els = document.querySelectorAll('[data-reveal]');
