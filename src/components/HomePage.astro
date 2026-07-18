@@ -15,13 +15,21 @@ const phoneHref = `tel:${CONTACT.phonePrimary.tel}`;
 const bookHref = hrefFor('/online-buchung', lang);
 const kontaktHref = hrefFor('/kontakt', lang);
 
+// Hero background slider — first slide is preloaded/eager, the rest lazy.
+// Add or reorder entries here; the slider adapts automatically.
+const heroSlides = [
+  '/images/hero-home.jpg',
+  '/images/hero-slide-2.jpg',
+  '/images/hero-slide-3.jpg',
+];
+
 const L = pick(lang,
   {
     metaTitle: 'Vienna Grand Chauffeurs — Chauffeurservice der Extraklasse',
     metaDesc: 'Premium Chauffeurservice in Wien: erfahrene, diskrete Chauffeure, gepflegte Mercedes-Benz Oberklasse und transparente Fixpreise. Flughafentransfer, Business- und Langstreckenfahrten.',
     heroTitle: 'Chauffeurservice<br />der Extraklasse',
     heroSub: 'Premium Chauffeurservice in Wien &amp; Österreich,<br />ganz nach Ihren Wünschen',
-    book: 'Jetzt buchen', scrollAria: 'Nach unten scrollen',
+    book: 'Jetzt buchen', discover: 'Unsere Fahrzeuge entdecken', scrollAria: 'Nach unten scrollen',
     hbookAria: 'Online buchen', hbookEyebrow: 'In 30 Sekunden zum Fixpreis',
     hbookFrom: 'Von', hbookTo: 'Nach', hbookWhen: 'Datum & Uhrzeit', hbookStop: 'Zwischenstopp',
     hbookFromV: 'Abholadresse', hbookToV: 'Zieladresse', hbookStopV: 'Adresse Zwischenstopp', hbookWhenV: 'Wann geht’s los?', hbookCta: 'Preis berechnen', hbookAddStop: 'Zwischenstopp hinzufügen', hbookRemoveStop: 'Zwischenstopp entfernen',
@@ -68,7 +76,7 @@ const L = pick(lang,
     metaDesc: 'Premium chauffeur service in Vienna: experienced, discreet chauffeurs, an immaculate Mercedes-Benz luxury fleet and transparent fixed prices. Airport transfers, business and long-distance journeys.',
     heroTitle: 'First-class<br />chauffeur service',
     heroSub: 'Premium chauffeur service in Vienna &amp; Austria,<br />entirely tailored to your wishes',
-    book: 'Book now', scrollAria: 'Scroll down',
+    book: 'Book now', discover: 'Discover our vehicles', scrollAria: 'Scroll down',
     hbookAria: 'Book online', hbookEyebrow: 'Your fixed price in 30 seconds',
     hbookFrom: 'From', hbookTo: 'To', hbookWhen: 'Date & time', hbookStop: 'Stop',
     hbookFromV: 'Pickup address', hbookToV: 'Destination address', hbookStopV: 'Stop address', hbookWhenV: 'When do you set off?', hbookCta: 'Calculate price', hbookAddStop: 'Add stop', hbookRemoveStop: 'Remove stop',
@@ -121,8 +129,19 @@ const L = pick(lang,
     <!-- ============ HERO ============ -->
     <section class="hero" aria-labelledby="hero-title">
 
-      <div class="hero__media" aria-hidden="true">
-        <img src="/images/hero-home.jpg" alt="" width="2752" height="1536" fetchpriority="high" />
+      <div class="hero__media" data-hero-slider aria-hidden="true">
+        {heroSlides.map((src, i) => (
+          <img
+            src={src}
+            alt=""
+            width="2000"
+            height="1116"
+            class:list={['hero__slide', { 'is-active': i === 0 }]}
+            loading={i === 0 ? 'eager' : 'lazy'}
+            fetchpriority={i === 0 ? 'high' : 'auto'}
+            decoding="async"
+          />
+        ))}
       </div>
       <div class="hero__scrim" aria-hidden="true"></div>
 
@@ -136,6 +155,10 @@ const L = pick(lang,
             {CONTACT.phonePrimary.display}
           </Button>
         </div>
+        <a class="hero__discover" href="#fahrzeuge" data-reveal style="--reveal-delay:0.3s">
+          {L.discover}
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 5v14M5 12l7 7 7-7"/></svg>
+        </a>
       </div>
 
       <svg class="hero__notch" viewBox="0 0 220 60" aria-hidden="true" preserveAspectRatio="xMidYMax meet">
@@ -430,7 +453,18 @@ const L = pick(lang,
     z-index: 0;
   }
   .hero__media { overflow: hidden; }
-  .hero__media img { position: absolute; inset: 0; inline-size: 100%; block-size: 100%; object-fit: cover; object-position: 50% 55%; }
+  .hero__slide {
+    position: absolute; inset: 0;
+    inline-size: 100%; block-size: 100%;
+    object-fit: cover; object-position: 50% 55%;
+    opacity: 0;
+    transition: opacity 1.4s ease-in-out;
+    will-change: opacity;
+  }
+  .hero__slide.is-active { opacity: 1; }
+  @media (prefers-reduced-motion: reduce) {
+    .hero__slide { transition: none; }
+  }
   .hero__scrim {
     z-index: 1;
     background: linear-gradient(
@@ -469,6 +503,20 @@ const L = pick(lang,
     margin: 0;
   }
   .hero__cta { display: flex; flex-wrap: wrap; justify-content: center; gap: 0.85rem; margin-block-start: 0.4rem; }
+  .hero__discover {
+    display: inline-flex; align-items: center; gap: 0.45rem;
+    margin-block-start: 1.4rem;
+    font-family: var(--font-body); font-weight: 500; font-size: 0.95rem;
+    letter-spacing: 0.01em; color: rgba(255, 255, 255, 0.88);
+    text-decoration: none; cursor: pointer;
+    padding-block-end: 2px;
+    border-block-end: 1px solid rgba(255, 255, 255, 0.35);
+    transition: color 0.25s ease, border-color 0.25s ease, gap 0.25s ease;
+  }
+  .hero__discover svg { inline-size: 16px; block-size: 16px; flex: none; transition: transform 0.25s ease; }
+  .hero__discover:hover { color: #fff; border-color: #fff; gap: 0.65rem; }
+  .hero__discover:hover svg { transform: translateY(3px); }
+  .hero__discover:focus-visible { outline: 2px solid var(--color-terracotta); outline-offset: 4px; border-radius: 2px; }
 
   .hero__notch {
     position: absolute; z-index: 4;
@@ -801,3 +849,30 @@ const L = pick(lang,
     .htext__title { font-size: 1.9rem; }
   }
 </style>
+
+<script>
+  // Hero background slider — slow crossfade autoplay, pauses when tab hidden.
+  const slider = document.querySelector<HTMLElement>('[data-hero-slider]');
+  if (slider) {
+    const slides = Array.from(slider.querySelectorAll<HTMLImageElement>('.hero__slide'));
+    const reduceMo = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    if (slides.length > 1 && !reduceMo) {
+      const HOLD = 6000; // ms each slide is shown
+      let idx = 0;
+      let timer: number | null = null;
+
+      const advance = () => {
+        slides[idx].classList.remove('is-active');
+        idx = (idx + 1) % slides.length;
+        slides[idx].classList.add('is-active');
+      };
+      const start = () => { if (timer === null) timer = window.setInterval(advance, HOLD); };
+      const stop = () => { if (timer !== null) { clearInterval(timer); timer = null; } };
+
+      document.addEventListener('visibilitychange', () => {
+        document.hidden ? stop() : start();
+      });
+      start();
+    }
+  }
+</script>
