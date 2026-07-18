@@ -66,7 +66,25 @@ const L = pick(lang,
 
         <script is:inline define:vars={{ payPaid: L.payPaid, payOnsite: L.payOnsite, payProcessing: L.payProcessing, returnTxt: L.lblReturn }}>
           (function () {
-            var p = new URLSearchParams(window.location.search);
+            var params = new URLSearchParams(window.location.search);
+            var KEY = 'vgc_booking_done';
+            var KEYS = ['bn', 'veh', 'from', 'to', 'dt', 'price', 'pay', 'rt'];
+            var p;
+            if (params.get('bn')) {
+              // Frisch von der Widget-Weiterleitung: Werte merken, damit ein
+              // Sprachwechsel (der die Query-Parameter verliert, weil der
+              // Umschalter nur den Pfad wechselt) die Zusammenfassung nicht
+              // verschwinden laesst.
+              var data = {};
+              KEYS.forEach(function (k) { var v = params.get(k); if (v) data[k] = v; });
+              try { sessionStorage.setItem(KEY, JSON.stringify(data)); } catch (e) {}
+              p = params;
+            } else {
+              // Kein Parameter (z.B. nach Sprachwechsel) -> aus sessionStorage.
+              var stored = null;
+              try { stored = JSON.parse(sessionStorage.getItem(KEY) || 'null'); } catch (e) {}
+              p = { get: function (k) { return (stored && stored[k]) || null; } };
+            }
             var bn = p.get('bn');
             if (!bn) return;
             function fill(id, rowId, val) {
