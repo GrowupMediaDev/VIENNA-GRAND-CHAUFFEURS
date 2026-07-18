@@ -6,7 +6,7 @@ export function getStaticPaths() {
   const vehicles = getVehicles('en');
   return vehicles.map((vehicle) => ({
     params: { slug: vehicle.slug },
-    props: { vehicle, flotte: vehicles.filter((v) => v.slug !== vehicle.slug).slice(0, 3) },
+    props: { vehicle, flotte: vehicles.filter((v) => v.slug !== vehicle.slug) },
   }));
 }
 const { vehicle, flotte } = Astro.props;

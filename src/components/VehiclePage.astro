@@ -24,8 +24,8 @@ const pricing = vehicle.vprice.cards;
 const vorteilItems = vehicle.vben.items;
 
 const L = pick(lang,
-  { fleet: 'Fahrzeuge', book: 'Jetzt buchen', overview: 'Überblick', gallery: 'Galerie', interior: 'Innenraum', request: 'Jetzt anfragen', advantage: 'Ihr Vorteil', prices: 'Preise', popular: 'Beliebt', from: 'ab', theFleet: 'Die Flotte', flotteTitle: 'Nicht ganz die richtige Größe?', flotteLead: 'Für mehr Repräsentation oder mehr Platz steht die übrige Flotte bereit.', prevImg: 'Vorheriges Bild', nextImg: 'Nächstes Bild', altView: 'Ansicht', longDistance: 'Für Langstrecken einfach Strecke im Buchungssystem eingeben und den Preis sofort sehen.' },
-  { fleet: 'Fleet', book: 'Book now', overview: 'Overview', gallery: 'Gallery', interior: 'Interior', request: 'Request now', advantage: 'Your advantage', prices: 'Rates', popular: 'Popular', from: 'from', theFleet: 'The fleet', flotteTitle: 'Not quite the right size?', flotteLead: 'For more presence or more space, the rest of the fleet stands ready.', prevImg: 'Previous image', nextImg: 'Next image', altView: 'View', longDistance: 'For long-distance journeys, simply enter your route in our booking system and see the price right away.' });
+  { fleet: 'Fahrzeuge', book: 'Jetzt buchen', viewPrices: 'Preise ansehen', overview: 'Überblick', gallery: 'Galerie', interior: 'Innenraum', request: 'Jetzt anfragen', advantage: 'Ihr Vorteil', prices: 'Preise', popular: 'Beliebt', from: 'ab', theFleet: 'Die Flotte', flotteTitle: 'Nicht ganz die richtige Größe?', flotteLead: 'Für mehr Repräsentation oder mehr Platz steht die übrige Flotte bereit.', prevImg: 'Vorheriges Bild', nextImg: 'Nächstes Bild', prevVehicle: 'Vorheriges Fahrzeug', nextVehicle: 'Nächstes Fahrzeug', altView: 'Ansicht', longDistance: 'Für Langstrecken einfach Strecke im Buchungssystem eingeben und den Preis sofort sehen.' },
+  { fleet: 'Fleet', book: 'Book now', viewPrices: 'View prices', overview: 'Overview', gallery: 'Gallery', interior: 'Interior', request: 'Request now', advantage: 'Your advantage', prices: 'Rates', popular: 'Popular', from: 'from', theFleet: 'The fleet', flotteTitle: 'Not quite the right size?', flotteLead: 'For more presence or more space, the rest of the fleet stands ready.', prevImg: 'Previous image', nextImg: 'Next image', prevVehicle: 'Previous vehicle', nextVehicle: 'Next vehicle', altView: 'View', longDistance: 'For long-distance journeys, simply enter your route in our booking system and see the price right away.' });
 
 const chips = pick(lang,
   [
@@ -81,9 +81,13 @@ const priceIncludes = pick(lang,
               <span>{CONTACT.phonePrimary.display}</span>
             </a>
           </div>
+          <a class="vhero__discover" href="#vprice-title" data-reveal style="--reveal-delay:0.2s">
+            {L.viewPrices}
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 5v14M5 12l7 7 7-7"/></svg>
+          </a>
         </div>
 
-        <ul class="vhero__stats" data-reveal style="--reveal-delay:0.2s">
+        <ul class="vhero__stats" data-reveal style="--reveal-delay:0.26s">
           {heroStats.map((s) => (
             <li>
               <span class="vhero__stat-label">{s.label}</span>
@@ -238,24 +242,36 @@ const priceIncludes = pick(lang,
             <div class="vflotte__eyebrow"><span class="vflotte__line" aria-hidden="true"></span><span>{L.theFleet}</span></div>
             <h2 class="vflotte__title" id="vflotte-title">{L.flotteTitle}</h2>
           </div>
-          <p class="vflotte__lead">{L.flotteLead}</p>
+          <div class="vflotte__aside">
+            <p class="vflotte__lead">{L.flotteLead}</p>
+            <div class="vflotte__nav">
+              <button class="vflotte__navbtn" type="button" data-flotte-prev aria-label={L.prevVehicle}>
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M15 18l-6-6 6-6"/></svg>
+              </button>
+              <button class="vflotte__navbtn" type="button" data-flotte-next aria-label={L.nextVehicle}>
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9 18l6-6-6-6"/></svg>
+              </button>
+            </div>
+          </div>
         </div>
-        <div class="vflotte__grid">
-          {flotte.map((v) => (
-            <a class="vflotte__card" href={`${fahrzeugeBase}${v.slug}`} data-reveal>
-              <img src={v.img.card} alt={v.heroTitle} loading="lazy" />
-              <div class="vflotte__overlay">
-                <span class="vflotte__label">{v.cardKlass}</span>
-                <h3 class="vflotte__name">{v.name}</h3>
-                <div class="vflotte__foot">
-                  <span class="vflotte__specs">{v.cardSpecs}</span>
-                  <span class="vflotte__arrow" aria-hidden="true">
-                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17L17 7M7 7h10v10"/></svg>
-                  </span>
+        <div class="vflotte__viewport">
+          <div class="vflotte__track" data-flotte-track>
+            {flotte.map((v) => (
+              <a class="vflotte__card" href={`${fahrzeugeBase}${v.slug}`} data-reveal>
+                <img src={v.img.card} alt={v.heroTitle} loading="lazy" />
+                <div class="vflotte__overlay">
+                  <span class="vflotte__label">{v.cardKlass}</span>
+                  <h3 class="vflotte__name">{v.name}</h3>
+                  <div class="vflotte__foot">
+                    <span class="vflotte__specs">{v.cardSpecs}</span>
+                    <span class="vflotte__arrow" aria-hidden="true">
+                      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17L17 7M7 7h10v10"/></svg>
+                    </span>
+                  </div>
                 </div>
-              </div>
-            </a>
-          ))}
+              </a>
+            ))}
+          </div>
         </div>
       </div>
     </section>
@@ -286,6 +302,15 @@ const priceIncludes = pick(lang,
     document.querySelector('[data-gal-next]')?.addEventListener('click', () => track.scrollBy({ left: step(), behavior: 'smooth' }));
     track.addEventListener('scroll', update, { passive: true });
     update();
+  }
+
+  // Die Flotte — scroll-snap carousel with arrows (swipe works via native scroll).
+  const flotteTrack = document.querySelector<HTMLElement>('[data-flotte-track]');
+  if (flotteTrack) {
+    const cards = [...flotteTrack.children] as HTMLElement[];
+    const flotteStep = () => (cards[1] ? cards[1].offsetLeft - cards[0].offsetLeft : flotteTrack.clientWidth);
+    document.querySelector('[data-flotte-prev]')?.addEventListener('click', () => flotteTrack.scrollBy({ left: -flotteStep(), behavior: 'smooth' }));
+    document.querySelector('[data-flotte-next]')?.addEventListener('click', () => flotteTrack.scrollBy({ left: flotteStep(), behavior: 'smooth' }));
   }
 </script>
 
@@ -337,6 +362,19 @@ const priceIncludes = pick(lang,
   }
   .vhero__phone:hover { background: rgba(255, 255, 255, 0.12); }
   .vhero__phone svg { inline-size: 20px; block-size: 20px; }
+
+  .vhero__discover {
+    display: inline-flex; align-items: center; gap: 0.45rem;
+    margin-block-start: 1.4rem;
+    font-family: var(--font-body); font-weight: 500; font-size: 0.95rem;
+    color: rgba(255, 255, 255, 0.75); text-decoration: none;
+    border-block-end: 1px solid rgba(255, 255, 255, 0.35);
+    transition: color 0.25s ease, border-color 0.25s ease, gap 0.25s ease;
+  }
+  .vhero__discover svg { inline-size: 16px; block-size: 16px; flex: none; transition: transform 0.25s ease; }
+  .vhero__discover:hover { color: #fff; border-color: #fff; gap: 0.65rem; }
+  .vhero__discover:hover svg { transform: translateY(3px); }
+  .vhero__discover:focus-visible { outline: 2px solid var(--color-terracotta); outline-offset: 4px; border-radius: 2px; }
 
   .vhero__stats {
     list-style: none; margin: 0; padding: clamp(1.4rem, 2.5vw, 1.75rem) 0 0;
@@ -449,9 +487,22 @@ const priceIncludes = pick(lang,
   .vflotte__eyebrow span:not(.vflotte__line) { font-family: var(--font-display); font-weight: 600; font-size: 24px; letter-spacing: -1px; text-transform: uppercase; color: #c46a2d; }
   .vflotte__line { inline-size: 60px; block-size: 1.429px; background: #c46a2d; opacity: 0.6; flex: none; }
   .vflotte__title { font-family: var(--font-display); font-weight: 700; font-size: clamp(2rem, 3.6vw, 3rem); line-height: 1.05; letter-spacing: -0.02em; color: #0c0a08; max-inline-size: 14ch; }
-  .vflotte__lead { margin: 0; font-size: 16px; line-height: 1.6; color: #0c0a089e; max-inline-size: 44ch; }
-  .vflotte__grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 270px), 1fr)); gap: clamp(1rem, 1.5vw, 1.5rem); }
-  .vflotte__card { position: relative; display: block; aspect-ratio: 517 / 557; border-radius: 16px; overflow: hidden; text-decoration: none; isolation: isolate; }
+  .vflotte__aside { display: flex; flex-direction: column; align-items: flex-end; gap: 1.1rem; }
+  .vflotte__lead { margin: 0; font-size: 16px; line-height: 1.6; color: #0c0a089e; max-inline-size: 44ch; text-align: right; }
+  .vflotte__nav { display: flex; gap: 12px; }
+  .vflotte__navbtn { inline-size: 52px; block-size: 52px; border-radius: 999px; border: 1px solid rgba(0, 0, 0, 0.2); background: transparent; color: #0c0a08; display: grid; place-items: center; cursor: pointer; transition: background 0.3s ease, color 0.3s ease, border-color 0.3s ease; }
+  .vflotte__navbtn:hover { background: var(--color-terracotta); border-color: var(--color-terracotta); color: #fff; }
+  .vflotte__navbtn svg { inline-size: 20px; block-size: 20px; }
+  .vflotte__viewport { overflow: hidden; }
+  .vflotte__track {
+    --gap: clamp(1rem, 1.5vw, 1.5rem);
+    display: flex; gap: var(--gap);
+    overflow-x: auto; scroll-snap-type: x mandatory; scroll-behavior: smooth;
+    scrollbar-width: none; -ms-overflow-style: none; -webkit-overflow-scrolling: touch;
+    padding-block-end: 4px;
+  }
+  .vflotte__track::-webkit-scrollbar { display: none; }
+  .vflotte__card { position: relative; flex: 0 0 calc((100% - 2 * var(--gap)) / 3); scroll-snap-align: start; display: block; aspect-ratio: 517 / 557; border-radius: 16px; overflow: hidden; text-decoration: none; isolation: isolate; }
   .vflotte__card img { position: absolute; inset: 0; inline-size: 100%; block-size: 100%; object-fit: cover; transition: transform 0.7s cubic-bezier(0.2, 0, 0.15, 1); }
   .vflotte__card:hover img { transform: scale(1.05); }
   .vflotte__overlay { position: absolute; inset: 0; z-index: 1; display: flex; flex-direction: column; justify-content: flex-end; padding: clamp(1.4rem, 2vw, 2.2rem); background: linear-gradient(180deg, rgba(0, 0, 0, 0.2) 0%, rgba(0, 0, 0, 0) 36%, rgba(0, 0, 0, 0.82) 64%, #0d0703 100%); color: #fff; }
@@ -474,6 +525,10 @@ const priceIncludes = pick(lang,
     .vover__media { flex: none; inline-size: 100%; aspect-ratio: 16 / 11; }
     .vben__grid { flex-direction: column; align-items: stretch; }
     .vben__frame { aspect-ratio: 4 / 3; }
+    .vflotte__head { flex-direction: column; align-items: flex-start; gap: 1.5rem; }
+    .vflotte__aside { align-items: flex-start; inline-size: 100%; }
+    .vflotte__lead { text-align: left; }
+    .vflotte__card { flex-basis: calc((100% - var(--gap)) / 2); }
   }
 
   /* ============ PREISE ============ */
@@ -517,6 +572,9 @@ const priceIncludes = pick(lang,
     .vkab__lead { font-size: 16px; }
     .vgal__nav { gap: 14px; }
     .vgal__btn { inline-size: 44px; block-size: 44px; }
+    .vflotte__nav { gap: 10px; }
+    .vflotte__navbtn { inline-size: 44px; block-size: 44px; }
+    .vflotte__card { flex-basis: 84%; }
     .vover__body { font-size: 16px; line-height: 1.6; }
     .vben__body { font-size: 16px; }
     .vben__item { font-size: 15.5px; gap: 16px; padding-block: 18px; }
