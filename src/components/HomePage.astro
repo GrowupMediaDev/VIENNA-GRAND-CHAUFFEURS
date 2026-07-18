@@ -31,8 +31,8 @@ const L = pick(lang,
     heroSub: 'Premium Chauffeurservice in Wien &amp; Österreich,<br />ganz nach Ihren Wünschen',
     book: 'Jetzt buchen', discover: 'Unsere Fahrzeuge entdecken', scrollAria: 'Nach unten scrollen',
     hbookAria: 'Online buchen', hbookEyebrow: 'In 30 Sekunden zum Fixpreis',
-    hbookFrom: 'Von', hbookTo: 'Nach', hbookWhen: 'Datum & Uhrzeit', hbookStop: 'Zwischenstopp',
-    hbookFromV: 'Abholadresse', hbookToV: 'Zieladresse', hbookStopV: 'Adresse Zwischenstopp', hbookWhenV: 'Wann geht’s los?', hbookCta: 'Preis berechnen', hbookAddStop: 'Zwischenstopp hinzufügen', hbookRemoveStop: 'Zwischenstopp entfernen',
+    hbookFrom: 'Von', hbookTo: 'Nach', hbookDate: 'Datum', hbookTime: 'Uhrzeit', hbookStop: 'Zwischenstopp', hbookFlight: 'Flugnummer',
+    hbookFromV: 'Abholadresse', hbookToV: 'Zieladresse', hbookStopV: 'Adresse Zwischenstopp', hbookFlightV: 'z. B. OS 052', hbookCta: 'Preis berechnen', hbookAddStop: 'Zwischenstopp hinzufügen', hbookRemoveStop: 'Zwischenstopp entfernen', hbookFlightReq: 'Bitte Flugnummer angeben (Flughafen-Abholung).',
     aboutEyebrow: 'Über uns',
     aboutTitle: 'Unser Chauffeurservice verbindet Wiener Diskretion mit modernem Komfort',
     aboutBody: 'Professionelle Chauffeure, eine gepflegte Premiumflotte und ein durchdachter Ablauf sorgen dafür, dass Sie sich auf jeder Fahrt einfach zurücklehnen können, ob Flughafentransfer, Geschäftstermin oder Langstrecke in ganz Österreich. Pünktlichkeit, Diskretion und persönliche Betreuung begleiten Sie dabei vom ersten Kontakt bis zur Ankunft.',
@@ -78,8 +78,8 @@ const L = pick(lang,
     heroSub: 'Premium chauffeur service in Vienna &amp; Austria,<br />entirely tailored to your wishes',
     book: 'Book now', discover: 'Discover our vehicles', scrollAria: 'Scroll down',
     hbookAria: 'Book online', hbookEyebrow: 'Your fixed price in 30 seconds',
-    hbookFrom: 'From', hbookTo: 'To', hbookWhen: 'Date & time', hbookStop: 'Stop',
-    hbookFromV: 'Pickup address', hbookToV: 'Destination address', hbookStopV: 'Stop address', hbookWhenV: 'When do you set off?', hbookCta: 'Calculate price', hbookAddStop: 'Add stop', hbookRemoveStop: 'Remove stop',
+    hbookFrom: 'From', hbookTo: 'To', hbookDate: 'Date', hbookTime: 'Time', hbookStop: 'Stop', hbookFlight: 'Flight no.',
+    hbookFromV: 'Pickup address', hbookToV: 'Destination address', hbookStopV: 'Stop address', hbookFlightV: 'e.g. OS 052', hbookCta: 'Calculate price', hbookAddStop: 'Add stop', hbookRemoveStop: 'Remove stop', hbookFlightReq: 'Please enter the flight number (airport pickup).',
     aboutEyebrow: 'About us',
     aboutTitle: 'Our chauffeur service combines Viennese discretion with modern comfort',
     aboutBody: 'Professional chauffeurs, an immaculate premium fleet and a well-thought-out process ensure that you can simply sit back on every journey — whether an airport transfer, a business appointment or a long-distance trip across Austria. Punctuality, discretion and personal care accompany you from the first contact to your arrival.',
@@ -174,32 +174,50 @@ const L = pick(lang,
       <div class="container-x">
         <div class="hbook__inner" data-reveal>
           <span class="hbook__eyebrow"><span class="hbook__dot" aria-hidden="true"></span>{L.hbookEyebrow}</span>
-          <form class="hbook__bar" id="hbook-form" data-book-base={bookHref} novalidate>
-            <div class="hbook__field">
-              <label class="hbook__flabel" for="hb-from">{L.hbookFrom}</label>
-              <input class="hbook__input" id="hb-from" name="from" type="text" placeholder={L.hbookFromV} autocomplete="off" data-lat="" data-lng="" data-airport="" />
+          <form class="hbook__bar" id="hbook-form" data-book-base={bookHref} data-flight-req={L.hbookFlightReq} novalidate>
+            <div class="hbook__row">
+              <div class="hbook__cell" data-cell="from">
+                <label class="hbook__flabel" for="hb-from">{L.hbookFrom}</label>
+                <div class="hbook__inwrap">
+                  <svg class="hbook__pin" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><circle cx="12" cy="10" r="3"/><path d="M12 2a8 8 0 0 0-8 8c0 5.25 8 12 8 12s8-6.75 8-12a8 8 0 0 0-8-8Z"/></svg>
+                  <input class="hbook__input" id="hb-from" name="from" type="text" placeholder={L.hbookFromV} autocomplete="off" data-lat="" data-lng="" data-airport="" />
+                </div>
+              </div>
+
+              <div class="hbook__stops" id="hb-stops"></div>
+
+              <div class="hbook__cell" data-cell="to">
+                <label class="hbook__flabel" for="hb-to">{L.hbookTo}</label>
+                <div class="hbook__inwrap">
+                  <svg class="hbook__pin" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+                  <input class="hbook__input" id="hb-to" name="to" type="text" placeholder={L.hbookToV} autocomplete="off" data-lat="" data-lng="" data-airport="" />
+                </div>
+              </div>
+
+              <div class="hbook__cell hbook__cell--sm" data-cell="date">
+                <label class="hbook__flabel" for="hb-date">{L.hbookDate}</label>
+                <input class="hbook__input hbook__input--dt" id="hb-date" name="date" type="date" />
+              </div>
+              <div class="hbook__cell hbook__cell--sm" data-cell="time">
+                <label class="hbook__flabel" for="hb-time">{L.hbookTime}</label>
+                <input class="hbook__input hbook__input--dt" id="hb-time" name="time" type="time" />
+              </div>
+              <div class="hbook__cell hbook__cell--sm" data-cell="flight" id="hb-flight-cell" hidden>
+                <label class="hbook__flabel" for="hb-flight">{L.hbookFlight}</label>
+                <input class="hbook__input" id="hb-flight" name="flight" type="text" placeholder={L.hbookFlightV} autocomplete="off" />
+              </div>
             </div>
 
-            <div class="hbook__stops" id="hb-stops"></div>
-
-            <span class="hbook__div" aria-hidden="true"></span>
-            <div class="hbook__field">
-              <label class="hbook__flabel" for="hb-to">{L.hbookTo}</label>
-              <input class="hbook__input" id="hb-to" name="to" type="text" placeholder={L.hbookToV} autocomplete="off" data-lat="" data-lng="" data-airport="" />
+            <div class="hbook__actions">
+              <button type="button" class="hbook__addstop" id="hb-addstop" data-label-add={L.hbookAddStop} data-label-stop={L.hbookStop} data-label-stopv={L.hbookStopV} data-label-remove={L.hbookRemoveStop}>
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 5v14M5 12h14"/></svg>
+                {L.hbookAddStop}
+              </button>
+              <button type="submit" class="hbook__cta">{L.hbookCta}
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 5l7 7-7 7"/></svg>
+              </button>
             </div>
-            <span class="hbook__div" aria-hidden="true"></span>
-            <div class="hbook__field hbook__field--when">
-              <label class="hbook__flabel" for="hb-when">{L.hbookWhen}</label>
-              <input class="hbook__input hbook__input--when" id="hb-when" name="when" type="datetime-local" />
-            </div>
-            <button type="submit" class="hbook__cta">{L.hbookCta}
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 5l7 7-7 7"/></svg>
-            </button>
           </form>
-          <button type="button" class="hbook__addstop" id="hb-addstop" data-label-add={L.hbookAddStop} data-label-stop={L.hbookStop} data-label-stopv={L.hbookStopV} data-label-remove={L.hbookRemoveStop}>
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 5v14M5 12h14"/></svg>
-            {L.hbookAddStop}
-          </button>
         </div>
       </div>
     </section>
@@ -215,8 +233,21 @@ const L = pick(lang,
       if (form) {
         const stopsWrap = document.getElementById('hb-stops');
         const addBtn = document.getElementById('hb-addstop');
+        const fromEl = document.getElementById('hb-from');
+        const toEl = document.getElementById('hb-to');
+        const dateEl = document.getElementById('hb-date');
+        const timeEl = document.getElementById('hb-time');
+        const flightCell = document.getElementById('hb-flight-cell');
+        const flightInput = document.getElementById('hb-flight');
         const MAX_STOPS = 3;
-        let mapsPromise = null;
+        let mapsPromise = null, stopSeq = 0;
+
+        // Flugnummer-Feld nur zeigen, wenn die Abholadresse ein Flughafen ist.
+        function updateFlight() {
+          const isAir = fromEl.dataset.airport === '1';
+          if (flightCell) flightCell.hidden = !isAir;
+          if (!isAir && flightInput) flightInput.value = '';
+        }
 
         function loadMaps() {
           if (window.google?.maps?.places) return Promise.resolve(true);
@@ -245,53 +276,46 @@ const L = pick(lang,
           ac.addListener('place_changed', () => {
             const p = ac.getPlace();
             const loc = p?.geometry?.location;
-            if (loc) {
-              input.dataset.lat = String(loc.lat());
-              input.dataset.lng = String(loc.lng());
-            } else {
-              input.dataset.lat = '';
-              input.dataset.lng = '';
-            }
+            if (loc) { input.dataset.lat = String(loc.lat()); input.dataset.lng = String(loc.lng()); }
+            else { input.dataset.lat = ''; input.dataset.lng = ''; }
             input.dataset.airport = Array.isArray(p?.types) && p.types.includes('airport') ? '1' : '';
             if (p?.formatted_address) input.value = p.formatted_address;
+            if (input === fromEl) updateFlight();
           });
           // Manuelle Aenderung entwertet die Koordinaten (Adresse nicht bestaetigt).
-          input.addEventListener('input', () => { input.dataset.lat = ''; input.dataset.lng = ''; input.dataset.airport = ''; });
+          input.addEventListener('input', () => {
+            input.dataset.lat = ''; input.dataset.lng = ''; input.dataset.airport = '';
+            if (input === fromEl) updateFlight();
+          });
         }
 
-        // Von/Nach beim ersten Fokus binden.
-        ['hb-from', 'hb-to'].forEach((id) => {
-          const el = document.getElementById(id);
-          if (el) el.addEventListener('focus', () => attach(el), { once: true });
-        });
+        [fromEl, toEl].forEach((el) => { if (el) el.addEventListener('focus', () => attach(el), { once: true }); });
 
         function stopCount() { return stopsWrap.querySelectorAll('.hbook__stop').length; }
 
         function addStop() {
           if (stopCount() >= MAX_STOPS) return;
-          const row = document.createElement('div');
-          row.className = 'hbook__stop';
-          const field = document.createElement('div');
-          field.className = 'hbook__field';
+          const id = 'hb-stop-' + (stopSeq++);
+          const cell = document.createElement('div');
+          cell.className = 'hbook__stop';
           const label = document.createElement('label');
           label.className = 'hbook__flabel';
           label.textContent = addBtn.dataset.labelStop;
+          label.setAttribute('for', id);
+          const inwrap = document.createElement('div');
+          inwrap.className = 'hbook__inwrap';
+          inwrap.innerHTML = '<svg class="hbook__pin" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><circle cx="12" cy="10" r="3"/><path d="M12 2a8 8 0 0 0-8 8c0 5.25 8 12 8 12s8-6.75 8-12a8 8 0 0 0-8-8Z"/></svg>';
           const input = document.createElement('input');
           input.className = 'hbook__input hbook__stop-input';
-          input.type = 'text';
-          input.placeholder = addBtn.dataset.labelStopv;
-          input.autocomplete = 'off';
+          input.type = 'text'; input.id = id; input.placeholder = addBtn.dataset.labelStopv; input.autocomplete = 'off';
+          inwrap.appendChild(input);
           const remove = document.createElement('button');
-          remove.type = 'button';
-          remove.className = 'hbook__stop-remove';
+          remove.type = 'button'; remove.className = 'hbook__stop-remove';
           remove.setAttribute('aria-label', addBtn.dataset.labelRemove);
-          remove.innerHTML = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" aria-hidden="true"><path d="M6 6l12 12M18 6L6 18"/></svg>';
-          remove.addEventListener('click', () => { row.remove(); addBtn.hidden = false; });
-          const id = 'hb-stop-' + (Date.now() % 100000);
-          input.id = id; label.setAttribute('for', id);
-          field.appendChild(label); field.appendChild(input);
-          row.appendChild(remove); row.appendChild(field);
-          stopsWrap.appendChild(row);
+          remove.innerHTML = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" aria-hidden="true"><path d="M6 6l12 12M18 6L6 18"/></svg>';
+          remove.addEventListener('click', () => { cell.remove(); addBtn.hidden = false; });
+          cell.appendChild(label); cell.appendChild(inwrap); cell.appendChild(remove);
+          stopsWrap.appendChild(cell);
           input.focus();
           attach(input);
           if (stopCount() >= MAX_STOPS) addBtn.hidden = true;
@@ -310,23 +334,25 @@ const L = pick(lang,
 
         form.addEventListener('submit', (e) => {
           e.preventDefault();
-          const fromEl = document.getElementById('hb-from');
-          const toEl = document.getElementById('hb-to');
           const pickup = readField(fromEl);
           const dropoff = readField(toEl);
           if (!pickup) { fromEl.focus(); return; }
           if (!dropoff) { toEl.focus(); return; }
-          const stops = Array.from(stopsWrap.querySelectorAll('.hbook__stop-input'))
-            .map(readField).filter(Boolean);
-          const whenVal = document.getElementById('hb-when')?.value || '';
-          let date = '', time = '';
-          if (whenVal.includes('T')) { const [d, t] = whenVal.split('T'); date = d; time = (t || '').slice(0, 5); }
+          // Flugnummer ist Pflicht, wenn die Abholadresse ein Flughafen ist.
+          const flightVal = (flightInput?.value || '').trim();
+          if (fromEl.dataset.airport === '1' && !flightVal) {
+            if (flightCell) { flightCell.hidden = false; flightCell.classList.add('hbook__cell--err'); }
+            flightInput.addEventListener('input', () => flightCell.classList.remove('hbook__cell--err'), { once: true });
+            flightInput.focus();
+            return;
+          }
+          const stops = Array.from(stopsWrap.querySelectorAll('.hbook__stop-input')).map(readField).filter(Boolean);
           const prefill = { pickup, dropoff, stops };
-          if (date) prefill.date = date;
-          if (time) prefill.time = time;
+          if (dateEl?.value) prefill.date = dateEl.value;
+          if (timeEl?.value) prefill.time = timeEl.value;
+          if (flightVal) prefill.flight = flightVal;
           const base = form.dataset.bookBase || '/online-buchung';
-          const url = base + '?prefill=' + encodeURIComponent(JSON.stringify(prefill));
-          window.location.href = url;
+          window.location.href = base + '?prefill=' + encodeURIComponent(JSON.stringify(prefill));
         });
       }
     </script>
@@ -782,49 +808,60 @@ const L = pick(lang,
   .hbook__eyebrow { display: inline-flex; align-items: center; gap: 9px; font-family: var(--font-display); font-weight: 600; font-size: 0.85rem; letter-spacing: 0.08em; text-transform: uppercase; color: #c46a2d; }
   .hbook__dot { inline-size: 8px; block-size: 8px; border-radius: 999px; background: #c46a2d; flex: none; }
   .hbook__bar {
-    display: flex; align-items: center; gap: clamp(0.25rem, 1vw, 0.75rem);
-    padding: clamp(0.6rem, 1.4vw, 0.9rem);
-    border-radius: 999px; background: #fff; border: 1px solid rgba(20, 15, 10, 0.14);
-    box-shadow: 0 24px 60px -34px rgba(0, 0, 0, 0.45);
+    display: flex; flex-direction: column; gap: 14px;
+    padding: clamp(0.85rem, 1.6vw, 1.15rem);
+    border-radius: 22px; background: #fff; border: 1px solid rgba(20, 15, 10, 0.12);
+    box-shadow: 0 30px 70px -40px rgba(0, 0, 0, 0.5);
   }
-  .hbook__field { flex: 1 1 0; min-inline-size: 0; display: flex; flex-direction: column; gap: 3px; padding-inline: clamp(0.9rem, 2vw, 1.6rem); }
-  .hbook__field--when { flex: 0 1 clamp(180px, 16vw, 230px); }
-  .hbook__flabel { font-size: 11.5px; letter-spacing: 0.1em; text-transform: uppercase; color: #c46a2d; font-weight: 600; }
-  .hbook__input { inline-size: 100%; min-inline-size: 0; border: none; background: transparent; padding: 0; margin: 0; font-family: var(--font-display); font-weight: 600; font-size: clamp(0.95rem, 1.4vw, 1.1rem); color: #0c0a08; line-height: 1.3; }
-  .hbook__input::placeholder { color: rgba(12, 10, 8, 0.42); font-weight: 500; }
+  .hbook__row { display: flex; flex-wrap: wrap; gap: 10px; }
+  .hbook__cell, .hbook__stop {
+    flex: 1 1 200px; min-inline-size: 158px; position: relative;
+    display: flex; flex-direction: column; gap: 4px;
+    padding: 11px 16px; border-radius: 14px; background: #faf7f2;
+    border: 1px solid rgba(20, 15, 10, 0.09);
+    transition: border-color 0.2s ease, background 0.2s ease, box-shadow 0.2s ease;
+  }
+  .hbook__cell--sm { flex: 0 1 150px; min-inline-size: 128px; }
+  .hbook__cell:focus-within, .hbook__stop:focus-within { border-color: #c46a2d; background: #fff; box-shadow: 0 0 0 3px rgba(196, 106, 45, 0.13); }
+  .hbook__cell[hidden] { display: none; }
+  .hbook__cell--err { border-color: #c0392b; box-shadow: 0 0 0 3px rgba(192, 57, 43, 0.15); }
+  .hbook__cell--err .hbook__flabel { color: #c0392b; }
+  .hbook__flabel { font-family: var(--font-display); font-size: 10.5px; letter-spacing: 0.1em; text-transform: uppercase; color: #a4531f; font-weight: 600; }
+  .hbook__inwrap { display: flex; align-items: center; gap: 8px; }
+  .hbook__pin { inline-size: 15px; block-size: 15px; color: #c46a2d; flex: none; opacity: 0.75; }
+  .hbook__input { inline-size: 100%; min-inline-size: 0; border: none; background: transparent; padding: 0; margin: 0; font-family: var(--font-display); font-weight: 600; font-size: 15px; color: #0c0a08; line-height: 1.35; }
+  .hbook__input::placeholder { color: rgba(12, 10, 8, 0.4); font-weight: 500; }
   .hbook__input:focus { outline: none; }
-  .hbook__input:focus::placeholder { color: rgba(12, 10, 8, 0.28); }
-  .hbook__field:focus-within .hbook__flabel { color: #a4531f; }
-  .hbook__input--when { font-variant-numeric: tabular-nums; color-scheme: light; cursor: pointer; }
+  .hbook__input--dt { color-scheme: light; cursor: pointer; font-variant-numeric: tabular-nums; }
+  .hbook__input--dt::-webkit-calendar-picker-indicator { opacity: 0.5; cursor: pointer; }
   .hbook__stops { display: contents; }
-  .hbook__stop { display: flex; align-items: center; flex: 1 1 0; min-inline-size: 0; }
-  .hbook__stop::before { content: ""; inline-size: 1px; block-size: 36px; background: rgba(0, 0, 0, 0.1); flex: none; }
-  .hbook__stop .hbook__field { position: relative; }
-  .hbook__stop-remove { flex: none; inline-size: 26px; block-size: 26px; margin-inline-end: 6px; display: inline-grid; place-items: center; border: none; border-radius: 999px; background: rgba(20, 15, 10, 0.06); color: #7a4a2b; cursor: pointer; transition: background 0.2s ease, color 0.2s ease, transform 0.2s ease; }
-  .hbook__stop-remove:hover { background: rgba(196, 106, 45, 0.16); color: #a4531f; transform: rotate(90deg); }
-  .hbook__stop-remove svg { inline-size: 14px; block-size: 14px; }
-  .hbook__div { inline-size: 1px; block-size: 36px; background: rgba(0, 0, 0, 0.1); flex: none; }
-  .hbook__cta { flex: none; display: inline-flex; align-items: center; gap: 10px; padding: 15px 30px; border: none; border-radius: 999px; background: linear-gradient(90deg, #c46a2d 0%, #e9b79a 100%); color: #1a0e04; font-family: var(--font-display); font-weight: 600; font-size: 15px; text-decoration: none; white-space: nowrap; cursor: pointer; transition: filter 0.3s ease, transform 0.25s ease, box-shadow 0.3s ease; }
-  .hbook__cta:hover { filter: brightness(1.05); transform: translateY(-1px); box-shadow: 0 12px 26px -12px rgba(196, 106, 45, 0.7); }
-  .hbook__cta:active { transform: translateY(0); }
-  .hbook__cta svg { inline-size: 17px; block-size: 17px; }
-  .hbook__addstop { align-self: flex-start; display: inline-flex; align-items: center; gap: 7px; margin-block-start: 2px; padding: 7px 14px 7px 10px; border: 1px dashed rgba(196, 106, 45, 0.5); border-radius: 999px; background: transparent; color: #a4531f; font-family: var(--font-display); font-weight: 600; font-size: 13px; cursor: pointer; transition: background 0.2s ease, border-color 0.2s ease, transform 0.2s ease; }
+  .hbook__stop { padding-inline-end: 34px; }
+  .hbook__stop-remove {
+    position: absolute; inset-block-start: 8px; inset-inline-end: 8px;
+    inline-size: 22px; block-size: 22px; display: inline-grid; place-items: center;
+    border: none; border-radius: 999px; background: rgba(20, 15, 10, 0.07); color: #7a4a2b; cursor: pointer;
+    transition: background 0.2s ease, color 0.2s ease, transform 0.2s ease;
+  }
+  .hbook__stop-remove:hover { background: rgba(196, 106, 45, 0.18); color: #a4531f; transform: rotate(90deg); }
+  .hbook__stop-remove svg { inline-size: 12px; block-size: 12px; }
+  .hbook__actions { display: flex; align-items: center; justify-content: space-between; gap: 12px; flex-wrap: wrap; }
+  .hbook__addstop { display: inline-flex; align-items: center; gap: 7px; padding: 9px 16px 9px 12px; border: 1px dashed rgba(196, 106, 45, 0.5); border-radius: 999px; background: transparent; color: #a4531f; font-family: var(--font-display); font-weight: 600; font-size: 13px; cursor: pointer; transition: background 0.2s ease, border-color 0.2s ease, transform 0.2s ease; }
   .hbook__addstop svg { inline-size: 15px; block-size: 15px; }
   .hbook__addstop:hover { background: rgba(196, 106, 45, 0.08); border-color: #c46a2d; transform: translateY(-1px); }
   .hbook__addstop[hidden] { display: none; }
-  @media (max-width: 820px) {
-    .hbook__bar { flex-direction: column; align-items: stretch; border-radius: 20px; gap: 0; padding: 0.5rem; }
-    .hbook__field { padding: 13px clamp(0.9rem, 2vw, 1.4rem); }
-    .hbook__field--when { flex: 1 1 auto; }
-    .hbook__div { inline-size: 100%; block-size: 1px; }
-    .hbook__stops { display: block; }
-    .hbook__stop { padding-block: 0; }
-    .hbook__stop::before { display: none; }
-    .hbook__stop .hbook__field { flex: 1 1 auto; }
-    .hbook__cta { justify-content: center; margin-block-start: 8px; }
+  .hbook__cta { margin-inline-start: auto; display: inline-flex; align-items: center; gap: 10px; padding: 14px 32px; border: none; border-radius: 999px; background: linear-gradient(90deg, #c46a2d 0%, #e9b79a 100%); color: #1a0e04; font-family: var(--font-display); font-weight: 700; font-size: 15px; white-space: nowrap; cursor: pointer; transition: filter 0.3s ease, transform 0.25s ease, box-shadow 0.3s ease; }
+  .hbook__cta:hover { filter: brightness(1.05); transform: translateY(-1px); box-shadow: 0 14px 30px -14px rgba(196, 106, 45, 0.75); }
+  .hbook__cta:active { transform: translateY(0); }
+  .hbook__cta svg { inline-size: 17px; block-size: 17px; }
+  @media (max-width: 620px) {
+    .hbook__cell, .hbook__stop { flex: 1 1 100%; }
+    .hbook__cell--sm { flex: 1 1 calc(50% - 5px); }
+    .hbook__actions { flex-direction: column-reverse; align-items: stretch; }
+    .hbook__cta { margin-inline-start: 0; justify-content: center; }
+    .hbook__addstop { align-self: flex-start; }
   }
   @media (prefers-reduced-motion: reduce) {
-    .hbook__cta, .hbook__addstop, .hbook__stop-remove { transition: none; }
+    .hbook__cta, .hbook__addstop, .hbook__stop-remove, .hbook__cell, .hbook__stop { transition: none; }
     .hbook__cta:hover, .hbook__addstop:hover { transform: none; }
     .hbook__stop-remove:hover { transform: none; }
   }
