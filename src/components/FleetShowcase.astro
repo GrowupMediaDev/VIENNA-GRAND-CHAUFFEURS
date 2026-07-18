@@ -5,7 +5,6 @@ const lang = getLang(Astro.url);
 const g = (slug: string) => [1, 2, 3, 4].map((n) => `/images/fahrzeuge/${slug}-gal-${n}.jpg`);
 const BASE: { slug: string; tab: { de: string; en: string }; name: { de: string; en: string }; tier: { de: string; en: string }; pax: number; bags: number; img?: string; gallery?: string[] }[] = [
   { slug: 'e-klasse', tab: { de: 'E-Klasse', en: 'E-Class' }, name: { de: 'Mercedes E-Klasse', en: 'Mercedes E-Class' }, tier: { de: 'Business Class Limousine', en: 'Business Class Sedan' }, pax: 3, bags: 3 },
-  { slug: 'bmw-5er', tab: { de: 'BMW 5er', en: 'BMW 5 Series' }, name: { de: 'BMW 5er', en: 'BMW 5 Series' }, tier: { de: 'Business Class Limousine', en: 'Business Class Sedan' }, pax: 3, bags: 3 },
   { slug: 's-klasse', tab: { de: 'S-Klasse', en: 'S-Class' }, name: { de: 'Mercedes S-Klasse', en: 'Mercedes S-Class' }, tier: { de: 'First Class Limousine', en: 'First Class Sedan' }, pax: 3, bags: 4 },
   { slug: 'maybach', tab: { de: 'Maybach', en: 'Maybach' }, name: { de: 'Mercedes-Maybach', en: 'Mercedes-Maybach' }, tier: { de: 'Luxury Class Limousine', en: 'Luxury Class Sedan' }, pax: 3, bags: 3 },
   { slug: 'mercedes-eqe', tab: { de: 'EQE', en: 'EQE' }, name: { de: 'Mercedes EQE', en: 'Mercedes EQE' }, tier: { de: 'Elektro Limousine', en: 'Electric Sedan' }, pax: 3, bags: 3 },

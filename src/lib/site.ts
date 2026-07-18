@@ -5,11 +5,11 @@
 
 export const CONTACT = {
   phonePrimary: {
-    display: '+43 1 941262850',
+    display: '+43 1 941 262 850',
     tel: '+431941262850',
   },
   phoneSecondary: {
-    display: '+43 676 4221825',
+    display: '+43 676 422 18 25',
     tel: '+436764221825',
   },
   whatsapp: {
@@ -36,7 +36,6 @@ export const SERVICES = [
 // The fleet, in menu order.
 export const FAHRZEUGE = [
   { slug: 'e-klasse', title: 'Mercedes E-Klasse', titleEn: 'Mercedes E-Class' },
-  { slug: 'bmw-5er', title: 'BMW 5er', titleEn: 'BMW 5 Series' },
   { slug: 's-klasse', title: 'Mercedes S-Klasse', titleEn: 'Mercedes S-Class' },
   { slug: 'maybach', title: 'Mercedes-Maybach S-Klasse', titleEn: 'Mercedes-Maybach S-Class' },
   { slug: 'v-klasse', title: 'Mercedes V-Klasse', titleEn: 'Mercedes V-Class' },

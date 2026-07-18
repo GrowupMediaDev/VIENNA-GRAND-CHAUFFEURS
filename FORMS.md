@@ -99,7 +99,7 @@ If the lead inbox should change, update `ADMIN_TO` in **both** function files.
 
 ## ⚠️ Placeholders still in the code (update when real values arrive)
 
-- `PHONE = '+43 1 941262850'` in both functions — primary (landline) phone number,
+- `PHONE = '+43 1 941 262 850'` in both functions — primary (landline) phone number,
   set in the email signatures of `contact.js` and `booking.js`.
 - `LEGAL`, `CONTACT_EMAIL` constants — confirm against the real business details.
 
