@@ -67,7 +67,16 @@ const T = pick(lang,
   <main>
     <PageHero eyebrow={L.eyebrow} title={L.heroTitle} sub={L.heroSub} />
 
-    <section class="buchung" aria-label={L.formAria}>
+    <!-- VGC-Buchungssystem — externes Widget (vgc-buchung.vercel.app) -->
+    <section class="vgc-booking" aria-label={L.formAria}>
+      <div class="container-x">
+        <div id="vt-booking" data-theme="light" data-lang={lang}></div>
+      </div>
+    </section>
+    <script src="https://vgc-buchung-oezdemircagri-7244s-projects.vercel.app/widget/vgc-widget.js" async is:inline></script>
+
+    <!-- Altes 3-Schritt-Formular — ausgeblendet, NICHT gelöscht (Rückfall verfügbar) -->
+    <section class="buchung" aria-label={L.formAria} hidden>
       <div class="container-x buchung__wrap">
         <form class="bform" data-booking-form novalidate>
           <!-- Step 1 — Trip -->
