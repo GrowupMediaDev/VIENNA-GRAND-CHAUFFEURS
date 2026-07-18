@@ -74,9 +74,9 @@ export const VEHICLES_DATA: Vehicle[] = [
       title: 'Transparente Festpreise.',
       sub: 'Keine versteckten Kosten — Wartezeit, Maut und Parkgebühren sind immer inklusive. Bei Buchung garantiert.',
       cards: [
-        { title: 'Flughafentransfer', sub: 'Festpreis pro Strecke', price: '€220', unit: '/ Strecke', desc: 'Inkl. 60 Min. Wartezeit, Meet & Greet und Gepäckservice — vom Gate bis zur Haustür.', cta: 'Transfer buchen', featured: true },
-        { title: 'Stundensatz', sub: 'Mindestens 2 Stunden', price: '€190', unit: '/ Stunde', desc: 'Chauffeur zur freien Verfügung — ideal für Termine, Shopping oder Events in der Stadt.', cta: 'Stunden buchen' },
-        { title: 'Tagessatz', sub: '8 Stunden inklusive', price: '€1.520', unit: '/ Tag', desc: 'Ein Chauffeur für den ganzen Tag — für Ganztagestermine, Ausflüge und Roadshows.', cta: 'Tag buchen' },
+        { title: 'Flughafentransfer', sub: 'Festpreis pro Strecke', price: '€60', unit: '/ Strecke', desc: 'Inkl. 60 Min. Wartezeit, Meet & Greet und Gepäckservice — vom Gate bis zur Haustür.', cta: 'Transfer buchen', featured: true },
+        { title: 'Stundensatz', sub: 'Mindestens 2 Stunden', price: '€60', unit: '/ Stunde', desc: 'Chauffeur zur freien Verfügung — ideal für Termine, Shopping oder Events in der Stadt.', cta: 'Stunden buchen' },
+        { title: 'Tagessatz', sub: '8 Stunden inklusive', price: '€480', unit: '/ Tag', desc: 'Ein Chauffeur für den ganzen Tag — für Ganztagestermine, Ausflüge und Roadshows.', cta: 'Tag buchen' },
       ],
     },
     faq: [
@@ -116,9 +116,9 @@ export const VEHICLES_DATA: Vehicle[] = [
       title: 'Transparente Festpreise.',
       sub: 'Keine versteckten Kosten — Wartezeit, Maut und Parkgebühren sind immer inklusive. Bei Buchung garantiert.',
       cards: [
-        { title: 'Flughafentransfer', sub: 'Festpreis pro Strecke', price: '€220', unit: '/ Strecke', desc: 'Inkl. 60 Min. Wartezeit, Meet & Greet und Gepäckservice — vom Gate bis zur Haustür.', cta: 'Transfer buchen', featured: true },
-        { title: 'Stundensatz', sub: 'Mindestens 2 Stunden', price: '€190', unit: '/ Stunde', desc: 'Chauffeur zur freien Verfügung — ideal für Termine, Shopping oder Events in der Stadt.', cta: 'Stunden buchen' },
-        { title: 'Tagessatz', sub: '8 Stunden inklusive', price: '€1.520', unit: '/ Tag', desc: 'Ein Chauffeur für den ganzen Tag — für Ganztagestermine, Ausflüge und Roadshows.', cta: 'Tag buchen' },
+        { title: 'Flughafentransfer', sub: 'Festpreis pro Strecke', price: '€60', unit: '/ Strecke', desc: 'Inkl. 60 Min. Wartezeit, Meet & Greet und Gepäckservice — vom Gate bis zur Haustür.', cta: 'Transfer buchen', featured: true },
+        { title: 'Stundensatz', sub: 'Mindestens 2 Stunden', price: '€60', unit: '/ Stunde', desc: 'Chauffeur zur freien Verfügung — ideal für Termine, Shopping oder Events in der Stadt.', cta: 'Stunden buchen' },
+        { title: 'Tagessatz', sub: '8 Stunden inklusive', price: '€480', unit: '/ Tag', desc: 'Ein Chauffeur für den ganzen Tag — für Ganztagestermine, Ausflüge und Roadshows.', cta: 'Tag buchen' },
       ],
     },
     faq: [
@@ -158,9 +158,9 @@ export const VEHICLES_DATA: Vehicle[] = [
       title: 'Transparente Festpreise.',
       sub: 'Keine versteckten Kosten — Wartezeit, Maut und Parkgebühren sind immer inklusive. Bei Buchung garantiert.',
       cards: [
-        { title: 'Flughafentransfer', sub: 'Festpreis pro Strecke', price: '€260', unit: '/ Strecke', desc: 'Inkl. 60 Min. Wartezeit, Meet & Greet und Gepäckservice — für die ganze Gruppe.', cta: 'Transfer buchen', featured: true },
-        { title: 'Stundensatz', sub: 'Mindestens 2 Stunden', price: '€220', unit: '/ Stunde', desc: 'Chauffeur zur freien Verfügung — ideal für Gruppen, Events und Stadtfahrten.', cta: 'Stunden buchen' },
-        { title: 'Tagessatz', sub: '8 Stunden inklusive', price: '€1.760', unit: '/ Tag', desc: 'Ein Chauffeur für den ganzen Tag — für Ausflüge, Roadshows und Gruppenprogramme.', cta: 'Tag buchen' },
+        { title: 'Flughafentransfer', sub: 'Festpreis pro Strecke', price: '€80', unit: '/ Strecke', desc: 'Inkl. 60 Min. Wartezeit, Meet & Greet und Gepäckservice — für die ganze Gruppe.', cta: 'Transfer buchen', featured: true },
+        { title: 'Stundensatz', sub: 'Mindestens 2 Stunden', price: '€80', unit: '/ Stunde', desc: 'Chauffeur zur freien Verfügung — ideal für Gruppen, Events und Stadtfahrten.', cta: 'Stunden buchen' },
+        { title: 'Tagessatz', sub: '8 Stunden inklusive', price: '€640', unit: '/ Tag', desc: 'Ein Chauffeur für den ganzen Tag — für Ausflüge, Roadshows und Gruppenprogramme.', cta: 'Tag buchen' },
       ],
     },
     faq: [
@@ -200,9 +200,9 @@ export const VEHICLES_DATA: Vehicle[] = [
       title: 'Transparente Festpreise.',
       sub: 'Keine versteckten Kosten — Wartezeit, Maut und Parkgebühren sind immer inklusive. Bei Buchung garantiert.',
       cards: [
-        { title: 'Flughafentransfer', sub: 'Festpreis pro Strecke', price: '€320', unit: '/ Strecke', desc: 'Inkl. 60 Min. Wartezeit, Meet & Greet und Gepäckservice — First-Class-Komfort.', cta: 'Transfer buchen', featured: true },
-        { title: 'Stundensatz', sub: 'Mindestens 2 Stunden', price: '€280', unit: '/ Stunde', desc: 'Chauffeur zur freien Verfügung — ideal für VIP-Termine, Events und Repräsentation.', cta: 'Stunden buchen' },
-        { title: 'Tagessatz', sub: '8 Stunden inklusive', price: '€2.240', unit: '/ Tag', desc: 'Ein Chauffeur für den ganzen Tag — für Staatsbesuche, Roadshows und wichtige Anlässe.', cta: 'Tag buchen' },
+        { title: 'Flughafentransfer', sub: 'Festpreis pro Strecke', price: '€120', unit: '/ Strecke', desc: 'Inkl. 60 Min. Wartezeit, Meet & Greet und Gepäckservice — First-Class-Komfort.', cta: 'Transfer buchen', featured: true },
+        { title: 'Stundensatz', sub: 'Mindestens 2 Stunden', price: '€90', unit: '/ Stunde', desc: 'Chauffeur zur freien Verfügung — ideal für VIP-Termine, Events und Repräsentation.', cta: 'Stunden buchen' },
+        { title: 'Tagessatz', sub: '8 Stunden inklusive', price: '€720', unit: '/ Tag', desc: 'Ein Chauffeur für den ganzen Tag — für Staatsbesuche, Roadshows und wichtige Anlässe.', cta: 'Tag buchen' },
       ],
     },
     faq: [
@@ -284,9 +284,9 @@ export const VEHICLES_DATA: Vehicle[] = [
       title: 'Transparente Festpreise.',
       sub: 'Keine versteckten Kosten — Wartezeit, Maut und Parkgebühren sind immer inklusive. Bei Buchung garantiert.',
       cards: [
-        { title: 'Flughafentransfer', sub: 'Festpreis pro Strecke', price: '€260', unit: '/ Strecke', desc: 'Inkl. 60 Min. Wartezeit, Meet & Greet und Gepäckservice — emissionsfrei ans Ziel.', cta: 'Transfer buchen', featured: true },
-        { title: 'Stundensatz', sub: 'Mindestens 2 Stunden', price: '€220', unit: '/ Stunde', desc: 'Chauffeur zur freien Verfügung — nachhaltig unterwegs bei Terminen und Events.', cta: 'Stunden buchen' },
-        { title: 'Tagessatz', sub: '8 Stunden inklusive', price: '€1.760', unit: '/ Tag', desc: 'Ein Chauffeur für den ganzen Tag — emissionsfrei für Ausflüge und Roadshows.', cta: 'Tag buchen' },
+        { title: 'Flughafentransfer', sub: 'Festpreis pro Strecke', price: '€90', unit: '/ Strecke', desc: 'Inkl. 60 Min. Wartezeit, Meet & Greet und Gepäckservice — emissionsfrei ans Ziel.', cta: 'Transfer buchen', featured: true },
+        { title: 'Stundensatz', sub: 'Mindestens 2 Stunden', price: '€80', unit: '/ Stunde', desc: 'Chauffeur zur freien Verfügung — nachhaltig unterwegs bei Terminen und Events.', cta: 'Stunden buchen' },
+        { title: 'Tagessatz', sub: '8 Stunden inklusive', price: '€640', unit: '/ Tag', desc: 'Ein Chauffeur für den ganzen Tag — emissionsfrei für Ausflüge und Roadshows.', cta: 'Tag buchen' },
       ],
     },
     faq: [
@@ -368,9 +368,9 @@ export const VEHICLES_DATA: Vehicle[] = [
       title: 'Transparente Festpreise.',
       sub: 'Keine versteckten Kosten — Wartezeit, Maut und Parkgebühren sind immer inklusive. Bei Buchung garantiert.',
       cards: [
-        { title: 'Flughafentransfer', sub: 'Festpreis pro Strecke', price: '€340', unit: '/ Strecke', desc: 'Inkl. 60 Min. Wartezeit und Gepäckservice — die ganze Gruppe in einem Fahrzeug.', cta: 'Transfer buchen', featured: true },
-        { title: 'Stundensatz', sub: 'Mindestens 3 Stunden', price: '€290', unit: '/ Stunde', desc: 'Chauffeur zur freien Verfügung — ideal für Events, Ausflüge und Gruppenprogramme.', cta: 'Stunden buchen' },
-        { title: 'Tagessatz', sub: '8 Stunden inklusive', price: '€2.320', unit: '/ Tag', desc: 'Ein Chauffeur für den ganzen Tag — für Betriebsausflüge, Touren und Events.', cta: 'Tag buchen' },
+        { title: 'Flughafentransfer', sub: 'Festpreis pro Strecke', price: '€170', unit: '/ Strecke', desc: 'Inkl. 60 Min. Wartezeit und Gepäckservice — die ganze Gruppe in einem Fahrzeug.', cta: 'Transfer buchen', featured: true },
+        { title: 'Stundensatz', sub: 'Mindestens 3 Stunden', price: '€80', unit: '/ Stunde', desc: 'Chauffeur zur freien Verfügung — ideal für Events, Ausflüge und Gruppenprogramme.', cta: 'Stunden buchen' },
+        { title: 'Tagessatz', sub: '8 Stunden inklusive', price: '€640', unit: '/ Tag', desc: 'Ein Chauffeur für den ganzen Tag — für Betriebsausflüge, Touren und Events.', cta: 'Tag buchen' },
       ],
     },
     faq: [
@@ -420,9 +420,9 @@ export const VEHICLES_DATA_EN: Vehicle[] = [
       title: 'Transparent fixed prices.',
       sub: 'No hidden costs — waiting time, tolls and parking fees are always included. Guaranteed at the time of booking.',
       cards: [
-        { title: 'Airport transfer', sub: 'Fixed price per trip', price: '€220', unit: '/ trip', desc: 'Incl. 60 min. waiting time, meet & greet and luggage service — from the gate to your front door.', cta: 'Book transfer', featured: true },
-        { title: 'Hourly rate', sub: 'Minimum 2 hours', price: '€190', unit: '/ hour', desc: 'A chauffeur at your disposal — ideal for appointments, shopping or events in the city.', cta: 'Book hours' },
-        { title: 'Daily rate', sub: '8 hours included', price: '€1.520', unit: '/ day', desc: 'A chauffeur for the whole day — for full-day appointments, excursions and roadshows.', cta: 'Book day' },
+        { title: 'Airport transfer', sub: 'Fixed price per trip', price: '€60', unit: '/ trip', desc: 'Incl. 60 min. waiting time, meet & greet and luggage service — from the gate to your front door.', cta: 'Book transfer', featured: true },
+        { title: 'Hourly rate', sub: 'Minimum 2 hours', price: '€60', unit: '/ hour', desc: 'A chauffeur at your disposal — ideal for appointments, shopping or events in the city.', cta: 'Book hours' },
+        { title: 'Daily rate', sub: '8 hours included', price: '€480', unit: '/ day', desc: 'A chauffeur for the whole day — for full-day appointments, excursions and roadshows.', cta: 'Book day' },
       ],
     },
     faq: [
@@ -462,9 +462,9 @@ export const VEHICLES_DATA_EN: Vehicle[] = [
       title: 'Transparent fixed prices.',
       sub: 'No hidden costs — waiting time, tolls and parking fees are always included. Guaranteed at the time of booking.',
       cards: [
-        { title: 'Airport transfer', sub: 'Fixed price per trip', price: '€220', unit: '/ trip', desc: 'Incl. 60 min. waiting time, meet & greet and luggage service — from the gate to your front door.', cta: 'Book transfer', featured: true },
-        { title: 'Hourly rate', sub: 'Minimum 2 hours', price: '€190', unit: '/ hour', desc: 'A chauffeur at your disposal — ideal for appointments, shopping or events in the city.', cta: 'Book hours' },
-        { title: 'Daily rate', sub: '8 hours included', price: '€1.520', unit: '/ day', desc: 'A chauffeur for the whole day — for full-day appointments, excursions and roadshows.', cta: 'Book day' },
+        { title: 'Airport transfer', sub: 'Fixed price per trip', price: '€60', unit: '/ trip', desc: 'Incl. 60 min. waiting time, meet & greet and luggage service — from the gate to your front door.', cta: 'Book transfer', featured: true },
+        { title: 'Hourly rate', sub: 'Minimum 2 hours', price: '€60', unit: '/ hour', desc: 'A chauffeur at your disposal — ideal for appointments, shopping or events in the city.', cta: 'Book hours' },
+        { title: 'Daily rate', sub: '8 hours included', price: '€480', unit: '/ day', desc: 'A chauffeur for the whole day — for full-day appointments, excursions and roadshows.', cta: 'Book day' },
       ],
     },
     faq: [
@@ -504,9 +504,9 @@ export const VEHICLES_DATA_EN: Vehicle[] = [
       title: 'Transparent fixed prices.',
       sub: 'No hidden costs — waiting time, tolls and parking fees are always included. Guaranteed at the time of booking.',
       cards: [
-        { title: 'Airport transfer', sub: 'Fixed price per trip', price: '€260', unit: '/ trip', desc: 'Incl. 60 min. waiting time, meet & greet and luggage service — for the whole group.', cta: 'Book transfer', featured: true },
-        { title: 'Hourly rate', sub: 'Minimum 2 hours', price: '€220', unit: '/ hour', desc: 'A chauffeur at your disposal — ideal for groups, events and city journeys.', cta: 'Book hours' },
-        { title: 'Daily rate', sub: '8 hours included', price: '€1.760', unit: '/ day', desc: 'A chauffeur for the whole day — for excursions, roadshows and group programmes.', cta: 'Book day' },
+        { title: 'Airport transfer', sub: 'Fixed price per trip', price: '€80', unit: '/ trip', desc: 'Incl. 60 min. waiting time, meet & greet and luggage service — for the whole group.', cta: 'Book transfer', featured: true },
+        { title: 'Hourly rate', sub: 'Minimum 2 hours', price: '€80', unit: '/ hour', desc: 'A chauffeur at your disposal — ideal for groups, events and city journeys.', cta: 'Book hours' },
+        { title: 'Daily rate', sub: '8 hours included', price: '€640', unit: '/ day', desc: 'A chauffeur for the whole day — for excursions, roadshows and group programmes.', cta: 'Book day' },
       ],
     },
     faq: [
@@ -546,9 +546,9 @@ export const VEHICLES_DATA_EN: Vehicle[] = [
       title: 'Transparent fixed prices.',
       sub: 'No hidden costs — waiting time, tolls and parking fees are always included. Guaranteed at the time of booking.',
       cards: [
-        { title: 'Airport transfer', sub: 'Fixed price per trip', price: '€320', unit: '/ trip', desc: 'Incl. 60 min. waiting time, meet & greet and luggage service — first-class comfort.', cta: 'Book transfer', featured: true },
-        { title: 'Hourly rate', sub: 'Minimum 2 hours', price: '€280', unit: '/ hour', desc: 'A chauffeur at your disposal — ideal for VIP appointments, events and representation.', cta: 'Book hours' },
-        { title: 'Daily rate', sub: '8 hours included', price: '€2.240', unit: '/ day', desc: 'A chauffeur for the whole day — for state visits, roadshows and important occasions.', cta: 'Book day' },
+        { title: 'Airport transfer', sub: 'Fixed price per trip', price: '€120', unit: '/ trip', desc: 'Incl. 60 min. waiting time, meet & greet and luggage service — first-class comfort.', cta: 'Book transfer', featured: true },
+        { title: 'Hourly rate', sub: 'Minimum 2 hours', price: '€90', unit: '/ hour', desc: 'A chauffeur at your disposal — ideal for VIP appointments, events and representation.', cta: 'Book hours' },
+        { title: 'Daily rate', sub: '8 hours included', price: '€720', unit: '/ day', desc: 'A chauffeur for the whole day — for state visits, roadshows and important occasions.', cta: 'Book day' },
       ],
     },
     faq: [
@@ -630,9 +630,9 @@ export const VEHICLES_DATA_EN: Vehicle[] = [
       title: 'Transparent fixed prices.',
       sub: 'No hidden costs — waiting time, tolls and parking fees are always included. Guaranteed at the time of booking.',
       cards: [
-        { title: 'Airport transfer', sub: 'Fixed price per trip', price: '€260', unit: '/ trip', desc: 'Incl. 60 min. waiting time, meet & greet and luggage service — emission-free to your destination.', cta: 'Book transfer', featured: true },
-        { title: 'Hourly rate', sub: 'Minimum 2 hours', price: '€220', unit: '/ hour', desc: 'A chauffeur at your disposal — travelling sustainably for appointments and events.', cta: 'Book hours' },
-        { title: 'Daily rate', sub: '8 hours included', price: '€1.760', unit: '/ day', desc: 'A chauffeur for the whole day — emission-free for excursions and roadshows.', cta: 'Book day' },
+        { title: 'Airport transfer', sub: 'Fixed price per trip', price: '€90', unit: '/ trip', desc: 'Incl. 60 min. waiting time, meet & greet and luggage service — emission-free to your destination.', cta: 'Book transfer', featured: true },
+        { title: 'Hourly rate', sub: 'Minimum 2 hours', price: '€80', unit: '/ hour', desc: 'A chauffeur at your disposal — travelling sustainably for appointments and events.', cta: 'Book hours' },
+        { title: 'Daily rate', sub: '8 hours included', price: '€640', unit: '/ day', desc: 'A chauffeur for the whole day — emission-free for excursions and roadshows.', cta: 'Book day' },
       ],
     },
     faq: [
@@ -714,9 +714,9 @@ export const VEHICLES_DATA_EN: Vehicle[] = [
       title: 'Transparent fixed prices.',
       sub: 'No hidden costs — waiting time, tolls and parking fees are always included. Guaranteed at the time of booking.',
       cards: [
-        { title: 'Airport transfer', sub: 'Fixed price per trip', price: '€340', unit: '/ trip', desc: 'Incl. 60 min. waiting time and luggage service — the whole group in one vehicle.', cta: 'Book transfer', featured: true },
-        { title: 'Hourly rate', sub: 'Minimum 3 hours', price: '€290', unit: '/ hour', desc: 'A chauffeur at your disposal — ideal for events, excursions and group programmes.', cta: 'Book hours' },
-        { title: 'Daily rate', sub: '8 hours included', price: '€2.320', unit: '/ day', desc: 'A chauffeur for the whole day — for corporate outings, tours and events.', cta: 'Book day' },
+        { title: 'Airport transfer', sub: 'Fixed price per trip', price: '€170', unit: '/ trip', desc: 'Incl. 60 min. waiting time and luggage service — the whole group in one vehicle.', cta: 'Book transfer', featured: true },
+        { title: 'Hourly rate', sub: 'Minimum 3 hours', price: '€80', unit: '/ hour', desc: 'A chauffeur at your disposal — ideal for events, excursions and group programmes.', cta: 'Book hours' },
+        { title: 'Daily rate', sub: '8 hours included', price: '€640', unit: '/ day', desc: 'A chauffeur for the whole day — for corporate outings, tours and events.', cta: 'Book day' },
       ],
     },
     faq: [
