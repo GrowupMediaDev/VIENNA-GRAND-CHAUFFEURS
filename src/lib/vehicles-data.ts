@@ -257,7 +257,7 @@ export const VEHICLES_DATA: Vehicle[] = [
 
   {
     slug: 'vip-minibus',
-    name: 'VIP Minibus',
+    name: 'VIP Sprinter',
     heroTitle: 'Mercedes-Benz VIP Sprinter',
     klass: 'VIP Class',
     group: 'VIP Class Minibus',
@@ -562,7 +562,7 @@ export const VEHICLES_DATA_EN: Vehicle[] = [
 
   {
     slug: 'vip-minibus',
-    name: 'VIP Minibus',
+    name: 'VIP Sprinter',
     heroTitle: 'Mercedes-Benz VIP Sprinter',
     klass: 'VIP Class',
     group: 'VIP Class Minibus',
