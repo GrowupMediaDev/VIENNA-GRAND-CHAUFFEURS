@@ -45,7 +45,11 @@ const L = pick(lang,
   .crail__btn--tel { background: linear-gradient(135deg, #c46a2d 0%, #e9b79a 100%); }
 
   @media (max-width: 640px) {
-    .crail { gap: 10px; inset-inline-end: 10px; }
+    .crail {
+      gap: 10px; inset-inline-end: 14px;
+      inset-block-start: auto; inset-block-end: 18px;
+      transform: none;
+    }
     .crail__btn { inline-size: 44px; block-size: 44px; }
     .crail__btn svg { inline-size: 20px; block-size: 20px; }
   }

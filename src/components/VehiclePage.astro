@@ -258,7 +258,7 @@ const priceIncludes = pick(lang,
           <div class="vflotte__track" data-flotte-track>
             {flotte.map((v) => (
               <a class="vflotte__card" href={`${fahrzeugeBase}${v.slug}`} data-reveal>
-                <img src={v.img.card} alt={v.heroTitle} loading="lazy" />
+                <img src={v.slug === 'business-sprinter' ? '/images/fahrzeuge/ueberblick-business-sprinter.webp' : v.img.card} alt={v.heroTitle} loading="lazy" />
                 <div class="vflotte__overlay">
                   <span class="vflotte__label">{v.cardKlass}</span>
                   <h3 class="vflotte__name">{v.name}</h3>
