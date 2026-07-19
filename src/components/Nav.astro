@@ -7,6 +7,7 @@ const nt = t(lang).nav;
 const alt = altLang(Astro.url);
 const phoneHref = `tel:${CONTACT.phonePrimary.tel}`;
 const homeHref = hrefFor('/', lang);
+const bookHref = hrefFor('/online-buchung', lang);
 
 // Highlight the current page. Compare on locale-stripped, trailing-slash-free
 // paths so the same logic works for DE (root) and EN (/en/…).
@@ -51,9 +52,9 @@ const linkActive = (href: string) => path === strip(href.replace(/\/+$/, '') || 
 
   <div class="nav__actions">
     <a class="nav__lang" href={alt.href} aria-label={nt.langAria} hreflang={alt.lang}>{alt.label}</a>
-    <a class="nav__contact" href={phoneHref}>
-      <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M6.62 10.79a15.05 15.05 0 0 0 6.59 6.59l2.2-2.2a1 1 0 0 1 1.02-.24c1.12.37 2.33.57 3.57.57a1 1 0 0 1 1 1V20a1 1 0 0 1-1 1A17 17 0 0 1 3 4a1 1 0 0 1 1-1h3.5a1 1 0 0 1 1 1c0 1.25.2 2.45.57 3.57.11.35.03.74-.25 1.02l-2.2 2.2Z"/></svg>
-      <span>{nt.contactCta}</span>
+    <a class="nav__contact" href={bookHref}>
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 5l7 7-7 7"/></svg>
+      <span>{nt.bookCta}</span>
     </a>
   </div>
 

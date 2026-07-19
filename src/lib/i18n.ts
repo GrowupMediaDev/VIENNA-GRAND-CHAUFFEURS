@@ -33,7 +33,7 @@ export const htmlLang: Record<Lang, string> = { de: 'de', en: 'en' };
 // ── Shared chrome dictionary ────────────────────────────────────────────────
 const UI = {
   de: {
-    nav: { home: 'Home', services: 'Leistungen', fleet: 'Fahrzeuge', prices: 'Preise', contact: 'Kontakt', contactCta: 'Kontakt', menuOpen: 'Menü öffnen', menuClose: 'Menü schließen', langAria: 'Sprache wechseln', home_aria: 'Vienna Grand Chauffeurs — Startseite' },
+    nav: { home: 'Home', services: 'Leistungen', fleet: 'Fahrzeuge', prices: 'Preise', contact: 'Kontakt', bookCta: 'Online buchen', menuOpen: 'Menü öffnen', menuClose: 'Menü schließen', langAria: 'Sprache wechseln', home_aria: 'Vienna Grand Chauffeurs — Startseite' },
     cta: { heading: 'Jetzt anfragen und entspannt ankommen, in Wien und ganz Österreich.', button: 'Jetzt anfragen', aria: 'Jetzt anfragen' },
     faq: { eyebrow: 'faq', cta: 'Jetzt anfragen', aria: 'Häufige Fragen' },
     footer: {
@@ -48,7 +48,7 @@ const UI = {
     },
   },
   en: {
-    nav: { home: 'Home', services: 'Services', fleet: 'Fleet', prices: 'Rates', contact: 'Contact', contactCta: 'Contact us', menuOpen: 'Open menu', menuClose: 'Close menu', langAria: 'Switch language', home_aria: 'Vienna Grand Chauffeurs — Home' },
+    nav: { home: 'Home', services: 'Services', fleet: 'Fleet', prices: 'Rates', contact: 'Contact', bookCta: 'Book online', menuOpen: 'Open menu', menuClose: 'Close menu', langAria: 'Switch language', home_aria: 'Vienna Grand Chauffeurs — Home' },
     cta: { heading: 'Request your ride and arrive relaxed — in Vienna and across Austria.', button: 'Request now', aria: 'Request now' },
     faq: { eyebrow: 'faq', cta: 'Request now', aria: 'Frequently asked questions' },
     footer: {
