@@ -139,8 +139,10 @@ const linkActive = (href: string) => path === strip(href.replace(/\/+$/, '') || 
   }
   /* Once scrolled off the hero: dark blurred bar so white text stays legible. */
   .nav.is-scrolled {
-    background: rgba(13, 7, 3, 0.82);
-    backdrop-filter: blur(14px); -webkit-backdrop-filter: blur(14px);
+    /* Solid-ish bar instead of a live backdrop blur: blurring the whole page
+       behind a fixed header re-composites every scroll frame and is the main
+       cause of scroll jank. At 0.92 opacity the look is virtually identical. */
+    background: rgba(13, 7, 3, 0.92);
     padding-block: 8px;
     box-shadow: 0 10px 34px -14px rgba(0, 0, 0, 0.7);
     border-block-end: 1px solid rgba(255, 255, 255, 0.08);
