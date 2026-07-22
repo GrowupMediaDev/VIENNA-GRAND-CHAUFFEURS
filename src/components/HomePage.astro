@@ -1141,6 +1141,15 @@ const L = pick(lang,
   .hbook__input { inline-size: 100%; min-inline-size: 0; border: none; background: transparent; padding: 0; margin: 0; font-family: var(--font-display); font-weight: 600; font-size: 15px; color: #0c0a08; line-height: 1.35; }
   .hbook__input::placeholder { color: rgba(12, 10, 8, 0.4); font-weight: 500; }
   .hbook__input:focus { outline: none; }
+  /* iOS Safari zoomt beim Fokus in ein Eingabefeld hinein, sobald dessen
+     Schrift kleiner als 16px ist — auf dem Handy sprang die Startseite beim
+     Antippen der Felder darum kurz in den Zoom (Reklamation Cagribey
+     2026-07-22). Auf Touch-Geraeten deshalb exakt 16px; Desktop behaelt die
+     kompakteren 15px, da dort kein Zoom ausgeloest wird. Dieselbe Loesung
+     nutzt das grosse Buchungswidget bereits (styles/base.css.js). */
+  @media (pointer: coarse) {
+    .hbook__input { font-size: 16px; }
+  }
   .hbook__input--picker { cursor: pointer; font-variant-numeric: tabular-nums; }
   #hb-date-display { caret-color: transparent; }
 
