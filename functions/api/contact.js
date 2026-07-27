@@ -126,7 +126,7 @@ function adminEmail({ name, email, telefon, leistungLabel, nachricht }) {
   ].filter((l) => l !== null).join('\n');
 
   return {
-    subject: `Neue Anfrage über ${DOMAIN}`,
+    subject: `Neue Anfrage von ${name || 'Unbekannt'}`,
     html: emailShell(inner),
     text,
   };
