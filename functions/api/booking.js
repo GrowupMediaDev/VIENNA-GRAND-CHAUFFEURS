@@ -20,7 +20,7 @@ const FROM = 'Vienna Grand Chauffeurs <noreply@viennagrandchauffeurs.at>'; // mu
 const ADMIN_TO = 'office@viennagrandchauffeurs.at'; // where bookings land
 const PHONE = '+43 1 941 262 850';
 const CONTACT_EMAIL = 'office@viennagrandchauffeurs.at'; // PLACEHOLDER
-const LEGAL = 'VT-Limousinen Service GmbH · 1010 Wien, Österreich';
+const LEGAL = 'VT-Limousinen Service GmbH · Daponetegasse 7/6, 1030 Wien, Österreich';
 
 // Colors
 const C_DARK = '#0d0703';
@@ -53,7 +53,7 @@ function emailHeader() {
   <tr><td style="background:${C_DARK};padding:38px 40px 32px;text-align:center;">
     <div style="font-family:${SANS};font-size:22px;font-weight:700;letter-spacing:0.14em;text-transform:uppercase;color:${C_CREAM};line-height:1.2;">Vienna Grand Chauffeurs</div>
     <div style="width:46px;height:2px;background:${C_ACCENT};margin:16px auto 0;"></div>
-    <div style="font-family:${SANS};font-size:12px;letter-spacing:0.22em;text-transform:uppercase;color:rgba(255,255,255,0.5);margin-top:14px;">Wien · Österreich</div>
+    <div style="font-family:${SANS};font-size:12px;letter-spacing:0.22em;text-transform:uppercase;color:rgba(255,255,255,0.5);margin-top:14px;">1030 Wien · Österreich</div>
   </td></tr>`;
 }
 

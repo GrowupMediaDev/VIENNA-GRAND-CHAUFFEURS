@@ -38,7 +38,7 @@ const UI = {
     faq: { eyebrow: 'faq', cta: 'Jetzt anfragen', aria: 'Häufige Fragen' },
     footer: {
       tagline: 'Diskret unterwegs.<br />Souverän angekommen.',
-      location: 'Standort', locationValue: '1010 Wien, Österreich',
+      location: 'Standort', locationValue: 'Daponetegasse 7/6, 1030 Wien',
       explore: 'Entdecken', company: 'Unternehmen', contact: 'Kontakt',
       services: 'Leistungen', fleet: 'Fahrzeuge', prices: 'Preise', airport: 'Flughafentransfer',
       aboutUs: 'Über uns', contactLink: 'Kontakt', imprint: 'Impressum', privacy: 'Datenschutz', terms: 'AGB',
@@ -53,7 +53,7 @@ const UI = {
     faq: { eyebrow: 'faq', cta: 'Request now', aria: 'Frequently asked questions' },
     footer: {
       tagline: 'Travelling discreetly.<br />Arriving in style.',
-      location: 'Location', locationValue: '1010 Vienna, Austria',
+      location: 'Location', locationValue: 'Daponetegasse 7/6, 1030 Vienna, Austria',
       explore: 'Explore', company: 'Company', contact: 'Contact',
       services: 'Services', fleet: 'Fleet', prices: 'Rates', airport: 'Airport transfer',
       aboutUs: 'About us', contactLink: 'Contact', imprint: 'Imprint', privacy: 'Privacy', terms: 'Terms',
