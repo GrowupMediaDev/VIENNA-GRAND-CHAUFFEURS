@@ -38,6 +38,7 @@ export const FAHRZEUGE = [
   { slug: 'e-klasse', title: 'Mercedes E-Klasse', titleEn: 'Mercedes E-Class' },
   { slug: 's-klasse', title: 'Mercedes S-Klasse', titleEn: 'Mercedes S-Class' },
   { slug: 'maybach', title: 'Mercedes-Maybach S-Klasse', titleEn: 'Mercedes-Maybach S-Class' },
+  { slug: 'vito', title: 'Mercedes Vito', titleEn: 'Mercedes Vito' },
   { slug: 'v-klasse', title: 'Mercedes V-Klasse', titleEn: 'Mercedes V-Class' },
   { slug: 'mercedes-eqe', title: 'Mercedes EQE', titleEn: 'Mercedes EQE' },
   { slug: 'vip-minibus', title: 'VIP Sprinter Minibus', titleEn: 'VIP Sprinter Minibus' },

@@ -88,6 +88,48 @@ export const VEHICLES_DATA: Vehicle[] = [
 
 
   {
+    slug: 'vito',
+    name: 'Vito',
+    heroTitle: 'Mercedes-Benz Vito',
+    klass: 'Van',
+    group: 'Van',
+    cardKlass: 'Van · Shuttle',
+    cardSpecs: '7 Gäste · 7 Koffer · Gruppen & Gepäck',
+    metaTitle: 'Mercedes-Benz Vito — Vienna Grand Chauffeurs',
+    metaDescription: 'Der Mercedes-Benz Vito: praktischer Van für bis zu 7 Gäste in Wien und ganz Österreich. Ideal für Gruppen, Gepäck und Shuttle-Fahrten zum günstigen Fixpreis.',
+    heroSub: 'Premium Chauffeurservice in Wien & Österreich, ganz nach Ihren Wünschen',
+    heroStats: [
+      { label: 'Passagiere', value: 'Max. 7', accent: 'Max.' },
+      { label: 'Gepäck', value: 'Bis 7 Koffer' },
+      { label: 'Karosserie', value: 'Van' },
+    ],
+    img: { hero: '/images/fahrzeuge/vito-gal-1.webp', ueberblick: '/images/fahrzeuge/ueberblick-vito.webp', vorteil: '/images/fahrzeuge/vorteil-vito.webp', kabineBg: KAB_BG, gallery: ['/images/fahrzeuge/vito-gal-1.webp', '/images/fahrzeuge/vito-gal-2.webp', '/images/fahrzeuge/vito-gal-3.webp', '/images/fahrzeuge/vito-gal-4.webp', '/images/fahrzeuge/vito-gal-5.webp'], card: '/images/fahrzeuge/card-vito.webp' },
+    vover: { titleLead: 'Der praktische Van für', titleAccent: 'Gruppen & Gepäck.', body: 'Der Mercedes-Benz Vito ist unser vielseitiger Van: bis zu sieben Gäste reisen bequem und mit reichlich Gepäck. Die kluge Wahl, wenn eine Gruppe zusammenbleiben soll — vom Flughafentransfer über den Firmenausflug bis zur Fahrt mit der ganzen Familie.' },
+    galTitle: 'Der Vito in Wien.',
+    kab: { title: 'Raum für alle, die mitfahren.', lead: 'Bequeme Einzelsitze, gute Übersicht und ein klimatisierter Innenraum — im Vito reist die Gruppe entspannt und gemeinsam, mit Platz für Koffer und Handgepäck.' },
+    vben: {
+      title: 'Gemeinsam ankommen, ohne Aufpreis.',
+      body: 'Der Vito ist die preisbewusste Alternative zur V-Klasse: derselbe Platz für sieben Gäste und ihr Gepäck, dieselbe sorgfältige Betreuung durch unsere Chauffeure — zum günstigeren Fixpreis.',
+      items: ['Bis zu 7 Gäste plus großzügiger Gepäckraum', 'Ideal für Gruppen, Familien und Firmentransfers', 'Erfahrene Chauffeure, diskret, pünktlich, mit Flugüberwachung', 'Fixpreise ohne versteckte Kosten'],
+      badge: { big: '7', sm: 'Sitzplätze' },
+    },
+    vprice: {
+      title: 'Transparente Festpreise.',
+      sub: 'Keine versteckten Kosten — Wartezeit, Maut und Parkgebühren sind immer inklusive. Bei Buchung garantiert.',
+      cards: [
+        { title: 'Flughafentransfer', sub: 'Festpreis pro Strecke', price: '€70', unit: '/ Strecke', desc: 'Inkl. 60 Min. Wartezeit, Meet & Greet und Gepäckservice — für die ganze Gruppe.', cta: 'Transfer buchen', featured: true },
+        { title: 'Stundensatz', sub: 'Mindestens 3 Stunden', price: '€70', unit: '/ Stunde', desc: 'Chauffeur zur freien Verfügung — ideal für Gruppen, Events und Stadtfahrten. Inkl. max. 20 km pro Stunde.', cta: 'Stunden buchen' },
+        { title: 'Tagessatz', sub: '8 Stunden inklusive', price: '€510', unit: '/ Tag', desc: 'Ein Chauffeur für den ganzen Tag — für Ausflüge, Roadshows und Gruppenprogramme.', cta: 'Tag buchen' },
+      ],
+    },
+    faq: [
+      ...INCLUDED_FAQ('Vito'),
+      { q: 'Wie viele Gäste passen in den Vito?', a: 'Der Vito bietet Platz für bis zu 7 Gäste mit reichlich Gepäck — ideal für Gruppen und Familien.' },
+      { q: 'Worin unterscheidet sich der Vito von der V-Klasse?', a: 'Beide bieten Platz für bis zu 7 Gäste. Die V-Klasse ist die luxuriösere Ausstattungslinie mit hochwertigerem Interieur; der Vito bringt dieselbe Gruppe zum günstigeren Fixpreis ans Ziel.' },
+    ],
+  },
+
+  {
     slug: 'v-klasse',
     name: 'V-Klasse',
     heroTitle: 'Mercedes-Benz V-Klasse',
@@ -391,6 +433,48 @@ export const VEHICLES_DATA_EN: Vehicle[] = [
     ],
   },
 
+
+  {
+    slug: 'vito',
+    name: 'Vito',
+    heroTitle: 'Mercedes-Benz Vito',
+    klass: 'Van',
+    group: 'Van',
+    cardKlass: 'Van · Shuttle',
+    cardSpecs: '7 guests · 7 cases · Groups & Luggage',
+    metaTitle: 'Mercedes-Benz Vito — Vienna Grand Chauffeurs',
+    metaDescription: 'The Mercedes-Benz Vito: a practical van for up to 7 guests in Vienna and throughout Austria. Ideal for groups, luggage and shuttle journeys at a favourable fixed price.',
+    heroSub: 'Premium chauffeur service in Vienna & Austria, entirely tailored to your wishes',
+    heroStats: [
+      { label: 'Passengers', value: 'Max. 7', accent: 'Max.' },
+      { label: 'Luggage', value: 'Up to 7 cases' },
+      { label: 'Body', value: 'Van' },
+    ],
+    img: { hero: '/images/fahrzeuge/vito-gal-1.webp', ueberblick: '/images/fahrzeuge/ueberblick-vito.webp', vorteil: '/images/fahrzeuge/vorteil-vito.webp', kabineBg: KAB_BG, gallery: ['/images/fahrzeuge/vito-gal-1.webp', '/images/fahrzeuge/vito-gal-2.webp', '/images/fahrzeuge/vito-gal-3.webp', '/images/fahrzeuge/vito-gal-4.webp', '/images/fahrzeuge/vito-gal-5.webp'], card: '/images/fahrzeuge/card-vito.webp' },
+    vover: { titleLead: 'The practical van for', titleAccent: 'Groups & Luggage.', body: 'The Mercedes-Benz Vito is our versatile van: up to seven guests travel comfortably and with ample luggage. The sensible choice when a group should stay together — from the airport transfer and the corporate outing to the journey with the whole family.' },
+    galTitle: 'The Vito in Vienna.',
+    kab: { title: 'Room for everyone on board.', lead: 'Comfortable individual seats, a clear view and an air-conditioned interior — in the Vito the group travels relaxed and together, with space for cases and hand luggage.' },
+    vben: {
+      title: 'Arrive together, without the surcharge.',
+      body: 'The Vito is the cost-conscious alternative to the V-Class: the same room for seven guests and their luggage, the same attentive care from our chauffeurs — at a more favourable fixed price.',
+      items: ['Up to 7 guests plus a generous luggage compartment', 'Ideal for groups, families and corporate transfers', 'Experienced chauffeurs, discreet, punctual, with flight monitoring', 'Fixed prices with no hidden costs'],
+      badge: { big: '7', sm: 'Seats' },
+    },
+    vprice: {
+      title: 'Transparent fixed prices.',
+      sub: 'No hidden costs — waiting time, tolls and parking fees are always included. Guaranteed at the time of booking.',
+      cards: [
+        { title: 'Airport transfer', sub: 'Fixed price per trip', price: '€70', unit: '/ trip', desc: 'Incl. 60 min. waiting time, meet & greet and luggage service — for the whole group.', cta: 'Book transfer', featured: true },
+        { title: 'Hourly rate', sub: 'Minimum 3 hours', price: '€70', unit: '/ hour', desc: 'A chauffeur at your disposal — ideal for groups, events and city journeys. Incl. max. 20 km per hour.', cta: 'Book hours' },
+        { title: 'Daily rate', sub: '8 hours included', price: '€510', unit: '/ day', desc: 'A chauffeur for the whole day — for excursions, roadshows and group programmes.', cta: 'Book day' },
+      ],
+    },
+    faq: [
+      ...INCLUDED_FAQ_EN('Vito'),
+      { q: 'How many guests fit in the Vito?', a: 'The Vito offers room for up to 7 guests with ample luggage — ideal for groups and families.' },
+      { q: 'How does the Vito differ from the V-Class?', a: 'Both offer room for up to 7 guests. The V-Class is the more luxurious trim line with a higher-grade interior; the Vito takes the same group to their destination at a more favourable fixed price.' },
+    ],
+  },
 
   {
     slug: 'v-klasse',
