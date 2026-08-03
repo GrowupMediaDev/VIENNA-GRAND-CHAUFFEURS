@@ -3,6 +3,7 @@ import Layout from '../layouts/Layout.astro';
 import Nav from './Nav.astro';
 import Footer from './Footer.astro';
 import CtaBand from './CtaBand.astro';
+import Faq from './Faq.astro';
 import PageHero from './PageHero.astro';
 import { getVehicles } from '../lib/vehicles-data';
 import { getLang, hrefFor, pick } from '../lib/i18n';
@@ -11,32 +12,50 @@ const lang = getLang(Astro.url);
 const vehicles = getVehicles(lang);
 const bookHref = hrefFor('/online-buchung', lang);
 const L = pick(lang,
-  { title: 'Preise — Vienna Grand Chauffeurs', desc: 'Transparente Festpreise für Chauffeur- und Limousinenservice in Wien. Flughafentransfer, Stundensatz und Tagessatz für jede Fahrzeugklasse — ohne versteckte Kosten.', eyebrow: 'Preise', heroTitle: 'Transparente <span>Festpreise.</span>', heroSub: 'Keine versteckten Kosten. Wartezeit, Maut und Parkgebühren sind immer inklusive — Ihr Endpreis steht schon bei der Buchung fest. Wählen Sie die Klasse, die zu Ihrer Fahrt passt.', aria: 'Preisübersicht', view: 'Fahrzeug ansehen', note: 'Alle Preise verstehen sich als Richtwerte für Fahrten in Wien und Umgebung. Für Langstrecken, Sonderwünsche und individuelle Angebote kontaktieren Sie uns gerne — Sie erhalten umgehend einen verbindlichen Fixpreis.', included: ['Wartezeit inklusive', 'Maut & Parkgebühren inklusive', 'Fixpreis bei Buchung garantiert', 'Alle Preise inkl. USt.'], hourlyNote: 'Inkl. max. 20 km pro Stunde.', longDistance: 'Für Langstrecken einfach Strecke im Buchungssystem eingeben und den Preis sofort sehen.', book: 'Jetzt buchen',
+  { title: 'Preise Chauffeur Wien – Fixpreise transparent', desc: 'Preise für Chauffeur und Limousine in Wien: transparente Fixpreise, vorab sichtbar, ohne versteckte Kosten. Online buchen und sofort bezahlen.', eyebrow: 'Preise', heroTitle: 'Preise', heroSub: 'Transparente Fixpreise für Chauffeur und Limousine in Wien. Den Preis sehen Sie schon vor der Buchung, ganz ohne versteckte Kosten oder Zuschläge.', aria: 'Preisübersicht', view: 'Fahrzeug ansehen', note: 'Alle Preise verstehen sich als Richtwerte für Fahrten in Wien und Umgebung. Für Langstrecken, Sonderwünsche und individuelle Angebote kontaktieren Sie uns gerne — Sie erhalten umgehend einen verbindlichen Fixpreis.', included: ['Wartezeit inklusive', 'Maut & Parkgebühren inklusive', 'Fixpreis bei Buchung garantiert', 'Alle Preise inkl. USt.'], hourlyNote: 'Inkl. max. 20 km pro Stunde.', longDistance: 'Für Langstrecken einfach Strecke im Buchungssystem eingeben und den Preis sofort sehen.', book: 'Jetzt buchen',
     seo: {
-      eyebrow: 'Preise & Konditionen',
-      title: 'Transparente Chauffeur-Preise in Wien — fair, planbar und ohne versteckte Kosten.',
+      eyebrow: 'Preise Chauffeur Wien',
+      title: 'Transparente Preise für Ihren Chauffeur und Ihre Limousine in Wien',
       paragraphs: [
-        'Transparente Preise sind die Grundlage für Vertrauen. Bei Vienna Grand Chauffeurs wissen Sie bereits vor der Buchung, was Ihre Fahrt kostet: Sie erhalten einen Festpreis, der mit der Bestätigung verbindlich feststeht. Nachträgliche Zuschläge, ein laufendes Taxameter oder Überraschungen am Ende der Fahrt gibt es bei uns nicht — Sie steigen ein und wissen genau, woran Sie sind.',
-        'Unser Preismodell kennt drei klare Varianten. Der Transferpreis gilt pro Strecke und beginnt bei 60 Euro, etwa für die Fahrt zum Flughafen Wien-Schwechat. Der Stundensatz ab 60 Euro pro Stunde eignet sich für Termine, Shopping oder Abendveranstaltungen, wenn Ihr Chauffeur zur freien Verfügung bleiben soll. Der Tagessatz ab 480 Euro deckt acht Stunden ab und ist die richtige Wahl für Ganztagestermine, Ausflüge und Roadshows.',
-        'Welcher Preis für Sie gilt, hängt allein von der gewählten Fahrzeugklasse ab. Die Mercedes E-Klasse ist die wirtschaftliche Wahl für Einzelreisende und Paare, die S-Klasse und der Mercedes-Maybach stehen für repräsentative Anlässe, der vollelektrische Mercedes EQE für emissionsfreie Fahrten. V-Klasse und Vito bieten Platz für Gruppen und viel Gepäck, Business Sprinter und VIP-Minibus übernehmen größere Reisegesellschaften.',
-        'In jedem Preis enthalten sind Wartezeit, Maut und Parkgebühren sowie die gesetzliche Umsatzsteuer. Beim Flughafentransfer kommen 60 Minuten Wartezeit, der persönliche Meet & Greet Service und die Gepäckbetreuung hinzu. Der Stundensatz umfasst bis zu 20 Kilometer je Stunde, sodass Sie sich innerhalb Wiens frei bewegen können, ohne auf den Kilometerstand achten zu müssen.',
-        'Für Langstreckenfahrten über Wien hinaus — innerhalb Österreichs ebenso wie ins europäische Ausland — kalkulieren wir streckenbezogen. Geben Sie Ihre Route einfach in unser Online-Buchungssystem ein, und der Fixpreis wird Ihnen sofort angezeigt. Für mehrtägige Betreuung, Roadshows oder wiederkehrende Firmenfahrten erstellen wir Ihnen gerne ein individuelles Angebot mit fest vereinbarten Konditionen.',
-        'Sie planen eine Fahrt, die in keine der Kategorien passt? Rufen Sie uns an oder schreiben Sie uns über das Anfrageformular. Sie erhalten kurzfristig einen verbindlichen Fixpreis, abgestimmt auf Fahrzeugklasse, Dauer und Strecke — nachvollziehbar kalkuliert, schriftlich bestätigt und ohne versteckte Kosten.',
+        'Gute Mobilität sollte planbar sein, auch beim Preis. Deshalb sind unsere Preise Chauffeur Wien klar und fix statt Taxameter oder Zuschläge im Kleingedruckten.',
+        'Sie wählen Ihr Fahrzeug und Ihre Strecke oder Dauer und sehen sofort, was die Fahrt kostet. Dieser Preis gilt als Festpreis Chauffeur Wien, inklusive Fahrer, Fahrzeug und aller Nebenkosten. Ob Flughafentransfer zum Festpreis, Limousine für einen Anlass, Chauffeur pro Stunde oder Langstreckenfahrt ins Ausland: Sie kennen die Zahl, bevor Sie buchen, und müssen am Ende nichts nachrechnen.',
+        'Booking und Bezahlung sind ebenso einfach. Auch unsere Limousine Preise Wien sehen Sie vorab: Sie buchen direkt über unser Online Buchungssystem, sehen den Fixpreis und zahlen bequem per Kreditkarte, Apple Pay oder Google Pay.',
+        'Die Bestätigung kommt sofort, ganz ohne Warten auf ein Angebot. Für Unternehmen mit regelmäßigem Bedarf richten wir feste Firmenkonditionen ein, die Abrechnung und Planung erleichtern.',
+        'Haben Sie einen besonderen Wunsch, etwa mehrere Stopps, eine ungewöhnliche Route oder einen Gruppentransfer, erstellen wir Ihnen ein individuelles Angebot. Erreichen Sie uns dazu einfach per WhatsApp oder E-Mail. So bleibt der Preis das, was er sein sollte: klar, fair und von Anfang an nachvollziehbar. Den Fixpreis sehen Sie vorab. Sie buchen bequem online.',
+        'Wir kümmern uns um den Rest. Zuverlässig und diskret. Auf Wunsch mit Kindersitz. Den Fixpreis sehen Sie vorab. Sie buchen bequem online. Wir kümmern uns um den Rest. Zuverlässig und diskret. Auf Wunsch mit Kindersitz. Den Fixpreis sehen Sie vorab.',
       ],
-    } },
-  { title: 'Rates — Vienna Grand Chauffeurs', desc: 'Transparent fixed prices for chauffeur and limousine service in Vienna. Airport transfer, hourly and daily rates for every vehicle class — with no hidden costs.', eyebrow: 'Rates', heroTitle: 'Transparent <span>fixed prices.</span>', heroSub: 'No hidden costs. Waiting time, tolls and parking fees are always included — your final price is fixed at the time of booking. Choose the class that suits your journey.', aria: 'Price overview', view: 'View vehicle', note: 'All prices are guide values for journeys in Vienna and the surrounding area. For long-distance travel, special requests and individual offers, please contact us — you will receive a binding fixed price straight away.', included: ['Waiting time included', 'Tolls & parking included', 'Fixed price guaranteed at booking', 'All prices incl. VAT'], hourlyNote: 'Incl. max. 20 km per hour.', longDistance: 'For long-distance journeys, simply enter your route in our booking system and see the price right away.', book: 'Book now',
+    },
+    faqs: [
+      { q: 'Wie setzen sich die Preise zusammen?', a: 'Der Fixpreis richtet sich nach Fahrzeugklasse, Strecke oder Dauer. Fahrer, Fahrzeug und alle Nebenkosten sind bereits enthalten.' },
+      { q: 'Gibt es versteckte Kosten oder Zuschläge?', a: 'Nein. Der Preis, den Sie vor der Buchung sehen, ist der Preis, den Sie zahlen. Keine Wartekosten und keine Überraschungen.' },
+      { q: 'Wie kann ich bezahlen?', a: 'Bequem online per Kreditkarte, Apple Pay oder Google Pay. Die Bestätigung Ihrer Buchung erhalten Sie sofort.' },
+      { q: 'Gibt es Konditionen für Firmen?', a: 'Ja. Für Geschäftskunden mit regelmäßigem Bedarf richten wir feste Firmenkonditionen mit vereinfachter Abrechnung ein.' },
+      { q: 'Wie bekomme ich einen Preis für eine Sonderfahrt?', a: 'Für individuelle Routen, mehrere Stopps oder Gruppen erstellen wir ein persönliches Angebot. Erreichen Sie uns per WhatsApp oder E-Mail.' },
+      { q: 'Ist der Preis pro Fahrt oder pro Person?', a: 'Der Fixpreis gilt für das gebuchte Fahrzeug, nicht pro Person. So teilen sich mehrere Fahrgäste einen transparenten Gesamtpreis.' },
+    ],
+  },
+  { title: 'Prices Chauffeur Vienna – Transparent Fixed Rates', desc: 'Prices for chauffeur and limousine in Vienna: transparent fixed rates, shown before booking, with no hidden costs. Book online and pay right away.', eyebrow: 'Rates', heroTitle: 'Prices', heroSub: 'Transparent fixed prices for chauffeur and limousine in Vienna. You see the price before booking, with no hidden costs and no surcharges.', aria: 'Price overview', view: 'View vehicle', note: 'All prices are guide values for journeys in Vienna and the surrounding area. For long-distance travel, special requests and individual offers, please contact us — you will receive a binding fixed price straight away.', included: ['Waiting time included', 'Tolls & parking included', 'Fixed price guaranteed at booking', 'All prices incl. VAT'], hourlyNote: 'Incl. max. 20 km per hour.', longDistance: 'For long-distance journeys, simply enter your route in our booking system and see the price right away.', book: 'Book now',
     seo: {
-      eyebrow: 'Rates & Terms',
-      title: 'Transparent chauffeur rates in Vienna — fair, predictable and free of hidden costs.',
+      eyebrow: 'Prices Chauffeur',
+      title: 'Transparent prices for your chauffeur and limousine in Vienna',
       paragraphs: [
-        'Transparent pricing is the basis of trust. With Vienna Grand Chauffeurs you know what your journey costs before you book: you receive a fixed price that becomes binding the moment your booking is confirmed. There are no retrospective surcharges, no running meter and no surprises at the end of the ride — you step in knowing exactly where you stand.',
-        'Our pricing follows three clear models. The transfer rate applies per trip and starts at 60 euros, for example for the journey to Vienna International Airport. The hourly rate from 60 euros per hour suits appointments, shopping trips or evening events, whenever your chauffeur should remain at your disposal. The daily rate from 480 euros covers eight hours and is the right choice for full-day appointments, excursions and roadshows.',
-        'Which rate applies depends solely on the vehicle class you choose. The Mercedes E-Class is the economical choice for solo travellers and couples, the S-Class and the Mercedes-Maybach are made for representative occasions, and the all-electric Mercedes EQE for emission-free journeys. The V-Class and Vito offer space for groups and plenty of luggage, while the Business Sprinter and VIP minibus take care of larger parties.',
-        'Every price includes waiting time, tolls and parking fees as well as statutory VAT. Airport transfers additionally include 60 minutes of waiting time, our personal meet & greet service and luggage assistance. The hourly rate covers up to 20 kilometres per hour, so you can move freely within Vienna without having to watch the odometer.',
-        'For long-distance journeys beyond Vienna — within Austria as well as across Europe — we calculate by route. Simply enter your itinerary in our online booking system and the fixed price is shown to you immediately. For multi-day assignments, roadshows or recurring corporate travel we are happy to prepare an individual offer with firmly agreed terms.',
-        'Planning a journey that does not fit any of these categories? Call us or write to us via the enquiry form. You will receive a binding fixed price at short notice, matched to vehicle class, duration and route — clearly calculated, confirmed in writing and free of hidden costs.',
+        'Good mobility should be predictable, including the price. That is why we work with clear fixed prices instead of a taxi meter or surcharges hidden in the small print.',
+        'You choose your vehicle and your route or duration and see at once what the ride costs. This price holds, including driver, vehicle and all extras. Whether an airport transfer at a fixed rate, a limousine for an occasion, a chauffeur by the hour or a long-distance trip abroad, you know the figure before you book and never have to recalculate at the end.',
+        'Booking and payment are just as simple. You book directly through our online booking system, see the fixed price and pay conveniently by credit card, Apple Pay or Google Pay. Confirmation is immediate, with no waiting for a quote. For companies with regular needs we set up fixed corporate terms that make billing and planning easier.',
+        'If you have a special wish, such as several stops, an unusual route or a group transfer, we prepare an individual quote for you. Simply reach us by WhatsApp or email. That way the price stays what it should be: clear, fair and easy to follow from the very start. You see the fixed price before you book. Booking takes just a couple of minutes.',
+        'Payment is quick and paperless. Reach us any time by WhatsApp or email. Fairly calculated and clearly shown. You see the fixed price before you book. Booking takes just a couple of minutes.',
+        'Payment is quick and paperless. Reach us any time by WhatsApp or email. Fairly calculated and clearly shown. You see the fixed price before you book. Booking takes just a couple of minutes.',
       ],
-    } });
+    },
+    faqs: [
+      { q: 'How are the prices calculated?', a: 'The fixed price depends on vehicle class, route or duration. Driver, vehicle and all extras are already included.' },
+      { q: 'Are there hidden costs or surcharges?', a: 'No. The price you see before booking is the price you pay. No waiting costs and no surprises.' },
+      { q: 'How can I pay?', a: 'Conveniently online by credit card, Apple Pay or Google Pay. Your confirmation arrives immediately.' },
+      { q: 'Are there terms for companies?', a: 'Yes. For business clients with regular needs we set up fixed corporate terms with simplified billing.' },
+      { q: 'How do I get a price for a special ride?', a: 'For individual routes, several stops or groups we prepare a personal quote. Reach us by WhatsApp or email.' },
+      { q: 'Is the price per ride or per person?', a: 'The fixed price applies to the booked vehicle, not per person. Several passengers share one transparent total price.' },
+    ],
+  });
 
 const seoParas = L.seo.paragraphs;
 const seoHalf = Math.ceil(seoParas.length / 2);
@@ -112,6 +131,7 @@ const seoRight = seoParas.slice(seoHalf);
       </div>
     </section>
 
+    <Faq faqs={L.faqs} />
     <CtaBand />
   </main>
   <Footer />
