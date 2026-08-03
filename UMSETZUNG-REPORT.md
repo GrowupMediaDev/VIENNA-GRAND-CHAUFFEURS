@@ -1,6 +1,8 @@
 # Umsetzungs-Report — SEO-Texte und Struktur-Anpassungen
 
-Stand: 2026-08-03 · Branch `seo-texte-und-slugs` (5 Commits, abgezweigt von `main` @ `4a39802`)
+Stand: 2026-08-03 · Branch `seo-texte-und-slugs` (7 Commits, abgezweigt von `main` @ `4a39802`)
+
+> **Nachtrag:** Nach einer Aktualisierung von `content.json` wurde Phase 4 erneut ausgeführt (Commit `58e709d`). Details am Ende unter „Nachtrag: zweiter Textdurchlauf".
 
 Build: **fehlerfrei**, 50 Seiten. Nach jeder Phase geprüft.
 
@@ -112,13 +114,70 @@ Außerdem wurden 32 Leerzeilen bereinigt, die beim Einfügen von `slugEn` in Pha
 ## Offene Punkte
 
 1. **Ungenutzte Texte in `content.json`:** Für `de.preise`/`en.prices` und `de.hub`/`en.hub` liegen vollständige `intro`- und `benefit`-Blöcke vor (je Eyebrow, H2, Fließtext, Badge, 4 Bullets), die laut Entscheidung nicht eingebaut wurden. Falls diese Seiten die Blöcke doch bekommen sollen, wäre das ein eigener, überschaubarer Schritt (Markup analog `ServicePage.astro`).
-2. **Auffälligkeiten in den gelieferten Texten** — unverändert übernommen, aber einen Blick wert:
-   - `de.hub.metaDescription` endet mitten im Satz: „… Für jede Fahrt das passende Modell mit".
-   - Der jeweils letzte SEO-Absatz von `de.hub` und `en.hub` wiederholt seine eigenen Sätze wörtlich („Den Fixpreis sehen Sie vorab. Sie buchen bequem online. Wir kümmern uns um den Rest. … Den Fixpreis sehen Sie vorab. Sie buchen bequem online. …"). Ähnliches in `en.hub` P6.
-   - `de.hub.seo.eyebrow` lautet „Fahrzeuge mit" (EN: „Vehicles with") — wirkt abgeschnitten.
-   - `de.m_vip-minibus`: `metaDescription` und `heroSub` sprechen von „bis 16 Personen", die unveränderten Specs der Seite nennen 12 Gäste.
+2. **Auffälligkeiten in den gelieferten Texten** — siehe „Nachtrag" unten (die ursprünglich gemeldeten Punkte sind mit der zweiten `content.json` behoben, einige neue sind hinzugekommen).
 3. **Primärkeyword nicht als exakte Phrase im Text:** Auf 23 von 40 Seiten taucht das Primärkeyword nicht wörtlich im gerenderten HTML auf. Bei `/kontakt/` und `/online-buchung/` ist das systembedingt (reine Meta-Seiten ohne Fließtext). Bei den 16 Fahrzeug-Modellseiten liegt es an der Wortstellung — die Texte schreiben z. B. „S-Klasse mit Fahrer Wien", das Keyword lautet „Mercedes S-Klasse Chauffeur Wien". Da Keywords laut Prompt reine Referenz sind und Texte nicht verändert werden dürfen, wurde nichts angepasst. Der im Prompt genannte Stichproben-Checkpoint („Limousinen Service Wien" auf `/leistungen/limousinenservice/`) ist erfüllt.
 4. **Weiterhin hartkodiert** (laut Prompt bewusst außerhalb des Auftrags): die Eyebrows „Ihr Vorteil", „Überblick", „Galerie", „Innenraum", „Preise", „Die Flotte", der Eyebrow des Startseiten-Langtexts sowie die CTA-Band-Überschrift, die weiterhin global aus `src/lib/i18n.ts` kommt.
 5. **Domain:** `astro.config.mjs` trägt weiter den Platzhalter `https://vienna-grand-chauffeurs.pages.dev`. Canonicals, hreflang und Sitemap ziehen ihn aus `Astro.site` und stellen sich beim Wechsel automatisch um.
 6. **Bild-Alt-Texte** sind unverändert und laut Prompt Gegenstand eines separaten Durchgangs (`ALT_TEXT_OPTIMIERUNG.md`).
 7. **Branch:** Die Arbeit liegt auf `seo-texte-und-slugs`, nicht auf `main`. Merge nach Sichtung.
+
+---
+
+## Nachtrag: zweiter Textdurchlauf (`58e709d`)
+
+`content.json` wurde aktualisiert (154.589 → 150.510 Bytes) und Phase 4 erneut ausgeführt.
+
+**Struktur unverändert:** gleiche 20 + 20 Einträge, gleiche Keys, Slugs, Typen und Array-Längen (Leistungen 6 FAQ / 6 SEO-Absätze, Modelle 3 FAQ / 6 SEO-Absätze, `full`-Seiten weiterhin mit `intro` und `benefit`). Phase 1, 2, 3 und 5 waren dadurch nicht betroffen, und die beiden anfangs getroffenen Entscheidungen (nur die 3 gelieferten Modell-FAQ; `intro`/`benefit` der `full`-Seiten bleiben ungenutzt) gelten unverändert weiter.
+
+**Geändert haben sich ausschließlich Textwerte:**
+
+| Bereich | Umfang |
+|---|---|
+| SEO-Absatzblöcke Leistungsseiten | 13 von 14 (nur `de.air` unverändert) |
+| SEO-Absatzblöcke Fahrzeug-Modellseiten | 16 von 16 |
+| VIP-Minibus komplett | `metaDescription`, Hero, Überblick, SEO, FAQ — DE und EN |
+| Startseite | EN, dritter Absatz der zweiten Spalte |
+| Preise | SEO-Absätze DE und EN |
+| Fahrzeug-Übersicht | `metaDescription` DE, SEO-Absätze DE und EN |
+
+**Vorgehen:** Statt die alten Phasenskripte erneut laufen zu lassen (sie waren nicht wiederholbar — der SEO-Block wäre ein zweites Mal eingefügt worden), wurde ein konsolidierter Lauf gebaut, der alle 334 Textstellen setzt und ausschließlich an Feldnamen ankert. Ein zweiter Aufruf erzeugt nachweislich keine weitere Änderung.
+
+**Prüfungen nach dem Durchlauf** — identisch zum ersten Durchgang, alle grün:
+
+| Prüfung | Umfang | Fehler |
+|---|---|---|
+| Datendateien gegen `content.json` | 294 Felder | 0 |
+| Restabweichungen im Code | — | 0 Feldgruppen |
+| Gerendertes `dist/` gegen `content.json` | 854 Prüfungen | 0 |
+| Canonical / hreflang / FAQ-Schema / Sitemap | 459 Prüfungen | 0 |
+| Interne Links | 50 Seiten | 0 |
+
+### Behobene Auffälligkeiten
+
+Alle vier zuvor gemeldeten Punkte sind in der neuen Fassung korrigiert:
+
+- `de.hub.metaDescription` endet jetzt vollständig („… das passende Modell mit Fahrer.").
+- `de.hub.seo.eyebrow` lautet jetzt „Fahrzeuge mit Chauffeur" (EN: „Vehicles with Chauffeur").
+- Der letzte SEO-Absatz der Hub-Seiten wiederholt sich nicht mehr.
+- VIP-Minibus spricht jetzt von „zwölf Personen" und stimmt damit mit den Specs der Seite überein.
+
+### Neue Auffälligkeiten
+
+Unverändert übernommen, aber einen Blick wert:
+
+**Sechs `metaDescription` enden mitten im Satz** (Google schneidet ohnehin ab, störend ist der fehlende Punkt):
+
+- `de.m_business-sprinter`: „… Jetzt anfragen. Ein Fahrzeug für"
+- `en.private`: „… Book online, confirmed"
+- `en.daytrips`: „… at a fixed price. Book your trip"
+- `en.diplo`: „… Reliable and confidential. Request your service"
+- `en.m_v-class`: „… book online. Spacious and"
+- `en.m_vito`: „… book online. Reliable and"
+
+**Fünf Seiten enthalten einen wörtlich doppelten Satz in zwei verschiedenen SEO-Absätzen:**
+
+- `de.preise` (Absatz 4 und 5): „Für Unternehmen mit regelmäßigem Bedarf richten wir feste Firmenkonditionen ein, die Abrechnung und Planung erleichtern."
+- `en.prices` (Absatz 3 und 5): „For companies with regular needs we set up fixed corporate terms that make billing and planning easier."
+- `de.hub`, `en.hub`, `en.private`: analoge Wiederholungen
+
+Beides ist reine Textredaktion und erfordert keinerlei Codeänderung — nach einer korrigierten `content.json` genügt ein erneuter Durchlauf.
