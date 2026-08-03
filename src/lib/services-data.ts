@@ -12,6 +12,8 @@ export interface ServiceCard {
 export interface Service {
   slug: string;        // German slug, used under /leistungen/
   slugEn: string;      // English slug, used under /en/services/
+  /** Set to canonicalise this page elsewhere; omitted means self-referencing. */
+  canonical?: string;
   metaTitle: string;
   metaDescription: string;
   heroImg: string;
@@ -49,7 +51,6 @@ const IC = {
 export const SERVICES_DATA: Service[] = [
   {
     slug: 'flughafen-transfer-wien',
-
     slugEn: 'airport-transfer-vienna',
     metaTitle: 'Flughafentransfer Wien – Fixpreis ab VIE',
     metaDescription:
@@ -112,8 +113,8 @@ export const SERVICES_DATA: Service[] = [
 
   {
     slug: 'chauffeurservice',
-
     slugEn: 'chauffeur-service-vienna',
+    canonical: '/',
     metaTitle: 'Chauffeurservice Wien — Vienna Grand Chauffeurs',
     metaDescription:
       'Persönlicher Chauffeurservice in Wien für Business, Events und private Anlässe. Diskret, flexibel und stilvoll in gepflegten Mercedes-Benz Fahrzeugen.',
@@ -174,7 +175,6 @@ export const SERVICES_DATA: Service[] = [
 
   {
     slug: 'chauffeur-pro-stunde',
-
     slugEn: 'chauffeur-by-the-hour-vienna',
     metaTitle: 'Chauffeur pro Stunde Wien – stundenweise buchen',
     metaDescription:
@@ -237,7 +237,6 @@ export const SERVICES_DATA: Service[] = [
 
   {
     slug: 'limousinenservice',
-
     slugEn: 'limousine-service-vienna',
     metaTitle: 'Limousinenservice Wien – Mercedes mit Chauffeur',
     metaDescription:
@@ -300,7 +299,6 @@ export const SERVICES_DATA: Service[] = [
 
   {
     slug: 'fahrdienst-diplomaten',
-
     slugEn: 'diplomatic-chauffeur-vienna',
     metaTitle: 'Diplomaten Chauffeur Wien – diskreter Fahrdienst',
     metaDescription:
@@ -363,7 +361,6 @@ export const SERVICES_DATA: Service[] = [
 
   {
     slug: 'privatchauffeur',
-
     slugEn: 'private-chauffeur-vienna',
     metaTitle: 'Privatchauffeur Wien – Ihr persönlicher Fahrer',
     metaDescription:
@@ -426,7 +423,6 @@ export const SERVICES_DATA: Service[] = [
 
   {
     slug: 'shuttle-service',
-
     slugEn: 'shuttle-service-vienna',
     metaTitle: 'Shuttle Service Wien – Gruppentransfer mit Fahrer',
     metaDescription:
@@ -489,7 +485,6 @@ export const SERVICES_DATA: Service[] = [
 
   {
     slug: 'langstreckenfahrten',
-
     slugEn: 'day-trips-from-vienna',
     metaTitle: 'Langstreckenfahrten Wien – Bratislava, Prag & mehr',
     metaDescription:
@@ -554,7 +549,6 @@ export const SERVICES_DATA: Service[] = [
 export const SERVICES_DATA_EN: Service[] = [
   {
     slug: 'flughafen-transfer-wien',
-
     slugEn: 'airport-transfer-vienna',
     metaTitle: 'Vienna Airport Transfer – Fixed Price from VIE',
     metaDescription:
@@ -617,8 +611,8 @@ export const SERVICES_DATA_EN: Service[] = [
 
   {
     slug: 'chauffeurservice',
-
     slugEn: 'chauffeur-service-vienna',
+    canonical: '/en/',
     metaTitle: 'Chauffeur Service Vienna — Vienna Grand Chauffeurs',
     metaDescription:
       'Personal chauffeur service in Vienna for business, events and private occasions. Discreet, flexible and stylish in immaculate Mercedes-Benz vehicles.',
@@ -679,7 +673,6 @@ export const SERVICES_DATA_EN: Service[] = [
 
   {
     slug: 'chauffeur-pro-stunde',
-
     slugEn: 'chauffeur-by-the-hour-vienna',
     metaTitle: 'Chauffeur by the Hour Vienna – Book Hourly',
     metaDescription:
@@ -742,7 +735,6 @@ export const SERVICES_DATA_EN: Service[] = [
 
   {
     slug: 'limousinenservice',
-
     slugEn: 'limousine-service-vienna',
     metaTitle: 'Limousine Service Vienna – Mercedes with Driver',
     metaDescription:
@@ -805,7 +797,6 @@ export const SERVICES_DATA_EN: Service[] = [
 
   {
     slug: 'fahrdienst-diplomaten',
-
     slugEn: 'diplomatic-chauffeur-vienna',
     metaTitle: 'Diplomatic Chauffeur Vienna – Discreet Driver',
     metaDescription:
@@ -868,7 +859,6 @@ export const SERVICES_DATA_EN: Service[] = [
 
   {
     slug: 'privatchauffeur',
-
     slugEn: 'private-chauffeur-vienna',
     metaTitle: 'Private Chauffeur Vienna – Your Personal Driver',
     metaDescription:
@@ -931,7 +921,6 @@ export const SERVICES_DATA_EN: Service[] = [
 
   {
     slug: 'shuttle-service',
-
     slugEn: 'shuttle-service-vienna',
     metaTitle: 'Shuttle Service Vienna – Group Transfer with Driver',
     metaDescription:
@@ -994,7 +983,6 @@ export const SERVICES_DATA_EN: Service[] = [
 
   {
     slug: 'langstreckenfahrten',
-
     slugEn: 'day-trips-from-vienna',
     metaTitle: 'Day Trips from Vienna – Private Driver & Car',
     metaDescription:

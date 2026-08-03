@@ -11,7 +11,19 @@ const lang = getLang(Astro.url);
 const fq = t(lang).faq;
 const { faqs, num = '04', heading = pick(lang, 'Häufige Fragen zum Transfer.', 'Frequently asked questions.'), ctaHref = hrefFor('/kontakt', lang) } = Astro.props;
 const phoneHref = `tel:${CONTACT.phonePrimary.tel}`;
+
+// FAQPage-Schema aus denselben Daten, die der Akkordeon-Block rendert.
+const faqSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'FAQPage',
+  mainEntity: faqs.map((f) => ({
+    '@type': 'Question',
+    name: f.q,
+    acceptedAnswer: { '@type': 'Answer', text: f.a },
+  })),
+};
 ---
+<script type="application/ld+json" is:inline set:html={JSON.stringify(faqSchema)} />
 <section class="faq" id="faq" aria-label={fq.aria}>
   <div class="container-x faq__grid">
     <div class="faq__intro" data-reveal>

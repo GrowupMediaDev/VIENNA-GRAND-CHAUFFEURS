@@ -42,7 +42,7 @@ const seoHalf = Math.ceil(seoParas.length / 2);
 const seoLeft = seoParas.slice(0, seoHalf);
 const seoRight = seoParas.slice(seoHalf);
 ---
-<Layout title={service.metaTitle} description={service.metaDescription}>
+<Layout title={service.metaTitle} description={service.metaDescription} canonical={service.canonical}>
   <Nav />
   <main>
     <!-- ============ HERO ============ -->

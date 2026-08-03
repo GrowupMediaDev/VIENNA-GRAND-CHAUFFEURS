@@ -41,7 +41,6 @@ const KAB_BG = '/images/fahrzeuge/kabine-bg.jpg';
 export const VEHICLES_DATA: Vehicle[] = [
   {
     slug: 'e-klasse',
-
     slugEn: 'e-class',
     name: 'E-Klasse',
     heroTitle: 'Mercedes E-Klasse',
@@ -97,7 +96,6 @@ export const VEHICLES_DATA: Vehicle[] = [
 
   {
     slug: 'vito',
-
     slugEn: 'vito',
     name: 'Vito',
     heroTitle: 'Mercedes Vito',
@@ -153,7 +151,6 @@ export const VEHICLES_DATA: Vehicle[] = [
 
   {
     slug: 'v-klasse',
-
     slugEn: 'v-class',
     name: 'V-Klasse',
     heroTitle: 'Mercedes V-Klasse',
@@ -209,7 +206,6 @@ export const VEHICLES_DATA: Vehicle[] = [
 
   {
     slug: 's-klasse',
-
     slugEn: 's-class',
     name: 'S-Klasse',
     heroTitle: 'Mercedes S-Klasse',
@@ -265,7 +261,6 @@ export const VEHICLES_DATA: Vehicle[] = [
 
   {
     slug: 'maybach',
-
     slugEn: 'maybach',
     name: 'Maybach',
     heroTitle: 'Mercedes-Maybach',
@@ -321,7 +316,6 @@ export const VEHICLES_DATA: Vehicle[] = [
 
   {
     slug: 'eqe',
-
     slugEn: 'eqe',
     name: 'Mercedes EQE',
     heroTitle: 'Mercedes EQE',
@@ -377,7 +371,6 @@ export const VEHICLES_DATA: Vehicle[] = [
 
   {
     slug: 'vip-minibus',
-
     slugEn: 'vip-minibus',
     name: 'VIP Sprinter',
     heroTitle: 'VIP Minibus',
@@ -433,7 +426,6 @@ export const VEHICLES_DATA: Vehicle[] = [
 
   {
     slug: 'business-sprinter',
-
     slugEn: 'business-sprinter',
     name: 'Sprinter',
     heroTitle: 'Business Sprinter',
@@ -493,7 +485,6 @@ export const VEHICLES_DATA: Vehicle[] = [
 export const VEHICLES_DATA_EN: Vehicle[] = [
   {
     slug: 'e-klasse',
-
     slugEn: 'e-class',
     name: 'E-Class',
     heroTitle: 'Mercedes E-Class',
@@ -549,7 +540,6 @@ export const VEHICLES_DATA_EN: Vehicle[] = [
 
   {
     slug: 'vito',
-
     slugEn: 'vito',
     name: 'Vito',
     heroTitle: 'Mercedes Vito',
@@ -605,7 +595,6 @@ export const VEHICLES_DATA_EN: Vehicle[] = [
 
   {
     slug: 'v-klasse',
-
     slugEn: 'v-class',
     name: 'V-Class',
     heroTitle: 'Mercedes V-Class',
@@ -661,7 +650,6 @@ export const VEHICLES_DATA_EN: Vehicle[] = [
 
   {
     slug: 's-klasse',
-
     slugEn: 's-class',
     name: 'S-Class',
     heroTitle: 'Mercedes S-Class',
@@ -717,7 +705,6 @@ export const VEHICLES_DATA_EN: Vehicle[] = [
 
   {
     slug: 'maybach',
-
     slugEn: 'maybach',
     name: 'Maybach',
     heroTitle: 'Mercedes-Maybach',
@@ -773,7 +760,6 @@ export const VEHICLES_DATA_EN: Vehicle[] = [
 
   {
     slug: 'eqe',
-
     slugEn: 'eqe',
     name: 'Mercedes EQE',
     heroTitle: 'Mercedes EQE',
@@ -829,7 +815,6 @@ export const VEHICLES_DATA_EN: Vehicle[] = [
 
   {
     slug: 'vip-minibus',
-
     slugEn: 'vip-minibus',
     name: 'VIP Sprinter',
     heroTitle: 'VIP Minibus',
@@ -885,7 +870,6 @@ export const VEHICLES_DATA_EN: Vehicle[] = [
 
   {
     slug: 'business-sprinter',
-
     slugEn: 'business-sprinter',
     name: 'Sprinter',
     heroTitle: 'Business Sprinter',

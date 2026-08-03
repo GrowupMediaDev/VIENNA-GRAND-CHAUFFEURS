@@ -1,20 +1,38 @@
 ---
 import '../styles/global.css';
 import { getLang, htmlLang } from '../lib/i18n';
+import { localizePath } from '../lib/routes';
 import ContactRail from '../components/ContactRail.astro';
 
 interface Props {
   title?: string;
   description?: string;
+  /** Overrides the self-referencing canonical, e.g. to point a page at the homepage. */
+  canonical?: string;
 }
 
 const {
   title = 'Vienna Grand Chauffeurs — Chauffeurservice der Extraklasse',
   description = 'Premium Chauffeurservice in Wien: erfahrene, diskrete Chauffeure, gepflegte Mercedes-Benz Oberklasse und transparente Fixpreise. Flughafentransfer, Business- und Langstreckenfahrten.',
+  canonical: canonicalOverride,
 } = Astro.props;
 
 const lang = getLang(Astro.url);
-const canonical = new URL(Astro.url.pathname, Astro.site).href;
+const canonical = new URL(canonicalOverride ?? Astro.url.pathname, Astro.site).href;
+
+// hreflang: DE lives at the root, EN under /en/ with its own segments and
+// slugs, so the counterpart is resolved through the route mapping. x-default
+// points at the German version. Pages that canonicalise elsewhere are not the
+// canonical of their language pair, so they stay out of the annotation.
+const dePath = localizePath(Astro.url.pathname, 'de');
+const enPath = localizePath(Astro.url.pathname, 'en');
+const alternates = canonicalOverride
+  ? []
+  : [
+      { hreflang: 'de-AT', href: new URL(dePath, Astro.site).href },
+      { hreflang: 'en', href: new URL(enPath, Astro.site).href },
+      { hreflang: 'x-default', href: new URL(dePath, Astro.site).href },
+    ];
 ---
 
 <!doctype html>
@@ -46,6 +64,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
     <title>{title}</title>
     <meta name="description" content={description} />
     <link rel="canonical" href={canonical} />
+    {alternates.map((a) => <link rel="alternate" hreflang={a.hreflang} href={a.href} />)}
 
     <!-- Open Graph -->
     <meta property="og:type" content="website" />
