@@ -13,18 +13,20 @@ const BASE: { slug: string; tab: { de: string; en: string }; name: { de: string;
   { slug: 'vip-minibus', tab: { de: 'VIP Minibus', en: 'VIP Minibus' }, name: { de: 'VIP Sprinter', en: 'VIP Sprinter' }, tier: { de: 'VIP Lounge Minibus', en: 'VIP Lounge Minibus' }, pax: 12, bags: 8, img: '/images/fahrzeuge/card-vip-minibus.webp' },
   { slug: 'business-sprinter', tab: { de: 'Sprinter', en: 'Sprinter' }, name: { de: 'Mercedes Sprinter', en: 'Mercedes Sprinter' }, tier: { de: 'Gruppen & Events', en: 'Groups & Events' }, pax: 20, bags: 10, img: '/images/fahrzeuge/ueberblick-business-sprinter.webp', gallery: ['/images/fahrzeuge/business-sprinter-gal-1.webp', '/images/fahrzeuge/business-sprinter-gal-2.webp', '/images/fahrzeuge/business-sprinter-gal-3.webp', '/images/fahrzeuge/business-sprinter-gal-4.webp', '/images/fahrzeuge/business-sprinter-gal-5.webp'] },
 ];
+// `slug` stays German — it addresses the image files. The link is resolved
+// separately so EN gets its own /en/vehicles/<en-slug>/ path.
 const vehicles = BASE.map((v) => ({
   tab: pick(lang, v.tab.de, v.tab.en), name: pick(lang, v.name.de, v.name.en), tier: pick(lang, v.tier.de, v.tier.en),
-  pax: v.pax, bags: v.bags, slug: v.slug, img: v.img ?? `/images/fahrzeuge/card-${v.slug}.jpg`, w: 1400, h: 1400, gallery: v.gallery ?? g(v.slug),
+  pax: v.pax, bags: v.bags, slug: v.slug, href: hrefFor(`/fahrzeuge/${v.slug}`, lang),
+  img: v.img ?? `/images/fahrzeuge/card-${v.slug}.jpg`, w: 1400, h: 1400, gallery: v.gallery ?? g(v.slug),
 }));
-const galleryData = vehicles.map((v) => ({ name: v.name, slug: v.slug, gallery: v.gallery }));
-const viewBase = hrefFor('/fahrzeuge/', lang);
+const galleryData = vehicles.map((v) => ({ name: v.name, href: v.href, gallery: v.gallery }));
 const L = pick(lang,
   { view: 'Fahrzeug ansehen', pax: 'Passagiere', bags: 'Gepäck', max: 'Max.', sectionAria: 'Fahrzeuge', tabsAria: 'Fahrzeugklasse wählen', prev: 'Vorheriges Fahrzeug', next: 'Nächstes Fahrzeug', openGallery: 'Galerie öffnen', galleryAria: 'Fahrzeug-Galerie', closeGallery: 'Galerie schließen', prevImg: 'Vorheriges Bild', nextImg: 'Nächstes Bild' },
   { view: 'View vehicle', pax: 'Passengers', bags: 'Luggage', max: 'Max.', sectionAria: 'Fleet', tabsAria: 'Select vehicle class', prev: 'Previous vehicle', next: 'Next vehicle', openGallery: 'Open gallery', galleryAria: 'Vehicle gallery', closeGallery: 'Close gallery', prevImg: 'Previous image', nextImg: 'Next image' });
 ---
     <section class="fleet" id="fahrzeuge" aria-label={L.sectionAria}>
-      <div class="fleet__stage" data-fleet data-view-base={viewBase} data-reveal>
+      <div class="fleet__stage" data-fleet data-reveal>
           <div class="fleet__slides">
             {vehicles.map((v, i) => (
               <img class:list={['fleet__img', i === 0 && 'is-active']} data-slide={i}
@@ -39,7 +41,7 @@ const L = pick(lang,
               <button
                 class:list={['fleet__tab', i === 0 && 'is-active']}
                 type="button" role="tab" aria-selected={i === 0 ? 'true' : 'false'}
-                data-tab={i} data-name={v.name} data-tier={v.tier} data-pax={v.pax} data-bags={v.bags} data-slug={v.slug}
+                data-tab={i} data-name={v.name} data-tier={v.tier} data-pax={v.pax} data-bags={v.bags} data-href={v.href}
               >{v.tab}</button>
             ))}
           </div>
@@ -63,7 +65,7 @@ const L = pick(lang,
             <div class="fleet__meta">
               <h3 class="fleet__name" data-name>{vehicles[0].name}</h3>
               <p class="fleet__tier" data-tier>{vehicles[0].tier}</p>
-              <a class="fleet__view" data-view href={viewBase + vehicles[0].slug}>
+              <a class="fleet__view" data-view href={vehicles[0].href}>
                 <span>{L.view}</span>
                 <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 5l7 7-7 7"/></svg>
               </a>
@@ -353,7 +355,6 @@ const L = pick(lang,
     const paxEl = bar.querySelector('[data-pax]');
     const bagsEl = bar.querySelector('[data-bags]');
     const viewEl = bar.querySelector<HTMLAnchorElement>('[data-view]');
-    const viewBase = (fleet as HTMLElement).dataset.viewBase || '/fahrzeuge/';
     const n = tabs.length;
     let current = 0;
 
@@ -371,7 +372,7 @@ const L = pick(lang,
       if (tierEl) tierEl.textContent = t.dataset.tier;
       if (paxEl) paxEl.textContent = 'Max. ' + t.dataset.pax;
       if (bagsEl) bagsEl.textContent = 'Max. ' + t.dataset.bags;
-      if (viewEl && t.dataset.slug) viewEl.href = viewBase + t.dataset.slug;
+      if (viewEl && t.dataset.href) viewEl.href = t.dataset.href;
     };
 
     tabs.forEach((t, i) => t.addEventListener('click', () => setActive(i)));
@@ -399,7 +400,7 @@ const L = pick(lang,
         g = v.gallery || []; gi = 0;
         lbName.textContent = v.name;
         lbImg.alt = v.name;
-        lbView.href = viewBase + v.slug;
+        lbView.href = v.href;
         renderLb();
         lb.setAttribute('aria-hidden', 'false');
         document.body.classList.add('is-nav-open');

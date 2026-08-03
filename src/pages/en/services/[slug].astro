@@ -3,7 +3,7 @@ import ServicePage from '../../../components/ServicePage.astro';
 import { getServices } from '../../../lib/services-data';
 
 export function getStaticPaths() {
-  return getServices('en').map((service) => ({ params: { slug: service.slug }, props: { service } }));
+  return getServices('en').map((service) => ({ params: { slug: service.slugEn }, props: { service } }));
 }
 const { service } = Astro.props;
 ---

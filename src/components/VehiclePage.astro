@@ -14,7 +14,6 @@ const lang = getLang(Astro.url);
 const phoneHref = `tel:${CONTACT.phonePrimary.tel}`;
 const bookHref = hrefFor('/online-buchung', lang);
 const kontaktHref = hrefFor('/kontakt', lang);
-const fahrzeugeBase = hrefFor('/fahrzeuge/', lang);
 
 const heroStats = vehicle.heroStats;
 const galImages = vehicle.img.gallery;
@@ -257,7 +256,7 @@ const priceIncludes = pick(lang,
         <div class="vflotte__viewport">
           <div class="vflotte__track" data-flotte-track>
             {flotte.map((v) => (
-              <a class="vflotte__card" href={`${fahrzeugeBase}${v.slug}`} data-reveal>
+              <a class="vflotte__card" href={hrefFor(`/fahrzeuge/${v.slug}`, lang)} data-reveal>
                 <img src={v.slug === 'business-sprinter' ? '/images/fahrzeuge/ueberblick-business-sprinter.webp' : v.img.card} alt={v.heroTitle} loading="lazy" />
                 <div class="vflotte__overlay">
                   <span class="vflotte__label">{v.cardKlass}</span>

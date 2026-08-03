@@ -5,7 +5,7 @@ import { getVehicles } from '../../../lib/vehicles-data';
 export function getStaticPaths() {
   const vehicles = getVehicles('en');
   return vehicles.map((vehicle) => ({
-    params: { slug: vehicle.slug },
+    params: { slug: vehicle.slugEn },
     props: { vehicle, flotte: vehicles.filter((v) => v.slug !== vehicle.slug) },
   }));
 }

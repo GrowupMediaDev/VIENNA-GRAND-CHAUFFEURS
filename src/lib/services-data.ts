@@ -10,7 +10,8 @@ export interface ServiceCard {
 }
 
 export interface Service {
-  slug: string;
+  slug: string;        // German slug, used under /leistungen/
+  slugEn: string;      // English slug, used under /en/services/
   metaTitle: string;
   metaDescription: string;
   heroImg: string;
@@ -48,6 +49,8 @@ const IC = {
 export const SERVICES_DATA: Service[] = [
   {
     slug: 'flughafen-transfer-wien',
+
+    slugEn: 'airport-transfer-vienna',
     metaTitle: 'Flughafentransfer Wien — Vienna Grand Chauffeurs',
     metaDescription:
       'Chauffeurservice zum Wiener Flughafen: diskret, pünktlich und komfortabel. Echtzeit-Flugüberwachung, Meet & Greet am Gate und transparente Fixpreise.',
@@ -109,6 +112,8 @@ export const SERVICES_DATA: Service[] = [
 
   {
     slug: 'chauffeurservice',
+
+    slugEn: 'chauffeur-service-vienna',
     metaTitle: 'Chauffeurservice Wien — Vienna Grand Chauffeurs',
     metaDescription:
       'Persönlicher Chauffeurservice in Wien für Business, Events und private Anlässe. Diskret, flexibel und stilvoll in gepflegten Mercedes-Benz Fahrzeugen.',
@@ -169,6 +174,8 @@ export const SERVICES_DATA: Service[] = [
 
   {
     slug: 'chauffeur-pro-stunde',
+
+    slugEn: 'chauffeur-by-the-hour-vienna',
     metaTitle: 'Chauffeur pro Stunde Wien — Vienna Grand Chauffeurs',
     metaDescription:
       'Buchen Sie Ihren Chauffeur stundenweise in Wien. Maximale Flexibilität für mehrere Termine, Stadtfahrten und spontane Stopps — mit Fixpreis pro Stunde.',
@@ -229,6 +236,8 @@ export const SERVICES_DATA: Service[] = [
 
   {
     slug: 'limousinen-service-wien',
+
+    slugEn: 'limousine-service-vienna',
     metaTitle: 'Limousinenservice Wien — Vienna Grand Chauffeurs',
     metaDescription:
       'Stilvoller Limousinenservice in Wien für Hochzeiten, Events und besondere Anlässe. Gepflegte Mercedes-Benz Limousinen mit erfahrenem Chauffeur.',
@@ -289,6 +298,8 @@ export const SERVICES_DATA: Service[] = [
 
   {
     slug: 'fahrdienst-diplomaten',
+
+    slugEn: 'diplomatic-chauffeur-vienna',
     metaTitle: 'Fahrdienst für Diplomaten & Botschaften — Vienna Grand Chauffeurs',
     metaDescription:
       'Diskreter, sicherheitsbewusster Fahrdienst für Diplomaten, Botschaften und offizielle Gäste in Wien. Höchste Zuverlässigkeit und Vertraulichkeit.',
@@ -349,6 +360,8 @@ export const SERVICES_DATA: Service[] = [
 
   {
     slug: 'privatchauffeur-wien',
+
+    slugEn: 'private-chauffeur-vienna',
     metaTitle: 'Privatchauffeur Wien — Vienna Grand Chauffeurs',
     metaDescription:
       'Ihr fester Privatchauffeur in Wien für Alltag und besondere Tage. Flexibel, diskret und ganz auf Sie eingestellt — in gepflegten Premiumfahrzeugen.',
@@ -409,6 +422,8 @@ export const SERVICES_DATA: Service[] = [
 
   {
     slug: 'shuttle-service-wien',
+
+    slugEn: 'shuttle-service-vienna',
     metaTitle: 'Shuttle-Service Wien — Vienna Grand Chauffeurs',
     metaDescription:
       'Zuverlässiger Shuttle-Service in Wien für Gruppen, Events und Firmen. Komfortabel in der Mercedes V-Klasse mit erfahrenem Chauffeur.',
@@ -469,6 +484,8 @@ export const SERVICES_DATA: Service[] = [
 
   {
     slug: 'langstreckenfahrten',
+
+    slugEn: 'day-trips-from-vienna',
     metaTitle: 'Langstreckenfahrten — Vienna Grand Chauffeurs',
     metaDescription:
       'Komfortable Langstreckenfahrten ab Wien in ganz Österreich und Europa. Entspannt ohne Umsteigen, in gepflegten Premiumfahrzeugen mit erfahrenem Chauffeur.',
@@ -531,6 +548,8 @@ export const SERVICES_DATA: Service[] = [
 export const SERVICES_DATA_EN: Service[] = [
   {
     slug: 'flughafen-transfer-wien',
+
+    slugEn: 'airport-transfer-vienna',
     metaTitle: 'Airport Transfer Vienna — Vienna Grand Chauffeurs',
     metaDescription:
       'Chauffeur service to Vienna Airport: discreet, punctual and comfortable. Real-time flight monitoring, Meet & Greet at the gate and transparent fixed prices.',
@@ -592,6 +611,8 @@ export const SERVICES_DATA_EN: Service[] = [
 
   {
     slug: 'chauffeurservice',
+
+    slugEn: 'chauffeur-service-vienna',
     metaTitle: 'Chauffeur Service Vienna — Vienna Grand Chauffeurs',
     metaDescription:
       'Personal chauffeur service in Vienna for business, events and private occasions. Discreet, flexible and stylish in immaculate Mercedes-Benz vehicles.',
@@ -652,6 +673,8 @@ export const SERVICES_DATA_EN: Service[] = [
 
   {
     slug: 'chauffeur-pro-stunde',
+
+    slugEn: 'chauffeur-by-the-hour-vienna',
     metaTitle: 'Chauffeur by the Hour Vienna — Vienna Grand Chauffeurs',
     metaDescription:
       'Book your chauffeur by the hour in Vienna. Maximum flexibility for multiple appointments, city journeys and spontaneous stops — with a fixed price per hour.',
@@ -712,6 +735,8 @@ export const SERVICES_DATA_EN: Service[] = [
 
   {
     slug: 'limousinen-service-wien',
+
+    slugEn: 'limousine-service-vienna',
     metaTitle: 'Limousine Service Vienna — Vienna Grand Chauffeurs',
     metaDescription:
       'Stylish limousine service in Vienna for weddings, events and special occasions. Immaculate Mercedes-Benz limousines with an experienced chauffeur.',
@@ -772,6 +797,8 @@ export const SERVICES_DATA_EN: Service[] = [
 
   {
     slug: 'fahrdienst-diplomaten',
+
+    slugEn: 'diplomatic-chauffeur-vienna',
     metaTitle: 'Chauffeur Service for Diplomats & Embassies — Vienna Grand Chauffeurs',
     metaDescription:
       'Discreet, security-conscious chauffeur service for diplomats, embassies and official guests in Vienna. The highest reliability and confidentiality.',
@@ -832,6 +859,8 @@ export const SERVICES_DATA_EN: Service[] = [
 
   {
     slug: 'privatchauffeur-wien',
+
+    slugEn: 'private-chauffeur-vienna',
     metaTitle: 'Private Chauffeur Vienna — Vienna Grand Chauffeurs',
     metaDescription:
       'Your dedicated private chauffeur in Vienna for everyday life and special days. Flexible, discreet and entirely attuned to you — in immaculate premium vehicles.',
@@ -892,6 +921,8 @@ export const SERVICES_DATA_EN: Service[] = [
 
   {
     slug: 'shuttle-service-wien',
+
+    slugEn: 'shuttle-service-vienna',
     metaTitle: 'Shuttle Service Vienna — Vienna Grand Chauffeurs',
     metaDescription:
       'Reliable shuttle service in Vienna for groups, events and companies. Comfortable in the Mercedes V-Class with an experienced chauffeur.',
@@ -952,6 +983,8 @@ export const SERVICES_DATA_EN: Service[] = [
 
   {
     slug: 'langstreckenfahrten',
+
+    slugEn: 'day-trips-from-vienna',
     metaTitle: 'Long-Distance Journeys — Vienna Grand Chauffeurs',
     metaDescription:
       'Comfortable long-distance journeys from Vienna throughout Austria and Europe. Relaxed with no changes, in immaculate premium vehicles with an experienced chauffeur.',

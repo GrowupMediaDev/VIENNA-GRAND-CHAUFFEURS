@@ -14,7 +14,8 @@ export interface PriceCard {
 }
 
 export interface Vehicle {
-  slug: string;
+  slug: string;        // German slug, used under /fahrzeuge/
+  slugEn: string;      // English slug, used under /en/vehicles/
   name: string;        // short, e.g. 'E-Klasse' — used on fleet cards
   heroTitle: string;   // e.g. 'Mercedes-Benz E-Klasse'
   klass: string;       // hero pill category, e.g. 'Business Class'
@@ -46,6 +47,8 @@ const INCLUDED_FAQ = (name: string) => [
 export const VEHICLES_DATA: Vehicle[] = [
   {
     slug: 'e-klasse',
+
+    slugEn: 'e-class',
     name: 'E-Klasse',
     heroTitle: 'Mercedes-Benz E-Klasse',
     klass: 'Business Class',
@@ -89,6 +92,8 @@ export const VEHICLES_DATA: Vehicle[] = [
 
   {
     slug: 'vito',
+
+    slugEn: 'vito',
     name: 'Vito',
     heroTitle: 'Mercedes-Benz Vito',
     klass: 'Minivan',
@@ -131,6 +136,8 @@ export const VEHICLES_DATA: Vehicle[] = [
 
   {
     slug: 'v-klasse',
+
+    slugEn: 'v-class',
     name: 'V-Klasse',
     heroTitle: 'Mercedes-Benz V-Klasse',
     klass: 'Business Minivan',
@@ -173,6 +180,8 @@ export const VEHICLES_DATA: Vehicle[] = [
 
   {
     slug: 's-klasse',
+
+    slugEn: 's-class',
     name: 'S-Klasse',
     heroTitle: 'Mercedes-Benz S-Klasse',
     klass: 'First Class',
@@ -215,6 +224,8 @@ export const VEHICLES_DATA: Vehicle[] = [
 
   {
     slug: 'maybach',
+
+    slugEn: 'maybach',
     name: 'Maybach',
     heroTitle: 'Mercedes-Maybach S-Klasse',
     klass: 'Luxury Class',
@@ -257,6 +268,8 @@ export const VEHICLES_DATA: Vehicle[] = [
 
   {
     slug: 'mercedes-eqe',
+
+    slugEn: 'eqe',
     name: 'Mercedes EQE',
     heroTitle: 'Mercedes-Benz EQE',
     klass: 'Elektro',
@@ -299,6 +312,8 @@ export const VEHICLES_DATA: Vehicle[] = [
 
   {
     slug: 'vip-minibus',
+
+    slugEn: 'vip-minibus',
     name: 'VIP Sprinter',
     heroTitle: 'Mercedes-Benz VIP Sprinter',
     klass: 'VIP Class',
@@ -341,6 +356,8 @@ export const VEHICLES_DATA: Vehicle[] = [
 
   {
     slug: 'business-sprinter',
+
+    slugEn: 'business-sprinter',
     name: 'Sprinter',
     heroTitle: 'Mercedes-Benz Sprinter',
     klass: 'Sprinter',
@@ -393,6 +410,8 @@ const INCLUDED_FAQ_EN = (name: string) => [
 export const VEHICLES_DATA_EN: Vehicle[] = [
   {
     slug: 'e-klasse',
+
+    slugEn: 'e-class',
     name: 'E-Class',
     heroTitle: 'Mercedes-Benz E-Class',
     klass: 'Business Class',
@@ -436,6 +455,8 @@ export const VEHICLES_DATA_EN: Vehicle[] = [
 
   {
     slug: 'vito',
+
+    slugEn: 'vito',
     name: 'Vito',
     heroTitle: 'Mercedes-Benz Vito',
     klass: 'Minivan',
@@ -478,6 +499,8 @@ export const VEHICLES_DATA_EN: Vehicle[] = [
 
   {
     slug: 'v-klasse',
+
+    slugEn: 'v-class',
     name: 'V-Class',
     heroTitle: 'Mercedes-Benz V-Class',
     klass: 'Business Minivan',
@@ -520,6 +543,8 @@ export const VEHICLES_DATA_EN: Vehicle[] = [
 
   {
     slug: 's-klasse',
+
+    slugEn: 's-class',
     name: 'S-Class',
     heroTitle: 'Mercedes-Benz S-Class',
     klass: 'First Class',
@@ -562,6 +587,8 @@ export const VEHICLES_DATA_EN: Vehicle[] = [
 
   {
     slug: 'maybach',
+
+    slugEn: 'maybach',
     name: 'Maybach',
     heroTitle: 'Mercedes-Maybach S-Class',
     klass: 'Luxury Class',
@@ -604,6 +631,8 @@ export const VEHICLES_DATA_EN: Vehicle[] = [
 
   {
     slug: 'mercedes-eqe',
+
+    slugEn: 'eqe',
     name: 'Mercedes EQE',
     heroTitle: 'Mercedes-Benz EQE',
     klass: 'Electric',
@@ -646,6 +675,8 @@ export const VEHICLES_DATA_EN: Vehicle[] = [
 
   {
     slug: 'vip-minibus',
+
+    slugEn: 'vip-minibus',
     name: 'VIP Sprinter',
     heroTitle: 'Mercedes-Benz VIP Sprinter',
     klass: 'VIP Class',
@@ -688,6 +719,8 @@ export const VEHICLES_DATA_EN: Vehicle[] = [
 
   {
     slug: 'business-sprinter',
+
+    slugEn: 'business-sprinter',
     name: 'Sprinter',
     heroTitle: 'Mercedes-Benz Sprinter',
     klass: 'Sprinter',

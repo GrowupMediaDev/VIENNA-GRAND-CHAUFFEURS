@@ -9,7 +9,6 @@ import { getLang, hrefFor, pick } from '../lib/i18n';
 
 const lang = getLang(Astro.url);
 const vehicles = getVehicles(lang);
-const base = hrefFor('/fahrzeuge/', lang);
 const L = pick(lang,
   { title: 'Fahrzeuge & Flotte — Vienna Grand Chauffeurs', desc: 'Unsere Premiumflotte: Mercedes-Benz E-Klasse, S-Klasse, V-Klasse, EQE und Sprinter. Das passende Fahrzeug für jeden Anlass in Wien und ganz Österreich.', eyebrow: 'Fahrzeuge', heroTitle: 'Eine Flotte für <span>jeden Anlass.</span>', heroSub: 'Von der Business-Limousine über den geräumigen Van bis zum vollelektrischen Antrieb — wählen Sie das Fahrzeug, das zu Ihrer Fahrt passt. Alle gepflegt, klimatisiert und mit erfahrenem Chauffeur.', gridAria: 'Alle Fahrzeuge', ourFleet: 'Unsere Flotte', count: `${vehicles.length} Fahrzeuge` },
   { title: 'Fleet & Vehicles — Vienna Grand Chauffeurs', desc: 'Our premium fleet: Mercedes-Benz E-Class, S-Class, V-Class, EQE and Sprinter. The right vehicle for every occasion in Vienna and throughout Austria.', eyebrow: 'Fleet', heroTitle: 'A fleet for <span>every occasion.</span>', heroSub: 'From the business sedan and the spacious van to the all-electric drive — choose the vehicle that suits your journey. All immaculately kept, air-conditioned and with an experienced chauffeur.', gridAria: 'All vehicles', ourFleet: 'Our fleet', count: `${vehicles.length} vehicles` });
@@ -28,7 +27,7 @@ const L = pick(lang,
         </div>
         <div class="flist__grid">
           {vehicles.map((v) => (
-            <a class="vcard" href={`${base}${v.slug}`} data-reveal>
+            <a class="vcard" href={hrefFor(`/fahrzeuge/${v.slug}`, lang)} data-reveal>
               <img class="vcard__img" src={v.img.card} alt={v.heroTitle} loading="lazy" />
               <span class="vcard__badge">{v.cardKlass}</span>
               <div class="vcard__body">

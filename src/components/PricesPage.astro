@@ -9,7 +9,6 @@ import { getLang, hrefFor, pick } from '../lib/i18n';
 
 const lang = getLang(Astro.url);
 const vehicles = getVehicles(lang);
-const base = hrefFor('/fahrzeuge/', lang);
 const bookHref = hrefFor('/online-buchung', lang);
 const L = pick(lang,
   { title: 'Preise — Vienna Grand Chauffeurs', desc: 'Transparente Festpreise für Chauffeur- und Limousinenservice in Wien. Flughafentransfer, Stundensatz und Tagessatz für jede Fahrzeugklasse — ohne versteckte Kosten.', eyebrow: 'Preise', heroTitle: 'Transparente <span>Festpreise.</span>', heroSub: 'Keine versteckten Kosten. Wartezeit, Maut und Parkgebühren sind immer inklusive — Ihr Endpreis steht schon bei der Buchung fest. Wählen Sie die Klasse, die zu Ihrer Fahrt passt.', aria: 'Preisübersicht', view: 'Fahrzeug ansehen', note: 'Alle Preise verstehen sich als Richtwerte für Fahrten in Wien und Umgebung. Für Langstrecken, Sonderwünsche und individuelle Angebote kontaktieren Sie uns gerne — Sie erhalten umgehend einen verbindlichen Fixpreis.', included: ['Wartezeit inklusive', 'Maut & Parkgebühren inklusive', 'Fixpreis bei Buchung garantiert', 'Alle Preise inkl. USt.'], hourlyNote: 'Inkl. max. 20 km pro Stunde.', longDistance: 'Für Langstrecken einfach Strecke im Buchungssystem eingeben und den Preis sofort sehen.', book: 'Jetzt buchen',
@@ -81,7 +80,7 @@ const seoRight = seoParas.slice(seoHalf);
                     </li>
                   ))}
                 </ul>
-                <a class="pcard__link" href={`${base}${v.slug}`}>
+                <a class="pcard__link" href={hrefFor(`/fahrzeuge/${v.slug}`, lang)}>
                   {L.view}
                   <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 5l7 7-7 7"/></svg>
                 </a>

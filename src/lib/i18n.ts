@@ -1,27 +1,29 @@
 // Vienna Grand Chauffeurs — bilingual (DE default at root, EN under /en/).
 // Locale is derived from the URL; shared chrome text lives in UI below.
 
-export type Lang = 'de' | 'en';
+import { localizePath, type Lang } from './routes';
+
+export type { Lang };
 
 export function getLang(url: URL): Lang {
   return url.pathname === '/en' || url.pathname.startsWith('/en/') ? 'en' : 'de';
 }
 
-// Turn a DE-rooted path ('/', '/preise', '/#fahrzeuge') into the localized href.
+// Turn a DE-rooted path ('/', '/preise', '/#fahrzeuge') into the localized
+// href. EN uses its own path segments and slugs, so this translates rather
+// than just prefixing (see routes.ts).
 export function hrefFor(path: string, lang: Lang): string {
-  if (lang === 'de') return path;
-  if (path === '/') return '/en/';
-  return '/en' + path;
+  return localizePath(path, lang);
 }
 
 // The equivalent page in the other language — used by the header toggle.
 export function altLang(url: URL): { lang: Lang; label: string; href: string } {
-  const cur = getLang(url);
-  if (cur === 'en') {
-    const de = url.pathname.replace(/^\/en(?=\/|$)/, '') || '/';
-    return { lang: 'de', label: 'DE', href: de };
-  }
-  return { lang: 'en', label: 'EN', href: hrefFor(url.pathname || '/', 'en') };
+  const other: Lang = getLang(url) === 'en' ? 'de' : 'en';
+  return {
+    lang: other,
+    label: other === 'de' ? 'DE' : 'EN',
+    href: localizePath(url.pathname || '/', other),
+  };
 }
 
 export function pick<T>(lang: Lang, de: T, en: T): T {
