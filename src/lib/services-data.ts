@@ -222,7 +222,7 @@ export const SERVICES_DATA: Service[] = [
         'Sie müssen nicht jedes Mal neu buchen, keinen Parkplatz suchen und nicht auf ein Taxi warten. Wenn Sie einen Chauffeur mieten Wien und Umgebung, steht Wasser im Wagen bereit, auf Wunsch auch ein Kindersitz, und Sie behalten denselben vertrauten Ansprechpartner am Steuer.',
         'Die Buchung ist unkompliziert. Sie wählen Fahrzeug und Stundenzahl, sehen den Fixpreis pro Stunde und buchen direkt über unser Online Buchungssystem. Bezahlt wird per Kreditkarte, Apple Pay oder Google Pay, die Bestätigung kommt sofort. Sie warten nicht auf ein Angebot wie bei vielen anderen Anbietern, sondern kennen den Preis von Anfang an.',
         'Braucht Ihr Tag doch länger, verlängern wir flexibel, solange der Fahrer verfügbar ist. Für Geschäftskunden gibt es feste Konditionen für regelmäßige Buchungen, für besondere Wünsche erreichen Sie uns per WhatsApp oder E-Mail. So behalten Sie Ihren Zeitplan im Griff und überlassen die Fahrt jemandem, der Wien in- und auswendig kennt und vorausschauend fährt. Den Fixpreis sehen Sie vorab.',
-        'Sie buchen bequem online. Wir kümmern uns um den Rest. Zuverlässig und diskret. Auf Wunsch mit Kindersitz. Den Fixpreis sehen Sie vorab. Sie buchen bequem online. Wir kümmern uns um den Rest. Zuverlässig und diskret. Auf Wunsch mit Kindersitz.',
+        'So behalten Sie Ihren Zeitplan im Griff und überlassen die Fahrt jemandem, der Wien kennt und vorausschauend ans Ziel bringt.',
       ],
     },
     faq: [
@@ -284,7 +284,7 @@ export const SERVICES_DATA: Service[] = [
         'Der Ablauf ist einfach. Sie möchten eine Limousine mieten Wien und Umgebung? Sie sehen sofort den Fixpreis und buchen direkt über unser Online Buchungssystem.',
         'Bezahlt wird per Kreditkarte, Apple Pay oder Google Pay, die Bestätigung kommt umgehend. Anders als bei Anbietern, bei denen Sie erst eine Anfrage schicken und auf ein Angebot warten, wissen Sie bei uns vorab genau, was die Fahrt kostet, ohne versteckte Zuschläge.',
         'Für Geschäftskunden bieten wir feste Konditionen für regelmäßige Fahrten, ideal für wiederkehrende Termine oder Kundenbesuche. Haben Sie einen besonderen Wunsch, etwa mehrere Stopps oder eine Abendbegleitung, erreichen Sie uns jederzeit per WhatsApp oder E-Mail.',
-        'So wird Ihre Fahrt durch Wien so angenehm und stilvoll wie der Anlass, zu dem sie Sie bringt. Den Fixpreis sehen Sie vorab. Sie buchen bequem online. Wir kümmern uns um den Rest. Zuverlässig und diskret. Auf Wunsch mit Kindersitz. Den Fixpreis sehen Sie vorab. Sie buchen bequem online.',
+        'So wird Ihre Fahrt durch Wien so angenehm und stilvoll wie der Anlass, zu dem sie führt, von der ersten Buchung bis zur Ankunft.',
       ],
     },
     faq: [
@@ -345,8 +345,8 @@ export const SERVICES_DATA: Service[] = [
         'Unsere Chauffeure begleiten Botschaften, Delegationen und offizielle Gäste in Wien, vom einzelnen Termin bis zum mehrtägigen Besuch mit engem Zeitplan. Als Fahrdienst Botschaft Wien treten sie sicher auf, halten sich dezent im Hintergrund und wahren jederzeit Vertraulichkeit. Bei Bedarf koordinieren wir mehrere Fahrzeuge im Konvoi, stimmen Zeitpläne exakt ab und passen uns kurzfristigen Änderungen zuverlässig an.',
         'Für regelmäßige Fahrten von Botschaften und Institutionen richten wir feste Konditionen und feste Ansprechpartner ein. Als diskreter VIP Fahrdienst Wien planen wir jeden Auftrag persönlich mit Ihnen, da jeder Einsatz im diplomatischen Umfeld individuell ist.',
         'Erreichen Sie uns dazu direkt per WhatsApp oder E-Mail. Sie erhalten eine verlässliche Zusage mit klaren Konditionen, ganz ohne unnötige Umwege oder langes Warten auf ein Angebot.',
-        'Unsere Fahrzeuge sind gepflegte Mercedes-Modelle der Ober- und Luxusklasse, auf Wunsch mit erhöhter Diskretion. So bleibt der Fahrdienst das, was er sein soll: ein reibungsloser, unauffälliger Teil eines gelungenen Ablaufs. Den Fixpreis sehen Sie vorab. Sie buchen bequem online.',
-        'Wir kümmern uns um den Rest. Zuverlässig und diskret. Auf Wunsch mit Kindersitz. Den Fixpreis sehen Sie vorab. Sie buchen bequem online. Wir kümmern uns um den Rest. Zuverlässig und diskret. Auf Wunsch mit Kindersitz. Den Fixpreis sehen Sie vorab.',
+        'Unsere Fahrzeuge sind gepflegte Mercedes-Modelle der Ober- und Luxusklasse, auf Wunsch mit erhöhter Diskretion.',
+        'So bleibt der Fahrdienst das, was er sein soll: ein reibungsloser, unauffälliger Teil eines gelungenen Ablaufs.',
       ],
     },
     faq: [
@@ -407,8 +407,8 @@ export const SERVICES_DATA: Service[] = [
         'Als persönlicher Fahrer Wien wird er mit der Zeit zu einem vertrauten Gesicht, das Ihre Routine kennt und vorausdenkt. Sie müssen nicht erklären, nicht organisieren und sich nicht ums Parken kümmern. Wasser steht im Wagen bereit, auf Wunsch ein Kindersitz, und der Wagen ist stets gepflegt und diskret.',
         'Sie buchen Ihre Fahrten direkt über unser Online Buchungssystem, sehen den Fixpreis sofort und zahlen bequem per Kreditkarte, Apple Pay oder Google Pay. Als Privatfahrer Wien stehen wir Ihnen so oft zur Verfügung, wie Sie möchten.',
         'Anders als bei Anbietern mit reinem Anfrageformular kennen Sie Ihren Preis von Anfang an, ohne auf ein Angebot zu warten. Für Geschäftskunden richten wir feste Firmenkonditionen ein, für besondere Wünsche wie mehrere Fahrten am Tag oder feste Wochentermine erreichen Sie uns jederzeit per WhatsApp oder E-Mail.',
-        'So gewinnen Sie Zeit und Ruhe im Alltag, während sich jemand anderes zuverlässig und diskret ums Fahren kümmert und Sie sich auf das konzentrieren, was wirklich zählt. Den Fixpreis sehen Sie vorab. Sie buchen bequem online. Wir kümmern uns um den Rest.',
-        'Zuverlässig und diskret. Auf Wunsch mit Kindersitz. Den Fixpreis sehen Sie vorab. Sie buchen bequem online. Wir kümmern uns um den Rest. Zuverlässig und diskret. Auf Wunsch mit Kindersitz. Den Fixpreis sehen Sie vorab. Sie buchen bequem online.',
+        'Für Geschäftskunden richten wir feste Firmenkonditionen ein, für besondere Wünsche wie mehrere Fahrten am Tag oder feste Wochentermine erreichen Sie uns per WhatsApp oder E-Mail.',
+        'So gewinnen Sie Zeit und Ruhe im Alltag, während sich jemand anderes zuverlässig und diskret ums Fahren kümmert.',
       ],
     },
     faq: [
@@ -469,8 +469,8 @@ export const SERVICES_DATA: Service[] = [
         'Ob Mitarbeiter zu einem Firmenevent, Gäste einer Hochzeit oder eine Reisegruppe vom Hotel: Alle reisen gemeinsam in einem Fahrzeug, koordiniert und pünktlich. Unser Shuttle Service Wien bringt das passende Fahrzeug, von der komfortablen V-Klasse für kleinere Gruppen bis zum 20-Sitzer Sprinter, immer mit festem, ortskundigem Fahrer. So kommt niemand zu spät, niemand verfährt sich, und Sie behalten den Überblick über die ganze Gruppe.',
         'Für regelmäßige Transfers, etwa von Mitarbeitern oder Hotelgästen, richten wir feste Konditionen ein. Ob großer Bus oder Kleinbus mit Fahrer Wien und Umgebung, da Gruppenfahrten oft individuelle Planung brauchen, stellen Sie einfach eine Anfrage über unser Buchungssystem oder erreichen uns direkt per WhatsApp oder E-Mail.',
         'Sie erhalten zügig ein transparentes Angebot mit Fixpreis für die gesamte Gruppe, ganz ohne versteckte Kosten und ohne langes Warten. Auf Wunsch koordinieren wir auch mehrere Fahrzeuge parallel, etwa bei größeren Delegationen mit vielen Gästen.',
-        'So wird der Transfer zum reibungslosen Teil Ihres Events, um den Sie sich nicht mehr kümmern müssen und der einfach funktioniert. Den Fixpreis sehen Sie vorab. Sie buchen bequem online. Wir kümmern uns um den Rest.',
-        'Zuverlässig und diskret. Auf Wunsch mit Kindersitz. Den Fixpreis sehen Sie vorab. Sie buchen bequem online. Wir kümmern uns um den Rest. Zuverlässig und diskret. Auf Wunsch mit Kindersitz. Den Fixpreis sehen Sie vorab.',
+        'Auf Wunsch koordinieren wir auch mehrere Fahrzeuge parallel, etwa bei größeren Delegationen oder wenn Gäste von verschiedenen Orten abgeholt werden.',
+        'So wird der Transfer zum reibungslosen Teil Ihres Events, um den Sie sich nicht mehr kümmern müssen, vom ersten bis zum letzten Gast.',
       ],
     },
     faq: [
@@ -532,7 +532,7 @@ export const SERVICES_DATA: Service[] = [
         'Ob Transfer Wien Bratislava, Transfer Wien Prag oder Transfer Wien Budapest, unterwegs haben Sie Ruhe für Telefonate, Arbeit oder die Aussicht auf die Landschaft. Wasser steht bereit, auf Wunsch auch ein Kindersitz, und Ihr Fahrer kennt die Strecke und die Grenzformalitäten.',
         'Die Buchung ist so einfach wie bei jeder Fahrt. Sie geben Start und Ziel an, wählen Ihr Fahrzeug, sehen den Fixpreis für die gesamte Strecke und buchen direkt über unser Online Buchungssystem. Bezahlt wird per Kreditkarte, Apple Pay oder Google Pay. Anders als bei Anbietern mit reinem Anfrageformular kennen Sie Ihren Preis sofort, ohne auf ein Angebot zu warten und ohne Zuschläge für Wartezeit oder Grenzübertritt.',
         'Beliebte Strecken wie diese fahren wir regelmäßig und kennen die schnellsten Wege. Für mehrtägige Reisen, feste Firmenkonditionen oder besondere Routen mit Zwischenstopps erreichen Sie uns per WhatsApp oder E-Mail. So kommen Sie entspannt und pünktlich an, egal wie weit das Ziel entfernt liegt. Den Fixpreis sehen Sie vorab.',
-        'Sie buchen bequem online. Wir kümmern uns um den Rest. Zuverlässig und diskret. Auf Wunsch mit Kindersitz. Den Fixpreis sehen Sie vorab. Sie buchen bequem online. Wir kümmern uns um den Rest. Zuverlässig und diskret.',
+        'So kommen Sie entspannt und pünktlich an, egal wie weit das Ziel entfernt liegt, während sich Ihr Chauffeur um Route und Grenzformalitäten kümmert.',
       ],
     },
     faq: [
@@ -596,7 +596,7 @@ export const SERVICES_DATA_EN: Service[] = [
         'Booking is just as simple. You enter your route, choose your vehicle, see the fixed price and book directly through our online booking system.',
         'Payment is by credit card, Apple Pay or Google Pay, and confirmation is immediate. Unlike providers where you first send a request and wait for a quote, you know exactly what the ride costs in advance, with no surcharges for waiting time.',
         'The price you see is the price you pay. For business clients we set up fixed corporate terms for regular airport runs. If you have a special request, such as several stops or a group pickup, you can reach us any time by WhatsApp or email. That way your airport transfer is one thing you never have to worry about.',
-        'You see the fixed price before you book. Booking takes just a couple of minutes. Your driver is ready when you are. Comfort and discretion come as standard. Water is always on board for you. You see the fixed price before you book. Booking takes just a couple of minutes. Your driver is ready when you are. Comfort and discretion come as standard.',
+        'For business clients we set up fixed corporate terms for regular airport runs, and for special requests such as several stops or a group pickup you can reach us any time by WhatsApp or email.',
       ],
     },
     faq: [
@@ -720,7 +720,7 @@ export const SERVICES_DATA_EN: Service[] = [
         'Booking is straightforward. You choose the vehicle and number of hours, see the fixed price per hour and book directly through our online booking system. Payment is by credit card, Apple Pay or Google Pay, and confirmation is immediate. You do not wait for a quote like with many other providers, you know the price from the start.',
         'If your day runs longer than planned, we extend flexibly as long as the driver is available. For business clients there are fixed terms for regular bookings, and for special wishes such as several passengers or fixed weekly slots you can reach us by WhatsApp or email.',
         'That way you keep your schedule under control and leave the driving to someone who knows Vienna. You see the fixed price before you book.',
-        'Booking takes just a couple of minutes. Your driver is ready when you are. Comfort and discretion come as standard. Water is on board, a child seat on request. Reach us any time by WhatsApp or email. You see the fixed price before you book. Booking takes just a couple of minutes. Your driver is ready when you are. Comfort and discretion come as standard.',
+        'That way you keep your schedule under control and leave the driving to someone who knows Vienna, from the first meeting to the last stop of the day.',
       ],
     },
     faq: [
@@ -781,8 +781,8 @@ export const SERVICES_DATA_EN: Service[] = [
         'With us you choose from a modern Mercedes fleet, from the elegant E-Class through the representative S-Class to the spacious van for several guests. Every car is clean, air-conditioned and stocked with water for you, and a child seat is available on request. Your chauffeur is discreet, punctual and knows the routes through Vienna.',
         'The process is simple. You pick your vehicle, see the fixed price at once and book directly through our online booking system.',
         'Payment is by credit card, Apple Pay or Google Pay, and confirmation arrives immediately. Unlike providers where you first send a request and wait for an offer, you know exactly what the ride costs in advance, with no hidden surcharges.',
-        'For business clients we offer fixed corporate terms for regular rides. If you have a special wish, such as several stops or an evening of events, you can reach us any time by WhatsApp or email. That way your ride through Vienna is as pleasant as the occasion it takes you to. You see the fixed price before you book. Booking takes just a couple of minutes.',
-        'Your driver is ready when you are. Comfort and discretion come as standard. Water is on board, a child seat on request. Reach us any time by WhatsApp or email. You see the fixed price before you book. Booking takes just a couple of minutes. Your driver is ready when you are. Comfort and discretion come as standard. Water is on board, a child seat on request.',
+        'For business clients we offer fixed corporate terms for regular rides. If you have a special wish, such as several stops or an evening of events, you can reach us any time by WhatsApp or email.',
+        'That way your ride through Vienna is as pleasant and refined as the occasion it takes you to, from the first click to your arrival.',
       ],
     },
     faq: [
@@ -844,7 +844,7 @@ export const SERVICES_DATA_EN: Service[] = [
         'For regular rides of embassies and institutions we set up fixed terms and fixed points of contact, so processes stay smooth and familiar. As every assignment in the diplomatic field is individual, we plan it personally with you. You can reach us directly by WhatsApp or email.',
         'You receive a reliable commitment with clear terms, without unnecessary detours or long waiting for a quote. Our vehicles are well-kept Mercedes models of the upper and luxury class, with heightened discretion on request.',
         'That way the driver service stays what it should be: a smooth, unobtrusive part of a successful programme you can rely on at any time. From the first request to the last ride you have one fixed point of contact who knows every step and coordinates confidentially for you.',
-        'You see the fixed price before you book. Booking takes just a couple of minutes. Your driver is ready when you are. Comfort and discretion come as standard. Water is on board, a child seat on request. Reach us any time by WhatsApp or email. You see the fixed price before you book.',
+        'That way the driver service stays what it should be, a smooth and unobtrusive part of a successful programme you can rely on at any time.',
       ],
     },
     faq: [
@@ -905,8 +905,8 @@ export const SERVICES_DATA_EN: Service[] = [
         'Over time the driver becomes a familiar face who knows your routine and thinks ahead. You do not need to explain, organise or worry about parking. Water is on board, a child seat on request, and the car is always clean and discreet.',
         'You book your rides directly through our online booking system, see the fixed price at once and pay conveniently by credit card, Apple Pay or Google Pay. Unlike providers with a request form only, you know your price from the start, without waiting for an offer.',
         'For business clients we set up fixed corporate terms, and for special wishes such as several rides a day or fixed weekly appointments you can reach us any time by WhatsApp or email. That way you gain time and calm in daily life, while someone else takes reliable, discreet care of the driving and you focus on what really matters.',
-        'You see the fixed price before you book. Booking takes just a couple of minutes. Your driver is ready when you are. Comfort and discretion come as standard.',
-        'Water is on board, a child seat on request. Reach us any time by WhatsApp or email. You see the fixed price before you book. Booking takes just a couple of minutes. Your driver is ready when you are. Comfort and discretion come as standard. Water is on board, a child seat on request. Reach us any time by WhatsApp or email. You see the fixed price before you book.',
+        'For business clients we set up fixed corporate terms, and for special wishes such as several rides a day or fixed weekly appointments you can reach us any time by WhatsApp or email.',
+        'That way you gain time and calm in daily life, while someone else takes reliable, discreet care of the driving and you focus on what matters.',
       ],
     },
     faq: [
@@ -967,8 +967,8 @@ export const SERVICES_DATA_EN: Service[] = [
         'Whether staff heading to a corporate event, guests at a wedding or a travel group from a hotel, everyone travels together in one vehicle, coordinated and on time.',
         'We bring the right vehicle for the size of the group, from the comfortable V-Class for smaller groups to the 20-seater Sprinter, always with a fixed, local driver. That way no one is late, no one gets lost, and you keep an overview of the whole group without sitting behind the wheel yourself.',
         'For regular transfers, for example of staff or hotel guests, we set up fixed terms. As group rides often need individual planning, you simply send a request through our booking system or reach us directly by WhatsApp or email. You receive a clear quote with a fixed price for the whole group, without hidden costs and without long waiting.',
-        'On request we also coordinate several vehicles in parallel, for larger delegations or when guests are collected from different places. That way the transfer becomes the smooth part of your event, one you no longer have to worry about, from the first guest to the last. You see the fixed price before you book. Booking takes just a couple of minutes.',
-        'Your driver is ready when you are. Comfort and discretion come as standard. Water is on board, a child seat on request. Reach us any time by WhatsApp or email. You see the fixed price before you book. Booking takes just a couple of minutes. Your driver is ready when you are.',
+        'On request we also coordinate several vehicles in parallel, for larger delegations or when guests are collected from different places.',
+        'That way the transfer becomes the smooth part of your event, one you no longer have to worry about, from the first guest to the last.',
       ],
     },
     faq: [
@@ -1030,7 +1030,7 @@ export const SERVICES_DATA_EN: Service[] = [
         'Booking is as easy as any ride. You tell us your destination, choose your vehicle, see the fixed price for the whole trip and book directly through our online booking system. Payment is by credit card, Apple Pay or Google Pay.',
         'Unlike providers with a request form only, you know your price at once, without waiting for a quote and with no surcharges for waiting time. Popular trips such as Vienna to Hallstatt, Bratislava or Budapest we drive regularly and know the best stops along the way.',
         'For multi-day tours, private guides or special routes you can reach us by WhatsApp or email. That way you see more of the region and drive less yourself, arriving relaxed at every stop.',
-        'You see the fixed price before you book. Booking takes just a couple of minutes. Your driver is ready when you are. Comfort and discretion come as standard. Water is on board, a child seat on request. Reach us any time by WhatsApp or email. You see the fixed price before you book.',
+        'For multi-day tours, private guides or special routes you can reach us by WhatsApp or email, so you see more of the region and drive less yourself.',
       ],
     },
     faq: [
