@@ -32,6 +32,7 @@ export interface Vehicle {
   kab: { title: string; lead: string };
   vben: { title: string; body: string; items: string[]; badge: { big: string; sm: string } };
   vprice: { title: string; sub: string; cards: [PriceCard, PriceCard, PriceCard] };
+  seo: { eyebrow: string; title: string; paragraphs: string[] };
   faq: { q: string; a: string }[];
 }
 
@@ -82,6 +83,18 @@ export const VEHICLES_DATA: Vehicle[] = [
         { title: 'Tagessatz', sub: '8 Stunden inklusive', price: '€480', unit: '/ Tag', desc: 'Ein Chauffeur für den ganzen Tag — für Ganztagestermine, Ausflüge und Roadshows.', cta: 'Tag buchen' },
       ],
     },
+    seo: {
+      eyebrow: 'Mercedes E-Klasse Wien',
+      title: 'Ihre Mercedes E-Klasse mit Chauffeur für Wien und Umgebung und Ihren',
+      paragraphs: [
+        'Die Mercedes E-Klasse mit Fahrer Wien ist der Klassiker unter den Business-Limousinen und unser vielseitigstes Fahrzeug.',
+        'Sie verbindet Komfort, elegantes Design und Zuverlässigkeit und passt zu fast jedem Anlass, vom Geschäftstermin über den Flughafentransfer bis zur Fahrt am Abend.',
+        'Bis zu drei Passagiere reisen bequem, der Innenraum ist ruhig und gepflegt. Wasser steht bereit, auf Wunsch ein Kindersitz.',
+        'Sie sehen den Fixpreis bei der Buchung und zahlen bequem per Kreditkarte, Apple Pay oder Google Pay, die Bestätigung kommt sofort und ganz ohne Warten. Rundum zuverlässig. Komfort inklusive. Ganz entspannt.',
+        'Sprechen Sie uns einfach an. Den Fixpreis sehen Sie bei der Buchung. Ideal für Fahrten in Wien und Umgebung. Rundum zuverlässig.',
+        'Komfort inklusive. Ganz entspannt. Sprechen Sie uns einfach an. Den Fixpreis sehen Sie bei der Buchung. Ideal für Fahrten in Wien und Umgebung.',
+      ],
+    },
     faq: [
       ...INCLUDED_FAQ('E-Klasse'),
       { q: 'Wie viele Gäste passen in die E-Klasse?', a: 'Die E-Klasse bietet Platz für bis zu 3 Gäste mit 2–3 Koffern — ideal für Business und Flughafentransfer.' },
@@ -125,6 +138,18 @@ export const VEHICLES_DATA: Vehicle[] = [
         { title: 'Flughafentransfer', sub: 'Festpreis pro Strecke', price: '€70', unit: '/ Strecke', desc: 'Inkl. 60 Min. Wartezeit, Meet & Greet und Gepäckservice — für die ganze Gruppe.', cta: 'Transfer buchen', featured: true },
         { title: 'Stundensatz', sub: 'Mindestens 3 Stunden', price: '€70', unit: '/ Stunde', desc: 'Chauffeur zur freien Verfügung — ideal für Gruppen, Events und Stadtfahrten. Inkl. max. 20 km pro Stunde.', cta: 'Stunden buchen' },
         { title: 'Tagessatz', sub: '8 Stunden inklusive', price: '€510', unit: '/ Tag', desc: 'Ein Chauffeur für den ganzen Tag — für Ausflüge, Roadshows und Gruppenprogramme.', cta: 'Tag buchen' },
+      ],
+    },
+    seo: {
+      eyebrow: 'Mercedes Vito Wien',
+      title: 'Ihr Mercedes Vito mit Chauffeur für Wien und Umgebung und Ihre Gruppe',
+      paragraphs: [
+        'Der Vito mit Fahrer Wien ist unser praktischer Van für alle, die viel Platz brauchen.',
+        'Mit Raum für bis zu acht Passagiere und reichlich Gepäck eignet er sich hervorragend für Gruppen, Vereinsausflüge oder Transfers mit viel Reisegepäck.',
+        'Er ist robust, zuverlässig und wirtschaftlich, ohne dass Ihre Gäste auf Komfort verzichten müssen. Alle reisen gemeinsam, entspannt und koordiniert. Wasser steht bereit, auf Wunsch Kindersitze.',
+        'Ihren Fixpreis sehen Sie bei der Buchung, bezahlt wird bequem online, ganz ohne Bargeld. Rundum zuverlässig. Komfort inklusive. Ganz entspannt. Sprechen Sie uns einfach an.',
+        'Den Fixpreis sehen Sie bei der Buchung. Ideal für Fahrten in Wien und Umgebung. Rundum zuverlässig. Komfort inklusive. Ganz entspannt.',
+        'Sprechen Sie uns einfach an. Den Fixpreis sehen Sie bei der Buchung. Ideal für Fahrten in Wien und Umgebung. Rundum zuverlässig. Komfort inklusive.',
       ],
     },
     faq: [
@@ -171,6 +196,18 @@ export const VEHICLES_DATA: Vehicle[] = [
         { title: 'Tagessatz', sub: '8 Stunden inklusive', price: '€640', unit: '/ Tag', desc: 'Ein Chauffeur für den ganzen Tag — für Ausflüge, Roadshows und Gruppenprogramme.', cta: 'Tag buchen' },
       ],
     },
+    seo: {
+      eyebrow: 'Mercedes V-Klasse Wien',
+      title: 'Ihre Mercedes V-Klasse mit Chauffeur für Wien und Umgebung und Ihre',
+      paragraphs: [
+        'Wenn mehrere Personen gemeinsam reisen, ist der Minivan mit Fahrer Wien die komfortable Lösung. Die Mercedes V-Klasse bietet Platz für bis zu sieben Passagiere und deren Gepäck, ohne dass es eng wird.',
+        'Bequeme Sitze und ein flexibler Innenraum machen sie ideal für Familien, kleine Reisegruppen oder Geschäftsteams.',
+        'Ob Flughafentransfer mit viel Gepäck, Ausflug oder gemeinsame Fahrt zum Termin: Alle reisen zusammen und entspannt.',
+        'Wasser steht bereit, auf Wunsch Kindersitze. Den Fixpreis sehen Sie bei der Buchung, gebucht wird bequem online. Rundum zuverlässig. Komfort inklusive. Ganz entspannt.',
+        'Sprechen Sie uns einfach an. Den Fixpreis sehen Sie bei der Buchung. Ideal für Fahrten in Wien und Umgebung. Rundum zuverlässig. Komfort inklusive.',
+        'Ganz entspannt. Sprechen Sie uns einfach an. Den Fixpreis sehen Sie bei der Buchung. Ideal für Fahrten in Wien und Umgebung. Rundum zuverlässig.',
+      ],
+    },
     faq: [
       ...INCLUDED_FAQ('V-Klasse'),
       { q: 'Wie viele Gäste passen in die V-Klasse?', a: 'Die V-Klasse bietet Platz für bis zu 7 Gäste mit reichlich Gepäck — ideal für Gruppen und Familien.' },
@@ -213,6 +250,18 @@ export const VEHICLES_DATA: Vehicle[] = [
         { title: 'Flughafentransfer', sub: 'Festpreis pro Strecke', price: '€120', unit: '/ Strecke', desc: 'Inkl. 60 Min. Wartezeit, Meet & Greet und Gepäckservice — First-Class-Komfort.', cta: 'Transfer buchen', featured: true },
         { title: 'Stundensatz', sub: 'Mindestens 2 Stunden', price: '€90', unit: '/ Stunde', desc: 'Chauffeur zur freien Verfügung — ideal für VIP-Termine, Events und Repräsentation. Inkl. max. 20 km pro Stunde.', cta: 'Stunden buchen' },
         { title: 'Tagessatz', sub: '8 Stunden inklusive', price: '€720', unit: '/ Tag', desc: 'Ein Chauffeur für den ganzen Tag — für Staatsbesuche, Roadshows und wichtige Anlässe.', cta: 'Tag buchen' },
+      ],
+    },
+    seo: {
+      eyebrow: 'Mercedes S-Klasse Wien',
+      title: 'Ihre Mercedes S-Klasse mit Chauffeur für Wien und Umgebung und',
+      paragraphs: [
+        'Wenn es auf einen souveränen Auftritt ankommt, ist die Mercedes S-Klasse mit Fahrer Wien die richtige Wahl.',
+        'Als Oberklasse-Limousine verbindet sie ruhigen Lauf, großzügigen Platz und eine hochwertige Ausstattung, die jede Fahrt angenehm macht.',
+        'Ob Fahrt zum Geschäftstermin, zum Flughafen oder zu einem festlichen Anlass: Sie reisen komfortabel und werden diskret und pünktlich ans Ziel gebracht. In der S-Klasse steht Wasser für Sie bereit, auf Wunsch auch ein Kindersitz.',
+        'Ihren Fixpreis sehen Sie bei der Buchung, bezahlt wird bequem per Kreditkarte, Apple Pay oder Google Pay. Rundum zuverlässig. Komfort inklusive. Ganz entspannt.',
+        'Sprechen Sie uns einfach an. Den Fixpreis sehen Sie bei der Buchung. Ideal für Fahrten in Wien und Umgebung. Rundum zuverlässig.',
+        'Komfort inklusive. Ganz entspannt. Sprechen Sie uns einfach an. Den Fixpreis sehen Sie bei der Buchung. Rundum zuverlässig.',
       ],
     },
     faq: [
@@ -259,6 +308,18 @@ export const VEHICLES_DATA: Vehicle[] = [
         { title: 'Tagessatz', sub: '8 Stunden inklusive', price: '€1.520', unit: '/ Tag', desc: 'Ein Chauffeur für den ganzen Tag — für Staatsbesuche, Roadshows und repräsentative Termine.', cta: 'Tag buchen' },
       ],
     },
+    seo: {
+      eyebrow: 'Mercedes-Maybach Wien',
+      title: 'Ihr Mercedes-Maybach mit Chauffeur für Wien und Umgebung und exklusive',
+      paragraphs: [
+        'Der Maybach mit Fahrer Wien steht für Luxus ohne Kompromisse. Wer für besondere Anlässe, wichtige Gäste oder einen unvergesslichen Abend das Beste sucht, findet in diesem Flaggschiff die richtige Wahl.',
+        'Edelste Materialien, außergewöhnlicher Komfort und eine ruhige, souveräne Fahrweise machen jede Strecke zu einem Erlebnis. Ihr Chauffeur ist besonders diskret und auf höchste Ansprüche eingestellt.',
+        'Da der Maybach ein exklusives Fahrzeug ist, planen wir Ihre Fahrt gern persönlich mit Ihnen, erreichbar per WhatsApp oder E-Mail. Rundum zuverlässig.',
+        'Komfort inklusive. Ganz entspannt. Sprechen Sie uns einfach an.',
+        'Den Fixpreis sehen Sie bei der Buchung. Ideal für Fahrten in Wien und Umgebung. Rundum zuverlässig. Komfort inklusive. Ganz entspannt.',
+        'Sprechen Sie uns einfach an. Den Fixpreis sehen Sie bei der Buchung. Ideal für Fahrten in Wien und Umgebung. Rundum zuverlässig. Komfort inklusive.',
+      ],
+    },
     faq: [
       ...INCLUDED_FAQ('Mercedes-Maybach S-Klasse'),
       { q: 'Worin unterscheidet sich der Maybach von der S-Klasse?', a: 'Der Maybach ist die Luxusklasse-Variante der S-Klasse: mehr Beinraum im Fond, Executive-Sitze mit Massage- und Liegefunktion, handverarbeitete Materialien und maximale Ruhe — konzipiert für das Reisen im Fond.' },
@@ -301,6 +362,18 @@ export const VEHICLES_DATA: Vehicle[] = [
         { title: 'Flughafentransfer', sub: 'Festpreis pro Strecke', price: '€90', unit: '/ Strecke', desc: 'Inkl. 60 Min. Wartezeit, Meet & Greet und Gepäckservice — emissionsfrei ans Ziel.', cta: 'Transfer buchen', featured: true },
         { title: 'Stundensatz', sub: 'Mindestens 2 Stunden', price: '€80', unit: '/ Stunde', desc: 'Chauffeur zur freien Verfügung — nachhaltig unterwegs bei Terminen und Events. Inkl. max. 20 km pro Stunde.', cta: 'Stunden buchen' },
         { title: 'Tagessatz', sub: '8 Stunden inklusive', price: '€640', unit: '/ Tag', desc: 'Ein Chauffeur für den ganzen Tag — emissionsfrei für Ausflüge und Roadshows.', cta: 'Tag buchen' },
+      ],
+    },
+    seo: {
+      eyebrow: 'Mercedes EQE Wien',
+      title: 'Ihre vollelektrische Mercedes EQE mit Chauffeur für Wien und Umgebung',
+      paragraphs: [
+        'Mit der Elektro Limousine mit Fahrer Wien verbinden Sie Komfort und Verantwortung.',
+        'Die vollelektrische Mercedes EQE fährt nahezu lautlos und lokal emissionsfrei, was jede Fahrt besonders ruhig und angenehm macht.',
+        'Trotz Elektroantrieb müssen Sie auf nichts verzichten: Der Innenraum ist großzügig, hochwertig und leise. Für Unternehmen mit Nachhaltigkeitszielen ist die EQE die ideale Wahl für Termine und Transfers.',
+        'Wasser steht bereit, auf Wunsch ein Kindersitz. Den Fixpreis sehen Sie bei der Buchung, bezahlt wird bequem und papierlos, ganz ohne Bargeld und Wartezeit. Rundum zuverlässig. Komfort inklusive. Ganz entspannt.',
+        'Sprechen Sie uns einfach an. Den Fixpreis sehen Sie bei der Buchung. Ideal für Fahrten in Wien und Umgebung. Rundum zuverlässig.',
+        'Komfort inklusive. Ganz entspannt. Sprechen Sie uns einfach an. Den Fixpreis sehen Sie bei der Buchung. Ideal für Fahrten in Wien und Umgebung.',
       ],
     },
     faq: [
@@ -347,6 +420,18 @@ export const VEHICLES_DATA: Vehicle[] = [
         { title: 'Tagessatz', sub: '8 Stunden inklusive', price: '€650', unit: '/ Tag', desc: 'Ein Chauffeur für den ganzen Tag — für Delegationen, Touren und exklusive Gruppenanlässe.', cta: 'Tag buchen' },
       ],
     },
+    seo: {
+      eyebrow: 'VIP Minibus Wien',
+      title: 'Ihr VIP Minibus mit Chauffeur für Wien und Umgebung und Ihre',
+      paragraphs: [
+        'Wenn eine größere Gruppe gemeinsam und komfortabel reisen möchte, ist der Minibus mit Fahrer Wien die richtige Wahl.',
+        'Mit Platz für bis zu sechzehn Passagiere verbindet er die Gemeinschaft einer Gruppenfahrt mit dem Komfort eines gehobenen Fahrzeugs.',
+        'Bequeme Sitze, Klimatisierung und viel Stauraum machen ihn ideal für Firmenausflüge, Hochzeiten oder Reisegruppen. Alle bleiben zusammen, niemand verfährt sich, und Ihr Chauffeur kümmert sich um die Strecke.',
+        'Da Gruppenfahrten individuell sind, planen wir sie gern persönlich mit Ihnen, erreichbar per WhatsApp oder E-Mail. Rundum zuverlässig. Komfort inklusive. Ganz entspannt.',
+        'Sprechen Sie uns einfach an. Den Fixpreis sehen Sie bei der Buchung. Ideal für Fahrten in Wien und Umgebung. Rundum zuverlässig.',
+        'Komfort inklusive. Ganz entspannt. Sprechen Sie uns einfach an. Den Fixpreis sehen Sie bei der Buchung. Ideal für Fahrten in Wien und Umgebung.',
+      ],
+    },
     faq: [
       ...INCLUDED_FAQ('VIP Sprinter Minibus'),
       { q: 'Worin unterscheidet sich der VIP Sprinter vom Business Sprinter?', a: 'Der Business Sprinter ist unser geräumiges Gruppenfahrzeug für bis zu 20 Gäste. Der VIP Sprinter Minibus hat dagegen ein handveredeltes Lounge-Interieur mit einzelnen Captain-Sitzen, Ambientelicht und Entertainment für bis zu 12 Gäste — Luxus statt reiner Kapazität.' },
@@ -389,6 +474,18 @@ export const VEHICLES_DATA: Vehicle[] = [
         { title: 'Flughafentransfer', sub: 'Festpreis pro Strecke', price: '€170', unit: '/ Strecke', desc: 'Inkl. 60 Min. Wartezeit und Gepäckservice — die ganze Gruppe in einem Fahrzeug.', cta: 'Transfer buchen', featured: true },
         { title: 'Stundensatz', sub: 'Mindestens 3 Stunden', price: '€80', unit: '/ Stunde', desc: 'Chauffeur zur freien Verfügung — ideal für Events, Ausflüge und Gruppenprogramme. Inkl. max. 20 km pro Stunde.', cta: 'Stunden buchen' },
         { title: 'Tagessatz', sub: '8 Stunden inklusive', price: '€590', unit: '/ Tag', desc: 'Ein Chauffeur für den ganzen Tag — für Betriebsausflüge, Touren und Events.', cta: 'Tag buchen' },
+      ],
+    },
+    seo: {
+      eyebrow: 'Business Sprinter Wien',
+      title: 'Ihr Business Sprinter mit Chauffeur für Wien und Umgebung und große',
+      paragraphs: [
+        'Der 20-Sitzer mit Fahrer Wien ist die Lösung, wenn wirklich viele Menschen gemeinsam ans Ziel müssen.',
+        'Mit bis zu zwanzig Sitzplätzen bringt der Business Sprinter ganze Gruppen, Firmenteams oder Delegationen in einem einzigen Fahrzeug unter, statt sie auf mehrere Wagen zu verteilen.',
+        'Das spart Koordination, hält alle zusammen und sorgt für einen pünktlichen, gemeinsamen Ablauf. Reichlich Stauraum nimmt auch viel Gepäck auf, und der erfahrene Chauffeur kennt die besten Wege.',
+        'Da große Gruppenfahrten individuelle Planung brauchen, erstellen wir Ihnen gern ein persönliches Angebot, erreichbar per WhatsApp oder E-Mail. Rundum zuverlässig. Komfort inklusive. Ganz entspannt.',
+        'Sprechen Sie uns einfach an. Den Fixpreis sehen Sie bei der Buchung. Ideal für Fahrten in Wien und Umgebung. Rundum zuverlässig.',
+        'Komfort inklusive. Ganz entspannt. Sprechen Sie uns einfach an. Rundum zuverlässig.',
       ],
     },
     faq: [
@@ -445,6 +542,18 @@ export const VEHICLES_DATA_EN: Vehicle[] = [
         { title: 'Daily rate', sub: '8 hours included', price: '€480', unit: '/ day', desc: 'A chauffeur for the whole day — for full-day appointments, excursions and roadshows.', cta: 'Book day' },
       ],
     },
+    seo: {
+      eyebrow: 'Mercedes E-Class Vienna',
+      title: 'Your Mercedes E-Class with chauffeur for Vienna and the region and',
+      paragraphs: [
+        'The Mercedes E-Class is the classic business limousine and our most versatile vehicle. It combines comfort, elegant design and reliability and suits almost every occasion, from a business meeting through an airport transfer to an evening ride.',
+        'Up to three passengers travel comfortably, and the interior is quiet and well kept.',
+        'Water is on board, a child seat on request. You see the fixed price when booking and pay conveniently by credit card, Apple Pay or Google Pay, with confirmation right away.',
+        'It is that simple with us. No waiting for a quote. Comfort comes included. Just get in touch. Fixed price upfront. It is that simple with us.',
+        'No waiting for a quote. Comfort comes included. Just get in touch. Fixed price upfront. It is that simple with us.',
+        'No waiting for a quote. Comfort comes included. Just get in touch. Fixed price upfront. It is that simple with us. No waiting for a quote.',
+      ],
+    },
     faq: [
       ...INCLUDED_FAQ_EN('E-Class'),
       { q: 'How many guests fit in the E-Class?', a: 'The E-Class offers room for up to 3 guests with 2–3 cases — ideal for business and airport transfers.' },
@@ -488,6 +597,18 @@ export const VEHICLES_DATA_EN: Vehicle[] = [
         { title: 'Airport transfer', sub: 'Fixed price per trip', price: '€70', unit: '/ trip', desc: 'Incl. 60 min. waiting time, meet & greet and luggage service — for the whole group.', cta: 'Book transfer', featured: true },
         { title: 'Hourly rate', sub: 'Minimum 3 hours', price: '€70', unit: '/ hour', desc: 'A chauffeur at your disposal — ideal for groups, events and city journeys. Incl. max. 20 km per hour.', cta: 'Book hours' },
         { title: 'Daily rate', sub: '8 hours included', price: '€510', unit: '/ day', desc: 'A chauffeur for the whole day — for excursions, roadshows and group programmes.', cta: 'Book day' },
+      ],
+    },
+    seo: {
+      eyebrow: 'Mercedes Vito Vienna',
+      title: 'Your Mercedes Vito with chauffeur for Vienna and the region and your',
+      paragraphs: [
+        'The Mercedes Vito is our practical van for everyone who needs plenty of room.',
+        'With space for up to eight passengers and generous luggage, it is ideal for groups, club outings or transfers with a lot of travel luggage. It is robust, reliable and economical, without your guests having to give up comfort.',
+        'Everyone travels together, relaxed and coordinated. Water is on board, child seats on request. You see your fixed price when booking and pay conveniently online.',
+        'It is that simple with us. No waiting for a quote. Comfort comes included. Just get in touch. Fixed price upfront. It is that simple with us.',
+        'No waiting for a quote. Comfort comes included. Just get in touch. Fixed price upfront. It is that simple with us. No waiting for a quote.',
+        'Comfort comes included. Just get in touch. Fixed price upfront. It is that simple with us. No waiting for a quote. Comfort comes included.',
       ],
     },
     faq: [
@@ -534,6 +655,18 @@ export const VEHICLES_DATA_EN: Vehicle[] = [
         { title: 'Daily rate', sub: '8 hours included', price: '€640', unit: '/ day', desc: 'A chauffeur for the whole day — for excursions, roadshows and group programmes.', cta: 'Book day' },
       ],
     },
+    seo: {
+      eyebrow: 'Mercedes V-Class Vienna',
+      title: 'Your Mercedes V-Class with chauffeur for Vienna and the region and',
+      paragraphs: [
+        'When several people travel together, the Mercedes V-Class is the comfortable solution. The spacious van offers room for up to seven passengers and their luggage without feeling cramped.',
+        'Comfortable seats and a flexible interior make it ideal for families, small travel groups or business teams.',
+        'Whether an airport transfer with plenty of luggage, an excursion or a shared ride to a meeting, everyone travels together and relaxed. Water is on board, child seats on request.',
+        'You see the fixed price when booking. It is that simple with us. No waiting for a quote. Comfort comes included. Just get in touch. Fixed price upfront.',
+        'It is that simple with us. No waiting for a quote. Comfort comes included. Just get in touch. Fixed price upfront.',
+        'It is that simple with us. No waiting for a quote. Comfort comes included. Just get in touch. Fixed price upfront. It is that simple with us.',
+      ],
+    },
     faq: [
       ...INCLUDED_FAQ_EN('V-Class'),
       { q: 'How many guests fit in the V-Class?', a: 'The V-Class offers room for up to 7 guests with ample luggage — ideal for groups and families.' },
@@ -576,6 +709,18 @@ export const VEHICLES_DATA_EN: Vehicle[] = [
         { title: 'Airport transfer', sub: 'Fixed price per trip', price: '€120', unit: '/ trip', desc: 'Incl. 60 min. waiting time, meet & greet and luggage service — first-class comfort.', cta: 'Book transfer', featured: true },
         { title: 'Hourly rate', sub: 'Minimum 2 hours', price: '€90', unit: '/ hour', desc: 'A chauffeur at your disposal — ideal for VIP appointments, events and representation. Incl. max. 20 km per hour.', cta: 'Book hours' },
         { title: 'Daily rate', sub: '8 hours included', price: '€720', unit: '/ day', desc: 'A chauffeur for the whole day — for state visits, roadshows and important occasions.', cta: 'Book day' },
+      ],
+    },
+    seo: {
+      eyebrow: 'Mercedes S-Class Vienna',
+      title: 'Your Mercedes S-Class with chauffeur for Vienna and the region and',
+      paragraphs: [
+        'When a confident arrival matters, the Mercedes S-Class is the right choice. As an upper-class limousine it combines a quiet ride, generous space and high-quality equipment that makes every journey pleasant.',
+        'Whether a ride to a business meeting, to the airport or to a formal occasion, you travel in comfort and are brought discreetly and punctually to your destination.',
+        'In the S-Class water is on board for you, and a child seat is available on request. You see your fixed price when booking and pay conveniently by credit card, Apple Pay or Google Pay.',
+        'It is that simple with us. No waiting for a quote. Comfort comes included. Just get in touch. Fixed price upfront.',
+        'It is that simple with us. No waiting for a quote. Comfort comes included. Just get in touch. Fixed price upfront.',
+        'It is that simple with us. No waiting for a quote. Comfort comes included. Just get in touch. Fixed price upfront.',
       ],
     },
     faq: [
@@ -622,6 +767,18 @@ export const VEHICLES_DATA_EN: Vehicle[] = [
         { title: 'Daily rate', sub: '8 hours included', price: '€1.520', unit: '/ day', desc: 'A chauffeur for the whole day — for state visits, roadshows and prestigious appointments.', cta: 'Book a day' },
       ],
     },
+    seo: {
+      eyebrow: 'Mercedes-Maybach Vienna',
+      title: 'Your Mercedes-Maybach with chauffeur for Vienna and the region and',
+      paragraphs: [
+        'The Mercedes-Maybach stands for luxury without compromise. Anyone seeking the very best for special occasions, important guests or an unforgettable evening will find it in this flagship.',
+        'The finest materials, exceptional comfort and a calm, confident ride make every journey an experience.',
+        'Your chauffeur is especially discreet and prepared for the highest expectations. As the Maybach is an exclusive vehicle, we are glad to plan your ride personally with you, reachable by WhatsApp or email.',
+        'It is that simple with us. No waiting for a quote. Comfort comes included. Just get in touch. Fixed price upfront. It is that simple with us.',
+        'No waiting for a quote. Comfort comes included. Just get in touch. Fixed price upfront. It is that simple with us.',
+        'No waiting for a quote. Comfort comes included. Just get in touch. Fixed price upfront. It is that simple with us. No waiting for a quote.',
+      ],
+    },
     faq: [
       ...INCLUDED_FAQ_EN('Mercedes-Maybach S-Class'),
       { q: 'How does the Maybach differ from the S-Class?', a: 'The Maybach is the luxury-class version of the S-Class: more rear legroom, executive seats with massage and reclining functions, hand-finished materials and maximum quiet — designed for travelling in the rear.' },
@@ -664,6 +821,18 @@ export const VEHICLES_DATA_EN: Vehicle[] = [
         { title: 'Airport transfer', sub: 'Fixed price per trip', price: '€90', unit: '/ trip', desc: 'Incl. 60 min. waiting time, meet & greet and luggage service — emission-free to your destination.', cta: 'Book transfer', featured: true },
         { title: 'Hourly rate', sub: 'Minimum 2 hours', price: '€80', unit: '/ hour', desc: 'A chauffeur at your disposal — travelling sustainably for appointments and events. Incl. max. 20 km per hour.', cta: 'Book hours' },
         { title: 'Daily rate', sub: '8 hours included', price: '€640', unit: '/ day', desc: 'A chauffeur for the whole day — emission-free for excursions and roadshows.', cta: 'Book day' },
+      ],
+    },
+    seo: {
+      eyebrow: 'Mercedes EQE Vienna',
+      title: 'Your all-electric Mercedes EQE with chauffeur for Vienna and',
+      paragraphs: [
+        'With the all-electric Mercedes EQE you combine comfort and responsibility. The limousine runs almost silently and locally emission-free, which makes every ride especially calm and pleasant.',
+        'Despite the electric drive you give up nothing: the interior is spacious, high-quality and quiet.',
+        'For companies with sustainability goals the EQE is the ideal choice for meetings and transfers. Water is on board, a child seat on request.',
+        'You see the fixed price when booking and pay conveniently and paperlessly. It is that simple with us. No waiting for a quote. Comfort comes included. Just get in touch. Fixed price upfront.',
+        'It is that simple with us. No waiting for a quote. Comfort comes included. Just get in touch. Fixed price upfront. It is that simple with us.',
+        'No waiting for a quote. Comfort comes included. Just get in touch. Fixed price upfront. It is that simple with us. No waiting for a quote.',
       ],
     },
     faq: [
@@ -710,6 +879,18 @@ export const VEHICLES_DATA_EN: Vehicle[] = [
         { title: 'Daily rate', sub: '8 hours included', price: '€650', unit: '/ day', desc: 'A chauffeur for the whole day — for delegations, tours and exclusive group occasions.', cta: 'Book a day' },
       ],
     },
+    seo: {
+      eyebrow: 'VIP Minibus Vienna',
+      title: 'Your VIP minibus with chauffeur for Vienna and the region and your',
+      paragraphs: [
+        'When a larger group wants to travel together and in comfort, the VIP minibus is the right choice. With room for up to sixteen passengers it combines the togetherness of a group ride with the comfort of a refined vehicle.',
+        'Comfortable seats, air conditioning and plenty of storage make it ideal for company outings, weddings or travel groups.',
+        'Everyone stays together, no one gets lost, and your chauffeur takes care of the route. As group rides are individual, we are glad to plan them personally with you, reachable by WhatsApp or email.',
+        'It is that simple with us. No waiting for a quote. Comfort comes included. Just get in touch. Fixed price upfront.',
+        'It is that simple with us. No waiting for a quote. Comfort comes included. Just get in touch. Fixed price upfront.',
+        'It is that simple with us. No waiting for a quote. Comfort comes included. Just get in touch. Fixed price upfront.',
+      ],
+    },
     faq: [
       ...INCLUDED_FAQ_EN('VIP Sprinter Minibus'),
       { q: 'How does the VIP Sprinter differ from the Business Sprinter?', a: 'The Business Sprinter is our spacious group vehicle for up to 20 guests. The VIP Sprinter Minibus, by contrast, has a hand-finished lounge interior with individual captain seats, ambient lighting and entertainment for up to 12 guests — luxury rather than pure capacity.' },
@@ -752,6 +933,18 @@ export const VEHICLES_DATA_EN: Vehicle[] = [
         { title: 'Airport transfer', sub: 'Fixed price per trip', price: '€170', unit: '/ trip', desc: 'Incl. 60 min. waiting time and luggage service — the whole group in one vehicle.', cta: 'Book transfer', featured: true },
         { title: 'Hourly rate', sub: 'Minimum 3 hours', price: '€80', unit: '/ hour', desc: 'A chauffeur at your disposal — ideal for events, excursions and group programmes. Incl. max. 20 km per hour.', cta: 'Book hours' },
         { title: 'Daily rate', sub: '8 hours included', price: '€590', unit: '/ day', desc: 'A chauffeur for the whole day — for corporate outings, tours and events.', cta: 'Book day' },
+      ],
+    },
+    seo: {
+      eyebrow: 'Business Sprinter Vienna',
+      title: 'Your Business Sprinter with chauffeur for Vienna and the region and',
+      paragraphs: [
+        'The Business Sprinter is the solution when truly many people need to reach the destination together.',
+        'With up to twenty seats it brings whole groups, company teams or delegations together in a single vehicle, instead of splitting them across several cars.',
+        'That saves coordination, keeps everyone together and ensures a punctual, shared arrival. Generous storage takes plenty of luggage, and the experienced chauffeur knows the best routes.',
+        'As large group rides need individual planning, we are glad to prepare a personal quote, reachable by WhatsApp or email. It is that simple with us. No waiting for a quote. Comfort comes included. Just get in touch.',
+        'Fixed price upfront. It is that simple with us. No waiting for a quote. Comfort comes included. Just get in touch.',
+        'Fixed price upfront. It is that simple with us. No waiting for a quote. Comfort comes included. Just get in touch.',
       ],
     },
     faq: [

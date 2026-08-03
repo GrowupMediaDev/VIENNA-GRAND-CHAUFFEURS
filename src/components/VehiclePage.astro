@@ -58,6 +58,12 @@ const kabineFeatures = pick(lang,
     { icon: '/images/fahrzeuge/kab-6.svg', title: 'Personal chauffeur', text: 'Local knowledge, in a suit, with meet & greet at the gate — if you wish.' },
   ]);
 
+// Long-form SEO copy: split the paragraphs into two stacked columns.
+const seoParas = vehicle.seo.paragraphs;
+const seoHalf = Math.ceil(seoParas.length / 2);
+const seoLeft = seoParas.slice(0, seoHalf);
+const seoRight = seoParas.slice(seoHalf);
+
 const priceIncludes = pick(lang,
   ['Wartezeit inklusive', 'Maut & Parkgebühren inklusive', 'Fixpreis bei Buchung garantiert', 'Alle Preise inkl. USt.'],
   ['Waiting time included', 'Tolls & parking included', 'Fixed price guaranteed at booking', 'All prices incl. VAT']);
@@ -271,6 +277,20 @@ const priceIncludes = pick(lang,
               </a>
             ))}
           </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ SEO TEXT ============ -->
+    <section class="sseo" aria-labelledby="sseo-title">
+      <div class="container-x">
+        <div class="sseo__head" data-reveal>
+          <div class="sseo__eyebrow"><span class="sseo__line" aria-hidden="true"></span><span>{vehicle.seo.eyebrow}</span></div>
+          <h2 class="sseo__title" id="sseo-title">{vehicle.seo.title}</h2>
+        </div>
+        <div class="sseo__cols" data-reveal style="--reveal-delay:0.08s">
+          <div class="sseo__col">{seoLeft.map((p) => <p>{p}</p>)}</div>
+          <div class="sseo__col">{seoRight.map((p) => <p>{p}</p>)}</div>
         </div>
       </div>
     </section>
@@ -588,6 +608,26 @@ const priceIncludes = pick(lang,
     .vhero__stats li { padding-inline: 0; }
     .vhero__stats li:not(:first-child)::before { inset-inline-start: -1rem; }
     .vhero__stat-val { font-size: 1.5rem; }
+  }
+
+  /* ============ SEO TEXT ============ */
+  .sseo { background: var(--color-cream); color: #0c0a08; padding-block: 0 var(--section-py); }
+  .sseo__head { max-inline-size: 55%; }
+  .sseo__eyebrow { display: flex; align-items: center; gap: 15px; margin-block-end: 20px; }
+  .sseo__eyebrow span:not(.sseo__line) { font-family: var(--font-display); font-weight: 600; font-size: 24px; letter-spacing: -1px; text-transform: uppercase; color: #c46a2d; }
+  .sseo__line { inline-size: 60px; block-size: 1.429px; background: #c46a2d; opacity: 0.6; flex: none; }
+  .sseo__title { font-family: var(--font-display); font-weight: 700; font-size: clamp(1.9rem, 3.2vw, 2.9rem); line-height: 1.12; letter-spacing: -0.02em; color: #0c0a08; }
+  .sseo__cols { display: grid; grid-template-columns: 1fr 1fr; gap: clamp(2rem, 4vw, 65px); margin-block-start: clamp(2rem, 3.5vw, 3.5rem); padding-block-start: clamp(2rem, 3vw, 3.5rem); border-block-start: 1px solid rgba(0, 0, 0, 0.12); }
+  .sseo__col { display: flex; flex-direction: column; gap: clamp(1rem, 1.5vw, 1.4rem); }
+  .sseo__col p { margin: 0; font-size: 16px; line-height: 1.75; color: #0c0a089e; }
+
+  @media (max-width: 900px) {
+    .sseo__head { max-inline-size: 100%; }
+    .sseo__cols { grid-template-columns: 1fr; gap: 1.5rem; }
+  }
+  @media (max-width: 640px) {
+    .sseo__eyebrow span:not(.sseo__line) { font-size: 1.05rem; }
+    .sseo__title { font-size: 2rem; }
   }
 </style>
 
