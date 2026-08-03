@@ -235,7 +235,7 @@ export const SERVICES_DATA: Service[] = [
   },
 
   {
-    slug: 'limousinen-service-wien',
+    slug: 'limousinenservice',
 
     slugEn: 'limousine-service-vienna',
     metaTitle: 'Limousinenservice Wien — Vienna Grand Chauffeurs',
@@ -359,7 +359,7 @@ export const SERVICES_DATA: Service[] = [
   },
 
   {
-    slug: 'privatchauffeur-wien',
+    slug: 'privatchauffeur',
 
     slugEn: 'private-chauffeur-vienna',
     metaTitle: 'Privatchauffeur Wien — Vienna Grand Chauffeurs',
@@ -421,7 +421,7 @@ export const SERVICES_DATA: Service[] = [
   },
 
   {
-    slug: 'shuttle-service-wien',
+    slug: 'shuttle-service',
 
     slugEn: 'shuttle-service-vienna',
     metaTitle: 'Shuttle-Service Wien — Vienna Grand Chauffeurs',
@@ -734,7 +734,7 @@ export const SERVICES_DATA_EN: Service[] = [
   },
 
   {
-    slug: 'limousinen-service-wien',
+    slug: 'limousinenservice',
 
     slugEn: 'limousine-service-vienna',
     metaTitle: 'Limousine Service Vienna — Vienna Grand Chauffeurs',
@@ -858,7 +858,7 @@ export const SERVICES_DATA_EN: Service[] = [
   },
 
   {
-    slug: 'privatchauffeur-wien',
+    slug: 'privatchauffeur',
 
     slugEn: 'private-chauffeur-vienna',
     metaTitle: 'Private Chauffeur Vienna — Vienna Grand Chauffeurs',
@@ -920,7 +920,7 @@ export const SERVICES_DATA_EN: Service[] = [
   },
 
   {
-    slug: 'shuttle-service-wien',
+    slug: 'shuttle-service',
 
     slugEn: 'shuttle-service-vienna',
     metaTitle: 'Shuttle Service Vienna — Vienna Grand Chauffeurs',

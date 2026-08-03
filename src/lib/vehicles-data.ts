@@ -267,7 +267,7 @@ export const VEHICLES_DATA: Vehicle[] = [
   },
 
   {
-    slug: 'mercedes-eqe',
+    slug: 'eqe',
 
     slugEn: 'eqe',
     name: 'Mercedes EQE',
@@ -630,7 +630,7 @@ export const VEHICLES_DATA_EN: Vehicle[] = [
   },
 
   {
-    slug: 'mercedes-eqe',
+    slug: 'eqe',
 
     slugEn: 'eqe',
     name: 'Mercedes EQE',

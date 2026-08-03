@@ -26,10 +26,10 @@ export const SERVICES = [
   { slug: 'flughafen-transfer-wien', title: 'Flughafentransfer Wien', titleEn: 'Airport Transfer Vienna' },
   { slug: 'chauffeurservice', title: 'Chauffeurservice', titleEn: 'Chauffeur Service' },
   { slug: 'chauffeur-pro-stunde', title: 'Chauffeur pro Stunde', titleEn: 'Chauffeur by the Hour' },
-  { slug: 'limousinen-service-wien', title: 'Limousinenservice Wien', titleEn: 'Limousine Service Vienna' },
+  { slug: 'limousinenservice', title: 'Limousinenservice Wien', titleEn: 'Limousine Service Vienna' },
   { slug: 'fahrdienst-diplomaten', title: 'Fahrdienst für Diplomaten', titleEn: 'Diplomatic Chauffeur Service' },
-  { slug: 'privatchauffeur-wien', title: 'Privatchauffeur Wien', titleEn: 'Private Chauffeur Vienna' },
-  { slug: 'shuttle-service-wien', title: 'Shuttle-Service Wien', titleEn: 'Shuttle Service Vienna' },
+  { slug: 'privatchauffeur', title: 'Privatchauffeur Wien', titleEn: 'Private Chauffeur Vienna' },
+  { slug: 'shuttle-service', title: 'Shuttle-Service Wien', titleEn: 'Shuttle Service Vienna' },
   { slug: 'langstreckenfahrten', title: 'Langstreckenfahrten', titleEn: 'Long-Distance Journeys' },
 ] as const;
 
@@ -40,7 +40,7 @@ export const FAHRZEUGE = [
   { slug: 'maybach', title: 'Mercedes-Maybach S-Klasse', titleEn: 'Mercedes-Maybach S-Class' },
   { slug: 'vito', title: 'Mercedes Vito', titleEn: 'Mercedes Vito' },
   { slug: 'v-klasse', title: 'Mercedes V-Klasse', titleEn: 'Mercedes V-Class' },
-  { slug: 'mercedes-eqe', title: 'Mercedes EQE', titleEn: 'Mercedes EQE' },
+  { slug: 'eqe', title: 'Mercedes EQE', titleEn: 'Mercedes EQE' },
   { slug: 'vip-minibus', title: 'VIP Sprinter Minibus', titleEn: 'VIP Sprinter Minibus' },
   { slug: 'business-sprinter', title: 'Mercedes-Benz Sprinter', titleEn: 'Mercedes-Benz Sprinter' },
 ] as const;
