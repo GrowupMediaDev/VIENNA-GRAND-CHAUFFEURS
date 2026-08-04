@@ -434,7 +434,7 @@ export const VEHICLES_DATA: Vehicle[] = [
     cardKlass: 'Business · Sprinter',
     cardSpecs: 'Bis 20 Gäste · viel Gepäck · Gruppen & Events',
     metaTitle: 'Business Sprinter mit Chauffeur Wien mieten',
-    metaDescription: 'Business Sprinter mit Chauffeur in Wien: 20-Sitzer für große Gruppen, Events und Delegationen. Viel Platz, ein Fahrer. Jetzt anfragen. Ein Fahrzeug für',
+    metaDescription: 'Business Sprinter mit Chauffeur in Wien: 20-Sitzer für große Gruppen, Events und Delegationen. Viel Platz, ein Fahrer. Jetzt anfragen.',
     heroSub: 'Der 20-Sitzer mit Chauffeur. Maximaler Platz für große Gruppen, Events und Delegationen in Wien und darüber hinaus. Eine Gruppe, ein Fahrzeug, ein',
     heroStats: [
       { label: 'Passagiere', value: 'Bis 20', accent: 'Bis' },
@@ -501,7 +501,7 @@ export const VEHICLES_DATA_EN: Vehicle[] = [
       { label: 'Body', value: 'Sedan' },
     ],
     img: { hero: '/images/fahrzeuge/e-klasse-gal-1.jpg', ueberblick: '/images/fahrzeuge/ueberblick-e-klasse.jpg', vorteil: '/images/fahrzeuge/vorteil-e-klasse.jpg', kabineBg: KAB_BG, gallery: ['/images/fahrzeuge/e-klasse-gal-1.jpg', '/images/fahrzeuge/e-klasse-gal-2.jpg', '/images/fahrzeuge/e-klasse-gal-3.jpg', '/images/fahrzeuge/e-klasse-gal-4.jpg', '/images/fahrzeuge/e-klasse-gal-5.jpg'], card: '/images/fahrzeuge/card-e-klasse.jpg' },
-    vover: { titleLead: 'Comfort for', titleAccent: 'the business day', body: 'The Mercedes E-Class is the ideal business limousine: comfortable, elegant and efficient at the same time. It offers up to three passengers plenty of room and suits business meetings, airport transfers and everyday needs perfectly. A proven vehicle for anyone who values reliability and a well-kept' },
+    vover: { titleLead: 'Comfort for', titleAccent: 'the business day', body: 'Anyone looking for E-Class hire Vienna and beyond gets the ideal business limousine: comfortable, elegant and efficient at once. It offers up to three passengers plenty of room and is perfect for meetings, airport transfers and daily needs. A proven, well-kept vehicle.' },
     galTitle: 'The E-Class in Vienna.',
     kab: { title: 'A cabin that settles into calm.', lead: 'From the moment you step in: muted sounds, cool air, a glass of water within reach. Everything is prepared so that you need not worry about a thing.' },
     vben: {
@@ -523,7 +523,7 @@ export const VEHICLES_DATA_EN: Vehicle[] = [
       eyebrow: 'Mercedes E-Class Vienna',
       title: 'Your Mercedes E-Class with chauffeur for Vienna and the region and',
       paragraphs: [
-        'The Mercedes E-Class is the classic business limousine and our most versatile vehicle. It combines comfort, elegant design and reliability and suits almost every occasion, from a business meeting through an airport transfer to an evening ride.',
+        'The Mercedes E-Class with driver Vienna is the classic business limousine and our most versatile vehicle. It combines comfort, elegant design and reliability and suits almost any occasion, from a meeting to an airport transfer.',
         'Up to three passengers travel comfortably, and the interior is quiet and well kept.',
         ' see the fixed price when booking and pay conveniently by credit card, Apple Pay or Google Pay, with confirmation right away.',
         'You book the E-Class directly through our online booking system, see the fixed price in advance and pay by credit card, Apple Pay or Google Pay.',
@@ -548,7 +548,7 @@ export const VEHICLES_DATA_EN: Vehicle[] = [
     cardKlass: 'Minivan · Shuttle',
     cardSpecs: '7 guests · 7 cases · Groups & Luggage',
     metaTitle: 'Mercedes Vito with Chauffeur in Vienna | Hire',
-    metaDescription: 'Mercedes Vito with chauffeur in Vienna: practical van for groups up to 8 people and plenty of luggage. Reliable, spacious, book online. Reliable and',
+    metaDescription: 'Mercedes Vito with chauffeur in Vienna: practical van for groups up to 8 people and plenty of luggage. Reliable, spacious, book online.',
     heroSub: 'The practical van with chauffeur. Plenty of room for groups of up to eight people and generous luggage in Vienna. Plenty of room for group and',
     heroStats: [
       { label: 'Passengers', value: 'Max. 7', accent: 'Max.' },
@@ -556,7 +556,7 @@ export const VEHICLES_DATA_EN: Vehicle[] = [
       { label: 'Body', value: 'Minivan' },
     ],
     img: { hero: '/images/fahrzeuge/vito-gal-1.webp', ueberblick: '/images/fahrzeuge/vito-gal-3.webp', vorteil: '/images/fahrzeuge/vorteil-vito.webp', kabineBg: KAB_BG, gallery: ['/images/fahrzeuge/vito-gal-1.webp', '/images/fahrzeuge/vito-gal-2.webp', '/images/fahrzeuge/vito-gal-3.webp', '/images/fahrzeuge/vito-gal-4.webp', '/images/fahrzeuge/vito-gal-5.webp'], card: '/images/fahrzeuge/card-vito.webp' },
-    vover: { titleLead: 'Practical and', titleAccent: 'spacious', body: 'The Mercedes Vito is the practical all-rounder among our vans. It offers room for up to eight passengers and plenty of luggage, ideal for groups, transfers and excursions. Robust, reliable and spacious, it brings everyone to the destination together. An economical choice when a lot of room is' },
+    vover: { titleLead: 'Practical and', titleAccent: 'spacious', body: 'Anyone looking for Vito hire Vienna and beyond gets the practical all-rounder among our vans. It offers room for up to eight passengers and plenty of luggage, ideal for groups, transfers and excursions. Robust, reliable and spacious.' },
     galTitle: 'The Vito in Vienna.',
     kab: { title: 'Room for everyone on board.', lead: 'Comfortable individual seats, a clear view and an air-conditioned interior — in the Vito the group travels relaxed and together, with space for cases and hand luggage.' },
     vben: {
@@ -578,7 +578,7 @@ export const VEHICLES_DATA_EN: Vehicle[] = [
       eyebrow: 'Mercedes Vito Vienna',
       title: 'Your Mercedes Vito with chauffeur for Vienna and the region and your',
       paragraphs: [
-        'The Mercedes Vito is our practical van for everyone who needs plenty of room.',
+        'The Vito with driver Vienna is our practical van for everyone who needs plenty of room. With space for up to eight passengers and generous luggage, it suits groups, club outings or transfers with a lot of baggage.',
         'With space for up to eight passengers and generous luggage, it is ideal for groups, club outings or transfers with a lot of travel luggage. It is robust, reliable and economical, without your guests having to give up comfort.',
         'Everyone travels together, relaxed and coordinated. Water is on board, child seats on request. You see your fixed price when booking and pay conveniently online.',
         'You book the Vito directly through our online booking system or by request, see the fixed price in advance and pay by credit card, Apple Pay or Google Pay.',
@@ -603,7 +603,7 @@ export const VEHICLES_DATA_EN: Vehicle[] = [
     cardKlass: 'Business Minivan · Shuttle',
     cardSpecs: '7 guests · 7 cases · Groups & Luggage',
     metaTitle: 'Mercedes V-Class with Chauffeur Vienna | Hire',
-    metaDescription: 'Mercedes V-Class with chauffeur in Vienna: spacious van for families and small groups up to 7 people. Comfortable, flexible, book online. Spacious and',
+    metaDescription: 'Mercedes V-Class with chauffeur in Vienna: spacious van for families and small groups up to 7 people. Comfortable, flexible, book online.',
     heroSub: 'The spacious van with chauffeur. Plenty of room for families and small groups of up to seven people in Vienna. Everyone travels comfortably together.',
     heroStats: [
       { label: 'Passengers', value: 'Max. 7', accent: 'Max.' },
@@ -611,7 +611,7 @@ export const VEHICLES_DATA_EN: Vehicle[] = [
       { label: 'Body', value: 'Minivan' },
     ],
     img: { hero: '/images/fahrzeuge/v-klasse-gal-1.jpg', ueberblick: '/images/fahrzeuge/ueberblick-v-klasse.jpg', vorteil: '/images/fahrzeuge/vorteil-v-klasse.jpg', kabineBg: KAB_BG, gallery: ['/images/fahrzeuge/v-klasse-gal-1.jpg', '/images/fahrzeuge/v-klasse-gal-2.jpg', '/images/fahrzeuge/v-klasse-gal-3.jpg', '/images/fahrzeuge/v-klasse-gal-4.jpg', '/images/fahrzeuge/v-klasse-gal-5.jpg'], card: '/images/fahrzeuge/card-v-klasse.jpg' },
-    vover: { titleLead: 'Room for', titleAccent: 'the whole group', body: 'The Mercedes V-Class offers room for up to seven passengers with luggage. Ideal for families, small groups or business teams who want to travel together. Comfortable individual seats, plenty of headroom and a flexible interior make even longer rides pleasant. A versatile van for almost any occasion.' },
+    vover: { titleLead: 'Room for', titleAccent: 'the whole group', body: 'Anyone looking for V-Class hire Vienna and beyond gets room for up to seven passengers with luggage. Ideal for families, small groups or business teams who want to travel together. Comfortable single seats and a flexible interior make even longer rides pleasant.' },
     galTitle: 'The V-Class in Vienna.',
     kab: { title: 'Room that brings people together.', lead: 'Generous seats, plenty of legroom and a quiet interior — in the V-Class the whole group travels relaxed and together. Air-conditioned, immaculately kept and designed for comfort.' },
     vben: {
@@ -633,7 +633,7 @@ export const VEHICLES_DATA_EN: Vehicle[] = [
       eyebrow: 'Mercedes V-Class Vienna',
       title: 'Your Mercedes V-Class with chauffeur for Vienna and the region and',
       paragraphs: [
-        'When several people travel together, the Mercedes V-Class is the comfortable solution. The spacious van offers room for up to seven passengers and their luggage without feeling cramped.',
+        'When several people travel together, the minivan with driver Vienna is the comfortable solution. The Mercedes V-Class offers room for up to seven passengers and their luggage without feeling cramped.',
         'Comfortable seats and a flexible interior make it ideal for families, small travel groups or business teams.',
         'Whether an airport transfer with plenty of luggage, an excursion or a shared ride to a meeting, everyone travels together and relaxed. Water is on board, child seats on request.',
         'You book the van directly through our online booking system, see the fixed price in advance and pay by credit card, Apple Pay or Google Pay.',
@@ -666,7 +666,7 @@ export const VEHICLES_DATA_EN: Vehicle[] = [
       { label: 'Body', value: 'Luxury Sedan' },
     ],
     img: { hero: '/images/fahrzeuge/s-klasse-gal-1.jpg', ueberblick: '/images/fahrzeuge/ueberblick-s-klasse.jpg', vorteil: '/images/fahrzeuge/vorteil-s-klasse.jpg', kabineBg: KAB_BG, gallery: ['/images/fahrzeuge/s-klasse-gal-1.jpg', '/images/fahrzeuge/s-klasse-gal-2.jpg', '/images/fahrzeuge/s-klasse-gal-3.jpg', '/images/fahrzeuge/s-klasse-gal-4.jpg', '/images/fahrzeuge/s-klasse-gal-5.jpg'], card: '/images/fahrzeuge/card-s-klasse.jpg' },
-    vover: { titleLead: 'First class on', titleAccent: 'every ride', body: 'The Mercedes S-Class is our most representative limousine. Plenty of legroom, a quiet ride and equipment that makes even long journeys pleasant. Ideal for business clients who value comfort and a confident presence. Up to three passengers travel in comfort while the chauffeur brings them discreetly' },
+    vover: { titleLead: 'First class on', titleAccent: 'every ride', body: 'Anyone looking for S-Class hire Vienna and beyond will choose our most representative limousine. Plenty of legroom, a quiet ride and equipment that makes even long journeys pleasant. Ideal for business clients who value comfort and a composed presence. Up to three passengers travel with ease.' },
     galTitle: 'The S-Class in Vienna.',
     kab: { title: 'The pinnacle of calm.', lead: 'Soft Nappa leather seats, the finest craftsmanship and a silence that leaves everyday life outside. In the S-Class, every journey becomes a first-class retreat.' },
     vben: {
@@ -688,7 +688,7 @@ export const VEHICLES_DATA_EN: Vehicle[] = [
       eyebrow: 'Mercedes S-Class Vienna',
       title: 'Your Mercedes S-Class with chauffeur for Vienna and the region and',
       paragraphs: [
-        'When a confident arrival matters, the Mercedes S-Class is the right choice. As an upper-class limousine it combines a quiet ride, generous space and high-quality equipment that makes every journey pleasant.',
+        'When a confident arrival matters, the Mercedes S-Class with driver Vienna is the right choice. As an upper-class limousine it combines a quiet ride, generous space and high-quality equipment that makes every journey pleasant.',
         'Whether a ride to a business meeting, to the airport or to a formal occasion, you travel in comfort and are brought discreetly and punctually to your destination.',
         'In the S-Class water is on board for you, and a child seat is available on request. You see your fixed price when booking and pay conveniently by credit card, Apple Pay or Google Pay.',
         'You book the S-Class directly through our online booking system, see the fixed price at once and pay by credit card, Apple Pay or Google Pay.',
@@ -721,7 +721,7 @@ export const VEHICLES_DATA_EN: Vehicle[] = [
       { label: 'Body', value: 'Luxury sedan' },
     ],
     img: { hero: '/images/fahrzeuge/maybach-gal-1.jpg', ueberblick: '/images/fahrzeuge/ueberblick-maybach.jpg', vorteil: '/images/fahrzeuge/vorteil-maybach.jpg', kabineBg: KAB_BG, gallery: ['/images/fahrzeuge/maybach-gal-1.jpg', '/images/fahrzeuge/maybach-gal-2.jpg', '/images/fahrzeuge/maybach-gal-3.jpg', '/images/fahrzeuge/maybach-gal-4.jpg', '/images/fahrzeuge/maybach-gal-5.jpg'], card: '/images/fahrzeuge/card-maybach.jpg' },
-    vover: { titleLead: 'Luxury in its', titleAccent: 'purest form', body: 'The Mercedes-Maybach is our most exclusive vehicle. It offers the highest level of comfort, fine materials and equipment that satisfies even the most discerning guests. Ideal for special occasions, VIP guests and rides where every detail counts. Up to three passengers enjoy a travel experience of' },
+    vover: { titleLead: 'Luxury in its', titleAccent: 'purest form', body: 'Anyone looking for Maybach hire Vienna and beyond chooses our most exclusive vehicle. It offers the highest level of comfort, fine materials and equipment that satisfies even the most demanding guests. Ideal for special occasions and VIP guests.' },
     galTitle: 'The Maybach in Vienna.',
     kab: { title: 'Front row in the rear.', lead: 'Power-adjustable executive seats with calf rests and massage function, Maybach neck cushions and near-complete silence. In the rear of the Maybach you travel as if in a private lounge.' },
     vben: {
@@ -743,7 +743,7 @@ export const VEHICLES_DATA_EN: Vehicle[] = [
       eyebrow: 'Mercedes-Maybach Vienna',
       title: 'Your Mercedes-Maybach with chauffeur for Vienna and the region and',
       paragraphs: [
-        'The Mercedes-Maybach stands for luxury without compromise. Anyone seeking the very best for special occasions, important guests or an unforgettable evening will find it in this flagship.',
+        'The Maybach with driver Vienna stands for luxury without compromise. Anyone seeking the very best for special occasions, important guests or an unforgettable evening finds the right choice in this flagship.',
         'The finest materials, exceptional comfort and a calm, confident ride make every journey an experience.',
         'Your chauffeur is especially discreet and prepared for the highest expectations. As the Maybach is an exclusive vehicle, we are glad to plan your ride personally with you, reachable by WhatsApp or email.',
         'As the Maybach is an exclusive vehicle, we plan every ride personally with you and agree the schedule, route and wishes in advance.',
@@ -776,7 +776,7 @@ export const VEHICLES_DATA_EN: Vehicle[] = [
       { label: 'Drive', value: 'Electric' },
     ],
     img: { hero: '/images/fahrzeuge/mercedes-eqe-gal-1.jpg', ueberblick: '/images/fahrzeuge/ueberblick-mercedes-eqe.jpg', vorteil: '/images/fahrzeuge/vorteil-mercedes-eqe.jpg', kabineBg: KAB_BG, gallery: ['/images/fahrzeuge/mercedes-eqe-gal-1.jpg', '/images/fahrzeuge/mercedes-eqe-gal-2.jpg', '/images/fahrzeuge/mercedes-eqe-gal-3.jpg', '/images/fahrzeuge/mercedes-eqe-gal-4.jpg', '/images/fahrzeuge/mercedes-eqe-gal-5.jpg'], card: '/images/fahrzeuge/card-mercedes-eqe.jpg' },
-    vover: { titleLead: 'Electric and', titleAccent: 'comfortable', body: 'The Mercedes EQE is our all-electric business limousine. It runs almost silently, locally emission-free, while offering the familiar comfort of the upper class. Ideal for guests who value sustainability without giving up space and equipment. Up to three passengers travel quietly and comfortably' },
+    vover: { titleLead: 'Electric and', titleAccent: 'comfortable', body: 'Anyone looking for EQE hire Vienna and beyond gets our all-electric business limousine. It runs almost silently and locally emission-free, while offering the familiar comfort of the upper class. Ideal for guests who value sustainability without giving up space.' },
     galTitle: 'The EQE in Vienna.',
     kab: { title: 'Silence in a new dimension.', lead: 'Without engine noise, the interior of the EQE becomes even calmer. Gentle acceleration, cool air and the finest materials make every journey a relaxed, sustainable experience.' },
     vben: {
@@ -798,7 +798,7 @@ export const VEHICLES_DATA_EN: Vehicle[] = [
       eyebrow: 'Mercedes EQE Vienna',
       title: 'Your all-electric Mercedes EQE with chauffeur for Vienna and',
       paragraphs: [
-        'With the all-electric Mercedes EQE you combine comfort and responsibility. The limousine runs almost silently and locally emission-free, which makes every ride especially calm and pleasant.',
+        'With the electric limousine with driver Vienna you combine comfort and responsibility. The all-electric Mercedes EQE runs almost silently and locally emission-free, which makes every ride especially calm and pleasant.',
         'Despite the electric drive you give up nothing: the interior is spacious, high-quality and quiet.',
         'For companies with sustainability goals the EQE is the ideal choice for meetings and transfers. Water is on board, a child seat on request.',
         'You book the EQE directly through our online booking system, see the fixed price at once and pay conveniently and paperlessly by credit card, Apple Pay or Google Pay.',
@@ -831,7 +831,7 @@ export const VEHICLES_DATA_EN: Vehicle[] = [
       { label: 'Body', value: 'Sprinter' },
     ],
     img: { hero: '/images/fahrzeuge/vip-minibus-hero.webp', ueberblick: '/images/fahrzeuge/ueberblick-vip-minibus.webp', vorteil: '/images/fahrzeuge/vorteil-vip-minibus.jpg', kabineBg: KAB_BG, gallery: ['/images/fahrzeuge/vip-minibus-gal-1.jpg', '/images/fahrzeuge/vip-minibus-gal-2.jpg', '/images/fahrzeuge/vip-minibus-gal-3.jpg', '/images/fahrzeuge/vip-minibus-gal-4.jpg', '/images/fahrzeuge/vip-minibus-gal-5.jpg'], card: '/images/fahrzeuge/card-vip-minibus.webp' },
-    vover: { titleLead: 'Comfort for', titleAccent: 'larger groups', body: 'Anyone looking for minibus hire in Vienna and the surrounding area will find the comfortable solution in the VIP minibus. Up to twelve passengers travel comfortably and together, with pleasant seats and plenty of room for luggage. Ideal for company outings, wedding parties or travel groups who want to stay together.' },
+    vover: { titleLead: 'Comfort for', titleAccent: 'larger groups', body: 'Anyone looking for minibus hire Vienna and beyond will find the comfortable solution in the VIP minibus. Up to twelve passengers travel comfortably and together, with pleasant seats and plenty of room for luggage. Ideal for company outings, weddings or travel groups.' },
     galTitle: 'The VIP Sprinter in Vienna.',
     kab: { title: 'A lounge on wheels.', lead: 'Individual captain seats in two-tone leather, fold-out tables, atmospheric ambient lighting and a large entertainment screen. In the VIP Sprinter the whole group travels as if in a private first-class lounge.' },
     vben: {
@@ -853,8 +853,8 @@ export const VEHICLES_DATA_EN: Vehicle[] = [
       eyebrow: 'VIP Minibus Vienna',
       title: 'Your VIP minibus with chauffeur for Vienna and the region and your',
       paragraphs: [
-        'When a larger group wants to travel together and in comfort, the minibus with driver in Vienna is the right choice.',
-        'With room for up to twelve passengers it combines the togetherness of a group ride with the comfort of a refined vehicle.',
+        'When a larger group wants to travel together and in comfort, the minibus with driver Vienna is the right choice. With room for up to twelve passengers it combines the togetherness of a group ride with the comfort of a refined vehicle.',
+        'Pleasant seats, generous headroom and a bright cabin keep even longer journeys relaxed, so the whole group arrives fresh and in good spirits.',
         'Comfortable seats, air conditioning and plenty of storage make it ideal for company outings, weddings or travel groups. Everyone stays together, no one gets lost, and your chauffeur takes care of the route.',
         'As group rides often need individual planning, we agree the route, pickup times and any stops with you personally in advance.',
         'You can reach us any time by WhatsApp or email and receive a clear quote with a fixed price for the whole group without delay.',
@@ -886,7 +886,7 @@ export const VEHICLES_DATA_EN: Vehicle[] = [
       { label: 'Body', value: 'Sprinter' },
     ],
     img: { hero: '/images/fahrzeuge/business-sprinter-gal-1.webp', ueberblick: '/images/fahrzeuge/ueberblick-business-sprinter.webp', vorteil: '/images/fahrzeuge/vorteil-business-sprinter.webp', kabineBg: KAB_BG, gallery: ['/images/fahrzeuge/business-sprinter-gal-1.webp', '/images/fahrzeuge/business-sprinter-gal-2.webp', '/images/fahrzeuge/business-sprinter-gal-3.webp', '/images/fahrzeuge/business-sprinter-gal-4.webp', '/images/fahrzeuge/business-sprinter-gal-5.webp'], card: '/images/fahrzeuge/card-business-sprinter.jpg' },
-    vover: { titleLead: 'The whole group', titleAccent: 'on board', body: 'The Business Sprinter is our largest vehicle with room for up to twenty passengers. Ideal for large groups, company events, delegations and travel parties. Instead of several vehicles, everyone travels together in one, coordinated and on time. Plenty of storage, comfortable seating and an' },
+    vover: { titleLead: 'The whole group', titleAccent: 'on board', body: 'Anyone looking for Sprinter hire Vienna and beyond gets our largest vehicle with room for up to twenty passengers. Ideal for large groups, company events, delegations and travel parties. Instead of several vehicles, everyone travels together in one, coordinated and on time.' },
     galTitle: 'The Sprinter in Vienna.',
     kab: { title: 'Room for the whole group.', lead: 'Comfortable seats, generous standing height and plenty of space for luggage — the Business Sprinter brings large groups to their destination relaxed and together, without anyone sitting cramped.' },
     vben: {
@@ -908,7 +908,7 @@ export const VEHICLES_DATA_EN: Vehicle[] = [
       eyebrow: 'Business Sprinter Vienna',
       title: 'Your Business Sprinter with chauffeur for Vienna and the region and',
       paragraphs: [
-        'The Business Sprinter is the solution when truly many people need to reach the destination together.',
+        'The 20-seater with driver Vienna is the solution when truly many people need to reach the destination together. With up to twenty seats, the Business Sprinter carries whole groups, company teams or delegations in a single vehicle.',
         'With up to twenty seats it brings whole groups, company teams or delegations together in a single vehicle, instead of splitting them across several cars.',
         'That saves coordination, keeps everyone together and ensures a punctual, shared arrival. Generous storage takes plenty of luggage, and the experienced chauffeur knows the best routes.',
         'As large group rides need individual planning, we agree the route, pickup points and schedule with you personally in advance.',

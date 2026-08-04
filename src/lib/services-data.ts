@@ -567,8 +567,8 @@ export const SERVICES_DATA_EN: Service[] = [
     marquee: ['Airport Transfer Vienna', '24/7 available', 'Meet & Greet at the gate', 'Transparent fixed prices', 'VIE City Centre'],
     intro: {
       eyebrow: 'Your transfer',
-      title: 'Relaxed to Vienna Airport',
-      body: 'Your chauffeur picks you up at home, at your hotel or at the terminal and brings you safely to your destination. We track your flight in real time and adjust the pickup time automatically if it is delayed. No waiting in the taxi queue, no stress with luggage. You get in and arrive relaxed.',
+      title: 'Your Vienna airport transfer',
+      body: 'Your Vienna airport transfer should be the easy part of the journey. Instead of taxi queues or parking, your chauffeur meets you and drives you straight to your door. Whether an early departure or a late arrival, you travel in comfort and always know the fixed price in advance. An airport transfer Vienna',
       cards: [
         { icon: IC.plane, title: 'Real-time flight monitoring', text: 'We keep an eye on your flight and automatically adjust the pick-up time in the event of delays.' },
         { icon: IC.user, title: 'Meet & Greet at the gate', text: 'Your chauffeur awaits you personally with a name sign right after your arrival in the terminal.' },
@@ -593,7 +593,7 @@ export const SERVICES_DATA_EN: Service[] = [
       paragraphs: [
         'A flight is tiring enough on its own. The transfer to or from Vienna Airport should be the easy part, and with us it is. Your chauffeur is there on time, helps with your luggage and knows the fastest way into the city or out to Schwechat.',
         'We track your flight, so even if it arrives early or late, your driver is waiting, not the other way around. Water is on board, and a child seat is available on request. Instead of queuing for a taxi after a long journey, you step straight into a clean, comfortable Mercedes and arrive relaxed.',
-        'Booking is just as simple. You enter your route, choose your vehicle, see the fixed price and book directly through our online booking system.',
+        'For arrivals we offer a Vienna airport pickup with name-board meeting service, so your driver is waiting when you land, tracks your flight and adjusts to any delay at no extra cost.',
         'Payment is by credit card, Apple Pay or Google Pay, and confirmation is immediate. Unlike providers where you first send a request and wait for a quote, you know exactly what the ride costs in advance, with no surcharges for waiting time.',
         'The price you see is the price you pay. For business clients we set up fixed corporate terms for regular airport runs. If you have a special request, such as several stops or a group pickup, you can reach us any time by WhatsApp or email. That way your airport transfer is one thing you never have to worry about.',
         'For business clients we set up fixed corporate terms for regular airport runs, and for special requests such as several stops or a group pickup you can reach us any time by WhatsApp or email.',
@@ -691,8 +691,8 @@ export const SERVICES_DATA_EN: Service[] = [
     marquee: ['Chauffeur by the Hour', 'Book by the hour', 'Multiple appointments', 'Full flexibility', 'All of Vienna'],
     intro: {
       eyebrow: 'Hourly chauffeur',
-      title: 'Flexible through your day',
-      body: 'Several meetings in a row, a day of shopping or an evening with changing destinations: with our chauffeur by the hour the same driver stays on duty for you. He waits between stops, knows the routes and adapts to your schedule. You book the hours you need and see the fixed price per hour in advance.',
+      title: 'Chauffeur by the hour Vienna',
+      body: 'With a chauffeur by the hour Vienna keeps you flexible all day. Several meetings in a row, a day of shopping or an evening with changing destinations: the same driver stays with you, waits between stops and adapts to your schedule. You book the hours and see the fixed price in advance.',
       cards: [
         { icon: IC.around, title: 'Flexible hours', text: 'Book from two hours and extend spontaneously as needed — entirely to suit your schedule.' },
         { icon: IC.user, title: 'The chauffeur stays', text: 'Your chauffeur waits between appointments and is immediately ready for you again.' },
@@ -718,7 +718,7 @@ export const SERVICES_DATA_EN: Service[] = [
         'Some days cannot be squeezed into a single ride. A morning with three meetings, an afternoon of shopping, an evening of dinner and an event: this is where a chauffeur by the hour is the most relaxed solution.',
         'Your fixed driver takes you from place to place, waits in between and keeps the car ready. You do not book again each time, search for parking or wait for a taxi. Water is on board, a child seat on request, and you keep the same familiar person at the wheel throughout the day.',
         'Booking is straightforward. You choose the vehicle and number of hours, see the fixed price per hour and book directly through our online booking system. Payment is by credit card, Apple Pay or Google Pay, and confirmation is immediate. You do not wait for a quote like with many other providers, you know the price from the start.',
-        'If your day runs longer than planned, we extend flexibly as long as the driver is available. For business clients there are fixed terms for regular bookings, and for special wishes such as several passengers or fixed weekly slots you can reach us by WhatsApp or email.',
+        'When you hire chauffeur Vienna services by the hour, water is on board and the same trusted driver stays at the wheel. An hourly chauffeur Vienna business travellers value keeps the whole day calm and under control.',
         'That way you keep your schedule under control and leave the driving to someone who knows Vienna. You see the fixed price before you book.',
         'That way you keep your schedule under control and leave the driving to someone who knows Vienna, from the first meeting to the last stop of the day.',
       ],
@@ -753,8 +753,8 @@ export const SERVICES_DATA_EN: Service[] = [
     marquee: ['Limousine Service Vienna', 'Weddings & Events', 'Mercedes-Benz luxury class', 'Arrive in style', 'Throughout Austria'],
     intro: {
       eyebrow: 'Your limousine',
-      title: 'Travel Vienna in style',
-      body: 'You choose your limousine, we provide the right chauffeur. Whether a business meeting, an evening event or a ride to the opera, you travel in a well-kept Mercedes, calm and discreet. Your driver knows Vienna, plans the route ahead and is there on time. You see the fixed price before you book.',
+      title: 'Your limousine service Vienna',
+      body: 'A limousine service Vienna brings you to your destination in style. You choose your limousine, we provide the right chauffeur. Whether a business meeting, an evening event or a drive to the opera, you travel in a well-kept Mercedes, calm and discreet. Your driver knows Vienna and is on time.',
       cards: [
         { icon: IC.meet, title: 'For your occasion', text: 'Wedding, gala or event — we tailor the vehicle and schedule to your moment.' },
         { icon: IC.user, title: 'Chauffeur with etiquette', text: 'Discreet, elegant and attentive — your chauffeur accompanies the day with composure.' },
@@ -779,7 +779,7 @@ export const SERVICES_DATA_EN: Service[] = [
       paragraphs: [
         'A limousine service is more than a ride. It is the calm minute before a meeting, the good first impression with clients and the easy arrival after a long day.',
         'With us you choose from a modern Mercedes fleet, from the elegant E-Class through the representative S-Class to the spacious van for several guests. Every car is clean, air-conditioned and stocked with water for you, and a child seat is available on request. Your chauffeur is discreet, punctual and knows the routes through Vienna.',
-        'The process is simple. You pick your vehicle, see the fixed price at once and book directly through our online booking system.',
+        'Booking is simple. If you are looking for a limo service Vienna wide, you see the fixed price at once and book directly through our online booking system. As a Mercedes with driver Vienna clients trust, every car is clean, climate-controlled and stocked with water for you.',
         'Payment is by credit card, Apple Pay or Google Pay, and confirmation arrives immediately. Unlike providers where you first send a request and wait for an offer, you know exactly what the ride costs in advance, with no hidden surcharges.',
         'For business clients we offer fixed corporate terms for regular rides. If you have a special wish, such as several stops or an evening of events, you can reach us any time by WhatsApp or email.',
         'That way your ride through Vienna is as pleasant and refined as the occasion it takes you to, from the first click to your arrival.',
@@ -800,7 +800,7 @@ export const SERVICES_DATA_EN: Service[] = [
     slugEn: 'diplomatic-chauffeur-vienna',
     metaTitle: 'Diplomatic Chauffeur Vienna – Discreet Driver',
     metaDescription:
-      'Diplomatic chauffeur in Vienna: discreet, secure driver service for embassies, delegations and protocol. Reliable and confidential. Request your service',
+      'Diplomatic chauffeur in Vienna: discreet, secure driver service for embassies, delegations and protocol. Reliable and confidential.',
     heroImg: '/images/services/fahrdienst-diplomaten-hero.jpg',
     hero: {
       title: 'Diplomatic Chauffeur',
@@ -815,8 +815,8 @@ export const SERVICES_DATA_EN: Service[] = [
     marquee: ['Diplomat Chauffeur Service', 'Embassies & Consulates', 'The highest discretion', 'Safe & reliable', 'Throughout Austria'],
     intro: {
       eyebrow: 'Your service',
-      title: 'Discretion comes first',
-      body: 'In the diplomatic world every detail counts: punctuality, discretion and a confident presence. Our chauffeurs are specialised in rides for embassies, delegations and protocol. They know the procedures, keep confidentiality and ensure a smooth process, whether a single appointment or a multi-day state',
+      title: 'Your diplomatic chauffeur',
+      body: 'A diplomatic chauffeur Vienna moves confidently in a world where every detail counts: punctuality, discretion and a composed presence. Our chauffeurs specialise in rides for embassies, delegations and protocol, ensuring a smooth process, whether a single appointment or a state visit.',
       cards: [
         { icon: IC.meet, title: 'Absolute confidentiality', text: 'Discretion, restraint and confidentiality are a matter of course on every journey.' },
         { icon: IC.user, title: 'Security-conscious', text: 'Experienced chauffeurs with a feel for protocol, timing and safe route planning.' },
@@ -840,7 +840,7 @@ export const SERVICES_DATA_EN: Service[] = [
       title: 'Your discreet diplomatic chauffeur for embassies and protocol in',
       paragraphs: [
         'Rides in the diplomatic world demand more than a good car. They demand tact, discretion and a driver who understands protocol and procedure.',
-        'Our chauffeurs accompany embassies, delegations and official guests in Vienna, from a single appointment to a multi-day visit with a tight schedule. They present themselves with confidence, stay quietly in the background and keep confidentiality at all times. When needed we coordinate several vehicles in convoy, align schedules exactly and adapt reliably to short-notice changes.',
+        'As an embassy driver Vienna institutions trust, our chauffeurs handle protocol with tact. As a discreet VIP chauffeur Vienna relies on, they stay composed and keep every detail confidential.',
         'For regular rides of embassies and institutions we set up fixed terms and fixed points of contact, so processes stay smooth and familiar. As every assignment in the diplomatic field is individual, we plan it personally with you. You can reach us directly by WhatsApp or email.',
         'You receive a reliable commitment with clear terms, without unnecessary detours or long waiting for a quote. Our vehicles are well-kept Mercedes models of the upper and luxury class, with heightened discretion on request.',
         'That way the driver service stays what it should be: a smooth, unobtrusive part of a successful programme you can rely on at any time. From the first request to the last ride you have one fixed point of contact who knows every step and coordinates confidentially for you.',
@@ -862,7 +862,7 @@ export const SERVICES_DATA_EN: Service[] = [
     slugEn: 'private-chauffeur-vienna',
     metaTitle: 'Private Chauffeur Vienna – Your Personal Driver',
     metaDescription:
-      'Private chauffeur in Vienna: your personal driver for daily life, meetings and family. Discreet, reliable, at a fixed price. Book online, confirmed',
+      'Private chauffeur in Vienna: your personal driver for daily life, meetings and family. Discreet, reliable, at a fixed price. Book online.',
     heroImg: '/images/services/privatchauffeur-wien-hero.jpg',
     hero: {
       title: 'Private Chauffeur',
@@ -877,8 +877,8 @@ export const SERVICES_DATA_EN: Service[] = [
     marquee: ['Private Chauffeur Vienna', 'Your dedicated chauffeur', 'Everyday life & special days', 'Discreet & flexible', 'Throughout Austria'],
     intro: {
       eyebrow: 'Your driver',
-      title: 'Personal travel in Vienna',
-      body: 'A private chauffeur is more than a ride from A to B. He knows your routes, your appointments and your preferences. Whether the daily commute, family rides or an evening out, you have a fixed driver you can rely on. Discreet, punctual and always in a well-kept car. You see the fixed price in advance.',
+      title: 'Your private chauffeur Vienna',
+      body: 'A private chauffeur Vienna is more than a ride from A to B. He knows your routes, your appointments and your preferences. Whether the daily commute, family rides or an evening out, you have a fixed personal driver Vienna clients rely on. Discreet, punctual and always in a well-kept car.',
       cards: [
         { icon: IC.user, title: 'Dedicated point of contact', text: 'Your personal chauffeur knows your wishes and your schedule — journey after journey.' },
         { icon: IC.around, title: 'Flexibly available', text: 'Whether planned or spontaneous, your private chauffeur adapts to your calendar.' },
@@ -905,7 +905,7 @@ export const SERVICES_DATA_EN: Service[] = [
         'Over time the driver becomes a familiar face who knows your routine and thinks ahead. You do not need to explain, organise or worry about parking. Water is on board, a child seat on request, and the car is always clean and discreet.',
         'You book your rides directly through our online booking system, see the fixed price at once and pay conveniently by credit card, Apple Pay or Google Pay. Unlike providers with a request form only, you know your price from the start, without waiting for an offer.',
         'For business clients we set up fixed corporate terms, and for special wishes such as several rides a day or fixed weekly appointments you can reach us any time by WhatsApp or email. That way you gain time and calm in daily life, while someone else takes reliable, discreet care of the driving and you focus on what really matters.',
-        'For business clients we set up fixed corporate terms, and for special wishes such as several rides a day or fixed weekly appointments you can reach us any time by WhatsApp or email.',
+        'As a private driver Vienna residents book again and again, he becomes a familiar face who knows your routine and thinks ahead.',
         'That way you gain time and calm in daily life, while someone else takes reliable, discreet care of the driving and you focus on what matters.',
       ],
     },
@@ -939,8 +939,8 @@ export const SERVICES_DATA_EN: Service[] = [
     marquee: ['Shuttle Service Vienna', 'Groups & Events', 'Mercedes V-Class', 'Up to 7 passengers', 'Throughout Austria'],
     intro: {
       eyebrow: 'Your shuttle',
-      title: 'Groups safely to the goal',
-      body: 'Whether a corporate event, a wedding, hotel guests or a delegation, your shuttle brings the whole group together and on time. Instead of many separate cars, everyone travels together, relaxed and coordinated. From the van to the 20-seater Sprinter we choose the right vehicle, with a fixed driver and a',
+      title: 'Your group transfer Vienna',
+      body: 'Our group transfer Vienna brings the whole group to the destination together. Whether a company event, a wedding, hotel guests or a delegation: instead of many separate cars, everyone travels together, relaxed and coordinated. From van to 20-seater, we choose the right vehicle, with a fixed driver and',
       cards: [
         { icon: IC.user, title: 'Room for the group', text: 'Up to seven passengers travel comfortably and with plenty of luggage in the V-Class.' },
         { icon: IC.meet, title: 'For events & companies', text: 'Coordinated pick-ups and transfers for trade fairs, events and company occasions.' },
@@ -964,7 +964,7 @@ export const SERVICES_DATA_EN: Service[] = [
       title: 'Your reliable shuttle service for groups in Vienna',
       paragraphs: [
         'When a whole group needs to reach the same destination, organisation quickly becomes a challenge. Our shuttle service takes that off your hands.',
-        'Whether staff heading to a corporate event, guests at a wedding or a travel group from a hotel, everyone travels together in one vehicle, coordinated and on time.',
+        'Our shuttle service Vienna brings the right vehicle, from the comfortable V-Class for smaller groups to the 20-seater Sprinter. For larger parties, minibus hire Vienna clients rely on keeps everyone together with an experienced, local driver.',
         'We bring the right vehicle for the size of the group, from the comfortable V-Class for smaller groups to the 20-seater Sprinter, always with a fixed, local driver. That way no one is late, no one gets lost, and you keep an overview of the whole group without sitting behind the wheel yourself.',
         'For regular transfers, for example of staff or hotel guests, we set up fixed terms. As group rides often need individual planning, you simply send a request through our booking system or reach us directly by WhatsApp or email. You receive a clear quote with a fixed price for the whole group, without hidden costs and without long waiting.',
         'On request we also coordinate several vehicles in parallel, for larger delegations or when guests are collected from different places.',
@@ -986,7 +986,7 @@ export const SERVICES_DATA_EN: Service[] = [
     slugEn: 'day-trips-from-vienna',
     metaTitle: 'Day Trips from Vienna – Private Driver & Car',
     metaDescription:
-      'Day trips from Vienna with a private chauffeur: Hallstatt, Bratislava, Budapest and more. Comfortable, door to door, at a fixed price. Book your trip',
+      'Day trips from Vienna with a private chauffeur: Hallstatt, Bratislava, Budapest and more. Comfortable, door to door, at a fixed price.',
     heroImg: '/images/services/langstreckenfahrten-hero.jpg',
     hero: {
       title: 'Day Trips from Vienna',
@@ -1001,8 +1001,8 @@ export const SERVICES_DATA_EN: Service[] = [
     marquee: ['Long-Distance Journeys', 'Austria & Europe', 'Without changing', 'Travel comfortably', 'Door to door'],
     intro: {
       eyebrow: 'Your day trip',
-      title: 'See more, drive less',
-      body: 'Instead of train timetables or a rental car, your chauffeur picks you up and brings you straight to your destination and back. Whether a day in Hallstatt, a visit to Bratislava or a trip to Salzburg, you travel in a comfortable Mercedes and simply enjoy the view. You see the fixed price for the whole',
+      title: 'Day trips from Vienna',
+      body: 'A day trip Vienna to Hallstatt, a private tour from Vienna to the wine country or a comfortable drive to a neighbouring capital: you leave from your door and return relaxed. Your chauffeur handles the route while you enjoy the view, with the fixed price known in advance.',
       cards: [
         { icon: IC.around, title: 'Door to door', text: 'No changing, no waiting times — we take you directly from address to address.' },
         { icon: IC.user, title: 'Experienced chauffeur', text: 'Seasoned on long distances, with an eye for comfort, breaks and a safe journey.' },
@@ -1027,7 +1027,7 @@ export const SERVICES_DATA_EN: Service[] = [
       paragraphs: [
         'Vienna is a wonderful base, and some of the region\'s best places are only a comfortable drive away. A day in the lakeside village of Hallstatt, a visit to Bratislava, a trip to Budapest or a tour to Salzburg: with a private chauffeur these day trips become the most relaxed way to travel.',
         'You are collected at your hotel and brought straight to each destination, without changing trains, carrying luggage or worrying about directions. Along the way you have time for photos, rest or simply the scenery. Water is on board, a child seat on request, and your driver knows the routes and any border formalities.',
-        'Booking is as easy as any ride. You tell us your destination, choose your vehicle, see the fixed price for the whole trip and book directly through our online booking system. Payment is by credit card, Apple Pay or Google Pay.',
+        'Popular routes include a day trip Vienna to Hallstatt, a Vienna to Bratislava transfer along the Danube, or a longer drive to Budapest, each planned around your pace and interests.',
         'Unlike providers with a request form only, you know your price at once, without waiting for a quote and with no surcharges for waiting time. Popular trips such as Vienna to Hallstatt, Bratislava or Budapest we drive regularly and know the best stops along the way.',
         'For multi-day tours, private guides or special routes you can reach us by WhatsApp or email. That way you see more of the region and drive less yourself, arriving relaxed at every stop.',
         'For multi-day tours, private guides or special routes you can reach us by WhatsApp or email, so you see more of the region and drive less yourself.',
