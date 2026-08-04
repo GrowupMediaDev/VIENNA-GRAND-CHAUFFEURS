@@ -1,0 +1,2481 @@
+{
+  "de": {
+    "home": {
+      "slug": "/",
+      "name": "Startseite",
+      "url": "/",
+      "type": "home",
+      "content": {
+        "metaTitle": "Chauffeur Service Wien – Limousine & Transfer",
+        "metaDescription": "Chauffeur Service Wien: Flughafentransfer, Limousinen und Langstreckenfahrten zum Fixpreis. Diskret, pünktlich, rund um die Uhr. Jetzt online buchen.",
+        "hero": {
+          "title": "Chauffeur Service Wien mit Fahrer",
+          "sub": "Diskret, pünktlich und zuverlässig durch Wien und darüber hinaus."
+        },
+        "benefits": {
+          "eyebrow": "Warum Vienna Grand",
+          "title": "Ihr Chauffeur in Wien, auf den Sie zählen",
+          "intro": "Bei uns fahren Sie mit einem festen Team geschulter Chauffeure. Wir kennen Wien, planen Ihre Route voraus und sind pünktlich zur Stelle. So bleibt Ihr Kopf frei fürs Wesentliche."
+        },
+        "content": {
+          "title": "Vom Flughafentransfer bis zur Langstrecke, alles inklusive",
+          "col1": [
+            "Ob Abholung am Flughafen Wien, Termin in der Stadt oder längere Fahrt: Unser Chauffeurservice Wien bringt Sie sicher und pünktlich ans Ziel. Unsere Fahrzeuge reichen von der Business-Limousine bis zum 20-Sitzer Sprinter für größere Gruppen.",
+            "Für jede Fahrt wählen Sie das passende Fahrzeug und buchen es direkt online.",
+            "Ihr Chauffeur Wien wartet zur vereinbarten Zeit, kennt die Route und bringt Sie ruhig ans Ziel. Auf Wunsch steht Ihnen derselbe Fahrer bei jeder Fahrt zur Verfügung, das schafft Vertrauen und macht jede Fahrt vertraut."
+          ],
+          "col2": [
+            "Die Bezahlung ist einfach, per Kreditkarte, Apple Pay oder Google Pay. Den Fixpreis sehen Sie vorab, ohne versteckte Kosten. Wer einen Chauffeur für einige Stunden braucht, bucht ihn einfach stundenweise.",
+            "Unser Limousinenservice Wien reicht von der eleganten Limousine bis zum geräumigen Van, sodass für jeden Anlass das richtige Fahrzeug bereitsteht. Für Events oder Delegationen schicken Sie eine Gruppenanfrage und erhalten innerhalb weniger Stunden ein Angebot.",
+            "So unkompliziert ist Ihr Chauffeurservice Wien. Vom ersten Kontakt bis zur Ankunft kümmern wir uns um jedes Detail Ihrer Fahrt, damit Sie sich zurücklehnen und die Zeit für sich nutzen"
+          ]
+        },
+        "faq": [
+          {
+            "q": "Was kostet ein Chauffeur Service in Wien?",
+            "a": "Der Preis richtet sich nach Fahrzeug, Dauer und Strecke. Sie sehen den Fixpreis vor der Buchung, inklusive Fahrer, Fahrzeug und allen Nebenkosten."
+          },
+          {
+            "q": "Kann ich online buchen und bezahlen?",
+            "a": "Ja. Sie wählen Ihr Fahrzeug, sehen den Preis und zahlen per Kreditkarte, Apple Pay oder Google Pay. Die Bestätigung kommt sofort."
+          },
+          {
+            "q": "Sind Sie rund um die Uhr erreichbar?",
+            "a": "Ja, unser Chauffeur Service in Wien ist 24 Stunden am Tag verfügbar, auch an Wochenenden und Feiertagen. Wir empfehlen eine Buchung im Voraus."
+          },
+          {
+            "q": "Bieten Sie auch Fahrten für Gruppen an?",
+            "a": "Ja. Vom Van bis zum Sprinter mit bis zu 20 Sitzen bringen wir auch größere Gruppen zuverlässig ans Ziel. Stellen Sie einfach eine Anfrage."
+          },
+          {
+            "q": "Fahren Sie auch außerhalb von Wien?",
+            "a": "Ja, wir übernehmen Langstreckenfahrten in ganz Österreich und ins benachbarte Ausland, etwa nach Bratislava, Prag oder Budapest."
+          },
+          {
+            "q": "Wie weit im Voraus sollte ich buchen?",
+            "a": "Für Flughafentransfers genügen oft wenige Stunden. Für Gruppen, Events oder mehrtägige Fahrten empfehlen wir eine frühzeitige Reservierung."
+          }
+        ],
+        "keywords": {
+          "primary": "Chauffeur Service Wien",
+          "secondary": [
+            "Chauffeurservice Wien",
+            "Chauffeur Wien",
+            "Chauffeurdienst Wien",
+            "Limousinenservice Wien"
+          ]
+        }
+      }
+    },
+    "air": {
+      "slug": "flughafen-transfer-wien",
+      "name": "Flughafentransfer",
+      "url": "/leistungen/flughafen-transfer-wien/",
+      "type": "service",
+      "content": {
+        "metaTitle": "Flughafentransfer Wien – Fixpreis ab VIE",
+        "metaDescription": "Flughafentransfer Wien zum Fixpreis: Abholung am Flughafen Schwechat, Flugtracking und diskrete Fahrer. Rund um die Uhr. Jetzt online buchen.",
+        "hero": {
+          "title": "Flughafentransfer Wien",
+          "sub": "Pünktliche Abholung am Flughafen Wien und in der Stadt. Fixpreis, Flugtracking und ein Fahrer, der auf Sie wartet und Sie ans Ziel bringt."
+        },
+        "intro": {
+          "eyebrow": "Ihr Transfer",
+          "title": "Entspannt zum Flughafen Wien",
+          "body": "Ihr Chauffeur holt Sie zuhause, im Hotel oder am Terminal ab und bringt Sie sicher ans Ziel. Wir verfolgen Ihren Flug in Echtzeit und passen die Abholzeit bei Verspätung automatisch an. Kein Warten in der Taxischlange, kein Stress mit dem Gepäck. Sie steigen ein und kommen entspannt an."
+        },
+        "benefit": {
+          "badge": {
+            "big": "24h",
+            "sm": "für Sie da"
+          },
+          "title": "Warum Ihr Transfer bei uns passt",
+          "body": "Feste Fahrer, transparente Preise und ein Ablauf, der einfach funktioniert. Vom ersten Klick bis zur Ankunft bleibt Ihr Transfer planbar, diskret und ruhig. Sie kommen entspannt an.",
+          "items": [
+            "Fixpreis vorab, keine versteckten Kosten am Ende",
+            "Flugtracking bei jeder Abholung",
+            "Meet and Greet mit Namensschild am Terminal",
+            "Diskrete Fahrer, gepflegte Fahrzeuge"
+          ]
+        },
+        "seo": {
+          "eyebrow": "Flughafentransfer Wien",
+          "title": "Ihr zuverlässiger Transfer zum und vom Flughafen Wien Schwechat",
+          "paragraphs": [
+            "Der Flughafen Wien Schwechat liegt rund 20 Kilometer vom Stadtzentrum entfernt. Mit unserem Flughafentransfer sind Sie in etwa 30 Minuten in der Innenstadt, ohne Umsteigen und ohne Gepäckschleppen. Ihr Chauffeur erwartet Sie in der Ankunftshalle mit einem Namensschild und hilft Ihnen mit dem Gepäck.",
+            "Bei der Abreise holt er Sie pünktlich ab und bringt Sie rechtzeitig zum Terminal. Wir behalten Ihren Flug im Blick, damit auch bei Verspätung alles reibungslos läuft und Sie nie unnötig warten müssen. Auch späte Ankünfte und frühe Abflüge sind für uns kein Problem.",
+            "Buchen Sie Ihren Transfer bequem online: Fahrzeug wählen, Fixpreis sehen, per Kreditkarte, Apple Pay oder Google Pay bezahlen. Sie erhalten sofort Ihre Bestätigung.",
+            "Vom Business-Fahrzeug für eine Person bis zum Sprinter für die ganze Reisegruppe finden Sie das passende Fahrzeug. Auch für Gepäck, Kindersitze oder besondere Wünsche ist gesorgt, sagen Sie uns einfach vorab Bescheid. Für regelmäßige Fahrten oder besondere Anlässe stellen Sie eine große Anfrage und bekommen innerhalb weniger Stunden ein unverbindliches Angebot.",
+            "So wird Ihr Flughafentransfer in Wien so angenehm wie die Reise selbst: zuverlässig, diskret und immer pünktlich. In jedem Wagen steht Wasser für Sie bereit, und Ihr Fahrer kennt die schnellste Route zum Terminal.",
+            "Ob Sie geschäftlich reisen oder privat unterwegs sind, wir richten die Fahrt nach Ihrem Zeitplan. Auch für die Rückfahrt sind wir jederzeit für Sie da, damit Sie am Ende Ihrer Reise genauso entspannt ankommen wie am Anfang. Nennen Sie uns Ihren Flug, wir planen den Rest."
+          ]
+        },
+        "faq": [
+          {
+            "q": "Was kostet ein Flughafentransfer in Wien?",
+            "a": "Der Preis ist ein Fixpreis und hängt vom Fahrzeug ab. Sie sehen ihn vor der Buchung, inklusive Fahrer, Wartezeit und Gepäck."
+          },
+          {
+            "q": "Was passiert, wenn mein Flug Verspätung hat?",
+            "a": "Wir verfolgen Ihren Flug in Echtzeit und passen die Abholzeit automatisch an. Für Verspätungen entstehen keine zusätzlichen Kosten."
+          },
+          {
+            "q": "Wo treffe ich meinen Chauffeur am Flughafen?",
+            "a": "Ihr Fahrer erwartet Sie in der Ankunftshalle mit einem Namensschild und hilft Ihnen mit dem Gepäck zum Fahrzeug."
+          },
+          {
+            "q": "Kann ich einen Transfer für mehrere Personen buchen?",
+            "a": "Ja. Vom Van bis zum Sprinter mit bis zu 20 Sitzen bringen wir auch größere Gruppen samt Gepäck gemeinsam ans Ziel."
+          },
+          {
+            "q": "Wie schnell bin ich vom Flughafen in der Stadt?",
+            "a": "Die Fahrt vom Flughafen Wien Schwechat ins Zentrum dauert je nach Verkehr etwa 30 Minuten."
+          },
+          {
+            "q": "Kann ich im Voraus bezahlen?",
+            "a": "Ja, Sie zahlen bequem online per Kreditkarte, Apple Pay oder Google Pay und erhalten sofort Ihre Buchungsbestätigung."
+          }
+        ],
+        "keywords": {
+          "primary": "Flughafentransfer Wien",
+          "secondary": [
+            "Flughafen Transfer Wien",
+            "Airport Transfer Wien",
+            "Flughafentaxi Wien",
+            "Transfer Flughafen Wien"
+          ]
+        }
+      }
+    },
+    "limo": {
+      "slug": "limousinenservice",
+      "name": "Limousinenservice",
+      "url": "/leistungen/limousinenservice/",
+      "type": "service",
+      "content": {
+        "metaTitle": "Limousinenservice Wien – Mercedes mit Chauffeur",
+        "metaDescription": "Limousinenservice Wien: Mercedes-Limousine mit Chauffeur zum Fixpreis. Diskret, komfortabel, rund um die Uhr. Online buchen und sofort bestätigt.",
+        "hero": {
+          "title": "Limousinenservice Wien",
+          "sub": "Mercedes-Limousine mit persönlichem Chauffeur. Für Geschäftstermine, besondere Anlässe und stilvolle, diskrete Fahrten durch ganz Wien und Umgebung."
+        },
+        "intro": {
+          "eyebrow": "Ihre Limousine",
+          "title": "Ihr Limousinen Service Wien",
+          "body": "Unser Limousinen Service Wien bringt Sie stilvoll ans Ziel. Sie wählen Ihre Limousine, wir stellen den passenden Chauffeur. Ob Business-Termin, Abendveranstaltung oder Fahrt zur Oper: Sie reisen in einer gepflegten Mercedes-Limousine, ruhig und diskret. Ihr Fahrer kennt Wien und ist pünktlich zur Stelle."
+        },
+        "benefit": {
+          "badge": {
+            "big": "5.0",
+            "sm": "Kundenurteil"
+          },
+          "title": "Warum unser Limousinenservice",
+          "body": "Moderne Mercedes-Flotte, feste Chauffeure und ein transparenter Fixpreis. Sie buchen online, sehen den Preis sofort und erhalten die Bestätigung ohne Wartezeit auf ein Angebot.",
+          "items": [
+            "Gepflegte Mercedes-Limousinen jeder Klasse",
+            "Fixpreis vorab, ohne versteckte Kosten",
+            "Diskrete, geschulte Chauffeure mit Ortskenntnis",
+            "Online buchen, sofort bestätigt"
+          ]
+        },
+        "seo": {
+          "eyebrow": "Limousinenservice Wien",
+          "title": "Ihre Mercedes-Limousine mit Chauffeur für jeden Anlass in Wien",
+          "paragraphs": [
+            "Ein Limousinen Service Wien ist mehr als eine Fahrt. Er ist die ruhige Minute vor dem Termin, der gute erste Eindruck bei Kunden und das entspannte Ankommen nach einem langen Tag.",
+            "Bei uns wählen Sie aus einer modernen Mercedes-Flotte, von der eleganten E-Klasse über die repräsentative S-Klasse bis zum geräumigen Van für mehrere Gäste. Wer eine Luxuslimousine Wien mit Fahrer sucht, ist hier richtig: Jeder Wagen ist gepflegt, klimatisiert und mit Wasser für Sie ausgestattet, auf Wunsch stellen wir einen Kindersitz bereit. Ihr Chauffeur ist diskret, pünktlich und kennt die Wege durch Wien.",
+            "Der Ablauf ist einfach. Sie möchten eine Limousine mieten Wien und Umgebung? Sie sehen sofort den Fixpreis und buchen direkt über unser Online Buchungssystem.",
+            "Bezahlt wird per Kreditkarte, Apple Pay oder Google Pay, die Bestätigung kommt umgehend. Anders als bei Anbietern, bei denen Sie erst eine Anfrage schicken und auf ein Angebot warten, wissen Sie bei uns vorab genau, was die Fahrt kostet, ohne versteckte Zuschläge.",
+            "Für Geschäftskunden bieten wir feste Konditionen für regelmäßige Fahrten, ideal für wiederkehrende Termine oder Kundenbesuche. Haben Sie einen besonderen Wunsch, etwa mehrere Stopps oder eine Abendbegleitung, erreichen Sie uns jederzeit per WhatsApp oder E-Mail.",
+            "So wird Ihre Fahrt durch Wien so angenehm und stilvoll wie der Anlass, zu dem sie führt, von der ersten Buchung bis zur Ankunft."
+          ]
+        },
+        "faq": [
+          {
+            "q": "Was kostet ein Limousinenservice in Wien?",
+            "a": "Der Preis richtet sich nach Fahrzeugklasse, Dauer und Strecke. Sie sehen den Fixpreis vor der Buchung, inklusive Chauffeur und allen Nebenkosten."
+          },
+          {
+            "q": "Welche Fahrzeuge stehen zur Auswahl?",
+            "a": "Von der Mercedes E-Klasse über die S-Klasse bis zum Van und Sprinter. Sie wählen das Modell passend zu Anlass und Personenzahl."
+          },
+          {
+            "q": "Kann ich die Limousine für einen ganzen Tag buchen?",
+            "a": "Ja. Neben Einzelfahrten bieten wir Stundenbuchungen und Ganztagesbegleitung. Buchen Sie online oder fragen Sie ein individuelles Angebot an."
+          },
+          {
+            "q": "Ist der Limousinenservice auch für Events geeignet?",
+            "a": "Ja, für Hochzeiten, Firmenfeiern oder Empfänge. Für größere Gruppen oder besondere Wünsche erreichen Sie uns per WhatsApp oder E-Mail."
+          },
+          {
+            "q": "Sind die Fahrer diskret?",
+            "a": "Ja. Unsere Chauffeure sind geschult, zur Verschwiegenheit verpflichtet und auf gehobenen Service spezialisiert."
+          },
+          {
+            "q": "Wie schnell ist die Limousine verfügbar?",
+            "a": "Für spontane Fahrten sind wir rund um die Uhr erreichbar. Für Events und feste Termine empfehlen wir eine frühzeitige Buchung."
+          }
+        ],
+        "keywords": {
+          "primary": "Limousinen Service Wien",
+          "secondary": [
+            "Limousinenservice Wien",
+            "Limousine mieten Wien",
+            "Luxuslimousine Wien",
+            "Mercedes Limousine Wien"
+          ]
+        }
+      }
+    },
+    "stunde": {
+      "slug": "chauffeur-pro-stunde",
+      "name": "Chauffeur pro Stunde",
+      "url": "/leistungen/chauffeur-pro-stunde/",
+      "type": "service",
+      "content": {
+        "metaTitle": "Chauffeur pro Stunde Wien – stundenweise buchen",
+        "metaDescription": "Chauffeur pro Stunde in Wien: stundenweise buchen, fester Fahrer, Fixpreis pro Stunde. Ideal für Termine und Shopping. Online buchen, sofort bestätigt.",
+        "hero": {
+          "title": "Chauffeur pro Stunde",
+          "sub": "Buchen Sie Ihren Chauffeur stundenweise in Wien. Ein fester Fahrer bleibt für Sie da, so lange Sie ihn brauchen, flexibel und gut planbar."
+        },
+        "intro": {
+          "eyebrow": "Stundenchauffeur",
+          "title": "Chauffeur pro Stunde Wien",
+          "body": "Mit einem Chauffeur pro Stunde Wien bleiben Sie flexibel. Mehrere Termine hintereinander, ein Einkaufstag oder ein Abend mit wechselnden Zielen: Derselbe Fahrer bleibt für Sie im Einsatz, wartet zwischen den Stopps und passt sich Ihrem Zeitplan an. Sie buchen die Stunden und sehen den Fixpreis vorab."
+        },
+        "benefit": {
+          "badge": {
+            "big": "1",
+            "sm": "fester Fahrer"
+          },
+          "title": "Warum stundenweise buchen",
+          "body": "Ein fester Chauffeur für Ihren ganzen Termin, klare Stundenpreise und volle Flexibilität. Sie buchen online und sehen den Preis sofort, ganz ohne Wartezeit auf ein Angebot.",
+          "items": [
+            "Fester Fahrer für die gebuchte Zeit",
+            "Transparenter Fixpreis pro Stunde",
+            "Wartet zwischen Ihren Terminen und Stopps",
+            "Flexibel verlängerbar bei Bedarf"
+          ]
+        },
+        "seo": {
+          "eyebrow": "Chauffeur pro Stunde",
+          "title": "Ihr persönlicher Chauffeur, stundenweise buchbar in ganz Wien",
+          "paragraphs": [
+            "Manche Tage lassen sich nicht in eine einzelne Fahrt pressen. Ein Chauffeur pro Stunde Wien ist dann die entspannteste Lösung.",
+            "Ein Vormittag mit drei Terminen, ein Nachmittag zum Einkaufen, ein Abend mit Essen und Veranstaltung: Ihr fester Fahrer bringt Sie von Ziel zu Ziel, wartet dazwischen und hält den Wagen bereit.",
+            "Sie müssen nicht jedes Mal neu buchen, keinen Parkplatz suchen und nicht auf ein Taxi warten. Wenn Sie einen Chauffeur mieten Wien und Umgebung, steht Wasser im Wagen bereit, auf Wunsch auch ein Kindersitz, und Sie behalten denselben vertrauten Ansprechpartner am Steuer.",
+            "Die Buchung ist unkompliziert. Sie wählen Fahrzeug und Stundenzahl, sehen den Fixpreis pro Stunde und buchen direkt über unser Online Buchungssystem. Bezahlt wird per Kreditkarte, Apple Pay oder Google Pay, die Bestätigung kommt sofort. Sie warten nicht auf ein Angebot wie bei vielen anderen Anbietern, sondern kennen den Preis von Anfang an.",
+            "Braucht Ihr Tag doch länger, verlängern wir flexibel, solange der Fahrer verfügbar ist. Für Geschäftskunden gibt es feste Konditionen für regelmäßige Buchungen, für besondere Wünsche erreichen Sie uns per WhatsApp oder E-Mail. So behalten Sie Ihren Zeitplan im Griff und überlassen die Fahrt jemandem, der Wien in- und auswendig kennt und vorausschauend fährt. Den Fixpreis sehen Sie vorab.",
+            "So behalten Sie Ihren Zeitplan im Griff und überlassen die Fahrt jemandem, der Wien kennt und vorausschauend ans Ziel bringt."
+          ]
+        },
+        "faq": [
+          {
+            "q": "Wie viele Stunden muss ich mindestens buchen?",
+            "a": "Die Mindestdauer nennen wir Ihnen bei der Buchung. Sie sehen den Fixpreis pro Stunde vorab und können bei Bedarf flexibel verlängern."
+          },
+          {
+            "q": "Bleibt derselbe Fahrer den ganzen Termin dabei?",
+            "a": "Ja. Ihr Chauffeur ist für die gebuchte Zeit fest für Sie da, wartet zwischen den Stopps und passt sich Ihrem Ablauf an."
+          },
+          {
+            "q": "Kann ich die Buchung spontan verlängern?",
+            "a": "Ja, sofern der Fahrer verfügbar ist. Sagen Sie ihm einfach Bescheid, die zusätzliche Zeit wird transparent abgerechnet."
+          },
+          {
+            "q": "Wofür eignet sich ein Chauffeur pro Stunde?",
+            "a": "Für mehrere Termine, Shopping, Sightseeing oder Abende mit wechselnden Zielen. Überall dort, wo Sie flexibel bleiben wollen."
+          },
+          {
+            "q": "Kann ich stundenweise auch außerhalb Wiens fahren?",
+            "a": "Ja. Innerhalb der gebuchten Zeit fahren wir auch ins Umland. Längere Strecken planen wir gern individuell."
+          },
+          {
+            "q": "Wie buche ich einen Chauffeur pro Stunde?",
+            "a": "Über unser Online Buchungssystem: Fahrzeug und Stunden wählen, Fixpreis sehen, direkt zahlen. Für Sonderwünsche per WhatsApp oder E-Mail."
+          }
+        ],
+        "keywords": {
+          "primary": "Chauffeur pro Stunde Wien",
+          "secondary": [
+            "Chauffeur mieten Wien",
+            "Stundenchauffeur Wien",
+            "Chauffeur buchen Wien"
+          ]
+        }
+      }
+    },
+    "lang": {
+      "slug": "langstreckenfahrten",
+      "name": "Langstreckenfahrten",
+      "url": "/leistungen/langstreckenfahrten/",
+      "type": "service",
+      "content": {
+        "metaTitle": "Langstreckenfahrten Wien – Bratislava, Prag & mehr",
+        "metaDescription": "Langstreckenfahrten ab Wien: komfortabel nach Bratislava, Prag, Budapest oder quer durch Österreich. Fixpreis, fester Chauffeur, online buchbar.",
+        "hero": {
+          "title": "Langstreckenfahrten",
+          "sub": "Komfortabel über die Stadtgrenze hinaus. Mit festem Chauffeur nach Bratislava, Prag, Budapest oder quer durch ganz Österreich und Europa."
+        },
+        "intro": {
+          "eyebrow": "Ihre Langstrecke",
+          "title": "Langstreckenfahrten Wien",
+          "body": "Unsere Langstreckenfahrten Wien bringen Sie entspannt über die Stadtgrenze. Statt Bahnhofsstress oder Mietwagen holt Ihr Chauffeur Sie ab und fährt Sie direkt ans Ziel, ohne Umsteigen. Ob Geschäftsreise oder Wochenende, Sie reisen bequem und können unterwegs arbeiten oder ausruhen. Den Fixpreis sehen Sie"
+        },
+        "benefit": {
+          "badge": {
+            "big": "EU",
+            "sm": "grenzüberschr."
+          },
+          "title": "Warum Langstrecke mit uns",
+          "body": "Direkt von Tür zu Tür, ohne Umsteigen und Wartezeit. Fester Chauffeur, bequemes Fahrzeug und ein Fixpreis für die ganze Strecke, den Sie schon vor der Buchung kennen.",
+          "items": [
+            "Direkte Fahrt von Tür zu Tür ohne Umsteigen",
+            "Fixpreis für die gesamte Strecke",
+            "Arbeiten oder ausruhen unterwegs",
+            "Grenzüberschreitend in ganz Europa"
+          ]
+        },
+        "seo": {
+          "eyebrow": "Langstreckenfahrten",
+          "title": "Ihre komfortable Langstreckenfahrt ab Wien in ganz Europa",
+          "paragraphs": [
+            "Nicht jede Reise endet an der Stadtgrenze. Unsere Langstreckenfahrten Wien bringen Sie ruhig und direkt ans Ziel.",
+            "Ein Termin in Bratislava, ein Wochenende in Prag, eine Hochzeit in Budapest oder der Transfer nach Salzburg: Sie steigen in Wien ein und an Ihrer Zieladresse wieder aus, ohne Umsteigen, ohne Gepäckwagen, ohne Fahrstress.",
+            "Ob Transfer Wien Bratislava, Transfer Wien Prag oder Transfer Wien Budapest, unterwegs haben Sie Ruhe für Telefonate, Arbeit oder die Aussicht auf die Landschaft. Wasser steht bereit, auf Wunsch auch ein Kindersitz, und Ihr Fahrer kennt die Strecke und die Grenzformalitäten.",
+            "Die Buchung ist so einfach wie bei jeder Fahrt. Sie geben Start und Ziel an, wählen Ihr Fahrzeug, sehen den Fixpreis für die gesamte Strecke und buchen direkt über unser Online Buchungssystem. Bezahlt wird per Kreditkarte, Apple Pay oder Google Pay. Anders als bei Anbietern mit reinem Anfrageformular kennen Sie Ihren Preis sofort, ohne auf ein Angebot zu warten und ohne Zuschläge für Wartezeit oder Grenzübertritt.",
+            "Beliebte Strecken wie diese fahren wir regelmäßig und kennen die schnellsten Wege. Für mehrtägige Reisen, feste Firmenkonditionen oder besondere Routen mit Zwischenstopps erreichen Sie uns per WhatsApp oder E-Mail. So kommen Sie entspannt und pünktlich an, egal wie weit das Ziel entfernt liegt. Den Fixpreis sehen Sie vorab.",
+            "So kommen Sie entspannt und pünktlich an, egal wie weit das Ziel entfernt liegt, während sich Ihr Chauffeur um Route und Grenzformalitäten kümmert."
+          ]
+        },
+        "faq": [
+          {
+            "q": "Welche Ziele fahren Sie ab Wien an?",
+            "a": "Regelmäßig Bratislava, Prag, Budapest, Salzburg und Graz, dazu Ziele in ganz Österreich und im benachbarten Ausland. Andere Strecken planen wir individuell."
+          },
+          {
+            "q": "Was kostet eine Langstreckenfahrt?",
+            "a": "Sie zahlen einen Fixpreis für die gesamte Strecke, den Sie vor der Buchung sehen. Keine Zuschläge für Wartezeit oder Grenzübertritt."
+          },
+          {
+            "q": "Kann ich unterwegs Stopps einlegen?",
+            "a": "Ja. Sagen Sie uns Ihre Wünsche bei der Buchung oder per WhatsApp, wir planen Zwischenstopps in Ihre Route ein."
+          },
+          {
+            "q": "Sind mehrtägige Fahrten möglich?",
+            "a": "Ja, wir bieten mehrtägige Chauffeurbegleitung mit festem Fahrer. Fragen Sie dazu ein persönliches Angebot an."
+          },
+          {
+            "q": "Reisen Sie auch über Landesgrenzen?",
+            "a": "Ja, grenzüberschreitend in ganz Europa. Ihr Chauffeur kennt die Formalitäten, sodass die Fahrt reibungslos verläuft."
+          },
+          {
+            "q": "Wie buche ich eine Langstreckenfahrt?",
+            "a": "Über unser Online Buchungssystem mit Start, Ziel und Fahrzeugwahl. Für mehrtägige oder besondere Fahrten per WhatsApp oder E-Mail."
+          }
+        ],
+        "keywords": {
+          "primary": "Langstreckenfahrten Wien",
+          "secondary": [
+            "Transfer Wien Bratislava",
+            "Transfer Wien Prag",
+            "Transfer Wien Budapest",
+            "Fernfahrten Wien"
+          ]
+        }
+      }
+    },
+    "priv": {
+      "slug": "privatchauffeur",
+      "name": "Privatchauffeur",
+      "url": "/leistungen/privatchauffeur/",
+      "type": "service",
+      "content": {
+        "metaTitle": "Privatchauffeur Wien – Ihr persönlicher Fahrer",
+        "metaDescription": "Privatchauffeur in Wien: Ihr persönlicher Fahrer für Alltag, Termine und Familie. Diskret, zuverlässig, zum Fixpreis. Online buchen, sofort bestätigt.",
+        "hero": {
+          "title": "Privatchauffeur Wien",
+          "sub": "Ihr persönlicher Fahrer in Wien. Diskret und zuverlässig für Alltag, Termine, Familie und jeden Weg, den Sie im Voraus planen und fest einplanen möchten."
+        },
+        "intro": {
+          "eyebrow": "Ihr Fahrer",
+          "title": "Ihr Privatchauffeur Wien",
+          "body": "Ein Privatchauffeur Wien ist mehr als eine Fahrt von A nach B. Er kennt Ihre Wege, Ihre Termine und Ihre Vorlieben. Ob täglicher Weg ins Büro, Fahrten der Familie oder der Abend in der Stadt: Sie haben einen festen Fahrer, auf den Sie sich verlassen. Diskret, pünktlich und immer mit gepflegtem Wagen."
+        },
+        "benefit": {
+          "badge": {
+            "big": "1",
+            "sm": "fester Fahrer"
+          },
+          "title": "Warum ein Privatchauffeur",
+          "body": "Ein vertrautes Gesicht am Steuer, das Ihre Routine kennt. Feste Konditionen, transparente Preise und ein Fahrer, der sich um jedes Detail kümmert, während Sie sich entspannt",
+          "items": [
+            "Fester, persönlicher Fahrer für Ihre Wege",
+            "Diskret und absolut zuverlässig",
+            "Feste Konditionen für regelmäßige Fahrten",
+            "Online buchen, sofort bestätigt"
+          ]
+        },
+        "seo": {
+          "eyebrow": "Privatchauffeur Wien",
+          "title": "Ihr persönlicher Privatchauffeur für jeden Weg in Wien",
+          "paragraphs": [
+            "Manche Wege wiederholen sich, andere sind besonders. Ein Privatchauffeur Wien passt sich beidem an. Er bringt Sie morgens ins Büro, wartet bei Terminen, holt die Kinder von der Schule oder fährt Sie am Abend ins Konzert.",
+            "Als persönlicher Fahrer Wien wird er mit der Zeit zu einem vertrauten Gesicht, das Ihre Routine kennt und vorausdenkt. Sie müssen nicht erklären, nicht organisieren und sich nicht ums Parken kümmern. Wasser steht im Wagen bereit, auf Wunsch ein Kindersitz, und der Wagen ist stets gepflegt und diskret.",
+            "Sie buchen Ihre Fahrten direkt über unser Online Buchungssystem, sehen den Fixpreis sofort und zahlen bequem per Kreditkarte, Apple Pay oder Google Pay. Als Privatfahrer Wien stehen wir Ihnen so oft zur Verfügung, wie Sie möchten.",
+            "Anders als bei Anbietern mit reinem Anfrageformular kennen Sie Ihren Preis von Anfang an, ohne auf ein Angebot zu warten. Für Geschäftskunden richten wir feste Firmenkonditionen ein, für besondere Wünsche wie mehrere Fahrten am Tag oder feste Wochentermine erreichen Sie uns jederzeit per WhatsApp oder E-Mail.",
+            "Für Geschäftskunden richten wir feste Firmenkonditionen ein, für besondere Wünsche wie mehrere Fahrten am Tag oder feste Wochentermine erreichen Sie uns per WhatsApp oder E-Mail.",
+            "So gewinnen Sie Zeit und Ruhe im Alltag, während sich jemand anderes zuverlässig und diskret ums Fahren kümmert."
+          ]
+        },
+        "faq": [
+          {
+            "q": "Was macht ein Privatchauffeur?",
+            "a": "Ihr persönlicher Fahrer bringt Sie zu Terminen, im Alltag oder zu besonderen Anlässen. Auf Wunsch steht derselbe Fahrer bei jeder Fahrt bereit."
+          },
+          {
+            "q": "Kann ich denselben Fahrer regelmäßig buchen?",
+            "a": "Ja. Gerade im Alltag schätzen Kunden ein vertrautes Gesicht. Wir richten feste Konditionen für regelmäßige Fahrten ein."
+          },
+          {
+            "q": "Was kostet ein Privatchauffeur in Wien?",
+            "a": "Der Preis richtet sich nach Umfang und Dauer. Sie sehen den Fixpreis vor der Buchung, für regelmäßige Fahrten bieten wir feste Konditionen."
+          },
+          {
+            "q": "Ist der Privatchauffeur auch für Familien geeignet?",
+            "a": "Ja. Auf Wunsch stellen wir Kindersitze bereit und bringen zuverlässig auch Kinder oder Angehörige ans Ziel."
+          },
+          {
+            "q": "Sind die Fahrer diskret?",
+            "a": "Ja. Unsere Chauffeure sind geschult, verschwiegen und darauf spezialisiert, sich dezent im Hintergrund zu halten."
+          },
+          {
+            "q": "Wie buche ich einen Privatchauffeur?",
+            "a": "Über unser Online Buchungssystem mit sofortiger Bestätigung. Für regelmäßige Fahrten oder Sonderwünsche per WhatsApp oder E-Mail."
+          }
+        ],
+        "keywords": {
+          "primary": "Privatchauffeur Wien",
+          "secondary": [
+            "Persönlicher Fahrer Wien",
+            "Chauffeur privat Wien",
+            "Privatfahrer Wien"
+          ]
+        }
+      }
+    },
+    "shuttle": {
+      "slug": "shuttle-service",
+      "name": "Shuttle Service",
+      "url": "/leistungen/shuttle-service/",
+      "type": "service",
+      "content": {
+        "metaTitle": "Shuttle Service Wien – Gruppentransfer mit Fahrer",
+        "metaDescription": "Shuttle Service Wien: zuverlässiger Gruppentransfer für Events, Firmen und Hotels. Bis 20 Sitze, Fixpreis, fester Fahrer. Jetzt online anfragen.",
+        "hero": {
+          "title": "Shuttle Service Wien",
+          "sub": "Zuverlässiger Gruppentransfer in Wien. Für Events, Firmen und Hotels, mit Platz für bis zu 20 Personen und einem festen, ortskundigen Fahrer am Steuer."
+        },
+        "intro": {
+          "eyebrow": "Ihr Shuttle",
+          "title": "Ihr Gruppentransfer Wien",
+          "body": "Unser Gruppentransfer Wien bringt die ganze Gruppe gemeinsam ans Ziel. Ob Firmenevent, Hochzeit, Hotelgäste oder Delegation: Statt vieler einzelner Wagen reisen alle zusammen, entspannt und koordiniert. Vom Van bis zum 20-Sitzer Sprinter wählen wir das passende Fahrzeug, mit festem Fahrer und Fixpreis."
+        },
+        "benefit": {
+          "badge": {
+            "big": "20",
+            "sm": "bis 20 Sitze"
+          },
+          "title": "Warum unser Shuttle Service",
+          "body": "Ein Fahrzeug für die ganze Gruppe, ein fester Fahrer und ein transparenter Preis. Wir koordinieren Abholung und Route, damit alle gemeinsam und pünktlich am Ziel ankommen.",
+          "items": [
+            "Platz für bis zu 20 Personen im Sprinter",
+            "Fester Fahrer und feste Route",
+            "Ideal für Events, Firmen und Hotels",
+            "Transparenter Fixpreis für die Gruppe"
+          ]
+        },
+        "seo": {
+          "eyebrow": "Shuttle Service Wien",
+          "title": "Ihr zuverlässiger Shuttle Service für Gruppen in Wien",
+          "paragraphs": [
+            "Wenn eine ganze Gruppe zum selben Ziel muss, wird Organisation schnell zur Herausforderung. Unser Gruppentransfer Wien nimmt Ihnen das ab.",
+            "Ob Mitarbeiter zu einem Firmenevent, Gäste einer Hochzeit oder eine Reisegruppe vom Hotel: Alle reisen gemeinsam in einem Fahrzeug, koordiniert und pünktlich. Unser Shuttle Service Wien bringt das passende Fahrzeug, von der komfortablen V-Klasse für kleinere Gruppen bis zum 20-Sitzer Sprinter, immer mit festem, ortskundigem Fahrer. So kommt niemand zu spät, niemand verfährt sich, und Sie behalten den Überblick über die ganze Gruppe.",
+            "Für regelmäßige Transfers, etwa von Mitarbeitern oder Hotelgästen, richten wir feste Konditionen ein. Ob großer Bus oder Kleinbus mit Fahrer Wien und Umgebung, da Gruppenfahrten oft individuelle Planung brauchen, stellen Sie einfach eine Anfrage über unser Buchungssystem oder erreichen uns direkt per WhatsApp oder E-Mail.",
+            "Sie erhalten zügig ein transparentes Angebot mit Fixpreis für die gesamte Gruppe, ganz ohne versteckte Kosten und ohne langes Warten. Auf Wunsch koordinieren wir auch mehrere Fahrzeuge parallel, etwa bei größeren Delegationen mit vielen Gästen.",
+            "Auf Wunsch koordinieren wir auch mehrere Fahrzeuge parallel, etwa bei größeren Delegationen oder wenn Gäste von verschiedenen Orten abgeholt werden.",
+            "So wird der Transfer zum reibungslosen Teil Ihres Events, um den Sie sich nicht mehr kümmern müssen, vom ersten bis zum letzten Gast."
+          ]
+        },
+        "faq": [
+          {
+            "q": "Für wie viele Personen eignet sich der Shuttle?",
+            "a": "Vom Van für kleinere Gruppen bis zum Sprinter mit bis zu 20 Sitzen. Für größere Gruppen setzen wir mehrere Fahrzeuge ein."
+          },
+          {
+            "q": "Wofür eignet sich ein Shuttle Service?",
+            "a": "Für Firmenevents, Hochzeiten, Hoteltransfers, Delegationen und Reisegruppen. Überall, wo viele Menschen gemeinsam ans Ziel sollen."
+          },
+          {
+            "q": "Was kostet ein Shuttle Service in Wien?",
+            "a": "Sie erhalten einen Fixpreis für die gesamte Gruppe, abhängig von Fahrzeug, Strecke und Dauer, ohne versteckte Kosten."
+          },
+          {
+            "q": "Kann ich regelmäßige Transfers buchen?",
+            "a": "Ja. Für wiederkehrende Fahrten von Mitarbeitern oder Gästen richten wir feste Konditionen ein. Sprechen Sie uns an."
+          },
+          {
+            "q": "Wie buche ich einen Gruppentransfer?",
+            "a": "Am besten über eine Anfrage mit Details zu Gruppe und Anlass. Sie erhalten zügig ein Angebot, alternativ per WhatsApp oder E-Mail."
+          },
+          {
+            "q": "Sind auch mehrere Fahrzeuge möglich?",
+            "a": "Ja. Für größere Gruppen oder parallele Abholungen koordinieren wir mehrere Fahrzeuge mit festen Fahrern."
+          }
+        ],
+        "keywords": {
+          "primary": "Gruppentransfer Wien",
+          "secondary": [
+            "Shuttle Service Wien",
+            "Kleinbus mit Fahrer Wien",
+            "Gruppenfahrten Wien"
+          ]
+        }
+      }
+    },
+    "diplo": {
+      "slug": "fahrdienst-diplomaten",
+      "name": "Fahrdienst Diplomaten",
+      "url": "/leistungen/fahrdienst-diplomaten/",
+      "type": "service",
+      "content": {
+        "metaTitle": "Diplomaten Chauffeur Wien – diskreter Fahrdienst",
+        "metaDescription": "Diplomaten Chauffeur in Wien: diskreter, sicherer Fahrdienst für Botschaften, Delegationen und Protokoll. Zuverlässig und vertraulich. Jetzt anfragen.",
+        "hero": {
+          "title": "Diplomaten Chauffeur",
+          "sub": "Diskreter Fahrdienst für Diplomatie und Protokoll in Wien. Sicher, vertraulich und zuverlässig für Botschaften, Konsulate und offizielle Delegationen."
+        },
+        "intro": {
+          "eyebrow": "Ihr Fahrdienst",
+          "title": "Ihr Diplomaten Chauffeur Wien",
+          "body": "Ein Diplomaten Chauffeur Wien bewegt sich sicher im diplomatischen Umfeld, wo jedes Detail zählt: Pünktlichkeit, Diskretion und ein sicheres Auftreten. Unsere Chauffeure sind auf Fahrten für Botschaften, Delegationen und Protokoll spezialisiert und sorgen für einen reibungslosen Ablauf, ob Einzeltermin"
+        },
+        "benefit": {
+          "badge": {
+            "big": "100",
+            "sm": "% diskret"
+          },
+          "title": "Warum unser Diplomatendienst",
+          "body": "Erfahrene Chauffeure, absolute Vertraulichkeit und ein Gespür für Protokoll. Wir koordinieren mehrere Fahrzeuge, halten Zeitpläne exakt ein und bleiben dabei stets dezent im",
+          "items": [
+            "Auf Diplomatie und Protokoll spezialisiert",
+            "Absolute Diskretion und",
+            "Koordination mehrerer Fahrzeuge möglich",
+            "Pünktlich, sicher und dezent"
+          ]
+        },
+        "seo": {
+          "eyebrow": "Diplomaten Chauffeur",
+          "title": "Ihr diskreter Diplomaten Chauffeur für Botschaften und Protokoll in",
+          "paragraphs": [
+            "Fahrten im diplomatischen Umfeld verlangen mehr als einen guten Wagen. Ein Diplomaten Chauffeur Wien braucht Fingerspitzengefühl, Verschwiegenheit und ein Verständnis für Protokoll und Abläufe.",
+            "Unsere Chauffeure begleiten Botschaften, Delegationen und offizielle Gäste in Wien, vom einzelnen Termin bis zum mehrtägigen Besuch mit engem Zeitplan. Als Fahrdienst Botschaft Wien treten sie sicher auf, halten sich dezent im Hintergrund und wahren jederzeit Vertraulichkeit. Bei Bedarf koordinieren wir mehrere Fahrzeuge im Konvoi, stimmen Zeitpläne exakt ab und passen uns kurzfristigen Änderungen zuverlässig an.",
+            "Für regelmäßige Fahrten von Botschaften und Institutionen richten wir feste Konditionen und feste Ansprechpartner ein. Als diskreter VIP Fahrdienst Wien planen wir jeden Auftrag persönlich mit Ihnen, da jeder Einsatz im diplomatischen Umfeld individuell ist.",
+            "Erreichen Sie uns dazu direkt per WhatsApp oder E-Mail. Sie erhalten eine verlässliche Zusage mit klaren Konditionen, ganz ohne unnötige Umwege oder langes Warten auf ein Angebot.",
+            "Unsere Fahrzeuge sind gepflegte Mercedes-Modelle der Ober- und Luxusklasse, auf Wunsch mit erhöhter Diskretion.",
+            "So bleibt der Fahrdienst das, was er sein soll: ein reibungsloser, unauffälliger Teil eines gelungenen Ablaufs."
+          ]
+        },
+        "faq": [
+          {
+            "q": "Für wen ist der Diplomatendienst gedacht?",
+            "a": "Für Botschaften, Konsulate, Delegationen und offizielle Gäste, die einen diskreten, protokollsicheren Fahrdienst in Wien benötigen."
+          },
+          {
+            "q": "Wie wird Vertraulichkeit gewährleistet?",
+            "a": "Unsere Chauffeure sind zur Verschwiegenheit verpflichtet, erfahren im diplomatischen Umfeld und halten sich konsequent dezent im Hintergrund."
+          },
+          {
+            "q": "Können Sie mehrere Fahrzeuge koordinieren?",
+            "a": "Ja. Für Delegationen und Staatsbesuche stellen wir mehrere Fahrzeuge mit abgestimmten Zeitplänen und festen Fahrern bereit."
+          },
+          {
+            "q": "Sind mehrtägige Einsätze möglich?",
+            "a": "Ja. Wir begleiten auch mehrtägige Besuche mit engem Programm und passen uns kurzfristigen Änderungen zuverlässig an."
+          },
+          {
+            "q": "Wie sind die Fahrzeuge ausgestattet?",
+            "a": "Gepflegte Mercedes-Fahrzeuge der Ober- und Luxusklasse, auf Wunsch mit erhöhter Diskretion und passender Ausstattung."
+          },
+          {
+            "q": "Wie kann ich anfragen?",
+            "a": "Da jeder Einsatz individuell ist, planen wir ihn persönlich. Erreichen Sie uns per WhatsApp oder E-Mail für ein vertrauliches Angebot."
+          }
+        ],
+        "keywords": {
+          "primary": "Diplomaten Chauffeur Wien",
+          "secondary": [
+            "Fahrdienst Botschaft Wien",
+            "Diplomatenfahrdienst Wien",
+            "VIP Fahrdienst Wien"
+          ]
+        }
+      }
+    },
+    "preise": {
+      "slug": "preise",
+      "name": "Preise",
+      "url": "/preise/",
+      "type": "full",
+      "content": {
+        "metaTitle": "Preise Chauffeur Wien – Fixpreise transparent",
+        "metaDescription": "Preise für Chauffeur und Limousine in Wien: transparente Fixpreise, vorab sichtbar, ohne versteckte Kosten. Online buchen und sofort bezahlen.",
+        "hero": {
+          "title": "Preise",
+          "sub": "Transparente Fixpreise für Chauffeur und Limousine in Wien. Den Preis sehen Sie schon vor der Buchung, ganz ohne versteckte Kosten oder Zuschläge."
+        },
+        "intro": {
+          "eyebrow": "Ihre Preise",
+          "title": "Preise Chauffeur Wien",
+          "body": "Unsere Preise Chauffeur Wien sind transparent: Sie wissen vorab, was Ihre Fahrt kostet. Sie wählen Fahrzeug, Strecke oder Dauer und sehen sofort den Fixpreis, inklusive Fahrer und aller Nebenkosten. Kein Taxameter, keine Zuschläge, keine Überraschung am Ende. So planen Sie mit klaren Zahlen."
+        },
+        "benefit": {
+          "badge": {
+            "big": "0€",
+            "sm": "versteckte"
+          },
+          "title": "Warum unsere Preise fair sind",
+          "body": "Ein Preis, den Sie vor der Buchung sehen und der bis zum Ziel gilt. Keine versteckten Zuschläge, keine Wartekosten im Kleingedruckten, für Geschäftskunden feste Konditionen.",
+          "items": [
+            "Fixpreis vorab sichtbar, kein Taxameter",
+            "Fahrer und Nebenkosten inklusive",
+            "Feste Konditionen für Geschäftskunden",
+            "Bequem online zahlen, sofort bestätigt"
+          ]
+        },
+        "seo": {
+          "eyebrow": "Preise Chauffeur Wien",
+          "title": "Transparente Preise für Ihren Chauffeur und Ihre Limousine in Wien",
+          "paragraphs": [
+            "Gute Mobilität sollte planbar sein, auch beim Preis. Deshalb sind unsere Preise Chauffeur Wien klar und fix statt Taxameter oder Zuschläge im Kleingedruckten.",
+            "Sie wählen Ihr Fahrzeug und Ihre Strecke oder Dauer und sehen sofort, was die Fahrt kostet. Dieser Preis gilt als Festpreis Chauffeur Wien, inklusive Fahrer, Fahrzeug und aller Nebenkosten. Ob Flughafentransfer zum Festpreis, Limousine für einen Anlass, Chauffeur pro Stunde oder Langstreckenfahrt ins Ausland: Sie kennen die Zahl, bevor Sie buchen, und müssen am Ende nichts nachrechnen.",
+            "Booking und Bezahlung sind ebenso einfach. Auch unsere Limousine Preise Wien sehen Sie vorab: Sie buchen direkt über unser Online Buchungssystem, sehen den Fixpreis und zahlen bequem per Kreditkarte, Apple Pay oder Google Pay.",
+            "Die Bestätigung kommt sofort, ganz ohne Warten auf ein Angebot. Für Unternehmen mit regelmäßigem Bedarf richten wir feste Firmenkonditionen ein, die Abrechnung und Planung erleichtern.",
+            "Für Unternehmen mit regelmäßigem Bedarf richten wir feste Firmenkonditionen ein, die Abrechnung und Planung erleichtern.",
+            "So bleibt der Preis das, was er sein sollte: klar, fair und von Anfang an nachvollziehbar, ganz ohne Kleingedrucktes."
+          ]
+        },
+        "faq": [
+          {
+            "q": "Wie setzen sich die Preise zusammen?",
+            "a": "Der Fixpreis richtet sich nach Fahrzeugklasse, Strecke oder Dauer. Fahrer, Fahrzeug und alle Nebenkosten sind bereits enthalten."
+          },
+          {
+            "q": "Gibt es versteckte Kosten oder Zuschläge?",
+            "a": "Nein. Der Preis, den Sie vor der Buchung sehen, ist der Preis, den Sie zahlen. Keine Wartekosten und keine Überraschungen."
+          },
+          {
+            "q": "Wie kann ich bezahlen?",
+            "a": "Bequem online per Kreditkarte, Apple Pay oder Google Pay. Die Bestätigung Ihrer Buchung erhalten Sie sofort."
+          },
+          {
+            "q": "Gibt es Konditionen für Firmen?",
+            "a": "Ja. Für Geschäftskunden mit regelmäßigem Bedarf richten wir feste Firmenkonditionen mit vereinfachter Abrechnung ein."
+          },
+          {
+            "q": "Wie bekomme ich einen Preis für eine Sonderfahrt?",
+            "a": "Für individuelle Routen, mehrere Stopps oder Gruppen erstellen wir ein persönliches Angebot. Erreichen Sie uns per WhatsApp oder E-Mail."
+          },
+          {
+            "q": "Ist der Preis pro Fahrt oder pro Person?",
+            "a": "Der Fixpreis gilt für das gebuchte Fahrzeug, nicht pro Person. So teilen sich mehrere Fahrgäste einen transparenten Gesamtpreis."
+          }
+        ],
+        "keywords": {
+          "primary": "Preise Chauffeur Wien",
+          "secondary": [
+            "Chauffeur Preise Wien",
+            "Limousine Preise Wien",
+            "Festpreis Chauffeur Wien"
+          ]
+        }
+      }
+    },
+    "hub": {
+      "slug": "fahrzeuge",
+      "name": "Fahrzeuge Hub",
+      "url": "/fahrzeuge/",
+      "type": "full",
+      "content": {
+        "metaTitle": "Fahrzeuge – Mercedes-Flotte mit Chauffeur Wien",
+        "metaDescription": "Unsere Fahrzeuge in Wien: Mercedes von E-Klasse bis Maybach, V-Klasse, VIP Minibus und 20-Sitzer Sprinter. Für jede Fahrt das passende Modell mit Fahrer.",
+        "hero": {
+          "title": "Unsere Fahrzeuge",
+          "sub": "Von der Business-Limousine bis zum 20-Sitzer Sprinter. Unsere gepflegte Mercedes-Flotte mit persönlichem Chauffeur für jeden Anlass in Wien."
+        },
+        "intro": {
+          "eyebrow": "Unsere Flotte",
+          "title": "Fahrzeuge Chauffeur Wien",
+          "body": "Unsere Fahrzeuge Chauffeur Wien decken jeden Bedarf: Jede Fahrt hat andere Ansprüche. Für den Geschäftstermin die repräsentative Limousine, für die Familie der geräumige Van, für die Gruppe der Sprinter. Alle Fahrzeuge sind gepflegt, klimatisiert und mit erfahrenem Chauffeur. Sie wählen das Modell, wir"
+        },
+        "benefit": {
+          "badge": {
+            "big": "20",
+            "sm": "max. Sitze"
+          },
+          "title": "Warum unsere Flotte überzeugt",
+          "body": "Ausschließlich gepflegte Mercedes-Fahrzeuge, regelmäßig gewartet und mit erfahrenem Chauffeur. Vom Einzelgast bis zur großen Gruppe finden Sie das passende Modell.",
+          "items": [
+            "Gepflegte Mercedes-Fahrzeuge jeder Klasse",
+            "Vom Einzelgast bis 20 Personen",
+            "Klimatisiert, sauber, bestens gewartet",
+            "Immer mit erfahrenem Chauffeur"
+          ]
+        },
+        "seo": {
+          "eyebrow": "Fahrzeuge mit Chauffeur",
+          "title": "Unsere Mercedes-Flotte mit Chauffeur für Wien und Umgebung",
+          "paragraphs": [
+            "Ein gutes Fahrzeug macht den Unterschied zwischen einer Fahrt und einem Erlebnis. Unsere Fahrzeuge Chauffeur Wien sind ausschließlich gepflegte Mercedes-Modelle, die wir regelmäßig warten und pflegen. Für den Geschäftstermin bringt Sie die E-Klasse oder die repräsentative S-Klasse stilvoll ans Ziel.",
+            "Wer das Besondere sucht, wählt den Maybach oder die vollelektrische EQE. Als Mercedes mit Chauffeur Wien bieten wir für Familien und kleinere Gruppen die V-Klasse, für größere Gruppen stehen VIP Minibus und der 20-Sitzer Sprinter bereit. In jedem Wagen steht Wasser bereit, auf Wunsch ein Kindersitz.",
+            "Welches Modell auch immer Sie wählen, es kommt mit einem erfahrenen, diskreten Chauffeur, der Wien kennt und vorausschauend fährt.",
+            "Unsere Limousine Flotte Wien sehen Sie bei der Buchung mit Fixpreis für Ihr Wunschfahrzeug, gebucht wird direkt über unser Online Buchungssystem, bezahlt bequem per Kreditkarte, Apple Pay oder Google Pay. Für Gruppen, Events oder regelmäßige Fahrten stellen wir Ihnen gern ein individuelles Angebot zusammen, erreichbar per WhatsApp oder E-Mail.",
+            "Für Gruppen, Events oder regelmäßige Fahrten stellen wir Ihnen gern ein individuelles Angebot zusammen, erreichbar per WhatsApp oder E-Mail.",
+            "So finden Sie schnell das Fahrzeug, das zu Ihrer Fahrt passt, vom einzelnen Gast bis zur großen Gruppe, und buchen es mit wenigen Klicks zum Fixpreis."
+          ]
+        },
+        "faq": [
+          {
+            "q": "Welche Fahrzeuge haben Sie im Angebot?",
+            "a": "Eine Mercedes-Flotte von E-Klasse und S-Klasse über Maybach und EQE bis V-Klasse, Vito, VIP Minibus und 20-Sitzer Sprinter."
+          },
+          {
+            "q": "Wie viele Personen passen maximal in ein Fahrzeug?",
+            "a": "Bis zu 20 Personen im Sprinter. Für kleinere Gruppen bieten V-Klasse und VIP Minibus komfortable Alternativen."
+          },
+          {
+            "q": "Sind alle Fahrzeuge mit Chauffeur?",
+            "a": "Ja. Jedes Fahrzeug kommt mit einem erfahrenen, diskreten Chauffeur. Eine Vermietung ohne Fahrer bieten wir nicht an."
+          },
+          {
+            "q": "Kann ich ein bestimmtes Modell wählen?",
+            "a": "Ja. Bei der Buchung wählen Sie Ihr Wunschfahrzeug und sehen den passenden Fixpreis sofort."
+          },
+          {
+            "q": "Gibt es Kindersitze?",
+            "a": "Ja, auf Wunsch stellen wir Kindersitze bereit. Geben Sie den Wunsch einfach bei der Buchung oder per WhatsApp an."
+          },
+          {
+            "q": "Sind Elektrofahrzeuge verfügbar?",
+            "a": "Ja. Mit der vollelektrischen Mercedes EQE bieten wir eine komfortable und emissionsfreie Option für Ihre Fahrten in Wien."
+          }
+        ],
+        "keywords": {
+          "primary": "Fahrzeuge Chauffeur Wien",
+          "secondary": [
+            "Mercedes mit Chauffeur Wien",
+            "Limousine Flotte Wien",
+            "Chauffeur Fahrzeuge Wien"
+          ]
+        }
+      }
+    },
+    "buchung": {
+      "slug": "online-buchung",
+      "name": "Online Buchung",
+      "url": "/online-buchung/",
+      "type": "meta",
+      "content": {
+        "metaTitle": "Online Buchung – Chauffeur Wien sofort buchen",
+        "metaDescription": "Chauffeur in Wien online buchen: Fahrzeug wählen, Fixpreis sehen, per Karte, Apple Pay oder Google Pay zahlen. Sofortige Bestätigung, rund um die Uhr.",
+        "keywords": {
+          "primary": "Chauffeur online buchen Wien",
+          "secondary": [
+            "Chauffeur buchen Wien",
+            "Limousine online buchen Wien"
+          ]
+        }
+      }
+    },
+    "kontakt": {
+      "slug": "kontakt",
+      "name": "Kontakt",
+      "url": "/kontakt/",
+      "type": "meta",
+      "content": {
+        "metaTitle": "Kontakt – Vienna Grand Chauffeurs Wien buchen",
+        "metaDescription": "Kontakt zu Vienna Grand Chauffeurs in Wien: per Telefon, WhatsApp oder E-Mail. Für Buchungen, Firmenkonditionen und individuelle Anfragen rund um die Uhr.",
+        "keywords": {
+          "primary": "Chauffeur Wien Kontakt",
+          "secondary": [
+            "Vienna Grand Chauffeurs Kontakt"
+          ]
+        }
+      }
+    },
+    "m_s-klasse": {
+      "slug": "s-klasse",
+      "name": "S-Klasse",
+      "url": "/fahrzeuge/s-klasse/",
+      "type": "model",
+      "content": {
+        "metaTitle": "Mercedes S-Klasse mit Chauffeur Wien mieten",
+        "metaDescription": "Mercedes S-Klasse mit Chauffeur in Wien: First-Class-Limousine für Geschäftstermine und besondere Anlässe. Fixpreis, diskret, online buchbar.",
+        "hero": {
+          "title": "Mercedes S-Klasse",
+          "sub": "Die First-Class-Limousine mit Chauffeur. Höchster Komfort und Diskretion für Geschäftstermine und besondere Anlässe in Wien. Den Fixpreis sehen Sie"
+        },
+        "overview": {
+          "titleLead": "First Class auf",
+          "titleAccent": "jeder Fahrt",
+          "body": "Wer die S-Klasse mieten Wien und Umgebung möchte, wählt unsere repräsentativste Limousine. Viel Beinfreiheit, ruhiger Lauf und eine Ausstattung, die auch lange Fahrten angenehm macht. Ideal für Geschäftskunden, die Wert auf Komfort und ein souveränes Auftreten legen. Bis zu drei Passagiere reisen"
+        },
+        "seo": {
+          "eyebrow": "Mercedes S-Klasse Wien",
+          "title": "Ihre Mercedes S-Klasse mit Chauffeur für Wien und Umgebung und",
+          "paragraphs": [
+            "Wenn es auf einen souveränen Auftritt ankommt, ist die Mercedes S-Klasse mit Fahrer Wien die richtige Wahl.",
+            "Als Oberklasse-Limousine verbindet sie ruhigen Lauf, großzügigen Platz und eine hochwertige Ausstattung, die jede Fahrt angenehm macht.",
+            "Ob Fahrt zum Geschäftstermin, zum Flughafen oder zu einem festlichen Anlass: Sie reisen komfortabel und werden diskret und pünktlich ans Ziel gebracht. In der S-Klasse steht Wasser für Sie bereit, auf Wunsch auch ein Kindersitz.",
+            "Sie buchen die S-Klasse direkt über unser Online Buchungssystem, sehen den Fixpreis sofort und bezahlen bequem per Kreditkarte, Apple Pay oder Google Pay.",
+            "Für regelmäßige Geschäftsfahrten richten wir feste Firmenkonditionen ein, sodass wiederkehrende Termine reibungslos und planbar bleiben.",
+            "Ob einzelne Fahrt oder ganztägige Begleitung, Ihr Chauffeur bringt Sie souverän ans Ziel, während Sie die Zeit im Fond für sich nutzen."
+          ]
+        },
+        "faq": [
+          {
+            "q": "Für wie viele Personen ist die S-Klasse geeignet?",
+            "a": "Für bis zu drei Passagiere mit Gepäck. Für größere Gruppen empfehlen wir V-Klasse, VIP Minibus oder Sprinter."
+          },
+          {
+            "q": "Wofür eignet sich die S-Klasse besonders?",
+            "a": "Für Geschäftstermine, Flughafentransfers und besondere Anlässe, bei denen Komfort und ein repräsentatives Auftreten zählen."
+          },
+          {
+            "q": "Wie buche ich die S-Klasse mit Chauffeur?",
+            "a": "Über unser Online Buchungssystem: Fahrzeug wählen, Fixpreis sehen, sofort bestätigt. Für Sonderwünsche per WhatsApp oder E-Mail."
+          }
+        ],
+        "keywords": {
+          "primary": "Mercedes S-Klasse Chauffeur Wien",
+          "secondary": [
+            "S-Klasse mieten Wien",
+            "Mercedes S-Klasse mit Fahrer Wien",
+            "Luxuslimousine Wien"
+          ]
+        }
+      }
+    },
+    "m_e-klasse": {
+      "slug": "e-klasse",
+      "name": "E-Klasse",
+      "url": "/fahrzeuge/e-klasse/",
+      "type": "model",
+      "content": {
+        "metaTitle": "Mercedes E-Klasse mit Chauffeur Wien mieten",
+        "metaDescription": "Mercedes E-Klasse mit Chauffeur in Wien: komfortable Business-Limousine für Termine und Transfers. Fixpreis, zuverlässig, online buchbar.",
+        "hero": {
+          "title": "Mercedes E-Klasse",
+          "sub": "Die Business-Limousine mit Chauffeur. Komfortabel und zuverlässig für Termine, Transfers und den geschäftlichen Alltag in Wien. Zuverlässig und stets"
+        },
+        "overview": {
+          "titleLead": "Komfort für",
+          "titleAccent": "den Businessalltag",
+          "body": "Wer die E-Klasse mieten Wien und Umgebung möchte, erhält die ideale Business-Limousine: komfortabel, elegant und sparsam zugleich. Sie bietet bis zu drei Passagieren viel Platz und eignet sich perfekt für Geschäftstermine, Flughafentransfers und den täglichen Bedarf. Ein bewährtes, gepflegtes"
+        },
+        "seo": {
+          "eyebrow": "Mercedes E-Klasse Wien",
+          "title": "Ihre Mercedes E-Klasse mit Chauffeur für Wien und Umgebung und Ihren",
+          "paragraphs": [
+            "Die Mercedes E-Klasse mit Fahrer Wien ist der Klassiker unter den Business-Limousinen und unser vielseitigstes Fahrzeug.",
+            "Sie verbindet Komfort, elegantes Design und Zuverlässigkeit und passt zu fast jedem Anlass, vom Geschäftstermin über den Flughafentransfer bis zur Fahrt am Abend.",
+            "Bis zu drei Passagiere reisen bequem, der Innenraum ist ruhig und gepflegt. Wasser steht bereit, auf Wunsch ein Kindersitz.",
+            "Sie buchen die E-Klasse direkt über unser Online Buchungssystem, sehen den Fixpreis vorab und zahlen bequem per Kreditkarte, Apple Pay oder Google Pay.",
+            "Gerade für Firmen ist die E-Klasse die wirtschaftliche Wahl für den Alltag, mit festen Konditionen für regelmäßige Fahrten und Kundenbesuche.",
+            "So verbinden Sie zuverlässigen Business-Komfort mit einem fairen Preis und einem Fahrer, der Wien kennt und vorausschauend ans Ziel bringt."
+          ]
+        },
+        "faq": [
+          {
+            "q": "Für wie viele Personen ist die E-Klasse geeignet?",
+            "a": "Für bis zu drei Passagiere mit Gepäck. Für mehr Platz bieten sich V-Klasse oder VIP Minibus an."
+          },
+          {
+            "q": "Wofür eignet sich die E-Klasse?",
+            "a": "Für Geschäftstermine, Flughafentransfers und den täglichen Bedarf. Ein komfortables, zuverlässiges Fahrzeug für fast jeden Anlass."
+          },
+          {
+            "q": "Wie buche ich die E-Klasse?",
+            "a": "Über unser Online Buchungssystem mit sofortiger Bestätigung. Für individuelle Wünsche erreichen Sie uns per WhatsApp oder E-Mail."
+          }
+        ],
+        "keywords": {
+          "primary": "Mercedes E-Klasse Chauffeur Wien",
+          "secondary": [
+            "E-Klasse mieten Wien",
+            "Mercedes E-Klasse mit Fahrer Wien",
+            "Business Limousine Wien"
+          ]
+        }
+      }
+    },
+    "m_maybach": {
+      "slug": "maybach",
+      "name": "Maybach",
+      "url": "/fahrzeuge/maybach/",
+      "type": "model",
+      "content": {
+        "metaTitle": "Mercedes-Maybach mit Chauffeur in Wien mieten",
+        "metaDescription": "Mercedes-Maybach mit Chauffeur in Wien: das Flaggschiff für exklusive Fahrten und höchste Ansprüche. Diskret, luxuriös, auf Anfrage buchbar.",
+        "hero": {
+          "title": "Mercedes-Maybach",
+          "sub": "Das Flaggschiff mit Chauffeur. Für exklusive Anlässe und höchste Ansprüche an Komfort, Ausstattung und Diskretion in Wien. Für Anlässe, die Eindruck"
+        },
+        "overview": {
+          "titleLead": "Luxus in seiner",
+          "titleAccent": "reinsten Form",
+          "body": "Wer einen Maybach mieten Wien und Umgebung möchte, wählt unser exklusivstes Fahrzeug. Er bietet ein Höchstmaß an Komfort, edle Materialien und eine Ausstattung, die auch anspruchsvollste Gäste überzeugt. Ideal für besondere Anlässe, VIP-Gäste und Fahrten, bei denen jedes Detail zählt."
+        },
+        "seo": {
+          "eyebrow": "Mercedes-Maybach Wien",
+          "title": "Ihr Mercedes-Maybach mit Chauffeur für Wien und Umgebung und exklusive",
+          "paragraphs": [
+            "Der Maybach mit Fahrer Wien steht für Luxus ohne Kompromisse. Wer für besondere Anlässe, wichtige Gäste oder einen unvergesslichen Abend das Beste sucht, findet in diesem Flaggschiff die richtige Wahl.",
+            "Edelste Materialien, außergewöhnlicher Komfort und eine ruhige, souveräne Fahrweise machen jede Strecke zu einem Erlebnis. Ihr Chauffeur ist besonders diskret und auf höchste Ansprüche eingestellt.",
+            "Da der Maybach ein exklusives Fahrzeug ist, planen wir Ihre Fahrt gern persönlich mit Ihnen, erreichbar per WhatsApp oder E-Mail.",
+            "Da der Maybach ein exklusives Fahrzeug ist, planen wir jede Fahrt persönlich mit Ihnen und stimmen Ablauf, Route und Wünsche im Vorfeld ab.",
+            "Für Empfänge, Hochzeiten oder die Betreuung wichtiger Gäste ist der Maybach die erste Wahl, wenn Diskretion und ein besonderer Auftritt zählen.",
+            "Erreichen Sie uns einfach per WhatsApp oder E-Mail, und wir stellen Ihnen ein individuelles Angebot für Ihren Anlass zusammen."
+          ]
+        },
+        "faq": [
+          {
+            "q": "Für wie viele Personen ist der Maybach geeignet?",
+            "a": "Für bis zu drei Passagiere. Der Maybach ist auf höchsten Komfort für wenige Gäste ausgelegt."
+          },
+          {
+            "q": "Wofür eignet sich der Maybach?",
+            "a": "Für VIP-Gäste, besondere Anlässe und Fahrten, bei denen Exklusivität, Komfort und Diskretion an erster Stelle stehen."
+          },
+          {
+            "q": "Wie buche ich den Maybach?",
+            "a": "Da es ein exklusives Fahrzeug ist, planen wir Ihre Fahrt persönlich. Erreichen Sie uns per WhatsApp oder E-Mail für ein Angebot."
+          }
+        ],
+        "keywords": {
+          "primary": "Mercedes-Maybach Chauffeur Wien",
+          "secondary": [
+            "Maybach mieten Wien",
+            "Maybach mit Fahrer Wien",
+            "VIP Limousine Wien"
+          ]
+        }
+      }
+    },
+    "m_eqe": {
+      "slug": "eqe",
+      "name": "EQE",
+      "url": "/fahrzeuge/eqe/",
+      "type": "model",
+      "content": {
+        "metaTitle": "Mercedes EQE elektrisch mit Chauffeur Wien",
+        "metaDescription": "Mercedes EQE mit Chauffeur in Wien: vollelektrische Business-Limousine, leise und emissionsfrei. Komfortabel, nachhaltig, online buchbar.",
+        "hero": {
+          "title": "Mercedes EQE",
+          "sub": "Die vollelektrische Business-Limousine mit Chauffeur. Leise, emissionsfrei und komfortabel für nachhaltige Fahrten in Wien. Leise, sauber und"
+        },
+        "overview": {
+          "titleLead": "Elektrisch und",
+          "titleAccent": "komfortabel",
+          "body": "Wer die EQE mieten Wien und Umgebung möchte, erhält unsere vollelektrische Business-Limousine. Sie fährt nahezu geräuschlos, lokal emissionsfrei und bietet dabei den gewohnten Komfort der Oberklasse. Ideal für Gäste, die Wert auf Nachhaltigkeit legen, ohne auf Platz zu verzichten."
+        },
+        "seo": {
+          "eyebrow": "Mercedes EQE Wien",
+          "title": "Ihre vollelektrische Mercedes EQE mit Chauffeur für Wien und Umgebung",
+          "paragraphs": [
+            "Mit der Elektro Limousine mit Fahrer Wien verbinden Sie Komfort und Verantwortung.",
+            "Die vollelektrische Mercedes EQE fährt nahezu lautlos und lokal emissionsfrei, was jede Fahrt besonders ruhig und angenehm macht.",
+            "Trotz Elektroantrieb müssen Sie auf nichts verzichten: Der Innenraum ist großzügig, hochwertig und leise. Für Unternehmen mit Nachhaltigkeitszielen ist die EQE die ideale Wahl für Termine und Transfers.",
+            "Sie buchen die EQE direkt über unser Online Buchungssystem, sehen den Fixpreis sofort und bezahlen bequem und papierlos per Kreditkarte, Apple Pay oder Google Pay.",
+            "In der EQE steht Wasser für Sie bereit, auf Wunsch auch ein Kindersitz, und der leise Innenraum macht Telefonate und konzentriertes Arbeiten unterwegs angenehm.",
+            "So reisen Sie klimafreundlich und komfortabel zugleich, mit einem Fahrer, der Wien kennt und Sie zuverlässig ans Ziel bringt."
+          ]
+        },
+        "faq": [
+          {
+            "q": "Ist die EQE wirklich vollelektrisch?",
+            "a": "Ja. Die Mercedes EQE fährt rein elektrisch, lokal emissionsfrei und besonders leise, ohne Komforteinbußen gegenüber der Oberklasse."
+          },
+          {
+            "q": "Für wen eignet sich die EQE?",
+            "a": "Für Gäste und Unternehmen, die Wert auf Nachhaltigkeit legen und dennoch komfortabel und repräsentativ unterwegs sein möchten."
+          },
+          {
+            "q": "Wie buche ich die EQE?",
+            "a": "Über unser Online Buchungssystem mit sofortiger Bestätigung. Für Firmenkonditionen erreichen Sie uns per WhatsApp oder E-Mail."
+          }
+        ],
+        "keywords": {
+          "primary": "Mercedes EQE Chauffeur Wien",
+          "secondary": [
+            "EQE mieten Wien",
+            "Elektro Limousine mit Fahrer Wien",
+            "Elektro Chauffeur Wien"
+          ]
+        }
+      }
+    },
+    "m_v-klasse": {
+      "slug": "v-klasse",
+      "name": "V-Klasse",
+      "url": "/fahrzeuge/v-klasse/",
+      "type": "model",
+      "content": {
+        "metaTitle": "Mercedes V-Klasse mit Chauffeur Wien mieten",
+        "metaDescription": "Mercedes V-Klasse mit Chauffeur in Wien: geräumiger Van für Familien und kleine Gruppen bis 7 Personen. Komfortabel, flexibel, online buchbar.",
+        "hero": {
+          "title": "Mercedes V-Klasse",
+          "sub": "Der geräumige Van mit Chauffeur. Viel Platz für Familien und kleine Gruppen bis zu sieben Personen in Wien. Alle reisen bequem zusammen."
+        },
+        "overview": {
+          "titleLead": "Platz für",
+          "titleAccent": "die ganze Gruppe",
+          "body": "Wer die V-Klasse mieten Wien und Umgebung möchte, erhält Raum für bis zu sieben Passagiere samt Gepäck. Ideal für Familien, kleine Gruppen oder Geschäftsteams, die gemeinsam reisen möchten. Bequeme Einzelsitze, viel Kopffreiheit und ein flexibler Innenraum machen auch längere Fahrten angenehm."
+        },
+        "seo": {
+          "eyebrow": "Mercedes V-Klasse Wien",
+          "title": "Ihre Mercedes V-Klasse mit Chauffeur für Wien und Umgebung und Ihre",
+          "paragraphs": [
+            "Wenn mehrere Personen gemeinsam reisen, ist der Minivan mit Fahrer Wien die komfortable Lösung. Die Mercedes V-Klasse bietet Platz für bis zu sieben Passagiere und deren Gepäck, ohne dass es eng wird.",
+            "Bequeme Sitze und ein flexibler Innenraum machen sie ideal für Familien, kleine Reisegruppen oder Geschäftsteams.",
+            "Ob Flughafentransfer mit viel Gepäck, Ausflug oder gemeinsame Fahrt zum Termin: Alle reisen zusammen und entspannt.",
+            "In der V-Klasse steht Wasser bereit, auf Wunsch stellen wir mehrere Kindersitze, sodass auch Familien entspannt gemeinsam unterwegs sind.",
+            "Sie buchen den Van direkt über unser Online Buchungssystem, sehen den Fixpreis vorab und zahlen bequem per Kreditkarte, Apple Pay oder Google Pay.",
+            "So kommt Ihre Gruppe zusammen und ohne Umsteigen ans Ziel, während sich Ihr Chauffeur um Route, Gepäck und Parken kümmert."
+          ]
+        },
+        "faq": [
+          {
+            "q": "Für wie viele Personen ist die V-Klasse geeignet?",
+            "a": "Für bis zu sieben Passagiere samt Gepäck. Für größere Gruppen bieten sich VIP Minibus oder Sprinter an."
+          },
+          {
+            "q": "Wofür eignet sich die V-Klasse?",
+            "a": "Für Familien, kleine Gruppen und Teams, für Flughafentransfers mit viel Gepäck sowie gemeinsame Ausflüge und Termine."
+          },
+          {
+            "q": "Sind Kindersitze möglich?",
+            "a": "Ja, auf Wunsch stellen wir mehrere Kindersitze bereit. Geben Sie den Wunsch bei der Buchung oder per WhatsApp an."
+          }
+        ],
+        "keywords": {
+          "primary": "Mercedes V-Klasse Chauffeur Wien",
+          "secondary": [
+            "V-Klasse mieten Wien",
+            "Minivan mit Fahrer Wien",
+            "Van Chauffeur Wien"
+          ]
+        }
+      }
+    },
+    "m_vito": {
+      "slug": "vito",
+      "name": "Vito",
+      "url": "/fahrzeuge/vito/",
+      "type": "model",
+      "content": {
+        "metaTitle": "Mercedes Vito mit Chauffeur in Wien mieten",
+        "metaDescription": "Mercedes Vito mit Chauffeur in Wien: praktischer Van für Gruppen bis 8 Personen und viel Gepäck. Zuverlässig, geräumig, online buchbar.",
+        "hero": {
+          "title": "Mercedes Vito",
+          "sub": "Der praktische Van mit Chauffeur. Viel Platz für Gruppen bis zu acht Personen und reichlich Gepäck in Wien. Viel Raum für Gruppe und Gepäck."
+        },
+        "overview": {
+          "titleLead": "Praktisch und",
+          "titleAccent": "geräumig",
+          "body": "Wer den Vito mieten Wien und Umgebung möchte, erhält den praktischen Allrounder unter unseren Vans. Er bietet Platz für bis zu acht Passagiere und viel Gepäck, ideal für Gruppen, Transfers und Ausflüge. Robust, zuverlässig und geräumig bringt er alle gemeinsam und entspannt ans Ziel, ohne dass es"
+        },
+        "seo": {
+          "eyebrow": "Mercedes Vito Wien",
+          "title": "Ihr Mercedes Vito mit Chauffeur für Wien und Umgebung und Ihre Gruppe",
+          "paragraphs": [
+            "Der Vito mit Fahrer Wien ist unser praktischer Van für alle, die viel Platz brauchen.",
+            "Mit Raum für bis zu acht Passagiere und reichlich Gepäck eignet er sich hervorragend für Gruppen, Vereinsausflüge oder Transfers mit viel Reisegepäck.",
+            "Er ist robust, zuverlässig und wirtschaftlich, ohne dass Ihre Gäste auf Komfort verzichten müssen. Alle reisen gemeinsam, entspannt und koordiniert. Wasser steht bereit, auf Wunsch Kindersitze.",
+            "Sie buchen den Vito direkt über unser Online Buchungssystem oder per Anfrage, sehen den Fixpreis vorab und zahlen bequem per Kreditkarte, Apple Pay oder Google Pay.",
+            "Für Vereinsausflüge, Firmenfahrten oder Transfers mit viel Gepäck ist der Vito die praktische und wirtschaftliche Lösung für größere Gruppen.",
+            "Für regelmäßige Fahrten richten wir feste Konditionen ein, für besondere Wünsche erreichen Sie uns jederzeit per WhatsApp oder E-Mail."
+          ]
+        },
+        "faq": [
+          {
+            "q": "Für wie viele Personen ist der Vito geeignet?",
+            "a": "Für bis zu acht Passagiere samt Gepäck. Für noch größere Gruppen empfehlen wir VIP Minibus oder Sprinter."
+          },
+          {
+            "q": "Worin unterscheidet sich der Vito von der V-Klasse?",
+            "a": "Der Vito ist etwas schlichter ausgestattet und besonders wirtschaftlich, während die V-Klasse mehr Komfort im Detail bietet."
+          },
+          {
+            "q": "Wie buche ich den Vito?",
+            "a": "Über unser Online Buchungssystem oder per Anfrage. Für Gruppen und Sonderwünsche erreichen Sie uns per WhatsApp oder E-Mail."
+          }
+        ],
+        "keywords": {
+          "primary": "Mercedes Vito Chauffeur Wien",
+          "secondary": [
+            "Vito mieten Wien",
+            "Vito mit Fahrer Wien",
+            "Gruppentransfer Van Wien"
+          ]
+        }
+      }
+    },
+    "m_vip-minibus": {
+      "slug": "vip-minibus",
+      "name": "VIP Minibus",
+      "url": "/fahrzeuge/vip-minibus/",
+      "type": "model",
+      "content": {
+        "metaTitle": "VIP Minibus mit Chauffeur in Wien mieten",
+        "metaDescription": "VIP Minibus mit Chauffeur in Wien: komfortabler Kleinbus für Gruppen bis 12 Personen. Ideal für Events und Ausflüge. Jetzt anfragen.",
+        "hero": {
+          "title": "VIP Minibus",
+          "sub": "Der komfortable Kleinbus mit Chauffeur. Viel Platz und Komfort für Gruppen bis zu zwölf Personen in Wien. Alle bleiben komfortabel zusammen."
+        },
+        "overview": {
+          "titleLead": "Komfort für",
+          "titleAccent": "größere Gruppen",
+          "body": "Wer einen Kleinbus mieten Wien und Umgebung möchte, findet im VIP Minibus die komfortable Lösung. Bis zu zwölf Passagiere reisen bequem und gemeinsam, mit angenehmen Sitzen und viel Platz für Gepäck. Ideal für Firmenausflüge, Hochzeitsgesellschaften oder Reisegruppen, die zusammenbleiben möchten."
+        },
+        "seo": {
+          "eyebrow": "VIP Minibus Wien",
+          "title": "Ihr VIP Minibus mit Chauffeur für Wien und Umgebung und Ihre",
+          "paragraphs": [
+            "Wenn eine größere Gruppe gemeinsam und komfortabel reisen möchte, ist der Minibus mit Fahrer Wien die richtige Wahl.",
+            "Mit Platz für bis zu zwölf Passagiere verbindet er die Gemeinschaft einer Gruppenfahrt mit dem Komfort eines gehobenen Fahrzeugs.",
+            "Bequeme Sitze, Klimatisierung und viel Stauraum machen ihn ideal für Firmenausflüge, Hochzeiten oder Reisegruppen. Alle bleiben zusammen, niemand verfährt sich, und Ihr Chauffeur kümmert sich um die Strecke.",
+            "Da Gruppenfahrten oft individuelle Planung brauchen, stimmen wir Route, Abholzeiten und Zwischenstopps im Vorfeld persönlich mit Ihnen ab.",
+            "Sie erreichen uns dazu jederzeit per WhatsApp oder E-Mail und erhalten zügig ein transparentes Angebot mit Fixpreis für die gesamte Gruppe.",
+            "So wird der VIP Minibus zur entspannten Lösung für alle, die zusammen ankommen möchten, ohne sich um Organisation oder Parkplätze zu kümmern."
+          ]
+        },
+        "faq": [
+          {
+            "q": "Für wie viele Personen ist der VIP Minibus geeignet?",
+            "a": "Für bis zu zwölf Passagiere samt Gepäck. Für noch größere Gruppen steht der 20-Sitzer Sprinter bereit."
+          },
+          {
+            "q": "Wofür eignet sich der VIP Minibus?",
+            "a": "Für Firmenausflüge, Hochzeitsgesellschaften, Vereins- und Reisegruppen, die gemeinsam und komfortabel unterwegs sein möchten."
+          },
+          {
+            "q": "Wie buche ich den VIP Minibus?",
+            "a": "Am besten per Anfrage mit Details zu Gruppe und Anlass. Sie erhalten zügig ein Angebot, erreichbar per WhatsApp oder E-Mail."
+          }
+        ],
+        "keywords": {
+          "primary": "VIP Minibus Chauffeur Wien",
+          "secondary": [
+            "Kleinbus mieten Wien",
+            "Minibus mit Fahrer Wien",
+            "Gruppentransfer Wien"
+          ]
+        }
+      }
+    },
+    "m_business-sprinter": {
+      "slug": "business-sprinter",
+      "name": "Business Sprinter",
+      "url": "/fahrzeuge/business-sprinter/",
+      "type": "model",
+      "content": {
+        "metaTitle": "Business Sprinter mit Chauffeur Wien mieten",
+        "metaDescription": "Business Sprinter mit Chauffeur in Wien: 20-Sitzer für große Gruppen, Events und Delegationen. Viel Platz, ein Fahrer. Jetzt anfragen. Ein Fahrzeug für",
+        "hero": {
+          "title": "Business Sprinter",
+          "sub": "Der 20-Sitzer mit Chauffeur. Maximaler Platz für große Gruppen, Events und Delegationen in Wien und darüber hinaus. Eine Gruppe, ein Fahrzeug, ein"
+        },
+        "overview": {
+          "titleLead": "Die ganze Gruppe",
+          "titleAccent": "an Bord",
+          "body": "Wer den Sprinter mieten Wien und Umgebung möchte, erhält unser größtes Fahrzeug mit Platz für bis zu zwanzig Passagiere. Ideal für große Gruppen, Firmenevents, Delegationen und Reisegesellschaften. Statt mehrerer Fahrzeuge reisen alle gemeinsam in einem, koordiniert und pünktlich."
+        },
+        "seo": {
+          "eyebrow": "Business Sprinter Wien",
+          "title": "Ihr Business Sprinter mit Chauffeur für Wien und Umgebung und große",
+          "paragraphs": [
+            "Der 20-Sitzer mit Fahrer Wien ist die Lösung, wenn wirklich viele Menschen gemeinsam ans Ziel müssen.",
+            "Mit bis zu zwanzig Sitzplätzen bringt der Business Sprinter ganze Gruppen, Firmenteams oder Delegationen in einem einzigen Fahrzeug unter, statt sie auf mehrere Wagen zu verteilen.",
+            "Das spart Koordination, hält alle zusammen und sorgt für einen pünktlichen, gemeinsamen Ablauf. Reichlich Stauraum nimmt auch viel Gepäck auf, und der erfahrene Chauffeur kennt die besten Wege.",
+            "Da große Gruppenfahrten individuelle Planung brauchen, stimmen wir Route, Abholpunkte und Zeitplan im Vorfeld persönlich mit Ihnen ab.",
+            "Für Firmenevents, Delegationen oder Reisegruppen erstellen wir Ihnen ein transparentes Angebot mit Fixpreis für das gesamte Fahrzeug.",
+            "Erreichen Sie uns einfach per WhatsApp oder E-Mail, und Ihre ganze Gruppe reist gemeinsam, koordiniert und pünktlich ans Ziel."
+          ]
+        },
+        "faq": [
+          {
+            "q": "Für wie viele Personen ist der Sprinter geeignet?",
+            "a": "Für bis zu zwanzig Passagiere samt Gepäck. Damit ist er unser größtes Fahrzeug für Gruppentransfers."
+          },
+          {
+            "q": "Wofür eignet sich der Business Sprinter?",
+            "a": "Für große Gruppen, Firmenevents, Delegationen und Reisegesellschaften, die gemeinsam in einem Fahrzeug reisen möchten."
+          },
+          {
+            "q": "Wie buche ich den Sprinter?",
+            "a": "Am besten per Anfrage mit Details zu Gruppe, Strecke und Anlass. Sie erhalten zügig ein Angebot per WhatsApp oder E-Mail."
+          }
+        ],
+        "keywords": {
+          "primary": "Business Sprinter Chauffeur Wien",
+          "secondary": [
+            "Sprinter mieten Wien",
+            "20-Sitzer mit Fahrer Wien",
+            "Gruppentransfer Sprinter Wien"
+          ]
+        }
+      }
+    }
+  },
+  "en": {
+    "home": {
+      "slug": "/en/",
+      "name": "Home",
+      "url": "/en/",
+      "type": "home",
+      "content": {
+        "metaTitle": "Chauffeur Service Vienna – Limousine & Transfer",
+        "metaDescription": "Chauffeur service in Vienna: airport transfers, limousines and long-distance rides at a fixed price. Discreet, punctual, around the clock. Book online now.",
+        "hero": {
+          "title": "Your Chauffeur Service in Vienna",
+          "sub": "Discreet, punctual and reliable across Vienna and beyond."
+        },
+        "benefits": {
+          "eyebrow": "Why Vienna Grand",
+          "title": "A chauffeur in Vienna you can count on",
+          "intro": "You ride with a fixed team of trained chauffeurs who know Vienna well, plan your route ahead and are always there on time. That leaves your mind free for what truly matters."
+        },
+        "content": {
+          "title": "From airport transfer to long-distance, all included",
+          "col1": [
+            "Whether it is a pickup at Vienna Airport, a meeting in the city or a longer ride, we bring you to your destination safely and in comfort. Our fleet ranges from the business limousine to the 20-seater Sprinter for larger groups.",
+            "For every trip you pick the right vehicle and book it directly online. Your chauffeur is waiting at the agreed time, knows the route and gets you there calmly. On request, the same driver is available for every ride, which builds trust and makes each journey feel familiar.",
+            "Payment is easy, by credit card, Apple Pay or Google Pay. You see the fixed price in advance, with no hidden costs."
+          ],
+          "col2": [
+            "Anyone who needs a chauffeur for a few hours simply books by the hour. For events or delegations you send a group request and receive a quote within a few hours.",
+            "That is how straightforward your chauffeur service in Vienna is. From the first contact to arrival we take care of every detail of your ride, so you can lean back and use the time for yourself.",
+            "In every car you will find water, and your driver is happy to help with your luggage and knows the quickest routes through the city, so you always arrive relaxed and on time."
+          ]
+        },
+        "faq": [
+          {
+            "q": "What does a chauffeur service in Vienna cost?",
+            "a": "The price depends on vehicle, duration and route. You see the fixed price before booking, including driver, vehicle and all extras."
+          },
+          {
+            "q": "Can I book and pay online?",
+            "a": "Yes. You choose your vehicle, see the price and pay by credit card, Apple Pay or Google Pay. Confirmation is immediate."
+          },
+          {
+            "q": "Are you available around the clock?",
+            "a": "Yes, our chauffeur service in Vienna is available 24 hours a day, including weekends and holidays. We recommend booking ahead."
+          },
+          {
+            "q": "Do you offer rides for groups?",
+            "a": "Yes. From the van to the 20-seater Sprinter, we bring larger groups to their destination reliably. Simply send a request."
+          },
+          {
+            "q": "Do you also drive outside Vienna?",
+            "a": "Yes, we handle long-distance rides across Austria and to neighbouring countries such as Bratislava, Prague or Budapest."
+          },
+          {
+            "q": "How far in advance should I book?",
+            "a": "For airport transfers a few hours often suffice. For groups, events or multi-day trips we recommend booking early."
+          }
+        ],
+        "keywords": {
+          "primary": "chauffeur service vienna",
+          "secondary": [
+            "chauffeur vienna",
+            "private driver vienna",
+            "vip transfer vienna",
+            "limousine service vienna"
+          ]
+        }
+      }
+    },
+    "air": {
+      "slug": "airport-transfer-vienna",
+      "name": "Airport Transfer",
+      "url": "/en/services/airport-transfer-vienna/",
+      "type": "service",
+      "content": {
+        "metaTitle": "Vienna Airport Transfer – Fixed Price from VIE",
+        "metaDescription": "Vienna airport transfer at a fixed price: pickup at Vienna Airport, flight tracking and discreet drivers. Around the clock. Book your transfer online now.",
+        "hero": {
+          "title": "Vienna Airport",
+          "sub": "Punctual pickup at Vienna Airport and in the city. Fixed price, flight tracking and a driver who waits for you and brings you to your destination."
+        },
+        "intro": {
+          "eyebrow": "Your transfer",
+          "title": "Relaxed to Vienna Airport",
+          "body": "Your chauffeur picks you up at home, at your hotel or at the terminal and brings you safely to your destination. We track your flight in real time and adjust the pickup time automatically if it is delayed. No waiting in the taxi queue, no stress with luggage. You get in and arrive relaxed."
+        },
+        "benefit": {
+          "badge": {
+            "big": "24h",
+            "sm": "at your"
+          },
+          "title": "Why your transfer fits with us",
+          "body": "Fixed drivers, transparent prices and a process built to be simple. You book online, see the price at once and receive your confirmation without waiting for a quote.",
+          "items": [
+            "Pickup at Vienna Airport and in the city",
+            "Fixed price, no hidden costs",
+            "Flight tracking and automatic adjustment",
+            "Book online, confirmed instantly"
+          ]
+        },
+        "seo": {
+          "eyebrow": "Vienna Airport",
+          "title": "Your reliable airport transfer to and from Vienna Airport",
+          "paragraphs": [
+            "A flight is tiring enough on its own. The transfer to or from Vienna Airport should be the easy part, and with us it is. Your chauffeur is there on time, helps with your luggage and knows the fastest way into the city or out to Schwechat.",
+            "We track your flight, so even if it arrives early or late, your driver is waiting, not the other way around. Water is on board, and a child seat is available on request. Instead of queuing for a taxi after a long journey, you step straight into a clean, comfortable Mercedes and arrive relaxed.",
+            "Booking is just as simple. You enter your route, choose your vehicle, see the fixed price and book directly through our online booking system.",
+            "Payment is by credit card, Apple Pay or Google Pay, and confirmation is immediate. Unlike providers where you first send a request and wait for a quote, you know exactly what the ride costs in advance, with no surcharges for waiting time.",
+            "The price you see is the price you pay. For business clients we set up fixed corporate terms for regular airport runs. If you have a special request, such as several stops or a group pickup, you can reach us any time by WhatsApp or email. That way your airport transfer is one thing you never have to worry about.",
+            "For business clients we set up fixed corporate terms for regular airport runs, and for special requests such as several stops or a group pickup you can reach us any time by WhatsApp or email."
+          ]
+        },
+        "faq": [
+          {
+            "q": "How much does a Vienna airport transfer cost?",
+            "a": "You pay a fixed price that you see before booking, including driver and all extras. No taxi meter and no surcharges for waiting."
+          },
+          {
+            "q": "What happens if my flight is delayed?",
+            "a": "We track your flight in real time and adjust the pickup automatically. Your driver waits for you at no extra charge."
+          },
+          {
+            "q": "Where does the driver wait at the airport?",
+            "a": "Your chauffeur meets you at the arrivals area and helps with your luggage. On request we arrange a personal name sign."
+          },
+          {
+            "q": "Can I book a transfer for several people?",
+            "a": "Yes. From the van to the 20-seater Sprinter we cover groups of any size. Simply choose the right vehicle when booking."
+          },
+          {
+            "q": "How do I pay for the transfer?",
+            "a": "Conveniently online by credit card, Apple Pay or Google Pay. Your confirmation arrives immediately after booking."
+          },
+          {
+            "q": "Do you also drive to other airports?",
+            "a": "Yes, we also handle transfers to Bratislava, Budapest and other airports in the region at a fixed price."
+          }
+        ],
+        "keywords": {
+          "primary": "vienna airport transfer",
+          "secondary": [
+            "airport transfer vienna",
+            "private transfer vienna airport",
+            "vienna airport pickup",
+            "transfer to vienna airport"
+          ]
+        }
+      }
+    },
+    "limo": {
+      "slug": "limousine-service-vienna",
+      "name": "Limousine Service",
+      "url": "/en/services/limousine-service-vienna/",
+      "type": "service",
+      "content": {
+        "metaTitle": "Limousine Service Vienna – Mercedes with Driver",
+        "metaDescription": "Limousine service in Vienna: Mercedes limousine with chauffeur at a fixed price. Discreet, comfortable, around the clock. Book online, confirmed instantly.",
+        "hero": {
+          "title": "Limousine Service",
+          "sub": "A Mercedes limousine with your own chauffeur. For business meetings, special occasions and stylish, discreet rides across all of Vienna."
+        },
+        "intro": {
+          "eyebrow": "Your limousine",
+          "title": "Travel Vienna in style",
+          "body": "You choose your limousine, we provide the right chauffeur. Whether a business meeting, an evening event or a ride to the opera, you travel in a well-kept Mercedes, calm and discreet. Your driver knows Vienna, plans the route ahead and is there on time. You see the fixed price before you book."
+        },
+        "benefit": {
+          "badge": {
+            "big": "5.0",
+            "sm": "client rating"
+          },
+          "title": "Why our limousine service",
+          "body": "A modern Mercedes fleet, fixed chauffeurs and a transparent fixed price. You book online, see the price at once and receive confirmation without waiting for a quote.",
+          "items": [
+            "Well-kept Mercedes limousines of every class",
+            "Fixed price upfront, no hidden costs",
+            "Discreet, trained chauffeurs who know the city",
+            "Book online, confirmed instantly"
+          ]
+        },
+        "seo": {
+          "eyebrow": "Limousine Service",
+          "title": "Your Mercedes limousine with chauffeur for any occasion in Vienna",
+          "paragraphs": [
+            "A limousine service is more than a ride. It is the calm minute before a meeting, the good first impression with clients and the easy arrival after a long day.",
+            "With us you choose from a modern Mercedes fleet, from the elegant E-Class through the representative S-Class to the spacious van for several guests. Every car is clean, air-conditioned and stocked with water for you, and a child seat is available on request. Your chauffeur is discreet, punctual and knows the routes through Vienna.",
+            "The process is simple. You pick your vehicle, see the fixed price at once and book directly through our online booking system.",
+            "Payment is by credit card, Apple Pay or Google Pay, and confirmation arrives immediately. Unlike providers where you first send a request and wait for an offer, you know exactly what the ride costs in advance, with no hidden surcharges.",
+            "For business clients we offer fixed corporate terms for regular rides. If you have a special wish, such as several stops or an evening of events, you can reach us any time by WhatsApp or email.",
+            "That way your ride through Vienna is as pleasant and refined as the occasion it takes you to, from the first click to your arrival."
+          ]
+        },
+        "faq": [
+          {
+            "q": "What does a limousine service in Vienna cost?",
+            "a": "The price depends on vehicle class, duration and route. You see the fixed price before booking, including chauffeur and all extras."
+          },
+          {
+            "q": "Which vehicles can I choose from?",
+            "a": "From the Mercedes E-Class and S-Class to vans and the Sprinter. You pick the model to suit the occasion and number of guests."
+          },
+          {
+            "q": "Can I book the limousine for a full day?",
+            "a": "Yes. Alongside single rides we offer hourly bookings and full-day service. Book online or request an individual quote."
+          },
+          {
+            "q": "Is the limousine service suitable for events?",
+            "a": "Yes, for weddings, corporate events or receptions. For larger groups or special wishes reach us by WhatsApp or email."
+          },
+          {
+            "q": "Are the drivers discreet?",
+            "a": "Yes. Our chauffeurs are trained, bound to confidentiality and specialised in refined service."
+          },
+          {
+            "q": "How quickly is a limousine available?",
+            "a": "For spontaneous rides we are reachable around the clock. For events and fixed dates we recommend booking early."
+          }
+        ],
+        "keywords": {
+          "primary": "limousine service vienna",
+          "secondary": [
+            "limo service vienna",
+            "vienna limousine service",
+            "mercedes with driver vienna"
+          ]
+        }
+      }
+    },
+    "private": {
+      "slug": "private-chauffeur-vienna",
+      "name": "Private Chauffeur",
+      "url": "/en/services/private-chauffeur-vienna/",
+      "type": "service",
+      "content": {
+        "metaTitle": "Private Chauffeur Vienna – Your Personal Driver",
+        "metaDescription": "Private chauffeur in Vienna: your personal driver for daily life, meetings and family. Discreet, reliable, at a fixed price. Book online, confirmed",
+        "hero": {
+          "title": "Private Chauffeur",
+          "sub": "Your personal driver in Vienna. Discreet and reliable for daily life, meetings, family and any route you plan and schedule well ahead of time."
+        },
+        "intro": {
+          "eyebrow": "Your driver",
+          "title": "Personal travel in Vienna",
+          "body": "A private chauffeur is more than a ride from A to B. He knows your routes, your appointments and your preferences. Whether the daily commute, family rides or an evening out, you have a fixed driver you can rely on. Discreet, punctual and always in a well-kept car. You see the fixed price in advance."
+        },
+        "benefit": {
+          "badge": {
+            "big": "1",
+            "sm": "fixed driver"
+          },
+          "title": "Why a private chauffeur",
+          "body": "A familiar face at the wheel who knows your routine. Fixed terms, transparent prices and a driver who takes care of every detail, while you simply lean back and relax.",
+          "items": [
+            "A fixed, personal driver for your routes",
+            "Discreet and absolutely reliable",
+            "Fixed terms for regular, recurring rides",
+            "Book online, confirmed instantly"
+          ]
+        },
+        "seo": {
+          "eyebrow": "Private Chauffeur",
+          "title": "Your personal private chauffeur for every route in Vienna",
+          "paragraphs": [
+            "Some routes repeat, others are special, and a private chauffeur adapts to both. He takes you to the office in the morning, waits during meetings, collects the children from school or drives you to a concert in the evening.",
+            "Over time the driver becomes a familiar face who knows your routine and thinks ahead. You do not need to explain, organise or worry about parking. Water is on board, a child seat on request, and the car is always clean and discreet.",
+            "You book your rides directly through our online booking system, see the fixed price at once and pay conveniently by credit card, Apple Pay or Google Pay. Unlike providers with a request form only, you know your price from the start, without waiting for an offer.",
+            "For business clients we set up fixed corporate terms, and for special wishes such as several rides a day or fixed weekly appointments you can reach us any time by WhatsApp or email. That way you gain time and calm in daily life, while someone else takes reliable, discreet care of the driving and you focus on what really matters.",
+            "For business clients we set up fixed corporate terms, and for special wishes such as several rides a day or fixed weekly appointments you can reach us any time by WhatsApp or email.",
+            "That way you gain time and calm in daily life, while someone else takes reliable, discreet care of the driving and you focus on what matters."
+          ]
+        },
+        "faq": [
+          {
+            "q": "What does a private chauffeur do?",
+            "a": "Your personal driver takes you to meetings, through daily life or to special occasions. On request the same driver is available for every ride."
+          },
+          {
+            "q": "Can I book the same driver regularly?",
+            "a": "Yes. In daily life especially, clients value a familiar face. We set up fixed terms for regular rides."
+          },
+          {
+            "q": "What does a private chauffeur in Vienna cost?",
+            "a": "The price depends on scope and duration. You see the fixed price before booking, with fixed terms for regular rides."
+          },
+          {
+            "q": "Is the private chauffeur suitable for families?",
+            "a": "Yes. On request we provide child seats and reliably bring children or relatives to their destination."
+          },
+          {
+            "q": "Are the drivers discreet?",
+            "a": "Yes. Our chauffeurs are trained, discreet and specialised in staying quietly in the background."
+          },
+          {
+            "q": "How do I book a private chauffeur?",
+            "a": "Through our online booking system with instant confirmation. For regular rides or special wishes reach us by WhatsApp or email."
+          }
+        ],
+        "keywords": {
+          "primary": "private chauffeur vienna",
+          "secondary": [
+            "private driver vienna",
+            "personal driver vienna",
+            "chauffeur vienna"
+          ]
+        }
+      }
+    },
+    "hourly": {
+      "slug": "chauffeur-by-the-hour-vienna",
+      "name": "Chauffeur by the Hour",
+      "url": "/en/services/chauffeur-by-the-hour-vienna/",
+      "type": "service",
+      "content": {
+        "metaTitle": "Chauffeur by the Hour Vienna – Book Hourly",
+        "metaDescription": "Chauffeur by the hour in Vienna: book hourly, a fixed driver, fixed price per hour. Ideal for meetings and shopping. Book online, confirmed instantly.",
+        "hero": {
+          "title": "Chauffeur by the Hour",
+          "sub": "Book your chauffeur by the hour in Vienna. A fixed driver stays with you for as long as you need, flexible and simple to plan around your day."
+        },
+        "intro": {
+          "eyebrow": "Hourly chauffeur",
+          "title": "Flexible through your day",
+          "body": "Several meetings in a row, a day of shopping or an evening with changing destinations: with our chauffeur by the hour the same driver stays on duty for you. He waits between stops, knows the routes and adapts to your schedule. You book the hours you need and see the fixed price per hour in advance."
+        },
+        "benefit": {
+          "badge": {
+            "big": "1",
+            "sm": "fixed driver"
+          },
+          "title": "Why book by the hour",
+          "body": "One fixed chauffeur for your whole appointment, clear hourly rates and full flexibility. You book online and see the price at once, with no waiting for a quote or offer.",
+          "items": [
+            "A fixed driver for the booked time",
+            "Transparent fixed price per hour",
+            "Waits between your meetings and stops",
+            "Easily extended when you need it"
+          ]
+        },
+        "seo": {
+          "eyebrow": "Chauffeur by the Hour",
+          "title": "Your personal chauffeur, bookable by the hour across Vienna",
+          "paragraphs": [
+            "Some days cannot be squeezed into a single ride. A morning with three meetings, an afternoon of shopping, an evening of dinner and an event: this is where a chauffeur by the hour is the most relaxed solution.",
+            "Your fixed driver takes you from place to place, waits in between and keeps the car ready. You do not book again each time, search for parking or wait for a taxi. Water is on board, a child seat on request, and you keep the same familiar person at the wheel throughout the day.",
+            "Booking is straightforward. You choose the vehicle and number of hours, see the fixed price per hour and book directly through our online booking system. Payment is by credit card, Apple Pay or Google Pay, and confirmation is immediate. You do not wait for a quote like with many other providers, you know the price from the start.",
+            "If your day runs longer than planned, we extend flexibly as long as the driver is available. For business clients there are fixed terms for regular bookings, and for special wishes such as several passengers or fixed weekly slots you can reach us by WhatsApp or email.",
+            "That way you keep your schedule under control and leave the driving to someone who knows Vienna. You see the fixed price before you book.",
+            "That way you keep your schedule under control and leave the driving to someone who knows Vienna, from the first meeting to the last stop of the day."
+          ]
+        },
+        "faq": [
+          {
+            "q": "How many hours do I have to book at least?",
+            "a": "We tell you the minimum duration when booking. You see the fixed price per hour in advance and can extend flexibly if needed."
+          },
+          {
+            "q": "Does the same driver stay for the whole appointment?",
+            "a": "Yes. Your chauffeur is dedicated to you for the booked time, waits between stops and adapts to your schedule."
+          },
+          {
+            "q": "Can I extend the booking spontaneously?",
+            "a": "Yes, as long as the driver is available. Just let him know, and the additional time is billed transparently."
+          },
+          {
+            "q": "What is a chauffeur by the hour good for?",
+            "a": "For several meetings, shopping, sightseeing or evenings with changing destinations. Anywhere you want to stay flexible."
+          },
+          {
+            "q": "Can I travel outside Vienna by the hour?",
+            "a": "Yes. Within the booked time we also drive into the surrounding area. Longer routes we plan individually."
+          },
+          {
+            "q": "How do I book a chauffeur by the hour?",
+            "a": "Through our online booking system: choose vehicle and hours, see the price, pay directly. For special wishes by WhatsApp or email."
+          }
+        ],
+        "keywords": {
+          "primary": "chauffeur by the hour vienna",
+          "secondary": [
+            "hourly chauffeur vienna",
+            "chauffeur for a day vienna",
+            "hire chauffeur vienna"
+          ]
+        }
+      }
+    },
+    "daytrips": {
+      "slug": "day-trips-from-vienna",
+      "name": "Day Trips",
+      "url": "/en/services/day-trips-from-vienna/",
+      "type": "service",
+      "content": {
+        "metaTitle": "Day Trips from Vienna – Private Driver & Car",
+        "metaDescription": "Day trips from Vienna with a private chauffeur: Hallstatt, Bratislava, Budapest and more. Comfortable, door to door, at a fixed price. Book your trip",
+        "hero": {
+          "title": "Day Trips from Vienna",
+          "sub": "Explore beyond the city with your own driver. Day trips from Vienna to Hallstatt, Bratislava, Budapest and right across the wider region."
+        },
+        "intro": {
+          "eyebrow": "Your day trip",
+          "title": "See more, drive less",
+          "body": "Instead of train timetables or a rental car, your chauffeur picks you up and brings you straight to your destination and back. Whether a day in Hallstatt, a visit to Bratislava or a trip to Salzburg, you travel in a comfortable Mercedes and simply enjoy the view. You see the fixed price for the whole"
+        },
+        "benefit": {
+          "badge": {
+            "big": "EU",
+            "sm": "cross-border"
+          },
+          "title": "Why day trips with us",
+          "body": "Door to door, without changing trains or waiting around. A fixed chauffeur, a comfortable car and one fixed price for the whole trip, all known well before you book.",
+          "items": [
+            "Direct door-to-door travel, no changes",
+            "Fixed price for the whole trip",
+            "Relax, work or enjoy the view along the way",
+            "Cross-border across the region"
+          ]
+        },
+        "seo": {
+          "eyebrow": "Day Trips from Vienna",
+          "title": "Your comfortable day trip from Vienna with a private chauffeur",
+          "paragraphs": [
+            "Vienna is a wonderful base, and some of the region's best places are only a comfortable drive away. A day in the lakeside village of Hallstatt, a visit to Bratislava, a trip to Budapest or a tour to Salzburg: with a private chauffeur these day trips become the most relaxed way to travel.",
+            "You are collected at your hotel and brought straight to each destination, without changing trains, carrying luggage or worrying about directions. Along the way you have time for photos, rest or simply the scenery. Water is on board, a child seat on request, and your driver knows the routes and any border formalities.",
+            "Booking is as easy as any ride. You tell us your destination, choose your vehicle, see the fixed price for the whole trip and book directly through our online booking system. Payment is by credit card, Apple Pay or Google Pay.",
+            "Unlike providers with a request form only, you know your price at once, without waiting for a quote and with no surcharges for waiting time. Popular trips such as Vienna to Hallstatt, Bratislava or Budapest we drive regularly and know the best stops along the way.",
+            "For multi-day tours, private guides or special routes you can reach us by WhatsApp or email. That way you see more of the region and drive less yourself, arriving relaxed at every stop.",
+            "For multi-day tours, private guides or special routes you can reach us by WhatsApp or email, so you see more of the region and drive less yourself."
+          ]
+        },
+        "faq": [
+          {
+            "q": "Which day trips do you offer from Vienna?",
+            "a": "Popular trips include Hallstatt, Bratislava, Budapest, Salzburg and the Wachau valley, plus custom routes across the region."
+          },
+          {
+            "q": "What does a day trip cost?",
+            "a": "You pay a fixed price for the whole trip, seen before booking. No surcharges for waiting time or border crossings."
+          },
+          {
+            "q": "Can we make stops along the way?",
+            "a": "Yes. Tell us your wishes when booking or by WhatsApp, and we plan stops and sightseeing into your route."
+          },
+          {
+            "q": "Can the driver act as a guide?",
+            "a": "Our chauffeurs know the routes and main sights. For an expert guided tour we can arrange a licensed guide on request."
+          },
+          {
+            "q": "Do you also cross borders?",
+            "a": "Yes, we travel across the region, for example to Bratislava or Budapest. Your driver knows the formalities for a smooth trip."
+          },
+          {
+            "q": "How do I book a day trip?",
+            "a": "Through our online booking system with destination and vehicle. For multi-day or custom trips reach us by WhatsApp or email."
+          }
+        ],
+        "keywords": {
+          "primary": "day trip vienna to hallstatt",
+          "secondary": [
+            "day trips from vienna",
+            "vienna to bratislava transfer",
+            "budapest to vienna transfer",
+            "private tour from vienna"
+          ]
+        }
+      }
+    },
+    "shuttle": {
+      "slug": "shuttle-service-vienna",
+      "name": "Shuttle Service",
+      "url": "/en/services/shuttle-service-vienna/",
+      "type": "service",
+      "content": {
+        "metaTitle": "Shuttle Service Vienna – Group Transfer with Driver",
+        "metaDescription": "Shuttle service in Vienna: reliable group transfer for events, companies and hotels. Up to 20 seats, fixed price, fixed driver. Request your shuttle now.",
+        "hero": {
+          "title": "Shuttle Service",
+          "sub": "Reliable group transfer in Vienna. For events, companies and hotels, with comfortable room for up to 20 people and a fixed, local driver."
+        },
+        "intro": {
+          "eyebrow": "Your shuttle",
+          "title": "Groups safely to the goal",
+          "body": "Whether a corporate event, a wedding, hotel guests or a delegation, your shuttle brings the whole group together and on time. Instead of many separate cars, everyone travels together, relaxed and coordinated. From the van to the 20-seater Sprinter we choose the right vehicle, with a fixed driver and a"
+        },
+        "benefit": {
+          "badge": {
+            "big": "20",
+            "sm": "up to 20 seats"
+          },
+          "title": "Why our shuttle service",
+          "body": "One vehicle for the whole group, a fixed driver and a transparent price. We coordinate the pickup and the route, so that everyone arrives together and right on time.",
+          "items": [
+            "Room for up to 20 people in the Sprinter",
+            "A fixed driver and a fixed route",
+            "Ideal for events, companies and hotels",
+            "A transparent fixed price for the group"
+          ]
+        },
+        "seo": {
+          "eyebrow": "Group Transfer Vienna",
+          "title": "Your reliable shuttle service for groups in Vienna",
+          "paragraphs": [
+            "When a whole group needs to reach the same destination, organisation quickly becomes a challenge. Our shuttle service takes that off your hands.",
+            "Whether staff heading to a corporate event, guests at a wedding or a travel group from a hotel, everyone travels together in one vehicle, coordinated and on time.",
+            "We bring the right vehicle for the size of the group, from the comfortable V-Class for smaller groups to the 20-seater Sprinter, always with a fixed, local driver. That way no one is late, no one gets lost, and you keep an overview of the whole group without sitting behind the wheel yourself.",
+            "For regular transfers, for example of staff or hotel guests, we set up fixed terms. As group rides often need individual planning, you simply send a request through our booking system or reach us directly by WhatsApp or email. You receive a clear quote with a fixed price for the whole group, without hidden costs and without long waiting.",
+            "On request we also coordinate several vehicles in parallel, for larger delegations or when guests are collected from different places.",
+            "That way the transfer becomes the smooth part of your event, one you no longer have to worry about, from the first guest to the last."
+          ]
+        },
+        "faq": [
+          {
+            "q": "How many people fit in the shuttle?",
+            "a": "From the van for smaller groups to the Sprinter with up to 20 seats. For larger groups we use several vehicles."
+          },
+          {
+            "q": "What is a shuttle service good for?",
+            "a": "For corporate events, weddings, hotel transfers, delegations and travel groups. Anywhere many people need to arrive together."
+          },
+          {
+            "q": "What does a shuttle service in Vienna cost?",
+            "a": "You receive a fixed price for the whole group, depending on vehicle, route and duration, with no hidden costs."
+          },
+          {
+            "q": "Can I book regular transfers?",
+            "a": "Yes. For recurring rides of staff or guests we set up fixed terms. Simply get in touch."
+          },
+          {
+            "q": "How do I book a group transfer?",
+            "a": "Best via a request with details on group and occasion. You receive a quote quickly, or reach us by WhatsApp or email."
+          },
+          {
+            "q": "Are several vehicles possible?",
+            "a": "Yes. For larger groups or parallel pickups we coordinate several vehicles with fixed drivers."
+          }
+        ],
+        "keywords": {
+          "primary": "group transfer vienna",
+          "secondary": [
+            "shuttle service vienna",
+            "coach hire vienna",
+            "minibus hire vienna"
+          ]
+        }
+      }
+    },
+    "diplo": {
+      "slug": "diplomatic-chauffeur-vienna",
+      "name": "Diplomatic Chauffeur",
+      "url": "/en/services/diplomatic-chauffeur-vienna/",
+      "type": "service",
+      "content": {
+        "metaTitle": "Diplomatic Chauffeur Vienna – Discreet Driver",
+        "metaDescription": "Diplomatic chauffeur in Vienna: discreet, secure driver service for embassies, delegations and protocol. Reliable and confidential. Request your service",
+        "hero": {
+          "title": "Diplomatic Chauffeur",
+          "sub": "A discreet driver service for diplomacy and protocol in Vienna. Secure, confidential and reliable for embassies, consulates and delegations."
+        },
+        "intro": {
+          "eyebrow": "Your service",
+          "title": "Discretion comes first",
+          "body": "In the diplomatic world every detail counts: punctuality, discretion and a confident presence. Our chauffeurs are specialised in rides for embassies, delegations and protocol. They know the procedures, keep confidentiality and ensure a smooth process, whether a single appointment or a multi-day state"
+        },
+        "benefit": {
+          "badge": {
+            "big": "100",
+            "sm": "% discreet"
+          },
+          "title": "Why our diplomatic service",
+          "body": "Experienced chauffeurs, absolute confidentiality and a feel for protocol. We coordinate several vehicles, keep schedules exact and stay quietly in the background at all times.",
+          "items": [
+            "Specialised in diplomacy and protocol",
+            "Absolute discretion and",
+            "Coordination of several vehicles possible",
+            "Punctual, secure and unobtrusive"
+          ]
+        },
+        "seo": {
+          "eyebrow": "Diplomatic Chauffeur",
+          "title": "Your discreet diplomatic chauffeur for embassies and protocol in",
+          "paragraphs": [
+            "Rides in the diplomatic world demand more than a good car. They demand tact, discretion and a driver who understands protocol and procedure.",
+            "Our chauffeurs accompany embassies, delegations and official guests in Vienna, from a single appointment to a multi-day visit with a tight schedule. They present themselves with confidence, stay quietly in the background and keep confidentiality at all times. When needed we coordinate several vehicles in convoy, align schedules exactly and adapt reliably to short-notice changes.",
+            "For regular rides of embassies and institutions we set up fixed terms and fixed points of contact, so processes stay smooth and familiar. As every assignment in the diplomatic field is individual, we plan it personally with you. You can reach us directly by WhatsApp or email.",
+            "You receive a reliable commitment with clear terms, without unnecessary detours or long waiting for a quote. Our vehicles are well-kept Mercedes models of the upper and luxury class, with heightened discretion on request.",
+            "That way the driver service stays what it should be: a smooth, unobtrusive part of a successful programme you can rely on at any time. From the first request to the last ride you have one fixed point of contact who knows every step and coordinates confidentially for you.",
+            "That way the driver service stays what it should be, a smooth and unobtrusive part of a successful programme you can rely on at any time."
+          ]
+        },
+        "faq": [
+          {
+            "q": "Who is the diplomatic service for?",
+            "a": "For embassies, consulates, delegations and official guests who need a discreet, protocol-aware driver service in Vienna."
+          },
+          {
+            "q": "How is confidentiality ensured?",
+            "a": "Our chauffeurs are bound to confidentiality, experienced in the diplomatic field and consistently discreet in the background."
+          },
+          {
+            "q": "Can you coordinate several vehicles?",
+            "a": "Yes. For delegations and state visits we provide several vehicles with aligned schedules and fixed drivers."
+          },
+          {
+            "q": "Are multi-day assignments possible?",
+            "a": "Yes. We also accompany multi-day visits with tight programmes and adapt reliably to short-notice changes."
+          },
+          {
+            "q": "How are the vehicles equipped?",
+            "a": "Well-kept Mercedes vehicles of the upper and luxury class, with heightened discretion and suitable equipment on request."
+          },
+          {
+            "q": "How can I make a request?",
+            "a": "As every assignment is individual, we plan it personally. Reach us by WhatsApp or email for a confidential quote."
+          }
+        ],
+        "keywords": {
+          "primary": "diplomatic chauffeur vienna",
+          "secondary": [
+            "embassy driver vienna",
+            "vip chauffeur vienna",
+            "protocol driver vienna"
+          ]
+        }
+      }
+    },
+    "prices": {
+      "slug": "prices",
+      "name": "Prices",
+      "url": "/en/prices/",
+      "type": "full",
+      "content": {
+        "metaTitle": "Prices Chauffeur Vienna – Transparent Fixed Rates",
+        "metaDescription": "Prices for chauffeur and limousine in Vienna: transparent fixed rates, shown before booking, with no hidden costs. Book online and pay right away.",
+        "hero": {
+          "title": "Prices",
+          "sub": "Transparent fixed prices for chauffeur and limousine in Vienna. You see the price before booking, with no hidden costs and no surcharges."
+        },
+        "intro": {
+          "eyebrow": "Your prices",
+          "title": "A fixed price, no surprise",
+          "body": "With us you know what your ride costs in advance. You choose vehicle, route or duration and see the fixed price at once, including driver and all extras. No taxi meter, no surcharges, no surprise at the end. That way you plan with clear figures, whether a single ride, an hourly booking or a long-distance"
+        },
+        "benefit": {
+          "badge": {
+            "big": "0",
+            "sm": "hidden costs"
+          },
+          "title": "Why our prices are fair",
+          "body": "One price that you see before booking and that holds all the way to your destination. No hidden surcharges, no waiting costs in the small print, and fixed terms for business clients.",
+          "items": [
+            "Fixed price shown upfront, no meter",
+            "Driver and extras included",
+            "Fixed terms for business clients",
+            "Pay conveniently online, confirmed at once"
+          ]
+        },
+        "seo": {
+          "eyebrow": "Prices Chauffeur",
+          "title": "Transparent prices for your chauffeur and limousine in Vienna",
+          "paragraphs": [
+            "Good mobility should be predictable, including the price. That is why we work with clear fixed prices instead of a taxi meter or surcharges hidden in the small print.",
+            "You choose your vehicle and your route or duration and see at once what the ride costs. This price holds, including driver, vehicle and all extras. Whether an airport transfer at a fixed rate, a limousine for an occasion, a chauffeur by the hour or a long-distance trip abroad, you know the figure before you book and never have to recalculate at the end.",
+            "Booking and payment are just as simple. You book directly through our online booking system, see the fixed price and pay conveniently by credit card, Apple Pay or Google Pay. Confirmation is immediate, with no waiting for a quote. For companies with regular needs we set up fixed corporate terms that make billing and planning easier.",
+            "If you have a special wish, such as several stops, an unusual route or a group transfer, we prepare an individual quote for you, reachable by WhatsApp or email.",
+            "For companies with regular needs we set up fixed corporate terms that make billing and planning easier.",
+            "That way the price stays what it should be: clear, fair and easy to follow from the very start, with no hidden costs."
+          ]
+        },
+        "faq": [
+          {
+            "q": "How are the prices calculated?",
+            "a": "The fixed price depends on vehicle class, route or duration. Driver, vehicle and all extras are already included."
+          },
+          {
+            "q": "Are there hidden costs or surcharges?",
+            "a": "No. The price you see before booking is the price you pay. No waiting costs and no surprises."
+          },
+          {
+            "q": "How can I pay?",
+            "a": "Conveniently online by credit card, Apple Pay or Google Pay. Your confirmation arrives immediately."
+          },
+          {
+            "q": "Are there terms for companies?",
+            "a": "Yes. For business clients with regular needs we set up fixed corporate terms with simplified billing."
+          },
+          {
+            "q": "How do I get a price for a special ride?",
+            "a": "For individual routes, several stops or groups we prepare a personal quote. Reach us by WhatsApp or email."
+          },
+          {
+            "q": "Is the price per ride or per person?",
+            "a": "The fixed price applies to the booked vehicle, not per person. Several passengers share one transparent total price."
+          }
+        ],
+        "keywords": {
+          "primary": "chauffeur service vienna prices",
+          "secondary": [
+            "limousine prices vienna",
+            "fixed price chauffeur vienna",
+            "vienna chauffeur cost"
+          ]
+        }
+      }
+    },
+    "hub": {
+      "slug": "vehicles",
+      "name": "Vehicles Hub",
+      "url": "/en/vehicles/",
+      "type": "full",
+      "content": {
+        "metaTitle": "Vehicles – Mercedes Fleet with Chauffeur Vienna",
+        "metaDescription": "Our vehicles in Vienna: Mercedes from E-Class to Maybach, V-Class, VIP minibus and 20-seater Sprinter. The right model with chauffeur for every ride.",
+        "hero": {
+          "title": "Our Vehicles",
+          "sub": "From the business limousine to the 20-seater Sprinter. Our well-kept Mercedes fleet with a personal chauffeur for every occasion in Vienna."
+        },
+        "intro": {
+          "eyebrow": "Our fleet",
+          "title": "The right vehicle",
+          "body": "Every ride has different needs. For the business meeting the representative limousine, for the family the spacious van, for the group the Sprinter. Our Mercedes fleet covers every need, from a single passenger to a group of twenty. All vehicles are clean, air-conditioned and come with an experienced"
+        },
+        "benefit": {
+          "badge": {
+            "big": "20",
+            "sm": "max. seats"
+          },
+          "title": "Why our fleet stands out",
+          "body": "Only well-kept Mercedes vehicles, serviced regularly and with an experienced chauffeur. From a single guest to a large group, you find the right model for every occasion.",
+          "items": [
+            "Well-kept Mercedes vehicles of every class",
+            "From a single guest to 20 people",
+            "Air-conditioned, clean, well maintained",
+            "Always with an experienced chauffeur"
+          ]
+        },
+        "seo": {
+          "eyebrow": "Vehicles with Chauffeur",
+          "title": "Our Mercedes fleet with chauffeur for Vienna and beyond",
+          "paragraphs": [
+            "A good vehicle makes the difference between a ride and an experience. That is why we rely only on well-kept Mercedes models that we service and clean regularly. For the business meeting the E-Class or the representative S-Class takes you there in style.",
+            "Those looking for something special choose the Maybach or the all-electric EQE. For families and smaller groups the V-Class offers plenty of room, and for larger groups the VIP minibus and the 20-seater Sprinter are ready. In every car water is on board for you, and a child seat is available on request.",
+            "Whichever model you choose, it comes with an experienced, discreet chauffeur who knows Vienna and drives with foresight. When booking you see the fixed price for your chosen vehicle and book directly through our online booking system, paying conveniently by credit card, Apple Pay or Google Pay.",
+            "For groups, events or regular rides we are glad to put together an individual quote, reachable by WhatsApp or email. On the following pages we present each model in detail, with seats, equipment and the occasions it suits best.",
+            "For groups, events or regular rides we are glad to put together an individual quote, reachable by WhatsApp or email.",
+            "That way you quickly find the vehicle that fits your ride, from a single guest to a large group, and book it in just a few clicks at a fixed price."
+          ]
+        },
+        "faq": [
+          {
+            "q": "Which vehicles do you offer?",
+            "a": "A Mercedes fleet from E-Class and S-Class through Maybach and EQE to V-Class, Vito, VIP minibus and the 20-seater Sprinter."
+          },
+          {
+            "q": "How many people fit in a vehicle at most?",
+            "a": "Up to 20 people in the Sprinter. For smaller groups the V-Class and VIP minibus offer comfortable alternatives."
+          },
+          {
+            "q": "Do all vehicles come with a chauffeur?",
+            "a": "Yes. Every vehicle comes with an experienced, discreet chauffeur. We do not offer rental without a driver."
+          },
+          {
+            "q": "Can I choose a specific model?",
+            "a": "Yes. When booking you select your preferred vehicle and see the matching fixed price at once."
+          },
+          {
+            "q": "Are child seats available?",
+            "a": "Yes, on request we provide child seats. Simply state the wish when booking or by WhatsApp."
+          },
+          {
+            "q": "Are electric vehicles available?",
+            "a": "Yes. With the all-electric Mercedes EQE we offer a comfortable, emission-free option for your rides in Vienna."
+          }
+        ],
+        "keywords": {
+          "primary": "chauffeur fleet vienna",
+          "secondary": [
+            "mercedes with chauffeur vienna",
+            "limousine fleet vienna",
+            "chauffeur vehicles vienna"
+          ]
+        }
+      }
+    },
+    "booking": {
+      "slug": "online-booking",
+      "name": "Online Booking",
+      "url": "/en/online-booking/",
+      "type": "meta",
+      "content": {
+        "metaTitle": "Online Booking – Book a Chauffeur in Vienna",
+        "metaDescription": "Book a chauffeur in Vienna online: choose your vehicle, see the fixed price, pay by card, Apple Pay or Google Pay. Instant confirmation, around the clock.",
+        "keywords": {
+          "primary": "book chauffeur vienna online",
+          "secondary": [
+            "book a chauffeur vienna",
+            "online limousine booking vienna"
+          ]
+        }
+      }
+    },
+    "contact": {
+      "slug": "contact",
+      "name": "Contact",
+      "url": "/en/contact/",
+      "type": "meta",
+      "content": {
+        "metaTitle": "Contact – Vienna Grand Chauffeurs in Vienna",
+        "metaDescription": "Contact Vienna Grand Chauffeurs: by phone, WhatsApp or email. For bookings, corporate terms and individual requests, available around the clock.",
+        "keywords": {
+          "primary": "chauffeur vienna contact",
+          "secondary": [
+            "vienna grand chauffeurs contact"
+          ]
+        }
+      }
+    },
+    "m_s-class": {
+      "slug": "s-class",
+      "name": "S-Class",
+      "url": "/en/vehicles/s-class/",
+      "type": "model",
+      "content": {
+        "metaTitle": "Mercedes S-Class with Chauffeur Vienna | Hire",
+        "metaDescription": "Mercedes S-Class with chauffeur in Vienna: first-class limousine for business meetings and special occasions. Fixed price, discreet, book online.",
+        "hero": {
+          "title": "Mercedes S-Class",
+          "sub": "The first-class limousine with chauffeur. Top comfort and discretion for business meetings and special occasions in Vienna. You see the fixed price"
+        },
+        "overview": {
+          "titleLead": "First class on",
+          "titleAccent": "every ride",
+          "body": "The Mercedes S-Class is our most representative limousine. Plenty of legroom, a quiet ride and equipment that makes even long journeys pleasant. Ideal for business clients who value comfort and a confident presence. Up to three passengers travel in comfort while the chauffeur brings them discreetly"
+        },
+        "seo": {
+          "eyebrow": "Mercedes S-Class Vienna",
+          "title": "Your Mercedes S-Class with chauffeur for Vienna and the region and",
+          "paragraphs": [
+            "When a confident arrival matters, the Mercedes S-Class is the right choice. As an upper-class limousine it combines a quiet ride, generous space and high-quality equipment that makes every journey pleasant.",
+            "Whether a ride to a business meeting, to the airport or to a formal occasion, you travel in comfort and are brought discreetly and punctually to your destination.",
+            "In the S-Class water is on board for you, and a child seat is available on request. You see your fixed price when booking and pay conveniently by credit card, Apple Pay or Google Pay.",
+            "You book the S-Class directly through our online booking system, see the fixed price at once and pay by credit card, Apple Pay or Google Pay.",
+            "For regular business travel we set up fixed corporate terms, so recurring appointments stay smooth and easy to plan.",
+            "Whether a single ride or a full day of accompaniment, your chauffeur brings you there with composure while you use the time in the back for yourself."
+          ]
+        },
+        "faq": [
+          {
+            "q": "How many people fit in the S-Class?",
+            "a": "Up to three passengers with luggage. For larger groups we recommend the V-Class, VIP minibus or Sprinter."
+          },
+          {
+            "q": "What is the S-Class especially suited for?",
+            "a": "For business meetings, airport transfers and special occasions where comfort and a representative presence matter."
+          },
+          {
+            "q": "How do I book the S-Class with chauffeur?",
+            "a": "Through our online booking system: choose the vehicle, see the fixed price, confirmed at once. For special wishes by WhatsApp or email."
+          }
+        ],
+        "keywords": {
+          "primary": "mercedes s-class chauffeur vienna",
+          "secondary": [
+            "s-class hire vienna",
+            "mercedes s-class with driver vienna",
+            "luxury limousine vienna"
+          ]
+        }
+      }
+    },
+    "m_e-class": {
+      "slug": "e-class",
+      "name": "E-Class",
+      "url": "/en/vehicles/e-class/",
+      "type": "model",
+      "content": {
+        "metaTitle": "Mercedes E-Class with Chauffeur Vienna | Hire",
+        "metaDescription": "Mercedes E-Class with chauffeur in Vienna: comfortable business limousine for meetings and transfers. Fixed price, reliable, book online.",
+        "hero": {
+          "title": "Mercedes E-Class",
+          "sub": "The business limousine with chauffeur. Comfortable and reliable for meetings, transfers and the business day in Vienna. Reliable and always on time."
+        },
+        "overview": {
+          "titleLead": "Comfort for",
+          "titleAccent": "the business day",
+          "body": "The Mercedes E-Class is the ideal business limousine: comfortable, elegant and efficient at the same time. It offers up to three passengers plenty of room and suits business meetings, airport transfers and everyday needs perfectly. A proven vehicle for anyone who values reliability and a well-kept"
+        },
+        "seo": {
+          "eyebrow": "Mercedes E-Class Vienna",
+          "title": "Your Mercedes E-Class with chauffeur for Vienna and the region and",
+          "paragraphs": [
+            "The Mercedes E-Class is the classic business limousine and our most versatile vehicle. It combines comfort, elegant design and reliability and suits almost every occasion, from a business meeting through an airport transfer to an evening ride.",
+            "Up to three passengers travel comfortably, and the interior is quiet and well kept.",
+            " see the fixed price when booking and pay conveniently by credit card, Apple Pay or Google Pay, with confirmation right away.",
+            "You book the E-Class directly through our online booking system, see the fixed price in advance and pay by credit card, Apple Pay or Google Pay.",
+            "For companies in particular the E-Class is the economical everyday choice, with fixed terms for regular rides and client visits.",
+            "That way you combine reliable business comfort with a fair price and a driver who knows Vienna and drives with foresight."
+          ]
+        },
+        "faq": [
+          {
+            "q": "How many people fit in the E-Class?",
+            "a": "Up to three passengers with luggage. For more room the V-Class or VIP minibus are a good choice."
+          },
+          {
+            "q": "What is the E-Class suited for?",
+            "a": "For business meetings, airport transfers and everyday needs. A comfortable, reliable vehicle for almost any occasion."
+          },
+          {
+            "q": "How do I book the E-Class?",
+            "a": "Through our online booking system with instant confirmation. For individual wishes reach us by WhatsApp or email."
+          }
+        ],
+        "keywords": {
+          "primary": "mercedes e-class chauffeur vienna",
+          "secondary": [
+            "e-class hire vienna",
+            "mercedes e-class with driver vienna",
+            "business limousine vienna"
+          ]
+        }
+      }
+    },
+    "m_maybach": {
+      "slug": "maybach",
+      "name": "Maybach",
+      "url": "/en/vehicles/maybach/",
+      "type": "model",
+      "content": {
+        "metaTitle": "Mercedes-Maybach with Chauffeur Vienna | Hire",
+        "metaDescription": "Mercedes-Maybach with chauffeur in Vienna: the flagship for exclusive rides and the highest expectations. Discreet, luxurious, on request.",
+        "hero": {
+          "title": "Mercedes-Maybach",
+          "sub": "The flagship with chauffeur. For exclusive occasions and the highest expectations of comfort, equipment and discretion in Vienna. For occasions that"
+        },
+        "overview": {
+          "titleLead": "Luxury in its",
+          "titleAccent": "purest form",
+          "body": "The Mercedes-Maybach is our most exclusive vehicle. It offers the highest level of comfort, fine materials and equipment that satisfies even the most discerning guests. Ideal for special occasions, VIP guests and rides where every detail counts. Up to three passengers enjoy a travel experience of"
+        },
+        "seo": {
+          "eyebrow": "Mercedes-Maybach Vienna",
+          "title": "Your Mercedes-Maybach with chauffeur for Vienna and the region and",
+          "paragraphs": [
+            "The Mercedes-Maybach stands for luxury without compromise. Anyone seeking the very best for special occasions, important guests or an unforgettable evening will find it in this flagship.",
+            "The finest materials, exceptional comfort and a calm, confident ride make every journey an experience.",
+            "Your chauffeur is especially discreet and prepared for the highest expectations. As the Maybach is an exclusive vehicle, we are glad to plan your ride personally with you, reachable by WhatsApp or email.",
+            "As the Maybach is an exclusive vehicle, we plan every ride personally with you and agree the schedule, route and wishes in advance.",
+            "For receptions, weddings or looking after important guests, the Maybach is the first choice when discretion and a special presence matter.",
+            "Simply reach us by WhatsApp or email, and we put together an individual quote for your occasion."
+          ]
+        },
+        "faq": [
+          {
+            "q": "How many people fit in the Maybach?",
+            "a": "Up to three passengers. The Maybach is designed for the highest comfort for a small number of guests."
+          },
+          {
+            "q": "What is the Maybach suited for?",
+            "a": "For VIP guests, special occasions and rides where exclusivity, comfort and discretion come first."
+          },
+          {
+            "q": "How do I book the Maybach?",
+            "a": "As it is an exclusive vehicle, we plan your ride personally. Reach us by WhatsApp or email for a quote."
+          }
+        ],
+        "keywords": {
+          "primary": "mercedes-maybach chauffeur vienna",
+          "secondary": [
+            "maybach hire vienna",
+            "maybach with driver vienna",
+            "vip limousine vienna"
+          ]
+        }
+      }
+    },
+    "m_eqe": {
+      "slug": "eqe",
+      "name": "EQE",
+      "url": "/en/vehicles/eqe/",
+      "type": "model",
+      "content": {
+        "metaTitle": "Mercedes EQE Electric with Chauffeur Vienna",
+        "metaDescription": "Mercedes EQE with chauffeur in Vienna: all-electric business limousine, quiet and emission-free. Comfortable, sustainable, book online.",
+        "hero": {
+          "title": "Mercedes EQE",
+          "sub": "The all-electric business limousine with chauffeur. Quiet, emission-free and comfortable for sustainable rides in Vienna. Quiet, clean and"
+        },
+        "overview": {
+          "titleLead": "Electric and",
+          "titleAccent": "comfortable",
+          "body": "The Mercedes EQE is our all-electric business limousine. It runs almost silently, locally emission-free, while offering the familiar comfort of the upper class. Ideal for guests who value sustainability without giving up space and equipment. Up to three passengers travel quietly and comfortably"
+        },
+        "seo": {
+          "eyebrow": "Mercedes EQE Vienna",
+          "title": "Your all-electric Mercedes EQE with chauffeur for Vienna and",
+          "paragraphs": [
+            "With the all-electric Mercedes EQE you combine comfort and responsibility. The limousine runs almost silently and locally emission-free, which makes every ride especially calm and pleasant.",
+            "Despite the electric drive you give up nothing: the interior is spacious, high-quality and quiet.",
+            "For companies with sustainability goals the EQE is the ideal choice for meetings and transfers. Water is on board, a child seat on request.",
+            "You book the EQE directly through our online booking system, see the fixed price at once and pay conveniently and paperlessly by credit card, Apple Pay or Google Pay.",
+            "In the EQE water is on board for you, a child seat on request, and the quiet interior makes calls and focused work along the way comfortable.",
+            "That way you travel in a climate-friendly and comfortable way at once, with a driver who knows Vienna and brings you reliably to your destination."
+          ]
+        },
+        "faq": [
+          {
+            "q": "Is the EQE really all-electric?",
+            "a": "Yes. The Mercedes EQE runs purely on electricity, locally emission-free and especially quiet, with no loss of comfort versus the upper class."
+          },
+          {
+            "q": "Who is the EQE suited for?",
+            "a": "For guests and companies who value sustainability and still want to travel comfortably and representatively."
+          },
+          {
+            "q": "How do I book the EQE?",
+            "a": "Through our online booking system with instant confirmation. For corporate terms reach us by WhatsApp or email."
+          }
+        ],
+        "keywords": {
+          "primary": "mercedes eqe chauffeur vienna",
+          "secondary": [
+            "eqe hire vienna",
+            "electric limousine with driver vienna",
+            "electric chauffeur vienna"
+          ]
+        }
+      }
+    },
+    "m_v-class": {
+      "slug": "v-class",
+      "name": "V-Class",
+      "url": "/en/vehicles/v-class/",
+      "type": "model",
+      "content": {
+        "metaTitle": "Mercedes V-Class with Chauffeur Vienna | Hire",
+        "metaDescription": "Mercedes V-Class with chauffeur in Vienna: spacious van for families and small groups up to 7 people. Comfortable, flexible, book online. Spacious and",
+        "hero": {
+          "title": "Mercedes V-Class",
+          "sub": "The spacious van with chauffeur. Plenty of room for families and small groups of up to seven people in Vienna. Everyone travels comfortably together."
+        },
+        "overview": {
+          "titleLead": "Room for",
+          "titleAccent": "the whole group",
+          "body": "The Mercedes V-Class offers room for up to seven passengers with luggage. Ideal for families, small groups or business teams who want to travel together. Comfortable individual seats, plenty of headroom and a flexible interior make even longer rides pleasant. A versatile van for almost any occasion."
+        },
+        "seo": {
+          "eyebrow": "Mercedes V-Class Vienna",
+          "title": "Your Mercedes V-Class with chauffeur for Vienna and the region and",
+          "paragraphs": [
+            "When several people travel together, the Mercedes V-Class is the comfortable solution. The spacious van offers room for up to seven passengers and their luggage without feeling cramped.",
+            "Comfortable seats and a flexible interior make it ideal for families, small travel groups or business teams.",
+            "Whether an airport transfer with plenty of luggage, an excursion or a shared ride to a meeting, everyone travels together and relaxed. Water is on board, child seats on request.",
+            "You book the van directly through our online booking system, see the fixed price in advance and pay by credit card, Apple Pay or Google Pay.",
+            "For airport runs with plenty of luggage, family trips or team outings, the V-Class keeps everyone together in comfort.",
+            "That way your group arrives together and without changing vehicles, while your chauffeur takes care of the route, the luggage and parking."
+          ]
+        },
+        "faq": [
+          {
+            "q": "How many people fit in the V-Class?",
+            "a": "Up to seven passengers with luggage. For larger groups the VIP minibus or Sprinter are a good fit."
+          },
+          {
+            "q": "What is the V-Class suited for?",
+            "a": "For families, small groups and teams, for airport transfers with plenty of luggage and shared excursions and meetings."
+          },
+          {
+            "q": "Are child seats possible?",
+            "a": "Yes, on request we provide several child seats. State the wish when booking or by WhatsApp."
+          }
+        ],
+        "keywords": {
+          "primary": "mercedes v-class chauffeur vienna",
+          "secondary": [
+            "v-class hire vienna",
+            "minivan with driver vienna",
+            "van chauffeur vienna"
+          ]
+        }
+      }
+    },
+    "m_vito": {
+      "slug": "vito",
+      "name": "Vito",
+      "url": "/en/vehicles/vito/",
+      "type": "model",
+      "content": {
+        "metaTitle": "Mercedes Vito with Chauffeur in Vienna | Hire",
+        "metaDescription": "Mercedes Vito with chauffeur in Vienna: practical van for groups up to 8 people and plenty of luggage. Reliable, spacious, book online. Reliable and",
+        "hero": {
+          "title": "Mercedes Vito",
+          "sub": "The practical van with chauffeur. Plenty of room for groups of up to eight people and generous luggage in Vienna. Plenty of room for group and"
+        },
+        "overview": {
+          "titleLead": "Practical and",
+          "titleAccent": "spacious",
+          "body": "The Mercedes Vito is the practical all-rounder among our vans. It offers room for up to eight passengers and plenty of luggage, ideal for groups, transfers and excursions. Robust, reliable and spacious, it brings everyone to the destination together. An economical choice when a lot of room is"
+        },
+        "seo": {
+          "eyebrow": "Mercedes Vito Vienna",
+          "title": "Your Mercedes Vito with chauffeur for Vienna and the region and your",
+          "paragraphs": [
+            "The Mercedes Vito is our practical van for everyone who needs plenty of room.",
+            "With space for up to eight passengers and generous luggage, it is ideal for groups, club outings or transfers with a lot of travel luggage. It is robust, reliable and economical, without your guests having to give up comfort.",
+            "Everyone travels together, relaxed and coordinated. Water is on board, child seats on request. You see your fixed price when booking and pay conveniently online.",
+            "You book the Vito directly through our online booking system or by request, see the fixed price in advance and pay by credit card, Apple Pay or Google Pay.",
+            "For club outings, company trips or transfers with a lot of luggage, the Vito is the practical and economical choice for larger groups.",
+            "For regular rides we set up fixed terms, and for special wishes you can reach us any time by WhatsApp or email."
+          ]
+        },
+        "faq": [
+          {
+            "q": "How many people fit in the Vito?",
+            "a": "Up to eight passengers with luggage. For even larger groups we recommend the VIP minibus or Sprinter."
+          },
+          {
+            "q": "How does the Vito differ from the V-Class?",
+            "a": "The Vito is a little simpler in equipment and especially economical, while the V-Class offers more comfort in the details."
+          },
+          {
+            "q": "How do I book the Vito?",
+            "a": "Through our online booking system or by request. For groups and special wishes reach us by WhatsApp or email."
+          }
+        ],
+        "keywords": {
+          "primary": "mercedes vito chauffeur vienna",
+          "secondary": [
+            "vito hire vienna",
+            "vito with driver vienna",
+            "group transfer van vienna"
+          ]
+        }
+      }
+    },
+    "m_vip-minibus": {
+      "slug": "vip-minibus",
+      "name": "VIP Minibus",
+      "url": "/en/vehicles/vip-minibus/",
+      "type": "model",
+      "content": {
+        "metaTitle": "VIP Minibus with Chauffeur in Vienna | Hire",
+        "metaDescription": "VIP minibus with chauffeur in Vienna: comfortable minibus for groups up to 12 people. Ideal for events and excursions. Request now.",
+        "hero": {
+          "title": "VIP Minibus",
+          "sub": "The comfortable minibus with chauffeur. Plenty of room and comfort for groups of up to twelve people in Vienna. Everyone stays comfortably together."
+        },
+        "overview": {
+          "titleLead": "Comfort for",
+          "titleAccent": "larger groups",
+          "body": "Anyone looking for minibus hire in Vienna and the surrounding area will find the comfortable solution in the VIP minibus. Up to twelve passengers travel comfortably and together, with pleasant seats and plenty of room for luggage. Ideal for company outings, wedding parties or travel groups who want to stay together."
+        },
+        "seo": {
+          "eyebrow": "VIP Minibus Vienna",
+          "title": "Your VIP minibus with chauffeur for Vienna and the region and your",
+          "paragraphs": [
+            "When a larger group wants to travel together and in comfort, the minibus with driver in Vienna is the right choice.",
+            "With room for up to twelve passengers it combines the togetherness of a group ride with the comfort of a refined vehicle.",
+            "Comfortable seats, air conditioning and plenty of storage make it ideal for company outings, weddings or travel groups. Everyone stays together, no one gets lost, and your chauffeur takes care of the route.",
+            "As group rides often need individual planning, we agree the route, pickup times and any stops with you personally in advance.",
+            "You can reach us any time by WhatsApp or email and receive a clear quote with a fixed price for the whole group without delay.",
+            "That way the VIP minibus becomes the relaxed way for everyone to arrive together, with no worry about logistics or parking."
+          ]
+        },
+        "faq": [
+          {
+            "q": "How many people fit in the VIP minibus?",
+            "a": "Up to twelve passengers with luggage. For even larger groups the 20-seater Sprinter is ready."
+          },
+          {
+            "q": "What is the VIP minibus suited for?",
+            "a": "For company outings, wedding parties, club and travel groups who want to travel together and in comfort."
+          },
+          {
+            "q": "How do I book the VIP minibus?",
+            "a": "Best by request with details on group and occasion. You receive a quote quickly, reachable by WhatsApp or email."
+          }
+        ],
+        "keywords": {
+          "primary": "vip minibus chauffeur vienna",
+          "secondary": [
+            "minibus hire vienna",
+            "minibus with driver vienna",
+            "group transfer vienna"
+          ]
+        }
+      }
+    },
+    "m_business-sprinter": {
+      "slug": "business-sprinter",
+      "name": "Business Sprinter",
+      "url": "/en/vehicles/business-sprinter/",
+      "type": "model",
+      "content": {
+        "metaTitle": "Business Sprinter with Chauffeur Vienna | Hire",
+        "metaDescription": "Business Sprinter with chauffeur in Vienna: 20-seater for large groups, events and delegations. Plenty of room, one driver. Request now.",
+        "hero": {
+          "title": "Business Sprinter",
+          "sub": "The 20-seater with chauffeur. Maximum room for large groups, events and delegations in Vienna and beyond. One group, one vehicle, one driver."
+        },
+        "overview": {
+          "titleLead": "The whole group",
+          "titleAccent": "on board",
+          "body": "The Business Sprinter is our largest vehicle with room for up to twenty passengers. Ideal for large groups, company events, delegations and travel parties. Instead of several vehicles, everyone travels together in one, coordinated and on time. Plenty of storage, comfortable seating and an"
+        },
+        "seo": {
+          "eyebrow": "Business Sprinter Vienna",
+          "title": "Your Business Sprinter with chauffeur for Vienna and the region and",
+          "paragraphs": [
+            "The Business Sprinter is the solution when truly many people need to reach the destination together.",
+            "With up to twenty seats it brings whole groups, company teams or delegations together in a single vehicle, instead of splitting them across several cars.",
+            "That saves coordination, keeps everyone together and ensures a punctual, shared arrival. Generous storage takes plenty of luggage, and the experienced chauffeur knows the best routes.",
+            "As large group rides need individual planning, we agree the route, pickup points and schedule with you personally in advance.",
+            "For company events, delegations or travel groups we prepare a transparent quote with a fixed price for the whole vehicle.",
+            "Simply reach us by WhatsApp or email, and your entire group travels together, coordinated and on time."
+          ]
+        },
+        "faq": [
+          {
+            "q": "How many people fit in the Sprinter?",
+            "a": "Up to twenty passengers with luggage. This makes it our largest vehicle for group transfers."
+          },
+          {
+            "q": "What is the Business Sprinter suited for?",
+            "a": "For large groups, company events, delegations and travel parties who want to travel together in one vehicle."
+          },
+          {
+            "q": "How do I book the Sprinter?",
+            "a": "Best by request with details on group, route and occasion. You receive a quote quickly by WhatsApp or email."
+          }
+        ],
+        "keywords": {
+          "primary": "business sprinter chauffeur vienna",
+          "secondary": [
+            "sprinter hire vienna",
+            "20-seater with driver vienna",
+            "group transfer sprinter vienna"
+          ]
+        }
+      }
+    }
+  }
+}
