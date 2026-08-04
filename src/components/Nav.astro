@@ -72,6 +72,10 @@ const linkActive = (href: string) => path === strip(href.replace(/\/+$/, '') || 
     <button class="nav__close" type="button" aria-label={nt.menuClose} data-close>
       <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" aria-hidden="true"><path d="M6 6 18 18 M18 6 6 18"/></svg>
     </button>
+    <a class="nav__panel-lang" href={alt.href} aria-label={nt.langAria} hreflang={alt.lang} data-overlay-link>
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3a15 15 0 0 1 0 18a15 15 0 0 1 0-18Z"/></svg>
+      <span>{alt.label}</span>
+    </a>
     <nav class="nav__panel-links" aria-label={nt.services}>
       {NAV.map((l) => (
         <>
@@ -270,6 +274,19 @@ const linkActive = (href: string) => path === strip(href.replace(/\/+$/, '') || 
     color: #fff; cursor: pointer;
   }
   .nav__close svg { inline-size: 20px; block-size: 20px; }
+  /* Language switch — the header one lives in .nav__actions, which is hidden
+     below 1024px, so the panel carries its own above the links. */
+  .nav__panel-lang {
+    align-self: flex-start;
+    display: inline-flex; align-items: center; gap: 0.5rem;
+    margin-block-end: 1rem; padding: 0.55rem 1.1rem;
+    border: 1px solid rgba(255, 255, 255, 0.22); border-radius: 999px;
+    color: #fff; text-decoration: none;
+    font-size: 0.8rem; font-weight: 600; letter-spacing: 0.14em; text-transform: uppercase;
+    transition: color 0.3s ease, border-color 0.3s ease;
+  }
+  .nav__panel-lang svg { inline-size: 16px; block-size: 16px; opacity: 0.8; }
+  .nav__panel-lang:hover { color: var(--color-terracotta); border-color: var(--color-terracotta); }
   .nav__panel-links { display: flex; flex-direction: column; }
   .nav__panel-link {
     padding-block: 1rem; color: #fff;

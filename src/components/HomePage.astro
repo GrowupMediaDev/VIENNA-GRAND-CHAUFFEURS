@@ -23,6 +23,13 @@ const heroSlides = [
   '/images/hero-slide-3.jpg',
 ];
 
+// Hero H1: the closing part gets its own line ("Your Chauffeur Service" /
+// "in Vienna"). The split lives here rather than in the text itself, because
+// L.heroTitle below is generated from content.json and would lose any markup
+// on the next content update. If the marker is not found, the title renders
+// in one piece.
+const heroTitleTail = pick(lang, 'mit Fahrer', 'in Vienna');
+
 const L = pick(lang,
   {
     metaTitle: 'Chauffeur Service Wien – Limousine & Transfer',
@@ -128,6 +135,13 @@ const L = pick(lang,
       { q: 'How far in advance should I book?', a: 'For airport transfers a few hours often suffice. For groups, events or multi-day trips we recommend booking early.' },
     ],
   });
+
+const tailAt = L.heroTitle.lastIndexOf(heroTitleTail);
+const heroTitleHead = tailAt > 0 ? L.heroTitle.slice(0, tailAt).trimEnd() : L.heroTitle;
+// Keep the separating space inside the second line so the heading still reads
+// as one sentence for screen readers and text extraction. Leading whitespace
+// at the start of a block box is collapsed, so nothing shifts visually.
+const heroTitleRest = tailAt > 0 ? ' ' + L.heroTitle.slice(tailAt) : '';
 ---
 <Layout title={L.metaTitle} description={L.metaDesc}>
   <Fragment slot="head">
@@ -156,7 +170,10 @@ const L = pick(lang,
       <div class="hero__scrim" aria-hidden="true"></div>
 
       <div class="hero__inner">
-        <h1 id="hero-title" class="hero__title" data-reveal set:html={L.heroTitle}></h1>
+        <h1 id="hero-title" class="hero__title" data-reveal>
+          <span class="hero__title-line">{heroTitleHead}</span>
+          {heroTitleRest && <span class="hero__title-line">{heroTitleRest}</span>}
+        </h1>
         <p class="hero__sub" data-reveal style="--reveal-delay:0.1s" set:html={L.heroSub}></p>
         <div class="hero__cta" data-reveal style="--reveal-delay:0.2s">
           <Button href={bookHref}>{L.book}</Button>
@@ -830,6 +847,9 @@ const L = pick(lang,
     color: #fff;
     text-shadow: 0 2px 34px rgba(0,0,0,0.28);
   }
+  /* Each part of the headline owns its line; balance keeps the wrap inside a
+     part even when it has to break again on narrow screens. */
+  .hero__title-line { display: block; text-wrap: balance; }
   .hero__sub {
     max-inline-size: 46ch;
     font-size: clamp(1rem, 1.25vw, 1.2rem);
