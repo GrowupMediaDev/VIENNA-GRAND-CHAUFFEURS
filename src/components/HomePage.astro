@@ -23,12 +23,14 @@ const heroSlides = [
   '/images/hero-slide-3.jpg',
 ];
 
-// Hero H1: the closing part gets its own line ("Your Chauffeur Service" /
-// "in Vienna"). The split lives here rather than in the text itself, because
+// Hero H1 markers. The headline breaks before heroTitleTail ("Der Nr. 1
+// Chauffeur" / "Service in Wien") and highlights heroTitleAccent in the
+// accent colour. Both live here rather than in the text itself, because
 // L.heroTitle below is generated from content.json and would lose any markup
-// on the next content update. If the marker is not found, the title renders
-// in one piece.
-const heroTitleTail = pick(lang, 'in Wien', 'in Vienna');
+// on the next content update. Markers that do not match are skipped, so the
+// title always renders complete.
+const heroTitleTail = pick(lang, 'Service in Wien', 'Service in Vienna');
+const heroTitleAccent = pick(lang, 'Nr. 1', 'No. 1');
 
 const L = pick(lang,
   {
@@ -142,6 +144,12 @@ const heroTitleHead = tailAt > 0 ? L.heroTitle.slice(0, tailAt).trimEnd() : L.he
 // as one sentence for screen readers and text extraction. Leading whitespace
 // at the start of a block box is collapsed, so nothing shifts visually.
 const heroTitleRest = tailAt > 0 ? ' ' + L.heroTitle.slice(tailAt) : '';
+
+// Split the first line around the highlighted part. The three pieces
+// concatenate back to heroTitleHead exactly, spaces included.
+const accentAt = heroTitleHead.indexOf(heroTitleAccent);
+const heroTitleBefore = accentAt >= 0 ? heroTitleHead.slice(0, accentAt) : heroTitleHead;
+const heroTitleAfter = accentAt >= 0 ? heroTitleHead.slice(accentAt + heroTitleAccent.length) : '';
 ---
 <Layout title={L.metaTitle} description={L.metaDesc}>
   <Fragment slot="head">
@@ -171,7 +179,7 @@ const heroTitleRest = tailAt > 0 ? ' ' + L.heroTitle.slice(tailAt) : '';
 
       <div class="hero__inner">
         <h1 id="hero-title" class="hero__title" data-reveal>
-          <span class="hero__title-line">{heroTitleHead}</span>
+          <span class="hero__title-line">{heroTitleBefore}{accentAt >= 0 && <span class="hero__title-accent">{heroTitleAccent}</span>}{heroTitleAfter}</span>
           {heroTitleRest && <span class="hero__title-line">{heroTitleRest}</span>}
         </h1>
         <p class="hero__sub" data-reveal style="--reveal-delay:0.1s" set:html={L.heroSub}></p>
@@ -850,6 +858,8 @@ const heroTitleRest = tailAt > 0 ? ' ' + L.heroTitle.slice(tailAt) : '';
   /* Each part of the headline owns its line; balance keeps the wrap inside a
      part even when it has to break again on narrow screens. */
   .hero__title-line { display: block; text-wrap: balance; }
+  /* "Nr. 1" / "No. 1" in the brand accent, same token as the nav underline. */
+  .hero__title-accent { color: var(--color-terracotta); }
   .hero__sub {
     max-inline-size: 46ch;
     font-size: clamp(1rem, 1.25vw, 1.2rem);
