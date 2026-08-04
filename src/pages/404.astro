@@ -1,0 +1,108 @@
+---
+// Cloudflare Pages serves this single file for every unknown path, in both
+// language trees, so the copy is bilingual rather than resolved from the URL.
+import Layout from '../layouts/Layout.astro';
+import Nav from '../components/Nav.astro';
+import Footer from '../components/Footer.astro';
+import CtaBand from '../components/CtaBand.astro';
+---
+<Layout
+  title="Seite nicht gefunden — Vienna Grand Chauffeurs"
+  description="Diese Seite existiert nicht mehr oder wurde verschoben."
+  noindex
+>
+  <Nav />
+  <main>
+    <section class="nf">
+      <div class="nf__bg" aria-hidden="true"></div>
+      <div class="container-x nf__inner">
+        <p class="nf__code" aria-hidden="true">404</p>
+
+        <div class="nf__block">
+          <h1 class="nf__title">Diese Seite gibt es nicht.</h1>
+          <p class="nf__text">
+            Der Link ist veraltet oder die Adresse enthält einen Tippfehler.
+            Über die Startseite finden Sie alles Weitere, oder rufen Sie uns
+            einfach an.
+          </p>
+          <div class="nf__actions">
+            <a class="nf__cta" href="/">Zur Startseite</a>
+            <a class="nf__link" href="/fahrzeuge/">Fahrzeuge</a>
+            <a class="nf__link" href="/preise/">Preise</a>
+            <a class="nf__link" href="/kontakt/">Kontakt</a>
+          </div>
+        </div>
+
+        <div class="nf__block nf__block--en" lang="en">
+          <h2 class="nf__title nf__title--sm">This page does not exist.</h2>
+          <p class="nf__text">
+            The link is outdated or the address contains a typo. Our homepage
+            will point you the right way, or simply give us a call.
+          </p>
+          <div class="nf__actions">
+            <a class="nf__cta" href="/en/">To the homepage</a>
+            <a class="nf__link" href="/en/vehicles/">Fleet</a>
+            <a class="nf__link" href="/en/prices/">Rates</a>
+            <a class="nf__link" href="/en/contact/">Contact</a>
+          </div>
+        </div>
+      </div>
+    </section>
+    <CtaBand />
+  </main>
+  <Footer />
+</Layout>
+
+<style>
+  .nf { position: relative; isolation: isolate; overflow: hidden; background: #0d0703; color: #fff; }
+  .nf__bg {
+    position: absolute; inset: 0; z-index: 0;
+    background: radial-gradient(115% 80% at 12% 0%, rgba(196, 106, 45, 0.22), transparent 55%), #0d0703;
+  }
+  .nf__inner {
+    position: relative; z-index: 1;
+    padding-block: clamp(9rem, 21vh, 13rem) clamp(4rem, 8vw, 6.5rem);
+    display: flex; flex-direction: column; gap: clamp(2rem, 4vw, 3rem);
+  }
+  .nf__code {
+    margin: 0;
+    font-family: var(--font-oswald); font-weight: 500; line-height: 1;
+    font-size: clamp(4.5rem, 16vw, 11rem); letter-spacing: -0.04em;
+    color: transparent; -webkit-text-stroke: 1.5px rgba(233, 183, 154, 0.45);
+  }
+  .nf__block { max-inline-size: 60ch; }
+  .nf__block--en {
+    padding-block-start: clamp(1.75rem, 3vw, 2.5rem);
+    border-block-start: 1px solid rgba(255, 255, 255, 0.14);
+  }
+  .nf__title {
+    font-family: var(--font-display); font-weight: 700;
+    font-size: clamp(2rem, 4.4vw, 3.25rem); line-height: 1.04; letter-spacing: -0.03em; color: #fff;
+  }
+  .nf__title--sm { font-size: clamp(1.5rem, 2.8vw, 2.1rem); color: rgba(255, 255, 255, 0.92); }
+  .nf__text { margin: 1rem 0 0; font-size: 1.05rem; line-height: 1.7; color: rgba(255, 255, 255, 0.76); }
+  .nf__actions { display: flex; flex-wrap: wrap; align-items: center; gap: 14px 26px; margin-block-start: 1.75rem; }
+  .nf__cta {
+    display: inline-flex; align-items: center; padding: 15px 34px; border-radius: 999px;
+    background: linear-gradient(90deg, #c46a2d 0%, #e9b79a 100%);
+    box-shadow: 0 12px 32px -12px rgba(196, 106, 45, 0.6);
+    color: #1a0e04; font-weight: 600; font-size: 15.5px; text-decoration: none;
+    transition: filter 0.3s ease, transform 0.25s ease;
+  }
+  .nf__cta:hover { filter: brightness(1.05); transform: translateY(-2px); }
+  .nf__link {
+    color: rgba(255, 255, 255, 0.8); font-size: 15px; text-decoration: none;
+    padding-block-end: 0.2rem; border-block-end: 1px solid rgba(255, 255, 255, 0.28);
+    transition: color 0.3s ease, border-color 0.3s ease;
+  }
+  .nf__link:hover { color: var(--color-terracotta-300, #e9b79a); border-block-end-color: currentColor; }
+
+  @media (max-width: 640px) {
+    .nf__cta { padding: 0.85rem 1.4rem; font-size: 0.9rem; }
+    .nf__text { font-size: 1rem; }
+  }
+</style>
+
+<style is:global>
+  body { background: var(--color-cream); }
+</style>

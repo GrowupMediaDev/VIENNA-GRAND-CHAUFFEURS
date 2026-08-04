@@ -9,9 +9,11 @@ export default defineConfig({
   integrations: [
     sitemap({
       // Beide Chauffeurservice-Seiten zeigen per Canonical auf die Startseite
-      // und sollen deshalb nicht eigenstaendig indexiert werden.
+      // und sollen deshalb nicht eigenstaendig indexiert werden; die
+      // 404-Seite gehoert ebenfalls nicht in die Sitemap.
       filter: (page) =>
-        !/\/(leistungen\/chauffeurservice|en\/services\/chauffeur-service-vienna)\/$/.test(page),
+        !/\/(leistungen\/chauffeurservice|en\/services\/chauffeur-service-vienna)\/$/.test(page) &&
+        !/\/404\/?$/.test(page),
     }),
   ],
   vite: {

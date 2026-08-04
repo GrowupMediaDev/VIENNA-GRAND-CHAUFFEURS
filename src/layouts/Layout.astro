@@ -9,16 +9,19 @@ interface Props {
   description?: string;
   /** Overrides the self-referencing canonical, e.g. to point a page at the homepage. */
   canonical?: string;
+  /** Keeps the page out of the index: no canonical, no hreflang, robots noindex. */
+  noindex?: boolean;
 }
 
 const {
   title = 'Vienna Grand Chauffeurs — Chauffeurservice der Extraklasse',
   description = 'Premium Chauffeurservice in Wien: erfahrene, diskrete Chauffeure, gepflegte Mercedes-Benz Oberklasse und transparente Fixpreise. Flughafentransfer, Business- und Langstreckenfahrten.',
   canonical: canonicalOverride,
+  noindex = false,
 } = Astro.props;
 
 const lang = getLang(Astro.url);
-const canonical = new URL(canonicalOverride ?? Astro.url.pathname, Astro.site).href;
+const canonical = noindex ? null : new URL(canonicalOverride ?? Astro.url.pathname, Astro.site).href;
 
 // hreflang: DE lives at the root, EN under /en/ with its own segments and
 // slugs, so the counterpart is resolved through the route mapping. x-default
@@ -26,7 +29,7 @@ const canonical = new URL(canonicalOverride ?? Astro.url.pathname, Astro.site).h
 // canonical of their language pair, so they stay out of the annotation.
 const dePath = localizePath(Astro.url.pathname, 'de');
 const enPath = localizePath(Astro.url.pathname, 'en');
-const alternates = canonicalOverride
+const alternates = canonicalOverride || noindex
   ? []
   : [
       { hreflang: 'de-AT', href: new URL(dePath, Astro.site).href },
@@ -63,14 +66,15 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
     <link rel="manifest" href="/site.webmanifest" />
     <title>{title}</title>
     <meta name="description" content={description} />
-    <link rel="canonical" href={canonical} />
+    {canonical && <link rel="canonical" href={canonical} />}
+    {noindex && <meta name="robots" content="noindex, follow" />}
     {alternates.map((a) => <link rel="alternate" hreflang={a.hreflang} href={a.href} />)}
 
     <!-- Open Graph -->
     <meta property="og:type" content="website" />
     <meta property="og:title" content={title} />
     <meta property="og:description" content={description} />
-    <meta property="og:url" content={canonical} />
+    {canonical && <meta property="og:url" content={canonical} />}
     <meta property="og:locale" content={lang === 'en' ? 'en_GB' : 'de_AT'} />
     <slot name="head" />
     <noscript><style>[data-reveal]{opacity:1 !important;transform:none !important}.pxn{display:none !important}</style></noscript>

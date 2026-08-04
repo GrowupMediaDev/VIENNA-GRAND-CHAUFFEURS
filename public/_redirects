@@ -1,0 +1,54 @@
+# 301-Weiterleitungen der alten Pfade auf ihren heutigen Gegenpart.
+# Erzeugt aus der Slug-Zuordnung in src/lib/routes.ts bzw. den Datendateien;
+# Ausgangsstand sind die Pfade vor der Slug- und EN-Route-Umstellung (4a39802).
+
+/en/leistungen/flughafen-transfer-wien/ /en/services/airport-transfer-vienna/      301
+/en/leistungen/flughafen-transfer-wien  /en/services/airport-transfer-vienna/      301
+/en/leistungen/chauffeurservice/        /en/services/chauffeur-service-vienna/     301
+/en/leistungen/chauffeurservice         /en/services/chauffeur-service-vienna/     301
+/en/leistungen/chauffeur-pro-stunde/    /en/services/chauffeur-by-the-hour-vienna/ 301
+/en/leistungen/chauffeur-pro-stunde     /en/services/chauffeur-by-the-hour-vienna/ 301
+/leistungen/limousinen-service-wien/    /leistungen/limousinenservice/             301
+/leistungen/limousinen-service-wien     /leistungen/limousinenservice/             301
+/en/leistungen/limousinen-service-wien/ /en/services/limousine-service-vienna/     301
+/en/leistungen/limousinen-service-wien  /en/services/limousine-service-vienna/     301
+/en/leistungen/fahrdienst-diplomaten/   /en/services/diplomatic-chauffeur-vienna/  301
+/en/leistungen/fahrdienst-diplomaten    /en/services/diplomatic-chauffeur-vienna/  301
+/leistungen/privatchauffeur-wien/       /leistungen/privatchauffeur/               301
+/leistungen/privatchauffeur-wien        /leistungen/privatchauffeur/               301
+/en/leistungen/privatchauffeur-wien/    /en/services/private-chauffeur-vienna/     301
+/en/leistungen/privatchauffeur-wien     /en/services/private-chauffeur-vienna/     301
+/leistungen/shuttle-service-wien/       /leistungen/shuttle-service/               301
+/leistungen/shuttle-service-wien        /leistungen/shuttle-service/               301
+/en/leistungen/shuttle-service-wien/    /en/services/shuttle-service-vienna/       301
+/en/leistungen/shuttle-service-wien     /en/services/shuttle-service-vienna/       301
+/en/leistungen/langstreckenfahrten/     /en/services/day-trips-from-vienna/        301
+/en/leistungen/langstreckenfahrten      /en/services/day-trips-from-vienna/        301
+/en/fahrzeuge/e-klasse/                 /en/vehicles/e-class/                      301
+/en/fahrzeuge/e-klasse                  /en/vehicles/e-class/                      301
+/en/fahrzeuge/vito/                     /en/vehicles/vito/                         301
+/en/fahrzeuge/vito                      /en/vehicles/vito/                         301
+/en/fahrzeuge/v-klasse/                 /en/vehicles/v-class/                      301
+/en/fahrzeuge/v-klasse                  /en/vehicles/v-class/                      301
+/en/fahrzeuge/s-klasse/                 /en/vehicles/s-class/                      301
+/en/fahrzeuge/s-klasse                  /en/vehicles/s-class/                      301
+/en/fahrzeuge/maybach/                  /en/vehicles/maybach/                      301
+/en/fahrzeuge/maybach                   /en/vehicles/maybach/                      301
+/fahrzeuge/mercedes-eqe/                /fahrzeuge/eqe/                            301
+/fahrzeuge/mercedes-eqe                 /fahrzeuge/eqe/                            301
+/en/fahrzeuge/mercedes-eqe/             /en/vehicles/eqe/                          301
+/en/fahrzeuge/mercedes-eqe              /en/vehicles/eqe/                          301
+/en/fahrzeuge/vip-minibus/              /en/vehicles/vip-minibus/                  301
+/en/fahrzeuge/vip-minibus               /en/vehicles/vip-minibus/                  301
+/en/fahrzeuge/business-sprinter/        /en/vehicles/business-sprinter/            301
+/en/fahrzeuge/business-sprinter         /en/vehicles/business-sprinter/            301
+/en/fahrzeuge/                          /en/vehicles/                              301
+/en/fahrzeuge                           /en/vehicles/                              301
+/en/preise/                             /en/prices/                                301
+/en/preise                              /en/prices/                                301
+/en/kontakt/                            /en/contact/                               301
+/en/kontakt                             /en/contact/                               301
+/en/online-buchung/                     /en/online-booking/                        301
+/en/online-buchung                      /en/online-booking/                        301
+/en/buchung-abschluss/                  /en/booking-complete/                      301
+/en/buchung-abschluss                   /en/booking-complete/                      301
