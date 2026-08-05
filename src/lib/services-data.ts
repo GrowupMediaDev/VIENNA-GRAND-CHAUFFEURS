@@ -555,7 +555,7 @@ export const SERVICES_DATA_EN: Service[] = [
       'Vienna airport transfer at a fixed price: pickup at Vienna Airport, flight tracking and discreet drivers. Around the clock. Book your transfer online now.',
     heroImg: '/images/services/hero-flughafen.jpg',
     hero: {
-      title: 'Vienna Airport',
+      title: 'Vienna Airport Transfer',
       sub: 'Punctual pickup at Vienna Airport and in the city. Fixed price, flight tracking and a driver who waits for you and brings you to your destination.',
     },
     heroFeatures: [
@@ -741,7 +741,7 @@ export const SERVICES_DATA_EN: Service[] = [
       'Limousine service in Vienna: Mercedes limousine with chauffeur at a fixed price. Discreet, comfortable, around the clock. Book online, confirmed instantly.',
     heroImg: '/images/services/limousinen-service-wien-hero.jpg',
     hero: {
-      title: 'Limousine Service',
+      title: 'Limousine Service Vienna',
       sub: 'A Mercedes limousine with your own chauffeur. For business meetings, special occasions and stylish, discreet rides across all of Vienna.',
     },
     heroFeatures: [
@@ -803,7 +803,7 @@ export const SERVICES_DATA_EN: Service[] = [
       'Diplomatic chauffeur in Vienna: discreet, secure driver service for embassies, delegations and protocol. Reliable and confidential.',
     heroImg: '/images/services/fahrdienst-diplomaten-hero.jpg',
     hero: {
-      title: 'Diplomatic Chauffeur',
+      title: 'Diplomatic Chauffeur Vienna',
       sub: 'A discreet driver service for diplomacy and protocol in Vienna. Secure, confidential and reliable for embassies, consulates and delegations.',
     },
     heroFeatures: [
@@ -865,7 +865,7 @@ export const SERVICES_DATA_EN: Service[] = [
       'Private chauffeur in Vienna: your personal driver for daily life, meetings and family. Discreet, reliable, at a fixed price. Book online.',
     heroImg: '/images/services/privatchauffeur-wien-hero.jpg',
     hero: {
-      title: 'Private Chauffeur',
+      title: 'Private Chauffeur Vienna',
       sub: 'Your personal driver in Vienna. Discreet and reliable for daily life, meetings, family and any route you plan and schedule well ahead of time.',
     },
     heroFeatures: [
@@ -927,7 +927,7 @@ export const SERVICES_DATA_EN: Service[] = [
       'Shuttle service in Vienna: reliable group transfer for events, companies and hotels. Up to 20 seats, fixed price, fixed driver. Request your shuttle now.',
     heroImg: '/images/services/shuttle-service-wien-hero.jpg',
     hero: {
-      title: 'Shuttle Service',
+      title: 'Shuttle Service Vienna',
       sub: 'Reliable group transfer in Vienna. For events, companies and hotels, with comfortable room for up to 20 people and a fixed, local driver.',
     },
     heroFeatures: [
