@@ -230,7 +230,12 @@ const seoRight = seoParas.slice(seoHalf);
   .shero__title {
     font-family: var(--font-display); font-weight: 700; text-transform: capitalize;
     font-size: clamp(2.6rem, 10vw, 6.25rem); line-height: 0.95; letter-spacing: -0.03em; color: #fff;
-    max-inline-size: 8em;
+    /* Breite so gewaehlt, dass zweiwortige Zeilen passen ("Private Chauffeur" =
+       8.16em) die laengsten Titel aber weiter zweizeilig bleiben ("Privatchauffeur
+       Wien" kollabiert erst ab 9.85em auf eine Zeile). Kein text-wrap: balance —
+       Balance minimiert die laengste Zeile und wuerde "Private | Chauffeur Vienna"
+       erzwingen statt "Private Chauffeur | Vienna". */
+    max-inline-size: 9em;
   }
   .shero__sub {
     margin: 0; font-size: clamp(1rem, 1.3vw, 1.19rem); line-height: 1.6;

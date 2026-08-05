@@ -1,29 +1,44 @@
 # 301-Weiterleitungen der alten Pfade auf ihren heutigen Gegenpart.
-# Erzeugt aus der Slug-Zuordnung in src/lib/routes.ts bzw. den Datendateien;
-# Ausgangsstand sind die Pfade vor der Slug- und EN-Route-Umstellung (4a39802).
+# Erzeugt aus der Slug-Zuordnung in src/lib/routes.ts bzw. den Datendateien.
+# Erfasst sind beide frueheren Staende: die Pfade vor der Slug- und EN-Route-
+# Umstellung (4a39802) und die vor der Umstellung der Leistungs-Slugs auf
+# "...-wien". Jede Quelle zeigt direkt auf ihr finales Ziel — keine Ketten.
 
+# --- Leistungen (DE): ur-alte und bisherige Slugs auf die "...-wien"-Slugs ---
+/leistungen/limousinen-service-wien/    /leistungen/limousinenservice-wien/        301
+/leistungen/limousinen-service-wien     /leistungen/limousinenservice-wien/        301
+/leistungen/limousinenservice/          /leistungen/limousinenservice-wien/        301
+/leistungen/limousinenservice           /leistungen/limousinenservice-wien/        301
+/leistungen/chauffeur-pro-stunde/       /leistungen/chauffeur-pro-stunde-wien/     301
+/leistungen/chauffeur-pro-stunde        /leistungen/chauffeur-pro-stunde-wien/     301
+/leistungen/langstreckenfahrten/        /leistungen/langstreckenfahrten-wien/      301
+/leistungen/langstreckenfahrten         /leistungen/langstreckenfahrten-wien/      301
+/leistungen/privatchauffeur/            /leistungen/privatchauffeur-wien/          301
+/leistungen/privatchauffeur             /leistungen/privatchauffeur-wien/          301
+/leistungen/shuttle-service/            /leistungen/shuttle-service-wien/          301
+/leistungen/shuttle-service             /leistungen/shuttle-service-wien/          301
+/leistungen/fahrdienst-diplomaten/      /leistungen/diplomaten-chauffeur-wien/     301
+/leistungen/fahrdienst-diplomaten       /leistungen/diplomaten-chauffeur-wien/     301
+
+# --- Leistungen (EN): alter /en/leistungen-Baum auf /en/services ---
 /en/leistungen/flughafen-transfer-wien/ /en/services/airport-transfer-vienna/      301
 /en/leistungen/flughafen-transfer-wien  /en/services/airport-transfer-vienna/      301
 /en/leistungen/chauffeurservice/        /en/services/chauffeur-service-vienna/     301
 /en/leistungen/chauffeurservice         /en/services/chauffeur-service-vienna/     301
 /en/leistungen/chauffeur-pro-stunde/    /en/services/chauffeur-by-the-hour-vienna/ 301
 /en/leistungen/chauffeur-pro-stunde     /en/services/chauffeur-by-the-hour-vienna/ 301
-/leistungen/limousinen-service-wien/    /leistungen/limousinenservice/             301
-/leistungen/limousinen-service-wien     /leistungen/limousinenservice/             301
 /en/leistungen/limousinen-service-wien/ /en/services/limousine-service-vienna/     301
 /en/leistungen/limousinen-service-wien  /en/services/limousine-service-vienna/     301
 /en/leistungen/fahrdienst-diplomaten/   /en/services/diplomatic-chauffeur-vienna/  301
 /en/leistungen/fahrdienst-diplomaten    /en/services/diplomatic-chauffeur-vienna/  301
-/leistungen/privatchauffeur-wien/       /leistungen/privatchauffeur/               301
-/leistungen/privatchauffeur-wien        /leistungen/privatchauffeur/               301
 /en/leistungen/privatchauffeur-wien/    /en/services/private-chauffeur-vienna/     301
 /en/leistungen/privatchauffeur-wien     /en/services/private-chauffeur-vienna/     301
-/leistungen/shuttle-service-wien/       /leistungen/shuttle-service/               301
-/leistungen/shuttle-service-wien        /leistungen/shuttle-service/               301
 /en/leistungen/shuttle-service-wien/    /en/services/shuttle-service-vienna/       301
 /en/leistungen/shuttle-service-wien     /en/services/shuttle-service-vienna/       301
 /en/leistungen/langstreckenfahrten/     /en/services/day-trips-from-vienna/        301
 /en/leistungen/langstreckenfahrten      /en/services/day-trips-from-vienna/        301
+
+# --- Fahrzeuge ---
 /en/fahrzeuge/e-klasse/                 /en/vehicles/e-class/                      301
 /en/fahrzeuge/e-klasse                  /en/vehicles/e-class/                      301
 /en/fahrzeuge/vito/                     /en/vehicles/vito/                         301
@@ -44,6 +59,8 @@
 /en/fahrzeuge/business-sprinter         /en/vehicles/business-sprinter/            301
 /en/fahrzeuge/                          /en/vehicles/                              301
 /en/fahrzeuge                           /en/vehicles/                              301
+
+# --- Uebrige Seiten (EN) ---
 /en/preise/                             /en/prices/                                301
 /en/preise                              /en/prices/                                301
 /en/kontakt/                            /en/contact/                               301

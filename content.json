@@ -148,9 +148,9 @@
       }
     },
     "limo": {
-      "slug": "limousinenservice",
+      "slug": "limousinenservice-wien",
       "name": "Limousinenservice",
-      "url": "/leistungen/limousinenservice/",
+      "url": "/leistungen/limousinenservice-wien/",
       "type": "service",
       "content": {
         "metaTitle": "Limousinenservice Wien – Mercedes mit Chauffeur",
@@ -228,9 +228,9 @@
       }
     },
     "stunde": {
-      "slug": "chauffeur-pro-stunde",
+      "slug": "chauffeur-pro-stunde-wien",
       "name": "Chauffeur pro Stunde",
-      "url": "/leistungen/chauffeur-pro-stunde/",
+      "url": "/leistungen/chauffeur-pro-stunde-wien/",
       "type": "service",
       "content": {
         "metaTitle": "Chauffeur pro Stunde Wien – stundenweise buchen",
@@ -307,9 +307,9 @@
       }
     },
     "lang": {
-      "slug": "langstreckenfahrten",
+      "slug": "langstreckenfahrten-wien",
       "name": "Langstreckenfahrten",
-      "url": "/leistungen/langstreckenfahrten/",
+      "url": "/leistungen/langstreckenfahrten-wien/",
       "type": "service",
       "content": {
         "metaTitle": "Langstreckenfahrten Wien – Bratislava, Prag & mehr",
@@ -387,9 +387,9 @@
       }
     },
     "priv": {
-      "slug": "privatchauffeur",
+      "slug": "privatchauffeur-wien",
       "name": "Privatchauffeur",
-      "url": "/leistungen/privatchauffeur/",
+      "url": "/leistungen/privatchauffeur-wien/",
       "type": "service",
       "content": {
         "metaTitle": "Privatchauffeur Wien – Ihr persönlicher Fahrer",
@@ -466,9 +466,9 @@
       }
     },
     "shuttle": {
-      "slug": "shuttle-service",
+      "slug": "shuttle-service-wien",
       "name": "Shuttle Service",
-      "url": "/leistungen/shuttle-service/",
+      "url": "/leistungen/shuttle-service-wien/",
       "type": "service",
       "content": {
         "metaTitle": "Shuttle Service Wien – Gruppentransfer mit Fahrer",
@@ -545,15 +545,15 @@
       }
     },
     "diplo": {
-      "slug": "fahrdienst-diplomaten",
+      "slug": "diplomaten-chauffeur-wien",
       "name": "Fahrdienst Diplomaten",
-      "url": "/leistungen/fahrdienst-diplomaten/",
+      "url": "/leistungen/diplomaten-chauffeur-wien/",
       "type": "service",
       "content": {
         "metaTitle": "Diplomaten Chauffeur Wien – diskreter Fahrdienst",
         "metaDescription": "Diplomaten Chauffeur in Wien: diskreter, sicherer Fahrdienst für Botschaften, Delegationen und Protokoll. Zuverlässig und vertraulich. Jetzt anfragen.",
         "hero": {
-          "title": "Diplomaten Chauffeur",
+          "title": "Diplomaten Chauffeur Wien",
           "sub": "Diskreter Fahrdienst für Diplomatie und Protokoll in Wien. Sicher, vertraulich und zuverlässig für Botschaften, Konsulate und offizielle Delegationen."
         },
         "intro": {

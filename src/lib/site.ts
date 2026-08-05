@@ -25,12 +25,12 @@ export const CONTACT = {
 export const SERVICES = [
   { slug: 'flughafen-transfer-wien', title: 'Flughafentransfer Wien', titleEn: 'Airport Transfer Vienna' },
   { slug: 'chauffeurservice', title: 'Chauffeurservice', titleEn: 'Chauffeur Service' },
-  { slug: 'chauffeur-pro-stunde', title: 'Chauffeur pro Stunde', titleEn: 'Chauffeur by the Hour' },
-  { slug: 'limousinenservice', title: 'Limousinenservice Wien', titleEn: 'Limousine Service Vienna' },
-  { slug: 'fahrdienst-diplomaten', title: 'Fahrdienst für Diplomaten', titleEn: 'Diplomatic Chauffeur Service' },
-  { slug: 'privatchauffeur', title: 'Privatchauffeur Wien', titleEn: 'Private Chauffeur Vienna' },
-  { slug: 'shuttle-service', title: 'Shuttle-Service Wien', titleEn: 'Shuttle Service Vienna' },
-  { slug: 'langstreckenfahrten', title: 'Langstreckenfahrten', titleEn: 'Long-Distance Journeys' },
+  { slug: 'chauffeur-pro-stunde-wien', title: 'Chauffeur pro Stunde', titleEn: 'Chauffeur by the Hour' },
+  { slug: 'limousinenservice-wien', title: 'Limousinenservice Wien', titleEn: 'Limousine Service Vienna' },
+  { slug: 'diplomaten-chauffeur-wien', title: 'Fahrdienst für Diplomaten', titleEn: 'Diplomatic Chauffeur Service' },
+  { slug: 'privatchauffeur-wien', title: 'Privatchauffeur Wien', titleEn: 'Private Chauffeur Vienna' },
+  { slug: 'shuttle-service-wien', title: 'Shuttle-Service Wien', titleEn: 'Shuttle Service Vienna' },
+  { slug: 'langstreckenfahrten-wien', title: 'Langstreckenfahrten', titleEn: 'Long-Distance Journeys' },
 ] as const;
 
 // The fleet, in menu order.
