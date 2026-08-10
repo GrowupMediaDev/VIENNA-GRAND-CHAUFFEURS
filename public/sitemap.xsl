@@ -17,6 +17,15 @@
   exclude-result-prefixes="s xhtml">
   <xsl:output method="html" version="1.0" encoding="UTF-8" indent="yes"/>
 
+  <!-- Host aus einer absoluten URL. Wird aus der Sitemap gelesen statt
+       hartcodiert, damit ein Domainwechsel hier nichts nachzuziehen laesst.
+       Das angehaengte '/' garantiert ein Trennzeichen, auch wenn die URL
+       keinen Pfad hat. -->
+  <xsl:template name="host">
+    <xsl:param name="url"/>
+    <xsl:value-of select="substring-before(concat(substring-after($url, '//'), '/'), '/')"/>
+  </xsl:template>
+
   <xsl:template match="/">
     <html lang="de">
       <head>
@@ -80,7 +89,9 @@
                   <xsl:when test="count(s:sitemapindex/s:sitemap) = 1"> Sitemap · </xsl:when>
                   <xsl:otherwise> Sitemaps · </xsl:otherwise>
                 </xsl:choose>
-                vienna-grand-chauffeurs.pages.dev
+                <xsl:call-template name="host">
+                  <xsl:with-param name="url" select="s:sitemapindex/s:sitemap[1]/s:loc"/>
+                </xsl:call-template>
               </p>
               <table>
                 <thead><tr><th class="num">#</th><th>Sitemap</th><th>Geändert</th></tr></thead>
@@ -99,7 +110,12 @@
             <!-- Fall B: einzelne Sitemap -->
             <xsl:otherwise>
               <h1>Sitemap</h1>
-              <p class="sub"><xsl:value-of select="count(s:urlset/s:url)"/> URLs · vienna-grand-chauffeurs.pages.dev</p>
+              <p class="sub">
+                <xsl:value-of select="count(s:urlset/s:url)"/> URLs ·
+                <xsl:call-template name="host">
+                  <xsl:with-param name="url" select="s:urlset/s:url[1]/s:loc"/>
+                </xsl:call-template>
+              </p>
               <table>
                 <thead><tr><th class="num">#</th><th>URL</th><th>Sprache</th></tr></thead>
                 <tbody>

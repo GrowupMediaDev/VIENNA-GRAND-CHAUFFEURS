@@ -4,9 +4,10 @@ import tailwindcss from '@tailwindcss/vite';
 import sitemap from '@astrojs/sitemap';
 import sitemapSingleFile from './src/integrations/sitemap-single-file.mjs';
 
-// Domain is not finalized yet — placeholder until go-live.
+// Produktivdomain ohne www — daraus leiten sich Canonicals, hreflang, og:url
+// und die Sitemap ab (Astro.site). www ist nicht aufgesetzt.
 export default defineConfig({
-  site: 'https://vienna-grand-chauffeurs.pages.dev',
+  site: 'https://viennagrandchauffeurs.at',
   integrations: [
     sitemap({
       // Rein visuell: der Browser rendert die Sitemap damit als Tabelle
