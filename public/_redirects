@@ -4,6 +4,9 @@
 # Umstellung (4a39802) und die vor der Umstellung der Leistungs-Slugs auf
 # "...-wien". Jede Quelle zeigt direkt auf ihr finales Ziel — keine Ketten.
 
+# --- Sitemap: frueherer Pfad von @astrojs/sitemap auf /sitemap.xml ---
+/sitemap-index.xml                      /sitemap.xml                               301
+
 # --- Leistungen (DE): ur-alte und bisherige Slugs auf die "...-wien"-Slugs ---
 /leistungen/limousinen-service-wien/    /leistungen/limousinenservice-wien/        301
 /leistungen/limousinen-service-wien     /leistungen/limousinenservice-wien/        301
