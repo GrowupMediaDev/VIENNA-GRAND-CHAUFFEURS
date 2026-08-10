@@ -1,0 +1,10 @@
+# Cloudflare Pages — Custom Response Headers.
+
+# Das Sitemap-Stylesheet wird vom Browser nur angewendet, wenn es mit einem
+# XML-tauglichen Content-Type ausgeliefert wird.
+/sitemap.xsl
+  Content-Type: text/xsl; charset=utf-8
+
+# Die Font-Kopien fuer die Sitemap-Ansicht sind unveraenderlich.
+/fonts/*
+  Cache-Control: public, max-age=31536000, immutable

@@ -8,6 +8,10 @@ export default defineConfig({
   site: 'https://vienna-grand-chauffeurs.pages.dev',
   integrations: [
     sitemap({
+      // Rein visuell: der Browser rendert die Sitemap damit als Tabelle
+      // (public/sitemap.xsl). Der XML-Inhalt bleibt unveraendert, Googlebot
+      // ignoriert das Stylesheet.
+      xslURL: '/sitemap.xsl',
       // Beide Chauffeurservice-Seiten zeigen per Canonical auf die Startseite
       // und sollen deshalb nicht eigenstaendig indexiert werden; die
       // 404-Seite gehoert ebenfalls nicht in die Sitemap.
