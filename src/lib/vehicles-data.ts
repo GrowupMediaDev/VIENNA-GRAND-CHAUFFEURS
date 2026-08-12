@@ -26,6 +26,20 @@ export interface Vehicle {
   metaDescription: string;
   heroSub: string;
   heroStats: { label: string; value: string; accent?: string }[];
+  /**
+   * Harte Fahrzeugdaten fuer das Vehicle-Schema (siehe Schema.astro). Spiegelt
+   * genau das, was die Seite in heroTitle und heroStats auch anzeigt. Fehlt das
+   * Feld, gibt die Seite bewusst kein Vehicle-Schema aus — ein Vehicle ohne
+   * Marke, Modell und Sitzplatzzahl behauptet mehr, als es belegt.
+   */
+  vschema?: {
+    brand: string;
+    model: string;
+    /** Passagiere laut Hero-Stat, ohne Chauffeur. */
+    seats: number;
+    bodyType?: string;
+    fuelType?: string;
+  };
   img: { hero: string; ueberblick: string; vorteil: string; kabineBg: string; gallery: string[]; card: string };
   vover: { titleLead: string; titleAccent: string; body: string };
   galTitle: string;
@@ -56,6 +70,7 @@ export const VEHICLES_DATA: Vehicle[] = [
       { label: 'Gepäck', value: '2–3 Koffer' },
       { label: 'Karosserie', value: 'Sedan' },
     ],
+    vschema: { brand: 'Mercedes-Benz', model: 'E-Klasse', seats: 3, bodyType: 'Sedan' },
     img: { hero: '/images/fahrzeuge/e-klasse-gal-1.jpg', ueberblick: '/images/fahrzeuge/ueberblick-e-klasse.jpg', vorteil: '/images/fahrzeuge/vorteil-e-klasse.jpg', kabineBg: KAB_BG, gallery: ['/images/fahrzeuge/e-klasse-gal-1.jpg', '/images/fahrzeuge/e-klasse-gal-2.jpg', '/images/fahrzeuge/e-klasse-gal-3.jpg', '/images/fahrzeuge/e-klasse-gal-4.jpg', '/images/fahrzeuge/e-klasse-gal-5.jpg'], card: '/images/fahrzeuge/card-e-klasse.jpg' },
     vover: { titleLead: 'Komfort für', titleAccent: 'den Businessalltag', body: 'Wer die E-Klasse mieten Wien und Umgebung möchte, erhält die ideale Business-Limousine: komfortabel, elegant und sparsam zugleich. Sie bietet bis zu drei Passagieren viel Platz und eignet sich perfekt für Geschäftstermine, Flughafentransfers und den täglichen Bedarf. Ein bewährtes, gepflegtes' },
     galTitle: 'Die E-Klasse in Wien.',
@@ -111,6 +126,7 @@ export const VEHICLES_DATA: Vehicle[] = [
       { label: 'Gepäck', value: 'Bis 7 Koffer' },
       { label: 'Karosserie', value: 'Minivan' },
     ],
+    vschema: { brand: 'Mercedes-Benz', model: 'Vito', seats: 7, bodyType: 'Minivan' },
     img: { hero: '/images/fahrzeuge/vito-gal-1.webp', ueberblick: '/images/fahrzeuge/vito-gal-3.webp', vorteil: '/images/fahrzeuge/vorteil-vito.webp', kabineBg: KAB_BG, gallery: ['/images/fahrzeuge/vito-gal-1.webp', '/images/fahrzeuge/vito-gal-2.webp', '/images/fahrzeuge/vito-gal-3.webp', '/images/fahrzeuge/vito-gal-4.webp', '/images/fahrzeuge/vito-gal-5.webp'], card: '/images/fahrzeuge/card-vito.webp' },
     vover: { titleLead: 'Praktisch und', titleAccent: 'geräumig', body: 'Wer den Vito mieten Wien und Umgebung möchte, erhält den praktischen Allrounder unter unseren Vans. Er bietet Platz für bis zu acht Passagiere und viel Gepäck, ideal für Gruppen, Transfers und Ausflüge. Robust, zuverlässig und geräumig bringt er alle gemeinsam und entspannt ans Ziel, ohne dass es' },
     galTitle: 'Der Vito in Wien.',
@@ -166,6 +182,7 @@ export const VEHICLES_DATA: Vehicle[] = [
       { label: 'Gepäck', value: 'Bis 7 Koffer' },
       { label: 'Karosserie', value: 'Minivan' },
     ],
+    vschema: { brand: 'Mercedes-Benz', model: 'V-Klasse', seats: 7, bodyType: 'Minivan' },
     img: { hero: '/images/fahrzeuge/v-klasse-gal-1.jpg', ueberblick: '/images/fahrzeuge/ueberblick-v-klasse.jpg', vorteil: '/images/fahrzeuge/vorteil-v-klasse.jpg', kabineBg: KAB_BG, gallery: ['/images/fahrzeuge/v-klasse-gal-1.jpg', '/images/fahrzeuge/v-klasse-gal-2.jpg', '/images/fahrzeuge/v-klasse-gal-3.jpg', '/images/fahrzeuge/v-klasse-gal-4.jpg', '/images/fahrzeuge/v-klasse-gal-5.jpg'], card: '/images/fahrzeuge/card-v-klasse.jpg' },
     vover: { titleLead: 'Platz für', titleAccent: 'die ganze Gruppe', body: 'Wer die V-Klasse mieten Wien und Umgebung möchte, erhält Raum für bis zu sieben Passagiere samt Gepäck. Ideal für Familien, kleine Gruppen oder Geschäftsteams, die gemeinsam reisen möchten. Bequeme Einzelsitze, viel Kopffreiheit und ein flexibler Innenraum machen auch längere Fahrten angenehm.' },
     galTitle: 'Die V-Klasse in Wien.',
@@ -221,6 +238,7 @@ export const VEHICLES_DATA: Vehicle[] = [
       { label: 'Gepäck', value: '2–4 Koffer' },
       { label: 'Karosserie', value: 'Luxus-Sedan' },
     ],
+    vschema: { brand: 'Mercedes-Benz', model: 'S-Klasse', seats: 3, bodyType: 'Luxus-Sedan' },
     img: { hero: '/images/fahrzeuge/s-klasse-gal-1.jpg', ueberblick: '/images/fahrzeuge/ueberblick-s-klasse.jpg', vorteil: '/images/fahrzeuge/vorteil-s-klasse.jpg', kabineBg: KAB_BG, gallery: ['/images/fahrzeuge/s-klasse-gal-1.jpg', '/images/fahrzeuge/s-klasse-gal-2.jpg', '/images/fahrzeuge/s-klasse-gal-3.jpg', '/images/fahrzeuge/s-klasse-gal-4.jpg', '/images/fahrzeuge/s-klasse-gal-5.jpg'], card: '/images/fahrzeuge/card-s-klasse.jpg' },
     vover: { titleLead: 'First Class auf', titleAccent: 'jeder Fahrt', body: 'Wer die S-Klasse mieten Wien und Umgebung möchte, wählt unsere repräsentativste Limousine. Viel Beinfreiheit, ruhiger Lauf und eine Ausstattung, die auch lange Fahrten angenehm macht. Ideal für Geschäftskunden, die Wert auf Komfort und ein souveränes Auftreten legen. Bis zu drei Passagiere reisen' },
     galTitle: 'Die S-Klasse in Wien.',
@@ -276,6 +294,7 @@ export const VEHICLES_DATA: Vehicle[] = [
       { label: 'Gepäck', value: '2–3 Koffer' },
       { label: 'Karosserie', value: 'Luxus-Sedan' },
     ],
+    vschema: { brand: 'Mercedes-Maybach', model: 'S-Klasse', seats: 3, bodyType: 'Luxus-Sedan' },
     img: { hero: '/images/fahrzeuge/maybach-gal-1.jpg', ueberblick: '/images/fahrzeuge/ueberblick-maybach.jpg', vorteil: '/images/fahrzeuge/vorteil-maybach.jpg', kabineBg: KAB_BG, gallery: ['/images/fahrzeuge/maybach-gal-1.jpg', '/images/fahrzeuge/maybach-gal-2.jpg', '/images/fahrzeuge/maybach-gal-3.jpg', '/images/fahrzeuge/maybach-gal-4.jpg', '/images/fahrzeuge/maybach-gal-5.jpg'], card: '/images/fahrzeuge/card-maybach.jpg' },
     vover: { titleLead: 'Luxus in seiner', titleAccent: 'reinsten Form', body: 'Wer einen Maybach mieten Wien und Umgebung möchte, wählt unser exklusivstes Fahrzeug. Er bietet ein Höchstmaß an Komfort, edle Materialien und eine Ausstattung, die auch anspruchsvollste Gäste überzeugt. Ideal für besondere Anlässe, VIP-Gäste und Fahrten, bei denen jedes Detail zählt.' },
     galTitle: 'Der Maybach in Wien.',
@@ -331,6 +350,8 @@ export const VEHICLES_DATA: Vehicle[] = [
       { label: 'Gepäck', value: '2–3 Koffer' },
       { label: 'Antrieb', value: 'Elektro' },
     ],
+    // Kein bodyType: die Seite nennt fuer die EQE nur den Antrieb, keine Karosserieform.
+    vschema: { brand: 'Mercedes-Benz', model: 'EQE', seats: 3, fuelType: 'Elektro' },
     img: { hero: '/images/fahrzeuge/mercedes-eqe-gal-1.jpg', ueberblick: '/images/fahrzeuge/ueberblick-mercedes-eqe.jpg', vorteil: '/images/fahrzeuge/vorteil-mercedes-eqe.jpg', kabineBg: KAB_BG, gallery: ['/images/fahrzeuge/mercedes-eqe-gal-1.jpg', '/images/fahrzeuge/mercedes-eqe-gal-2.jpg', '/images/fahrzeuge/mercedes-eqe-gal-3.jpg', '/images/fahrzeuge/mercedes-eqe-gal-4.jpg', '/images/fahrzeuge/mercedes-eqe-gal-5.jpg'], card: '/images/fahrzeuge/card-mercedes-eqe.jpg' },
     vover: { titleLead: 'Elektrisch und', titleAccent: 'komfortabel', body: 'Wer die EQE mieten Wien und Umgebung möchte, erhält unsere vollelektrische Business-Limousine. Sie fährt nahezu geräuschlos, lokal emissionsfrei und bietet dabei den gewohnten Komfort der Oberklasse. Ideal für Gäste, die Wert auf Nachhaltigkeit legen, ohne auf Platz zu verzichten.' },
     galTitle: 'Der EQE in Wien.',
@@ -386,6 +407,7 @@ export const VEHICLES_DATA: Vehicle[] = [
       { label: 'Interieur', value: 'VIP-Lounge' },
       { label: 'Karosserie', value: 'Sprinter' },
     ],
+    vschema: { brand: 'Mercedes-Benz', model: 'Sprinter', seats: 12, bodyType: 'Minibus' },
     img: { hero: '/images/fahrzeuge/vip-minibus-hero.webp', ueberblick: '/images/fahrzeuge/ueberblick-vip-minibus.webp', vorteil: '/images/fahrzeuge/vorteil-vip-minibus.jpg', kabineBg: KAB_BG, gallery: ['/images/fahrzeuge/vip-minibus-gal-1.jpg', '/images/fahrzeuge/vip-minibus-gal-2.jpg', '/images/fahrzeuge/vip-minibus-gal-3.jpg', '/images/fahrzeuge/vip-minibus-gal-4.jpg', '/images/fahrzeuge/vip-minibus-gal-5.jpg'], card: '/images/fahrzeuge/card-vip-minibus.webp' },
     vover: { titleLead: 'Komfort für', titleAccent: 'größere Gruppen', body: 'Wer einen Kleinbus mieten Wien und Umgebung möchte, findet im VIP Minibus die komfortable Lösung. Bis zu zwölf Passagiere reisen bequem und gemeinsam, mit angenehmen Sitzen und viel Platz für Gepäck. Ideal für Firmenausflüge, Hochzeitsgesellschaften oder Reisegruppen, die zusammenbleiben möchten.' },
     galTitle: 'Der VIP Sprinter in Wien.',
@@ -441,6 +463,7 @@ export const VEHICLES_DATA: Vehicle[] = [
       { label: 'Gepäck', value: 'Sehr viel' },
       { label: 'Karosserie', value: 'Sprinter' },
     ],
+    vschema: { brand: 'Mercedes-Benz', model: 'Sprinter', seats: 20, bodyType: 'Minibus' },
     img: { hero: '/images/fahrzeuge/business-sprinter-gal-1.webp', ueberblick: '/images/fahrzeuge/ueberblick-business-sprinter.webp', vorteil: '/images/fahrzeuge/vorteil-business-sprinter.webp', kabineBg: KAB_BG, gallery: ['/images/fahrzeuge/business-sprinter-gal-1.webp', '/images/fahrzeuge/business-sprinter-gal-2.webp', '/images/fahrzeuge/business-sprinter-gal-3.webp', '/images/fahrzeuge/business-sprinter-gal-4.webp', '/images/fahrzeuge/business-sprinter-gal-5.webp'], card: '/images/fahrzeuge/card-business-sprinter.jpg' },
     vover: { titleLead: 'Die ganze Gruppe', titleAccent: 'an Bord', body: 'Wer den Sprinter mieten Wien und Umgebung möchte, erhält unser größtes Fahrzeug mit Platz für bis zu zwanzig Passagiere. Ideal für große Gruppen, Firmenevents, Delegationen und Reisegesellschaften. Statt mehrerer Fahrzeuge reisen alle gemeinsam in einem, koordiniert und pünktlich.' },
     galTitle: 'Der Sprinter in Wien.',
@@ -500,6 +523,7 @@ export const VEHICLES_DATA_EN: Vehicle[] = [
       { label: 'Luggage', value: '2–3 cases' },
       { label: 'Body', value: 'Sedan' },
     ],
+    vschema: { brand: 'Mercedes-Benz', model: 'E-Class', seats: 3, bodyType: 'Sedan' },
     img: { hero: '/images/fahrzeuge/e-klasse-gal-1.jpg', ueberblick: '/images/fahrzeuge/ueberblick-e-klasse.jpg', vorteil: '/images/fahrzeuge/vorteil-e-klasse.jpg', kabineBg: KAB_BG, gallery: ['/images/fahrzeuge/e-klasse-gal-1.jpg', '/images/fahrzeuge/e-klasse-gal-2.jpg', '/images/fahrzeuge/e-klasse-gal-3.jpg', '/images/fahrzeuge/e-klasse-gal-4.jpg', '/images/fahrzeuge/e-klasse-gal-5.jpg'], card: '/images/fahrzeuge/card-e-klasse.jpg' },
     vover: { titleLead: 'Comfort for', titleAccent: 'the business day', body: 'Anyone looking for E-Class hire Vienna and beyond gets the ideal business limousine: comfortable, elegant and efficient at once. It offers up to three passengers plenty of room and is perfect for meetings, airport transfers and daily needs. A proven, well-kept vehicle.' },
     galTitle: 'The E-Class in Vienna.',
@@ -555,6 +579,7 @@ export const VEHICLES_DATA_EN: Vehicle[] = [
       { label: 'Luggage', value: 'Up to 7 cases' },
       { label: 'Body', value: 'Minivan' },
     ],
+    vschema: { brand: 'Mercedes-Benz', model: 'Vito', seats: 7, bodyType: 'Minivan' },
     img: { hero: '/images/fahrzeuge/vito-gal-1.webp', ueberblick: '/images/fahrzeuge/vito-gal-3.webp', vorteil: '/images/fahrzeuge/vorteil-vito.webp', kabineBg: KAB_BG, gallery: ['/images/fahrzeuge/vito-gal-1.webp', '/images/fahrzeuge/vito-gal-2.webp', '/images/fahrzeuge/vito-gal-3.webp', '/images/fahrzeuge/vito-gal-4.webp', '/images/fahrzeuge/vito-gal-5.webp'], card: '/images/fahrzeuge/card-vito.webp' },
     vover: { titleLead: 'Practical and', titleAccent: 'spacious', body: 'Anyone looking for Vito hire Vienna and beyond gets the practical all-rounder among our vans. It offers room for up to eight passengers and plenty of luggage, ideal for groups, transfers and excursions. Robust, reliable and spacious.' },
     galTitle: 'The Vito in Vienna.',
@@ -610,6 +635,7 @@ export const VEHICLES_DATA_EN: Vehicle[] = [
       { label: 'Luggage', value: 'Up to 7 cases' },
       { label: 'Body', value: 'Minivan' },
     ],
+    vschema: { brand: 'Mercedes-Benz', model: 'V-Class', seats: 7, bodyType: 'Minivan' },
     img: { hero: '/images/fahrzeuge/v-klasse-gal-1.jpg', ueberblick: '/images/fahrzeuge/ueberblick-v-klasse.jpg', vorteil: '/images/fahrzeuge/vorteil-v-klasse.jpg', kabineBg: KAB_BG, gallery: ['/images/fahrzeuge/v-klasse-gal-1.jpg', '/images/fahrzeuge/v-klasse-gal-2.jpg', '/images/fahrzeuge/v-klasse-gal-3.jpg', '/images/fahrzeuge/v-klasse-gal-4.jpg', '/images/fahrzeuge/v-klasse-gal-5.jpg'], card: '/images/fahrzeuge/card-v-klasse.jpg' },
     vover: { titleLead: 'Room for', titleAccent: 'the whole group', body: 'Anyone looking for V-Class hire Vienna and beyond gets room for up to seven passengers with luggage. Ideal for families, small groups or business teams who want to travel together. Comfortable single seats and a flexible interior make even longer rides pleasant.' },
     galTitle: 'The V-Class in Vienna.',
@@ -665,6 +691,7 @@ export const VEHICLES_DATA_EN: Vehicle[] = [
       { label: 'Luggage', value: '2–4 cases' },
       { label: 'Body', value: 'Luxury Sedan' },
     ],
+    vschema: { brand: 'Mercedes-Benz', model: 'S-Class', seats: 3, bodyType: 'Luxury Sedan' },
     img: { hero: '/images/fahrzeuge/s-klasse-gal-1.jpg', ueberblick: '/images/fahrzeuge/ueberblick-s-klasse.jpg', vorteil: '/images/fahrzeuge/vorteil-s-klasse.jpg', kabineBg: KAB_BG, gallery: ['/images/fahrzeuge/s-klasse-gal-1.jpg', '/images/fahrzeuge/s-klasse-gal-2.jpg', '/images/fahrzeuge/s-klasse-gal-3.jpg', '/images/fahrzeuge/s-klasse-gal-4.jpg', '/images/fahrzeuge/s-klasse-gal-5.jpg'], card: '/images/fahrzeuge/card-s-klasse.jpg' },
     vover: { titleLead: 'First class on', titleAccent: 'every ride', body: 'Anyone looking for S-Class hire Vienna and beyond will choose our most representative limousine. Plenty of legroom, a quiet ride and equipment that makes even long journeys pleasant. Ideal for business clients who value comfort and a composed presence. Up to three passengers travel with ease.' },
     galTitle: 'The S-Class in Vienna.',
@@ -720,6 +747,7 @@ export const VEHICLES_DATA_EN: Vehicle[] = [
       { label: 'Luggage', value: '2–3 cases' },
       { label: 'Body', value: 'Luxury sedan' },
     ],
+    vschema: { brand: 'Mercedes-Maybach', model: 'S-Class', seats: 3, bodyType: 'Luxury sedan' },
     img: { hero: '/images/fahrzeuge/maybach-gal-1.jpg', ueberblick: '/images/fahrzeuge/ueberblick-maybach.jpg', vorteil: '/images/fahrzeuge/vorteil-maybach.jpg', kabineBg: KAB_BG, gallery: ['/images/fahrzeuge/maybach-gal-1.jpg', '/images/fahrzeuge/maybach-gal-2.jpg', '/images/fahrzeuge/maybach-gal-3.jpg', '/images/fahrzeuge/maybach-gal-4.jpg', '/images/fahrzeuge/maybach-gal-5.jpg'], card: '/images/fahrzeuge/card-maybach.jpg' },
     vover: { titleLead: 'Luxury in its', titleAccent: 'purest form', body: 'Anyone looking for Maybach hire Vienna and beyond chooses our most exclusive vehicle. It offers the highest level of comfort, fine materials and equipment that satisfies even the most demanding guests. Ideal for special occasions and VIP guests.' },
     galTitle: 'The Maybach in Vienna.',
@@ -775,6 +803,8 @@ export const VEHICLES_DATA_EN: Vehicle[] = [
       { label: 'Luggage', value: '2–3 cases' },
       { label: 'Drive', value: 'Electric' },
     ],
+    // Kein bodyType: die Seite nennt fuer die EQE nur den Antrieb, keine Karosserieform.
+    vschema: { brand: 'Mercedes-Benz', model: 'EQE', seats: 3, fuelType: 'Electric' },
     img: { hero: '/images/fahrzeuge/mercedes-eqe-gal-1.jpg', ueberblick: '/images/fahrzeuge/ueberblick-mercedes-eqe.jpg', vorteil: '/images/fahrzeuge/vorteil-mercedes-eqe.jpg', kabineBg: KAB_BG, gallery: ['/images/fahrzeuge/mercedes-eqe-gal-1.jpg', '/images/fahrzeuge/mercedes-eqe-gal-2.jpg', '/images/fahrzeuge/mercedes-eqe-gal-3.jpg', '/images/fahrzeuge/mercedes-eqe-gal-4.jpg', '/images/fahrzeuge/mercedes-eqe-gal-5.jpg'], card: '/images/fahrzeuge/card-mercedes-eqe.jpg' },
     vover: { titleLead: 'Electric and', titleAccent: 'comfortable', body: 'Anyone looking for EQE hire Vienna and beyond gets our all-electric business limousine. It runs almost silently and locally emission-free, while offering the familiar comfort of the upper class. Ideal for guests who value sustainability without giving up space.' },
     galTitle: 'The EQE in Vienna.',
@@ -830,6 +860,7 @@ export const VEHICLES_DATA_EN: Vehicle[] = [
       { label: 'Interior', value: 'VIP lounge' },
       { label: 'Body', value: 'Sprinter' },
     ],
+    vschema: { brand: 'Mercedes-Benz', model: 'Sprinter', seats: 12, bodyType: 'Minibus' },
     img: { hero: '/images/fahrzeuge/vip-minibus-hero.webp', ueberblick: '/images/fahrzeuge/ueberblick-vip-minibus.webp', vorteil: '/images/fahrzeuge/vorteil-vip-minibus.jpg', kabineBg: KAB_BG, gallery: ['/images/fahrzeuge/vip-minibus-gal-1.jpg', '/images/fahrzeuge/vip-minibus-gal-2.jpg', '/images/fahrzeuge/vip-minibus-gal-3.jpg', '/images/fahrzeuge/vip-minibus-gal-4.jpg', '/images/fahrzeuge/vip-minibus-gal-5.jpg'], card: '/images/fahrzeuge/card-vip-minibus.webp' },
     vover: { titleLead: 'Comfort for', titleAccent: 'larger groups', body: 'Anyone looking for minibus hire Vienna and beyond will find the comfortable solution in the VIP minibus. Up to twelve passengers travel comfortably and together, with pleasant seats and plenty of room for luggage. Ideal for company outings, weddings or travel groups.' },
     galTitle: 'The VIP Sprinter in Vienna.',
@@ -881,10 +912,11 @@ export const VEHICLES_DATA_EN: Vehicle[] = [
     metaDescription: 'Business Sprinter with chauffeur in Vienna: 20-seater for large groups, events and delegations. Plenty of room, one driver. Request now.',
     heroSub: 'The 20-seater with chauffeur. Maximum room for large groups, events and delegations in Vienna and beyond. One group, one vehicle, one driver.',
     heroStats: [
-      { label: 'Passengers', value: 'Up to 19', accent: 'Up to' },
+      { label: 'Passengers', value: 'Up to 20', accent: 'Up to' },
       { label: 'Luggage', value: 'Very much' },
       { label: 'Body', value: 'Sprinter' },
     ],
+    vschema: { brand: 'Mercedes-Benz', model: 'Sprinter', seats: 20, bodyType: 'Minibus' },
     img: { hero: '/images/fahrzeuge/business-sprinter-gal-1.webp', ueberblick: '/images/fahrzeuge/ueberblick-business-sprinter.webp', vorteil: '/images/fahrzeuge/vorteil-business-sprinter.webp', kabineBg: KAB_BG, gallery: ['/images/fahrzeuge/business-sprinter-gal-1.webp', '/images/fahrzeuge/business-sprinter-gal-2.webp', '/images/fahrzeuge/business-sprinter-gal-3.webp', '/images/fahrzeuge/business-sprinter-gal-4.webp', '/images/fahrzeuge/business-sprinter-gal-5.webp'], card: '/images/fahrzeuge/card-business-sprinter.jpg' },
     vover: { titleLead: 'The whole group', titleAccent: 'on board', body: 'Anyone looking for Sprinter hire Vienna and beyond gets our largest vehicle with room for up to twenty passengers. Ideal for large groups, company events, delegations and travel parties. Instead of several vehicles, everyone travels together in one, coordinated and on time.' },
     galTitle: 'The Sprinter in Vienna.',

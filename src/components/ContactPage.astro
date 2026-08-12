@@ -3,6 +3,7 @@ import Layout from '../layouts/Layout.astro';
 import Nav from './Nav.astro';
 import Footer from './Footer.astro';
 import PageHero from './PageHero.astro';
+import Schema from './Schema.astro';
 import { CONTACT } from '../lib/site';
 import { getLang, hrefFor, pick } from '../lib/i18n';
 
@@ -54,6 +55,7 @@ const optionValues = ['Allgemeine Anfrage', 'Flughafentransfer', 'Chauffeurservi
 <Layout title={L.title} description={L.desc}>
   <Fragment slot="head">
     <script src="https://challenges.cloudflare.com/turnstile/v0/api.js" async defer is:inline></script>
+    <Schema contactPage />
   </Fragment>
   <Nav />
   <main>

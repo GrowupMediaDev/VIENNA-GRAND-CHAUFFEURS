@@ -4,6 +4,7 @@ import Nav from './Nav.astro';
 import Footer from './Footer.astro';
 import Faq from './Faq.astro';
 import CtaBand from './CtaBand.astro';
+import Schema from './Schema.astro';
 import { CONTACT } from '../lib/site';
 import { type Vehicle } from '../lib/vehicles-data';
 import { getLang, hrefFor, pick } from '../lib/i18n';
@@ -11,6 +12,12 @@ import { getLang, hrefFor, pick } from '../lib/i18n';
 interface Props { vehicle: Vehicle; flotte: Vehicle[] }
 const { vehicle, flotte } = Astro.props;
 const lang = getLang(Astro.url);
+
+// 1200x630-Zuschnitt des Hero-Bildes dieses Fahrzeugs (scripts/make-og-images.mjs).
+const ogImage = `/images/og/fahrzeuge-${vehicle.slug}.jpg`;
+const ogImageAlt = pick(lang,
+  `${vehicle.heroTitle} mit Chauffeur in Wien`,
+  `${vehicle.heroTitle} with chauffeur in Vienna`);
 const phoneHref = `tel:${CONTACT.phonePrimary.tel}`;
 const bookHref = hrefFor('/online-buchung', lang);
 const kontaktHref = hrefFor('/kontakt', lang);
@@ -68,7 +75,10 @@ const priceIncludes = pick(lang,
   ['Wartezeit inklusive', 'Maut & Parkgebühren inklusive', 'Fixpreis bei Buchung garantiert', 'Alle Preise inkl. USt.'],
   ['Waiting time included', 'Tolls & parking included', 'Fixed price guaranteed at booking', 'All prices incl. VAT']);
 ---
-<Layout title={vehicle.metaTitle} description={vehicle.metaDescription}>
+<Layout title={vehicle.metaTitle} description={vehicle.metaDescription} image={ogImage} imageAlt={ogImageAlt}>
+  <Fragment slot="head">
+    <Schema vehicle={vehicle} />
+  </Fragment>
   <Nav />
   <main>
     <!-- ============ HERO ============ -->

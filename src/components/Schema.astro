@@ -1,0 +1,159 @@
+---
+// Schema.org fuer die Site, eingehaengt ueber <Fragment slot="head"> im Layout.
+//
+// Grundregel: das LocalBusiness wird GENAU EINMAL voll definiert (deutsche
+// Startseite) und traegt dabei eine feste @id. Jede andere Seite wiederholt es
+// nicht, sondern zeigt ueber provider: { "@id": … } darauf. Zwei volle
+// Definitionen wuerden zwei konkurrierende Entitaeten erzeugen.
+//
+// Zweite Regel: hier steht nichts, was die Seite nicht auch zeigt. Kontakt- und
+// Adressdaten kommen aus site.ts, Leistungsnamen aus SERVICES, Fahrzeugdaten
+// aus vehicles-data.ts. Fehlen Fahrzeugdaten, entfaellt der Vehicle-Knoten.
+import { CONTACT, ADDRESS, BUSINESS, SERVICES, OG_IMAGE } from '../lib/site';
+import { getLang, pick } from '../lib/i18n';
+import type { Vehicle } from '../lib/vehicles-data';
+
+export interface Crumb {
+  name: string;
+  href: string;
+}
+
+interface Props {
+  /** Nur auf der deutschen Startseite setzen: definiert das LocalBusiness voll aus. */
+  business?: boolean;
+  /** Slug einer Leistung (deutscher Slug, wie in SERVICES) — erzeugt den Service-Knoten. */
+  serviceSlug?: string;
+  /**
+   * Nur setzen, wenn die Seite per Canonical woanders hinzeigt: der Service
+   * bekommt dann die Ziel-URL statt seiner eigenen, damit Schema und Canonical
+   * nicht auf zwei verschiedene Adressen zeigen.
+   */
+  canonical?: string;
+  /** Kontaktseite: verknuepft die Seite mit dem einmal definierten Business. */
+  contactPage?: boolean;
+  /** Fahrzeug der aktuellen Seite — erzeugt den Vehicle-Knoten, sofern vschema gesetzt ist. */
+  vehicle?: Vehicle;
+  /**
+   * Der sichtbare Breadcrumb, unveraendert durchgereicht. Muss dieselbe
+   * Variable sein, aus der auch das Markup rendert — sonst driften Anzeige und
+   * Schema auseinander.
+   */
+  breadcrumb?: Crumb[];
+}
+
+const { business = false, serviceSlug, canonical, contactPage = false, vehicle, breadcrumb } = Astro.props;
+const lang = getLang(Astro.url);
+
+const abs = (path: string) => new URL(path, Astro.site).href;
+const businessId = abs(BUSINESS.schemaId);
+/** Alle Seiten ausser der Startseite verweisen nur auf das Business. */
+const providerRef = { '@id': businessId };
+
+const nodes: Record<string, unknown>[] = [];
+
+// ── LocalBusiness ───────────────────────────────────────────────────────────
+if (business) {
+  nodes.push({
+    '@type': 'LocalBusiness',
+    '@id': businessId,
+    name: BUSINESS.name,
+    legalName: BUSINESS.legalName,
+    url: abs('/'),
+    logo: abs(BUSINESS.logo),
+    image: abs(OG_IMAGE.src),
+    telephone: CONTACT.phonePrimary.tel,
+    email: CONTACT.email.display,
+    address: {
+      '@type': 'PostalAddress',
+      streetAddress: ADDRESS.street,
+      postalCode: ADDRESS.postalCode,
+      addressLocality: pick(lang, ADDRESS.city, ADDRESS.cityEn),
+      addressRegion: ADDRESS.region,
+      addressCountry: ADDRESS.country,
+    },
+    areaServed: BUSINESS.areaServed.map((a) => ({
+      '@type': a.type,
+      name: pick(lang, a.name, a.nameEn),
+    })),
+    // Die Seite wirbt durchgehend mit "24/7 verfuegbar" — mehr wird hier auch
+    // nicht behauptet.
+    openingHoursSpecification: {
+      '@type': 'OpeningHoursSpecification',
+      dayOfWeek: ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday', 'Sunday'],
+      opens: '00:00',
+      closes: '23:59',
+    },
+  });
+}
+
+// ── Service ─────────────────────────────────────────────────────────────────
+// Name und Slug kommen aus SERVICES, nicht aus dem Markup.
+const service = serviceSlug ? SERVICES.find((s) => s.slug === serviceSlug) : undefined;
+if (service) {
+  const name = pick(lang, service.title, service.titleEn);
+  nodes.push({
+    '@type': 'Service',
+    name,
+    serviceType: name,
+    url: abs(canonical ?? Astro.url.pathname),
+    provider: providerRef,
+    areaServed: BUSINESS.areaServed.map((a) => ({
+      '@type': a.type,
+      name: pick(lang, a.name, a.nameEn),
+    })),
+  });
+}
+
+// ── Vehicle ─────────────────────────────────────────────────────────────────
+// Nur mit echten Fahrzeugdaten. Ohne vschema faellt der Knoten ersatzlos weg —
+// ein Vehicle ohne Marke, Modell und Sitzplaetze sagt nichts aus.
+const v = vehicle?.vschema;
+if (vehicle && v) {
+  nodes.push({
+    '@type': 'Vehicle',
+    name: vehicle.heroTitle,
+    url: abs(Astro.url.pathname),
+    image: abs(vehicle.img.hero),
+    brand: { '@type': 'Brand', name: v.brand },
+    model: v.model,
+    vehicleSeatingCapacity: {
+      '@type': 'QuantitativeValue',
+      value: v.seats,
+      unitText: pick(lang, 'Passagiere', 'passengers'),
+    },
+    ...(v.bodyType ? { bodyType: v.bodyType } : {}),
+    ...(v.fuelType ? { fuelType: v.fuelType } : {}),
+  });
+}
+
+// ── ContactPage ─────────────────────────────────────────────────────────────
+// Kein zweites Business, nur die Verknuepfung: diese Seite ist die Kontaktseite
+// der oben einmal definierten Entitaet.
+if (contactPage) {
+  nodes.push({
+    '@type': 'ContactPage',
+    url: abs(Astro.url.pathname),
+    mainEntity: providerRef,
+  });
+}
+
+// ── BreadcrumbList ──────────────────────────────────────────────────────────
+if (breadcrumb?.length) {
+  nodes.push({
+    '@type': 'BreadcrumbList',
+    itemListElement: breadcrumb.map((c, i) => ({
+      '@type': 'ListItem',
+      position: i + 1,
+      name: c.name,
+      item: abs(c.href),
+    })),
+  });
+}
+
+// Ein Block pro Seite. Bei mehreren Knoten haelt @graph sie zusammen, damit
+// Google sie als eine zusammenhaengende Beschreibung derselben Seite liest.
+const graph = nodes.length
+  ? { '@context': 'https://schema.org', '@graph': nodes }
+  : null;
+---
+{graph && <script type="application/ld+json" is:inline set:html={JSON.stringify(graph)} />}

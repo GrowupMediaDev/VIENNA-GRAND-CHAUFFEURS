@@ -1,7 +1,7 @@
 // Vienna Grand Chauffeurs — central site data.
-// Domain, real contact details and the booking widget are still deferred
-// (see project brief). Values flagged PLACEHOLDER are safe to swap later
-// without touching markup.
+// The booking widget is still deferred (see project brief). Everything here is
+// the single source for contact details — markup and Schema.org both read from
+// it, so a number or an address is never written out as a literal.
 
 export const CONTACT = {
   phonePrimary: {
@@ -16,9 +16,46 @@ export const CONTACT = {
     url: 'https://wa.me/436764221825',
   },
   email: {
-    display: 'office@viennagrandchauffeurs.at', // PLACEHOLDER
+    display: 'office@viennagrandchauffeurs.at',
     mailto: 'mailto:office@viennagrandchauffeurs.at',
   },
+} as const;
+
+// The published location, the one the footer and the contact page show as
+// "Standort". Kept in single fields because PostalAddress needs them apart;
+// the ready-made display sentence lives in i18n.ts. Not the registered seat of
+// the company — that one only belongs in the Impressum.
+export const ADDRESS = {
+  street: 'Daponetegasse 7/6',
+  postalCode: '1030',
+  city: 'Wien',
+  cityEn: 'Vienna',
+  region: 'Wien',
+  country: 'AT',
+} as const;
+
+// Identity of the business for Schema.org. `schemaId` is the fixed anchor the
+// LocalBusiness is defined under exactly once (German homepage); every other
+// page only references it.
+export const BUSINESS = {
+  name: 'Vienna Grand Chauffeurs',
+  legalName: 'VT-Limousinen Service GmbH',
+  schemaId: '#business',
+  logo: '/images/logo-black.png',
+  // The area actually advertised on the site — Vienna and Austria. Deliberately
+  // not inflated to "all of Europe".
+  areaServed: [
+    { type: 'City', name: 'Wien', nameEn: 'Vienna' },
+    { type: 'Country', name: 'Österreich', nameEn: 'Austria' },
+  ],
+} as const;
+
+// Site-wide share image. Cropped to 1200x630 by scripts/make-og-images.mjs, so
+// the dimensions below are guaranteed to match the file.
+export const OG_IMAGE = {
+  src: '/images/og/default.jpg',
+  width: 1200,
+  height: 630,
 } as const;
 
 // The eight services from the locked sitemap (slug shared across locales).

@@ -7,6 +7,7 @@ import CtaBand from './CtaBand.astro';
 import FleetShowcase from './FleetShowcase.astro';
 import ServicesCarousel from './ServicesCarousel.astro';
 import Button from './Button.astro';
+import Schema from './Schema.astro';
 import { CONTACT } from '../lib/site';
 import { getLang, hrefFor, pick } from '../lib/i18n';
 
@@ -154,6 +155,9 @@ const heroTitleAfter = accentAt >= 0 ? heroTitleHead.slice(accentAt + heroTitleA
 <Layout title={L.metaTitle} description={L.metaDesc}>
   <Fragment slot="head">
     <link rel="preload" as="image" href="/images/hero-home.jpg" fetchpriority="high" />
+    {/* Das LocalBusiness wird site-weit nur hier voll definiert — die englische
+        Startseite und alle Unterseiten referenzieren es ueber seine @id. */}
+    <Schema business={lang === 'de'} />
   </Fragment>
 
   <Nav />

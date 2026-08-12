@@ -6,6 +6,7 @@ import Faq from './Faq.astro';
 import CtaBand from './CtaBand.astro';
 import FleetShowcase from './FleetShowcase.astro';
 import ServicesCarousel from './ServicesCarousel.astro';
+import Schema from './Schema.astro';
 import { CONTACT } from '../lib/site';
 import { type Service } from '../lib/services-data';
 import { getLang, hrefFor, pick } from '../lib/i18n';
@@ -20,6 +21,21 @@ const leistungenHref = hrefFor('/#leistungen', lang);
 const L = pick(lang,
   { services: 'Leistungen', request: 'Jetzt anfragen', yourAdvantage: 'Ihr Vorteil', valuesAria: 'Unsere Werte', crumbAria: 'Brotkrümelnavigation' },
   { services: 'Services', request: 'Request now', yourAdvantage: 'Your advantage', valuesAria: 'Our values', crumbAria: 'Breadcrumb' });
+
+// Eine Quelle fuer beides: den sichtbaren Breadcrumb im Hero und die
+// BreadcrumbList im Schema. Zwei Quellen wuerden frueher oder spaeter driften.
+const crumbs = [
+  { name: L.services, href: leistungenHref },
+  { name: service.hero.title, href: Astro.url.pathname },
+];
+
+// Seiten, die per Canonical auf die Startseite zeigen, sollen kein eigenes
+// Ranking-Signal einsammeln — also auch keinen Breadcrumb, dessen letzter
+// Eintrag auf sie selbst zeigt.
+const breadcrumb = service.canonical ? undefined : crumbs;
+
+// 1200x630-Zuschnitt des Hero-Bildes dieser Leistung (scripts/make-og-images.mjs).
+const ogImage = `/images/og/leistungen-${service.slug}.jpg`;
 
 // Values strip is shared across every service.
 const values = pick(lang,
@@ -42,7 +58,10 @@ const seoHalf = Math.ceil(seoParas.length / 2);
 const seoLeft = seoParas.slice(0, seoHalf);
 const seoRight = seoParas.slice(seoHalf);
 ---
-<Layout title={service.metaTitle} description={service.metaDescription} canonical={service.canonical}>
+<Layout title={service.metaTitle} description={service.metaDescription} canonical={service.canonical} image={ogImage}>
+  <Fragment slot="head">
+    <Schema serviceSlug={service.slug} canonical={service.canonical} breadcrumb={breadcrumb} />
+  </Fragment>
   <Nav />
   <main>
     <!-- ============ HERO ============ -->
@@ -51,9 +70,14 @@ const seoRight = seoParas.slice(seoHalf);
       <div class="container-x shero__inner">
         <div class="shero__top">
           <nav class="shero__crumbs" aria-label={L.crumbAria}>
-            <a href={leistungenHref}>{L.services}</a>
-            <span class="shero__crumb-sep" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 6l6 6-6 6"/></svg></span>
-            <span class="is-current" aria-current="page">{service.hero.title}</span>
+            {crumbs.map((c, i) => (
+              <>
+                {i > 0 && <span class="shero__crumb-sep" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 6l6 6-6 6"/></svg></span>}
+                {i === crumbs.length - 1
+                  ? <span class="is-current" aria-current="page">{c.name}</span>
+                  : <a href={c.href}>{c.name}</a>}
+              </>
+            ))}
           </nav>
           <h1 class="shero__title" id="shero-title" data-reveal>{service.hero.title}</h1>
           <p class="shero__sub" data-reveal style="--reveal-delay:0.08s">{service.hero.sub}</p>
