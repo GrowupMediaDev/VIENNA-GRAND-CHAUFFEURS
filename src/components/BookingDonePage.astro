@@ -36,7 +36,11 @@ const L = pick(lang,
     ],
   });
 ---
-<Layout title={L.title} description={L.desc}>
+{/* Danke-Seite nach der Buchung: nirgends verlinkt, nur ueber den Abschluss
+    erreichbar und ohne eigenen Suchwert. `noindex` unterdrueckt im Layout
+    zugleich Canonical und hreflang; der Ausschluss aus der Sitemap steht in
+    astro.config.mjs. */}
+<Layout title={L.title} description={L.desc} noindex>
   <Nav />
   <main>
     <section class="abschluss">

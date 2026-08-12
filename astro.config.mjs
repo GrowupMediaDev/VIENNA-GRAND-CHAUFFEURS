@@ -17,9 +17,12 @@ export default defineConfig({
       xslURL: '/sitemap.xsl',
       // Beide Chauffeurservice-Seiten zeigen per Canonical auf die Startseite
       // und sollen deshalb nicht eigenstaendig indexiert werden; die
-      // 404-Seite gehoert ebenfalls nicht in die Sitemap.
+      // 404-Seite gehoert ebenfalls nicht in die Sitemap. Die beiden
+      // Buchungs-Abschlussseiten stehen auf noindex — stuenden sie trotzdem in
+      // der Sitemap, widerspraechen sich die beiden Signale.
       filter: (page) =>
         !/\/(leistungen\/chauffeurservice|en\/services\/chauffeur-service-vienna)\/$/.test(page) &&
+        !/\/(buchung-abschluss|en\/booking-complete)\/$/.test(page) &&
         !/\/404\/?$/.test(page),
     }),
     // Muss nach sitemap() stehen — legt deren Ausgabe unter /sitemap.xml ab.
