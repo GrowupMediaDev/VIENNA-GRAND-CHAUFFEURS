@@ -1,7 +1,8 @@
 ---
 import '../styles/global.css';
-import { getLang, htmlLang } from '../lib/i18n';
+import { getLang, htmlLang, pick } from '../lib/i18n';
 import { localizePath } from '../lib/routes';
+import { OG_IMAGE } from '../lib/site';
 import ContactRail from '../components/ContactRail.astro';
 
 interface Props {
@@ -11,6 +12,14 @@ interface Props {
   canonical?: string;
   /** Keeps the page out of the index: no canonical, no hreflang, robots noindex. */
   noindex?: boolean;
+  /**
+   * Share image, site-root path. Must be one of the 1200x630 crops under
+   * /images/og/ (see scripts/make-og-images.mjs) — og:image:width/height below
+   * are stated as fact, so an arbitrary image would make them a lie.
+   */
+  image?: string;
+  /** Describes the share image itself, not the page. */
+  imageAlt?: string;
 }
 
 const {
@@ -18,10 +27,19 @@ const {
   description = 'Premium Chauffeurservice in Wien: erfahrene, diskrete Chauffeure, gepflegte Mercedes-Benz Oberklasse und transparente Fixpreise. Flughafentransfer, Business- und Langstreckenfahrten.',
   canonical: canonicalOverride,
   noindex = false,
+  image = OG_IMAGE.src,
+  imageAlt,
 } = Astro.props;
 
 const lang = getLang(Astro.url);
 const canonical = noindex ? null : new URL(canonicalOverride ?? Astro.url.pathname, Astro.site).href;
+
+// Facebook and LinkedIn drop a relative og:image without a word of complaint,
+// so this has to be absolute.
+const ogImage = new URL(image, Astro.site).href;
+const ogImageAlt = imageAlt ?? pick(lang,
+  'Vienna Grand Chauffeurs — Mercedes-Benz Limousine mit Chauffeur in Wien',
+  'Vienna Grand Chauffeurs — Mercedes-Benz limousine with chauffeur in Vienna');
 
 // hreflang: DE lives at the root, EN under /en/ with its own segments and
 // slugs, so the counterpart is resolved through the route mapping. x-default
@@ -72,10 +90,22 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 
     <!-- Open Graph -->
     <meta property="og:type" content="website" />
+    <meta property="og:site_name" content="Vienna Grand Chauffeurs" />
     <meta property="og:title" content={title} />
     <meta property="og:description" content={description} />
     {canonical && <meta property="og:url" content={canonical} />}
     <meta property="og:locale" content={lang === 'en' ? 'en_GB' : 'de_AT'} />
+    <meta property="og:image" content={ogImage} />
+    <meta property="og:image:width" content={String(OG_IMAGE.width)} />
+    <meta property="og:image:height" content={String(OG_IMAGE.height)} />
+    <meta property="og:image:alt" content={ogImageAlt} />
+
+    <!-- Twitter / X -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content={title} />
+    <meta name="twitter:description" content={description} />
+    <meta name="twitter:image" content={ogImage} />
+    <meta name="twitter:image:alt" content={ogImageAlt} />
     <slot name="head" />
     <noscript><style>[data-reveal]{opacity:1 !important;transform:none !important}.pxn{display:none !important}</style></noscript>
   </head>
