@@ -39,9 +39,14 @@ interface Props {
    * Schema auseinander.
    */
   breadcrumb?: Crumb[];
+  /**
+   * Nur auf den beiden Sprach-Startseiten setzen: erzeugt den WebSite-Knoten,
+   * aus dem Google den Sitename in den Suchergebnissen zieht.
+   */
+  website?: boolean;
 }
 
-const { business = false, serviceSlug, canonical, contactPage = false, vehicle, breadcrumb } = Astro.props;
+const { business = false, website = false, serviceSlug, canonical, contactPage = false, vehicle, breadcrumb } = Astro.props;
 const lang = getLang(Astro.url);
 
 const abs = (path: string) => new URL(path, Astro.site).href;
@@ -83,6 +88,24 @@ if (business) {
       opens: '00:00',
       closes: '23:59',
     },
+  });
+}
+
+// ── WebSite ─────────────────────────────────────────────────────────────────
+// Googles primaere Quelle fuer den Sitename in den Suchergebnissen. Anders als
+// beim LocalBusiness bekommt hier jede Sprach-Startseite einen eigenen Knoten:
+// @id und url haengen am jeweiligen Startseiten-Pfad, inLanguage haelt die
+// beiden auseinander. publisher zeigt auf dieselbe einmal definierte Entitaet,
+// damit daraus kein zweites Unternehmen wird.
+if (website) {
+  const home = Astro.url.pathname;
+  nodes.push({
+    '@type': 'WebSite',
+    '@id': abs(`${home}#website`),
+    name: BUSINESS.name,
+    url: abs(home),
+    inLanguage: pick(lang, 'de-AT', 'en'),
+    publisher: providerRef,
   });
 }
 
