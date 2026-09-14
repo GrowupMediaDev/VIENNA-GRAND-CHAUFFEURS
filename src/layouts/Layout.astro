@@ -54,11 +54,34 @@ const alternates = canonicalOverride || noindex
       { hreflang: 'en', href: new URL(enPath, Astro.site).href },
       { hreflang: 'x-default', href: new URL(dePath, Astro.site).href },
     ];
+
+// Cookie-consent banner: legal links resolved for THIS page's language, so the
+// panel points a DE visitor at /datenschutz/ and an EN visitor at /en/datenschutz/.
+const consentPrivacyHref = localizePath('/datenschutz/', lang);
+const consentImprintHref = localizePath('/impressum/', lang);
 ---
 
 <!doctype html>
 <html lang={htmlLang[lang]}>
   <head>
+    <!-- Consent Mode v2 default — MUST run before the GTM container and the
+         direct gtag.js below, so every Google tag reads a denied-by-default
+         signal on its very first ping. The banner (/cookie-banner/banner.js)
+         later flips this to granted after consent. Advanced mode: a visitor who
+         rejects still produces anonymous, cookieless, modelled signals rather
+         than a hard request block. The existing GTM + gtag.js loads are left
+         exactly as they were — only gated by this preceding default. -->
+    <script is:inline>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('consent', 'default', {
+        ad_storage: 'denied',
+        analytics_storage: 'denied',
+        ad_user_data: 'denied',
+        ad_personalization: 'denied',
+        wait_for_update: 500
+      });
+    </script>
     <!-- Google Tag Manager -->
     <script is:inline>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
 new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
@@ -108,6 +131,85 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
     <meta name="twitter:image:alt" content={ogImageAlt} />
     <slot name="head" />
     <noscript><style>[data-reveal]{opacity:1 !important;transform:none !important}.pxn{display:none !important}</style></noscript>
+
+    <!--
+      Cookie-consent banner (UI + Consent Mode v2 update). Config is set here,
+      the engine at /cookie-banner/banner.js reads it. The engine NEVER loads or
+      alters a Google tag — the GTM container and gtag.js above stay untouched;
+      it only renders the decision panel and calls gtag('consent','update',...).
+      Service list below reflects the site's actually-active services (verified
+      live 14.09.2026): Google Analytics 4 (G-320BN5MD26), Google Ads incl.
+      Enhanced Conversions (AW-18353636941) via GTM, Cloudflare (bot/e-mail
+      protection) and — inside the booking tool only — Google Maps Places.
+      Fonts are self-hosted, so no Google Fonts transfer is claimed.
+      Legal wording localised to Austria (DSGVO + § 165 TKG 2021); not reviewed
+      by a lawyer.
+    -->
+    <script is:inline define:vars={{ consentPrivacyHref, consentImprintHref }}>
+      window.__vgcConsentConfig = {
+        companyName: 'Vienna Grand Chauffeurs',
+        markUrl: '/images/logo-footer.svg',
+        consentStorageKey: 'vgc_cookie_consent_v1',
+        consentTtlDays: 180,
+        bannerVersion: '1.0.0',
+        colors: {
+          barTop: '#c0692c',
+          barBottom: '#a4521f',
+          panelTop: '#9a4c1c',
+          panelBottom: '#7d3d15',
+          cream: '#f7f2ec',
+          creamMuted: 'rgba(247,242,236,0.82)',
+          espresso: '#1a120b',
+          hairline: 'rgba(247,242,236,0.20)',
+          inkOnCream: '#3a1e0c'
+        },
+        language: { default: 'de', available: ['de', 'en'], siteLocales: ['de', 'en'] },
+        legalLinks: { privacy: consentPrivacyHref, imprint: consentImprintHref },
+        text: {
+          de: {
+            title: 'Privatsphäre-Einstellungen',
+            intro: 'Wir verwenden Cookies, um diese Website bereitzustellen, ihre Nutzung anonym zu messen und Ihnen relevante Werbung zu zeigen. Ihre Einwilligung ist freiwillig und jederzeit über „Cookie-Einstellungen“ im Footer widerrufbar.',
+            categories: {
+              necessary: {
+                label: 'Notwendig',
+                description: 'Unbedingt erforderlich für den technischen Betrieb und nicht abwählbar. Dazu zählen das Speichern Ihrer Cookie-Auswahl (bis zu 180 Tage), der Spam- und Missbrauchsschutz sowie die E-Mail-Verschleierung über Cloudflare und, nur im Online-Buchungstool, Google Maps (Places) für die Adresseingabe. Die Schriftarten dieser Seite liegen auf unserem eigenen Server (kein Google-Fonts-Abruf). Es werden keine Nutzerprofile für Werbe- oder Analysezwecke gebildet. Rechtsgrundlage: berechtigtes Interesse an einer funktionsfähigen Website (Art. 6 Abs. 1 lit. f DSGVO) bzw. § 165 Abs. 3 TKG 2021 für zwingend erforderliche Speicherungen.'
+              },
+              statistics: {
+                label: 'Statistik',
+                description: 'Hilft uns zu verstehen, wie Besucher die Website nutzen (aufgerufene Seiten, Verweildauer, Klick- und Scrollverhalten), um unser Angebot zu verbessern. Eingesetzt wird Google Analytics 4 (Google Ireland Limited, Dublin; Verarbeitung teils durch Google LLC, USA), Kennung G-320BN5MD26. Verarbeitet werden u. a. gekürzte IP-Adresse, Geräte- und Browserdaten, Interaktionsdaten und eine Cookie-Kennung (_ga). Bei Ablehnung liefert Google Analytics nur anonyme, modellierte Messwerte ohne Cookies. Rechtsgrundlage: Ihre Einwilligung (Art. 6 Abs. 1 lit. a DSGVO, § 165 Abs. 3 TKG 2021); USA-Übermittlung nach Art. 49 Abs. 1 lit. a DSGVO.'
+              },
+              marketing: {
+                label: 'Marketing',
+                description: 'Misst die Wirksamkeit unserer Werbung und ermöglicht relevante Anzeigen: Google Ads Conversion-Tracking und erweiterte Conversions (Enhanced Conversions), bereitgestellt über Google Tag Manager (Google Ireland Limited, Dublin; Verarbeitung teils durch Google LLC, USA), Conversion-Kennung AW-18353636941. Bei erweiterten Conversions werden Name, E-Mail und Telefonnummer aus abgesendeten Formularen bereits in Ihrem Browser verschlüsselt (gehasht) und nur zum Abgleich mit einer vorherigen Werbeinteraktion genutzt. Verarbeitet werden Klick-/Cookie-Kennung (_gcl_au), gehashte Kontaktdaten (nur bei Formularabsendung), IP-Adresse und Interaktionsdaten. Bei Ablehnung erhält Google Ads nur anonyme, cookielose Signale. Rechtsgrundlage: Ihre Einwilligung (Art. 6 Abs. 1 lit. a DSGVO, § 165 Abs. 3 TKG 2021); USA-Übermittlung nach Art. 49 Abs. 1 lit. a DSGVO.'
+              }
+            },
+            buttons: { acceptAll: 'Alle akzeptieren', reject: 'Ablehnen', customize: 'Einstellungen', save: 'Auswahl speichern', back: 'Zurück' },
+            footer: { privacy: 'Datenschutz', imprint: 'Impressum' }
+          },
+          en: {
+            title: 'Privacy Settings',
+            intro: 'We use cookies to provide this website, measure its use anonymously and show you relevant advertising. Consent is voluntary and can be withdrawn at any time via “Cookie settings” in the footer.',
+            categories: {
+              necessary: {
+                label: 'Necessary',
+                description: 'Strictly required for the technical operation of the site and cannot be switched off. This includes storing your cookie choice (up to 180 days), spam and abuse protection and e-mail obfuscation via Cloudflare, and — inside the online booking tool only — Google Maps (Places) for address entry. This site’s fonts are served from our own server (no Google Fonts request). No profiles are built for advertising or analytics. Legal basis: legitimate interest in a functioning website (Art. 6(1)(f) GDPR) and, for strictly necessary storage, Section 165(3) of the Austrian Telecommunications Act 2021.'
+              },
+              statistics: {
+                label: 'Statistics',
+                description: 'Helps us understand how visitors use the website (pages viewed, time on page, click and scroll behaviour) so we can improve it. We use Google Analytics 4 (Google Ireland Limited, Dublin; processing partly by Google LLC, USA), ID G-320BN5MD26. Data processed includes a truncated IP address, device and browser data, interaction data and a cookie ID (_ga). If declined, Google Analytics receives only anonymous, modelled measurements without cookies. Legal basis: your consent (Art. 6(1)(a) GDPR, Section 165(3) TKG 2021); US transfer under Art. 49(1)(a) GDPR.'
+              },
+              marketing: {
+                label: 'Marketing',
+                description: 'Measures the effectiveness of our advertising and enables relevant ads: Google Ads conversion tracking and Enhanced Conversions, delivered via Google Tag Manager (Google Ireland Limited, Dublin; processing partly by Google LLC, USA), conversion ID AW-18353636941. With Enhanced Conversions your name, e-mail and phone number from submitted forms are hashed in your browser before transmission and used only to match a prior ad interaction. Data processed: click/cookie ID (_gcl_au), hashed contact data (only on form submission), IP address and interaction data. If declined, Google Ads receives only anonymous, cookieless signals. Legal basis: your consent (Art. 6(1)(a) GDPR, Section 165(3) TKG 2021); US transfer under Art. 49(1)(a) GDPR.'
+              }
+            },
+            buttons: { acceptAll: 'Accept all', reject: 'Reject', customize: 'Settings', save: 'Save selection', back: 'Back' },
+            footer: { privacy: 'Privacy', imprint: 'Imprint' }
+          }
+        }
+      };
+    </script>
+    <script is:inline src="/cookie-banner/banner.js"></script>
   </head>
   <body>
     <!-- Google Tag Manager (noscript) -->
