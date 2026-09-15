@@ -307,6 +307,26 @@
       '.vc-btn-ghost{flex:1 1 100%;}' +
       '.vc-bar-note{flex:1 1 100%;}' +
       '}' +
+      // ---- Small phones: the bar was tall enough to cover most of the
+      // hero (logo row + 2-line intro + meta row + 3 full-width stacked
+      // buttons). Trims every dimension and puts Accept/Reject side by side
+      // so the whole bar stays a compact strip, the hero stays visible above
+      // it, and every control is still comfortably tappable. A max-height +
+      // internal scroll is a hard safety net in case content still overflows
+      // (e.g. a very long translated intro) -- it never becomes full-screen.
+      '@media (max-width:480px){' +
+      '.vc-root{max-height:72dvh;}' +
+      '.vc-bar{gap:8px;padding:10px 14px 12px;max-height:72dvh;overflow-y:auto;overscroll-behavior:contain;}' +
+      '.vc-mark{height:26px;width:calc(26px * 157 / 60);}' +
+      '.vc-intro{font-size:12px;line-height:1.42;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden;}' +
+      '.vc-meta{gap:4px 12px;margin-top:0;}' +
+      '.vc-foot-links{gap:12px;}' +
+      '.vc-foot-links a{font-size:10.5px;}' +
+      '.vc-lang{font-size:10.5px;padding:2px 6px;}' +
+      '.vc-actions{gap:8px;}' +
+      '.vc-btn{padding:10px 12px;font-size:12.5px;flex:1 1 calc(50% - 4px);}' +
+      '.vc-btn-ghost{flex:1 1 100%;padding:8px 12px;}' +
+      '}' +
       '</style>'
     );
   }
@@ -347,9 +367,13 @@
   }
 
   // Legal links + per-language switch, shown as one compact meta row.
+  // Links follow state.lang (the language the banner is currently DISPLAYING),
+  // not the host page's language -- switching the banner to EN must point the
+  // links at the EN legal pages even on a German page, and vice versa.
   function metaMarkup(texts) {
     var footer = texts.footer || {};
-    var legal = config.legalLinks || {};
+    var legalByLang = config.legalLinks || {};
+    var legal = legalByLang[state.lang] || legalByLang[DEFAULT_LANG] || {};
     var links = '';
     if (legal.privacy) {
       links += '<a href="' + escapeHtml(legal.privacy) + '">' + escapeHtml(footer.privacy) + '</a>';
@@ -511,6 +535,22 @@
   // ------------------------------------------------------------------
   // Boot
   // ------------------------------------------------------------------
+  // The banner must not pop up unsolicited on the legal pages themselves
+  // (Datenschutz/Impressum, any language) -- those pages already explain
+  // everything, and a consent prompt on top of them is unwelcome. A visitor
+  // can still open the panel deliberately via the footer's "Cookie settings"
+  // link (VgcCookieConsent.openSettings), which is NOT gated by this check.
+  function isHiddenPath() {
+    var hide = config.hideOnPaths;
+    if (!hide || !hide.length) return false;
+    var here = window.location.pathname.replace(/\/+$/, '') || '/';
+    for (var i = 0; i < hide.length; i++) {
+      var p = String(hide[i]).replace(/\/+$/, '') || '/';
+      if (p === here) return true;
+    }
+    return false;
+  }
+
   function boot() {
     var stored = readStoredConsent(pageLocale);
     if (stored) {
@@ -521,7 +561,7 @@
         marketing: !!stored.choice.marketing
       };
       applyConsent(state.choice);
-    } else {
+    } else if (!isHiddenPath()) {
       show('main');
     }
   }

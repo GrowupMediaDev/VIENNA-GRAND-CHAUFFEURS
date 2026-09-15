@@ -55,10 +55,19 @@ const alternates = canonicalOverride || noindex
       { hreflang: 'x-default', href: new URL(dePath, Astro.site).href },
     ];
 
-// Cookie-consent banner: legal links resolved for THIS page's language, so the
-// panel points a DE visitor at /datenschutz/ and an EN visitor at /en/datenschutz/.
-const consentPrivacyHref = localizePath('/datenschutz/', lang);
-const consentImprintHref = localizePath('/impressum/', lang);
+// Cookie-consent banner: legal links resolved for BOTH languages up front (not
+// just the current page's), because the banner has its own DE/EN toggle that
+// can display a language different from the page it is rendered on — the
+// links shown must follow the banner's displayed language, not the page's.
+const consentLegalLinks = {
+  de: { privacy: localizePath('/datenschutz/', 'de'), imprint: localizePath('/impressum/', 'de') },
+  en: { privacy: localizePath('/datenschutz/', 'en'), imprint: localizePath('/impressum/', 'en') },
+};
+// The banner must not pop up unsolicited on the legal pages themselves (any
+// language) — collected once here so banner.js stays config-driven.
+const consentHideOnPaths = Array.from(
+  new Set(Object.values(consentLegalLinks).flatMap((l) => [l.privacy, l.imprint])),
+);
 ---
 
 <!doctype html>
@@ -145,7 +154,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
       Legal wording localised to Austria (DSGVO + § 165 TKG 2021); not reviewed
       by a lawyer.
     -->
-    <script is:inline define:vars={{ consentPrivacyHref, consentImprintHref }}>
+    <script is:inline define:vars={{ consentLegalLinks, consentHideOnPaths }}>
       window.__vgcConsentConfig = {
         companyName: 'Vienna Grand Chauffeurs',
         markUrl: '/images/logo-footer.svg',
@@ -164,7 +173,8 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
           inkOnCream: '#3a1e0c'
         },
         language: { default: 'de', available: ['de', 'en'], siteLocales: ['de', 'en'] },
-        legalLinks: { privacy: consentPrivacyHref, imprint: consentImprintHref },
+        legalLinks: consentLegalLinks,
+        hideOnPaths: consentHideOnPaths,
         text: {
           de: {
             title: 'Privatsphäre-Einstellungen',
