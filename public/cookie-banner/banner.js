@@ -214,7 +214,16 @@
       '.vc-bar{position:relative;display:flex;align-items:center;gap:20px 28px;flex-wrap:wrap;' +
       'padding:16px clamp(18px,4vw,44px);' +
       'background:linear-gradient(178deg,' + barTop + ' 0%,' + barBottom + ' 100%);' +
-      'color:' + cream + ';box-shadow:0 -14px 40px -14px rgba(20,8,2,.55);}' +
+      'color:' + cream + ';box-shadow:0 -14px 40px -14px rgba(20,8,2,.55);' +
+      // Settings view: .vc-bar is a flex sibling of .vc-panel inside .vc-root
+      // (both column children of a max-height-capped flex container). Without
+      // flex-shrink:0 here, the default flex-shrink:1 lets THIS box (holding
+      // Zurueck/Auswahl-speichern) get squeezed too when content overflows --
+      // exactly the "must scroll to reach Save" bug. Pinning it to its natural
+      // size means .vc-cats (see below, the only child with min-height:0) is
+      // the sole element that ever shrinks/scrolls. No effect in the main view
+      // (there .vc-bar is .vc-root's only child, nothing competes for space).
+      'flex-shrink:0;}' +
       // Fine top edge to lift the bar off page content.
       '.vc-bar::before{content:"";position:absolute;inset:0 0 auto 0;height:1px;' +
       'background:linear-gradient(90deg,rgba(255,255,255,.34),rgba(255,255,255,.08));}' +
@@ -277,7 +286,16 @@
       '.vc-mark-sm{height:28px;width:calc(28px * 157 / 60);flex:0 0 auto;display:block;}' +
       '.vc-title{margin:0;font-family:\'Bricolage Grotesque Variable\',\'Bricolage Grotesque\',Georgia,serif;' +
       'font-weight:600;font-size:20px;letter-spacing:-.01em;line-height:1.1;color:' + cream + ';}' +
-      '.vc-cats{padding:6px clamp(18px,4vw,44px) 10px;max-height:min(52vh,420px);overflow-y:auto;overscroll-behavior:contain;}' +
+      // min-height:0 is the actual fix (Auftrag Cagri 15.09.2026): .vc-cats is a
+      // flex child of .vc-panel (display:flex;flex-direction:column;min-height:0
+      // above). Without min-height:0 HERE too, a flex item's default min-height
+      // is "auto" -> it refuses to shrink below its own content's natural height,
+      // which blocked .vc-panel's shrink from ever reaching this element and
+      // pushed .vc-bar's Zurueck/Auswahl-speichern buttons out of view instead.
+      // max-height stays as an upper bound for large screens; min-height:0 is
+      // what lets it shrink FURTHER (and scroll, via the existing overflow-y)
+      // when the panel is squeezed on short mobile viewports.
+      '.vc-cats{padding:6px clamp(18px,4vw,44px) 10px;max-height:min(52vh,420px);min-height:0;overflow-y:auto;overscroll-behavior:contain;}' +
       '.vc-cat{padding:16px 0;border-top:1px solid ' + hairline + ';}' +
       '.vc-cat:first-child{border-top:none;}' +
       '.vc-cat-row{display:flex;align-items:center;justify-content:space-between;gap:16px;}' +
