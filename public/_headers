@@ -8,3 +8,9 @@
 # Die Font-Kopien fuer die Sitemap-Ansicht sind unveraenderlich.
 /fonts/*
   Cache-Control: public, max-age=31536000, immutable
+
+# banner.js cachte bisher 4h (Cloudflare-Pages-Default fuer .js, kein Repo-Wert) --
+# Banner-Fixes waren dadurch bis zu 4h nicht live sichtbar. Auf 5min gesenkt,
+# damit Aenderungen praktisch sofort greifen, ohne manuellen Cache-Purge.
+/cookie-banner/banner.js
+  Cache-Control: public, max-age=300, must-revalidate
