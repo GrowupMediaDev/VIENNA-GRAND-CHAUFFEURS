@@ -1,15 +1,16 @@
 ---
 // Fixed contact rail — vertically centered on the right edge, present on
-// every page via Layout.astro. WhatsApp, email and landline, always reachable.
+// every page via Layout.astro. WhatsApp, email, landline and mobile, always reachable.
 import { CONTACT } from '../lib/site';
 import { getLang, pick } from '../lib/i18n';
 
 const lang = getLang(Astro.url);
 const phoneHref = `tel:${CONTACT.phonePrimary.tel}`;
+const mobileHref = `tel:${CONTACT.phoneSecondary.tel}`;
 
 const L = pick(lang,
-  { whatsapp: 'WhatsApp', email: 'E-Mail schreiben', phone: 'Anrufen' },
-  { whatsapp: 'WhatsApp', email: 'Send email', phone: 'Call us' });
+  { whatsapp: 'WhatsApp', email: 'E-Mail schreiben', phone: 'Anrufen', mobile: 'Mobil anrufen' },
+  { whatsapp: 'WhatsApp', email: 'Send email', phone: 'Call us', mobile: 'Call mobile' });
 ---
 <div class="crail" aria-label="Kontakt">
   <a class="crail__btn crail__btn--wa" href={CONTACT.whatsapp.url} target="_blank" rel="noopener" aria-label={L.whatsapp} title={L.whatsapp}>
@@ -20,6 +21,9 @@ const L = pick(lang,
   </a>
   <a class="crail__btn crail__btn--tel" href={phoneHref} aria-label={L.phone} title={L.phone}>
     <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M6.62 10.79a15.05 15.05 0 0 0 6.59 6.59l2.2-2.2a1 1 0 0 1 1.02-.24c1.12.37 2.33.57 3.57.57a1 1 0 0 1 1 1V20a1 1 0 0 1-1 1A17 17 0 0 1 3 4a1 1 0 0 1 1-1h3.5a1 1 0 0 1 1 1c0 1.25.2 2.45.57 3.57.11.35.03.74-.25 1.02l-2.2 2.2Z"/></svg>
+  </a>
+  <a class="crail__btn crail__btn--mobile" href={mobileHref} aria-label={L.mobile} title={L.mobile}>
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="6.5" y="2.5" width="11" height="19" rx="2.5"/><path d="M10.5 18.5h3"/></svg>
   </a>
 </div>
 
@@ -42,7 +46,8 @@ const L = pick(lang,
 
   .crail__btn--wa { background: #25d366; }
   .crail__btn--mail { background: #2563eb; }
-  .crail__btn--tel { background: linear-gradient(135deg, #c46a2d 0%, #e9b79a 100%); }
+  .crail__btn--tel,
+  .crail__btn--mobile { background: linear-gradient(135deg, #c46a2d 0%, #e9b79a 100%); }
 
   @media (max-width: 640px) {
     .crail {
@@ -52,5 +57,11 @@ const L = pick(lang,
     }
     .crail__btn { inline-size: 44px; block-size: 44px; }
     .crail__btn svg { inline-size: 20px; block-size: 20px; }
+    /* Cookie banner (#vgc-cookie-consent, full-width bottom bar) is open:
+       move the rail up below the nav so the icons stay tappable. The banner
+       sets display:none inline once dismissed, the rail then returns down. */
+    :global(body:has(> #vgc-cookie-consent:not([style*="none"]))) .crail {
+      inset-block-start: 108px; inset-block-end: auto;
+    }
   }
 </style>
