@@ -115,9 +115,54 @@
     return parsed;
   }
 
+  function generateConsentId() {
+    if (window.crypto && typeof window.crypto.randomUUID === 'function') {
+      return window.crypto.randomUUID();
+    }
+    // Fallback for older browsers without crypto.randomUUID -- only an identifier
+    // for log correlation, not a security token, so Math.random is fine here.
+    return 'cid-xxxxxxxx-xxxx-4xxx-yxxx-xxxxxxxxxxxx'.replace(/[xy]/g, function (c) {
+      var r = (Math.random() * 16) | 0;
+      var v = c === 'x' ? r : (r & 0x3) | 0x8;
+      return v.toString(16);
+    });
+  }
+
+  // Fire-and-forget server-side consent log (Auftragsverarbeiter-Modell), same
+  // logic as the luxora/beethoven engines. MUST NEVER throw or block -- a missing or
+  // unreachable endpoint can never prevent the visitor's consent decision.
+  function sendConsentLog(record) {
+    if (!config.consentLogUrl) return; // logging optional; banner works fully without it
+    try {
+      var payload = JSON.stringify({
+        clientKey: config.clientKey,
+        consentId: record.consentId,
+        timestamp: record.timestamp,
+        choice: record.choice,
+        bannerVersion: record.bannerVersion
+      });
+      if (navigator.sendBeacon) {
+        // 'text/plain' is CORS-safelisted -> simple request, no preflight (an
+        // 'application/json' beacon is sent with credentials and fails the preflight).
+        var blob = new Blob([payload], { type: 'text/plain' });
+        navigator.sendBeacon(config.consentLogUrl, blob);
+      } else if (window.fetch) {
+        fetch(config.consentLogUrl, {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: payload,
+          keepalive: true
+        }).catch(function () {});
+      }
+    } catch (e) {
+      // Never let logging break consent handling.
+    }
+  }
+
   function storeConsent(choice, locale) {
     var record = {
       timestamp: Date.now(),
+      consentId: generateConsentId(),
       choice: {
         necessary: true,
         statistics: !!choice.statistics,
@@ -126,6 +171,7 @@
       bannerVersion: config.bannerVersion || '1.0.0'
     };
     safeSetItem(consentKeyForLocale(locale), JSON.stringify(record));
+    sendConsentLog(record);
   }
 
   // ------------------------------------------------------------------
