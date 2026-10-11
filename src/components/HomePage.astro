@@ -43,7 +43,7 @@ const L = pick(lang,
     hbookAria: 'Online buchen', hbookEyebrow: 'In 30 Sekunden zum Fixpreis',
     hbookFrom: 'Von', hbookTo: 'Nach', hbookDate: 'Datum', hbookTime: 'Uhrzeit', hbookStop: 'Zwischenstopp', hbookFlight: 'Flugnummer',
     hbookFromV: 'Abholadresse', hbookToV: 'Zieladresse', hbookStopV: 'Adresse Zwischenstopp', hbookFlightV: 'z. B. OS 052', hbookCta: 'Preis berechnen', hbookAddStop: 'Zwischenstopp hinzufügen', hbookRemoveStop: 'Zwischenstopp entfernen', hbookFlightReq: 'Bitte Flugnummer angeben (Flughafen-Abholung).',
-    hbookAcList: 'Adressvorschläge', hbookAcSearching: 'Suche …', hbookAcEmpty: 'Keine Treffer. Sie können die Adresse auch so eingeben.',
+    hbookAcList: 'Adressvorschläge', hbookAcSearching: 'Suche …', hbookAcEmpty: 'Kein Treffer bei Google.', hbookAcHint: 'Tipp: Straße + Hausnummer + Ort, oder der Name des Hotels/Flughafens. Adressen im Ausland sind möglich.', hbookAcRequest: 'Ort nicht dabei? Anfrage senden',
     hbookDatePh: 'TT.MM.JJJJ', hbookTimePh: 'HH:MM',
     calPrev: 'Vorheriger Monat', calNext: 'Nächster Monat',
     calMonths: ['Januar','Februar','März','April','Mai','Juni','Juli','August','September','Oktober','November','Dezember'],
@@ -96,7 +96,7 @@ const L = pick(lang,
     hbookAria: 'Book online', hbookEyebrow: 'Your fixed price in 30 seconds',
     hbookFrom: 'From', hbookTo: 'To', hbookDate: 'Date', hbookTime: 'Time', hbookStop: 'Stop', hbookFlight: 'Flight no.',
     hbookFromV: 'Pickup address', hbookToV: 'Destination address', hbookStopV: 'Stop address', hbookFlightV: 'e.g. OS 052', hbookCta: 'Calculate price', hbookAddStop: 'Add stop', hbookRemoveStop: 'Remove stop', hbookFlightReq: 'Please enter the flight number (airport pickup).',
-    hbookAcList: 'Address suggestions', hbookAcSearching: 'Searching …', hbookAcEmpty: 'No matches. You can also enter the address as it is.',
+    hbookAcList: 'Address suggestions', hbookAcSearching: 'Searching …', hbookAcEmpty: 'No match at Google.', hbookAcHint: 'Tip: street + number + city, or the name of the hotel/airport. Addresses abroad are supported.', hbookAcRequest: 'Can’t find it? Send a request',
     hbookDatePh: 'DD.MM.YYYY', hbookTimePh: 'HH:MM',
     calPrev: 'Previous month', calNext: 'Next month',
     calMonths: ['January','February','March','April','May','June','July','August','September','October','November','December'],
@@ -217,7 +217,7 @@ const heroTitleAfter = accentAt >= 0 ? heroTitleHead.slice(accentAt + heroTitleA
       <div class="container-x">
         <div class="hbook__inner" data-reveal>
           <span class="hbook__eyebrow"><span class="hbook__dot" aria-hidden="true"></span>{L.hbookEyebrow}</span>
-          <form class="hbook__bar" id="hbook-form" data-book-base={bookHref} data-flight-req={L.hbookFlightReq} data-cal-months={JSON.stringify(L.calMonths)} data-cal-dows={JSON.stringify(L.calDows)} data-lang={lang} data-ac-searching={L.hbookAcSearching} data-ac-empty={L.hbookAcEmpty} novalidate>
+          <form class="hbook__bar" id="hbook-form" data-book-base={bookHref} data-flight-req={L.hbookFlightReq} data-cal-months={JSON.stringify(L.calMonths)} data-cal-dows={JSON.stringify(L.calDows)} data-lang={lang} data-ac-searching={L.hbookAcSearching} data-ac-empty={L.hbookAcEmpty} data-ac-hint={L.hbookAcHint} data-ac-request={L.hbookAcRequest} data-ac-contact={kontaktHref} novalidate>
             <div class="hbook__row">
               <div class="hbook__cell" data-cell="from">
                 <label class="hbook__flabel" for="hb-from">{L.hbookFrom}</label>
@@ -675,6 +675,9 @@ const heroTitleAfter = accentAt >= 0 ? heroTitleHead.slice(accentAt + heroTitleA
         const AC_MIN_CHARS = 2;
         const acSearching = form.dataset.acSearching || '';
         const acEmpty = form.dataset.acEmpty || '';
+        const acHint = form.dataset.acHint || '';
+        const acRequest = form.dataset.acRequest || '';
+        const acContact = form.dataset.acContact || '/kontakt';
         const picked = new WeakMap(); // input -> signierter Ort (places-details)
         let acSeq = 0;
 
@@ -713,9 +716,15 @@ const heroTitleAfter = accentAt >= 0 ? heroTitleHead.slice(accentAt + heroTitleA
               input.removeAttribute('aria-activedescendant');
               return;
             }
-            if (mode === 'loading' || mode === 'empty') {
-              const txt = mode === 'loading' ? acSearching : acEmpty;
-              list.innerHTML = '<li class="hbook__ac-status' + (mode === 'loading' ? ' is-loading' : '') + '" role="presentation">' + esc(txt) + '</li>';
+            if (mode === 'loading') {
+              list.innerHTML = '<li class="hbook__ac-status is-loading" role="presentation">' + esc(acSearching) + '</li>';
+            } else if (mode === 'empty') {
+              // Weltweite Adressen: Google findet nichts -> klare Meldung + Tipp
+              // (Straße+Nr./Hotel-/Flughafenname, Ausland möglich) + Ausweg "Anfrage senden".
+              list.innerHTML =
+                '<li class="hbook__ac-status" role="presentation"><strong>' + esc(acEmpty) + '</strong></li>' +
+                (acHint ? '<li class="hbook__ac-status hbook__ac-hint" role="presentation">' + esc(acHint) + '</li>' : '') +
+                (acRequest ? '<li class="hbook__ac-status" role="presentation"><a class="hbook__ac-request" href="' + esc(acContact) + '">' + esc(acRequest) + '</a></li>' : '');
             } else {
               list.innerHTML = items.map((it, i) =>
                 '<li id="' + list.id + '-opt-' + i + '" class="hbook__ac-opt' + (i === active ? ' is-active' : '') + '" role="option" aria-selected="' + (i === active) + '" data-i="' + i + '">' +
@@ -1513,7 +1522,15 @@ const heroTitleAfter = accentAt >= 0 ? heroTitleHead.slice(accentAt + heroTitleA
   }
   .hbook__ac :global(.hbook__ac-txt span) { font-size: 12.5px; line-height: 1.35; color: rgba(12, 10, 8, 0.58); overflow-wrap: anywhere; }
   .hbook__ac :global(.hbook__ac-status) { padding: 12px 14px; font-size: 13.5px; line-height: 1.45; color: rgba(12, 10, 8, 0.62); }
+  .hbook__ac :global(.hbook__ac-status strong) { color: #0c0a08; font-weight: 600; }
   .hbook__ac :global(.hbook__ac-status.is-loading) { animation: hbAcPulse 1.1s ease-in-out infinite; }
+  .hbook__ac :global(.hbook__ac-hint) { padding-block: 2px 8px; font-size: 12.5px; }
+  .hbook__ac :global(.hbook__ac-request) {
+    display: inline-block; font-weight: 600; color: #c46a2d;
+    text-decoration: underline; text-underline-offset: 2px;
+  }
+  .hbook__ac :global(.hbook__ac-request:hover),
+  .hbook__ac :global(.hbook__ac-request:focus-visible) { color: #0c0a08; }
   .hbook__ac :global(.hbook__ac-attr) {
     padding: 6px 12px 2px; text-align: end;
     font-size: 10.5px; letter-spacing: 0.04em; color: rgba(12, 10, 8, 0.42);
