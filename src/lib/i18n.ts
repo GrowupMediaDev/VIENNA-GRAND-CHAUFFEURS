@@ -46,7 +46,7 @@ const UI = {
       aboutUs: 'Über uns', contactLink: 'Kontakt', imprint: 'Impressum', privacy: 'Datenschutz', terms: 'AGB',
       rights: 'Alle Rechte vorbehalten.',
       landline: 'Festnetz', mobile: 'Mobil & WhatsApp',
-      design: 'Design & Development:',
+      design: 'Online Marketing & Webdesign by',
     },
   },
   en: {
@@ -61,7 +61,7 @@ const UI = {
       aboutUs: 'About us', contactLink: 'Contact', imprint: 'Imprint', privacy: 'Privacy', terms: 'Terms',
       rights: 'All rights reserved.',
       landline: 'Landline', mobile: 'Mobile & WhatsApp',
-      design: 'Design & Development:',
+      design: 'Online Marketing & Webdesign by',
     },
   },
 } as const;
