@@ -43,6 +43,7 @@ const L = pick(lang,
     hbookAria: 'Online buchen', hbookEyebrow: 'In 30 Sekunden zum Fixpreis',
     hbookFrom: 'Von', hbookTo: 'Nach', hbookDate: 'Datum', hbookTime: 'Uhrzeit', hbookStop: 'Zwischenstopp', hbookFlight: 'Flugnummer',
     hbookFromV: 'Abholadresse', hbookToV: 'Zieladresse', hbookStopV: 'Adresse Zwischenstopp', hbookFlightV: 'z. B. OS 052', hbookCta: 'Preis berechnen', hbookAddStop: 'Zwischenstopp hinzufügen', hbookRemoveStop: 'Zwischenstopp entfernen', hbookFlightReq: 'Bitte Flugnummer angeben (Flughafen-Abholung).',
+    hbookAcList: 'Adressvorschläge', hbookAcSearching: 'Suche …', hbookAcEmpty: 'Keine Treffer. Sie können die Adresse auch so eingeben.',
     hbookDatePh: 'TT.MM.JJJJ', hbookTimePh: 'HH:MM',
     calPrev: 'Vorheriger Monat', calNext: 'Nächster Monat',
     calMonths: ['Januar','Februar','März','April','Mai','Juni','Juli','August','September','Oktober','November','Dezember'],
@@ -95,6 +96,7 @@ const L = pick(lang,
     hbookAria: 'Book online', hbookEyebrow: 'Your fixed price in 30 seconds',
     hbookFrom: 'From', hbookTo: 'To', hbookDate: 'Date', hbookTime: 'Time', hbookStop: 'Stop', hbookFlight: 'Flight no.',
     hbookFromV: 'Pickup address', hbookToV: 'Destination address', hbookStopV: 'Stop address', hbookFlightV: 'e.g. OS 052', hbookCta: 'Calculate price', hbookAddStop: 'Add stop', hbookRemoveStop: 'Remove stop', hbookFlightReq: 'Please enter the flight number (airport pickup).',
+    hbookAcList: 'Address suggestions', hbookAcSearching: 'Searching …', hbookAcEmpty: 'No matches. You can also enter the address as it is.',
     hbookDatePh: 'DD.MM.YYYY', hbookTimePh: 'HH:MM',
     calPrev: 'Previous month', calNext: 'Next month',
     calMonths: ['January','February','March','April','May','June','July','August','September','October','November','December'],
@@ -215,14 +217,15 @@ const heroTitleAfter = accentAt >= 0 ? heroTitleHead.slice(accentAt + heroTitleA
       <div class="container-x">
         <div class="hbook__inner" data-reveal>
           <span class="hbook__eyebrow"><span class="hbook__dot" aria-hidden="true"></span>{L.hbookEyebrow}</span>
-          <form class="hbook__bar" id="hbook-form" data-book-base={bookHref} data-flight-req={L.hbookFlightReq} data-cal-months={JSON.stringify(L.calMonths)} data-cal-dows={JSON.stringify(L.calDows)} novalidate>
+          <form class="hbook__bar" id="hbook-form" data-book-base={bookHref} data-flight-req={L.hbookFlightReq} data-cal-months={JSON.stringify(L.calMonths)} data-cal-dows={JSON.stringify(L.calDows)} data-lang={lang} data-ac-searching={L.hbookAcSearching} data-ac-empty={L.hbookAcEmpty} novalidate>
             <div class="hbook__row">
               <div class="hbook__cell" data-cell="from">
                 <label class="hbook__flabel" for="hb-from">{L.hbookFrom}</label>
                 <div class="hbook__inwrap">
                   <svg class="hbook__pin" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><circle cx="12" cy="10" r="3"/><path d="M12 2a8 8 0 0 0-8 8c0 5.25 8 12 8 12s8-6.75 8-12a8 8 0 0 0-8-8Z"/></svg>
-                  <input class="hbook__input" id="hb-from" name="from" type="text" placeholder={L.hbookFromV} autocomplete="off" data-lat="" data-lng="" data-airport="" />
+                  <input class="hbook__input hbook__addr" id="hb-from" name="vgc-q-from" type="text" role="combobox" aria-autocomplete="list" aria-haspopup="listbox" aria-expanded="false" autocomplete="one-time-code" autocapitalize="off" autocorrect="off" spellcheck="false" enterkeyhint="search" data-lpignore="true" data-1p-ignore aria-controls="hb-from-list" placeholder={L.hbookFromV} />
                 </div>
+                <ul class="hbook__pop hbook__ac" id="hb-from-list" role="listbox" aria-label={L.hbookAcList} hidden></ul>
               </div>
 
               <div class="hbook__stops" id="hb-stops"></div>
@@ -231,8 +234,9 @@ const heroTitleAfter = accentAt >= 0 ? heroTitleHead.slice(accentAt + heroTitleA
                 <label class="hbook__flabel" for="hb-to">{L.hbookTo}</label>
                 <div class="hbook__inwrap">
                   <svg class="hbook__pin" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
-                  <input class="hbook__input" id="hb-to" name="to" type="text" placeholder={L.hbookToV} autocomplete="off" data-lat="" data-lng="" data-airport="" />
+                  <input class="hbook__input hbook__addr" id="hb-to" name="vgc-q-to" type="text" role="combobox" aria-autocomplete="list" aria-haspopup="listbox" aria-expanded="false" autocomplete="one-time-code" autocapitalize="off" autocorrect="off" spellcheck="false" enterkeyhint="search" data-lpignore="true" data-1p-ignore aria-controls="hb-to-list" placeholder={L.hbookToV} />
                 </div>
+                <ul class="hbook__pop hbook__ac" id="hb-to-list" role="listbox" aria-label={L.hbookAcList} hidden></ul>
               </div>
 
               <div class="hbook__cell hbook__cell--sm hbook__cell--picker" data-cell="date">
@@ -279,6 +283,11 @@ const heroTitleAfter = accentAt >= 0 ? heroTitleHead.slice(accentAt + heroTitleA
               </button>
             </div>
           </form>
+          {/* Cloudflare Turnstile (unsichtbar, "interaction-only") fuer die
+              Adresssuche -- nur befuellt, wenn das Buchungssystem einen
+              Site-Key liefert. Sichtbar nur, falls Cloudflare eine Interaktion
+              verlangt. */}
+          <div class="hbook__ts" id="hb-turnstile"></div>
 
           <div class="hbook__notice" id="hb-notice" role="alert" hidden>
             <svg class="hbook__notice-ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="9.5"/><path d="M12 8h.01M11 12h1v4h1"/></svg>
@@ -302,8 +311,9 @@ const heroTitleAfter = accentAt >= 0 ? heroTitleHead.slice(accentAt + heroTitleA
               <label class="hbook__flabel">{L.hbookStop}</label>
               <div class="hbook__inwrap">
                 <svg class="hbook__pin" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><circle cx="12" cy="10" r="3"/><path d="M12 2a8 8 0 0 0-8 8c0 5.25 8 12 8 12s8-6.75 8-12a8 8 0 0 0-8-8Z"/></svg>
-                <input class="hbook__input hbook__stop-input" type="text" placeholder={L.hbookStopV} autocomplete="off" />
+                <input class="hbook__input hbook__addr hbook__stop-input" type="text" role="combobox" aria-autocomplete="list" aria-haspopup="listbox" aria-expanded="false" autocomplete="one-time-code" autocapitalize="off" autocorrect="off" spellcheck="false" enterkeyhint="search" data-lpignore="true" data-1p-ignore placeholder={L.hbookStopV} />
               </div>
+              <ul class="hbook__pop hbook__ac" role="listbox" aria-label={L.hbookAcList} hidden></ul>
               <button type="button" class="hbook__stop-remove" aria-label={L.hbookRemoveStop}>
                 <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" aria-hidden="true"><path d="M6 6l12 12M18 6L6 18"/></svg>
               </button>
@@ -314,12 +324,24 @@ const heroTitleAfter = accentAt >= 0 ? heroTitleHead.slice(accentAt + heroTitleA
     </section>
 
     <script>
-      // Homepage-Schnellbuchung: Google Places auf Von/Nach/Zwischenstopps,
+      // Homepage-Schnellbuchung: Adressvorschlaege auf Von/Nach/Zwischenstopps,
       // Zwischenstopp hinzufuegen/entfernen, dann Deep-Link ins Buchungswidget
       // (/online-buchung?prefill=<JSON>). Das Widget liest den Param beim Mount,
-      // befuellt Schritt 1 und springt zu Schritt 2. Maps laedt lazy beim ersten
-      // Fokus (schont Hero-LCP). Ohne Maps: reiner Text-Prefill (Widget faengt ab).
-      const GOOGLE_MAPS_KEY = 'AIzaSyA8CwHhxiR9ZUdyCkGcbfePvEGl2e6mgj4';
+      // befuellt Schritt 1 und springt zu Schritt 2.
+      //
+      // Adresssuche OHNE Google-Key im Browser: Vorschlaege und Orte kommen vom
+      // VGC-Buchungssystem (Google Places API (New) serverseitig, Muster wie
+      // vgc-buchung booking-widget/src/core/human.js + address-input.js):
+      //   GET  /api/session              -> { turnstileSiteKey }
+      //   (Turnstile unsichtbar, nur mit Site-Key)
+      //   POST /api/session              -> { pass } (45 min)
+      //   POST /api/places-autocomplete  -> { suggestions }
+      //   POST /api/places-details       -> { place: { ..., sig } } (signiert)
+      // Die Sitzung startet erst beim ersten Fokus eines Adressfelds (schont
+      // den Hero-LCP). Ohne Site-Key/Pass oder bei API-Fehlern bleiben die
+      // Felder normale Texteingaben; das Widget loest den Text dann selbst auf.
+      // Basis-URL = dieselbe, von der BookingPage.astro das Widget laedt.
+      const VGC_API = 'https://vgc-buchung-oezdemircagri-7244s-projects.vercel.app';
       const form = document.getElementById('hbook-form');
       if (form) {
         const stopsWrap = document.getElementById('hb-stops');
@@ -331,7 +353,7 @@ const heroTitleAfter = accentAt >= 0 ? heroTitleHead.slice(accentAt + heroTitleA
         const flightCell = document.getElementById('hb-flight-cell');
         const flightInput = document.getElementById('hb-flight');
         const MAX_STOPS = 3;
-        let mapsPromise = null, stopSeq = 0;
+        let stopSeq = 0;
 
         // ===== Custom Datum-/Uhrzeit-Picker (VGC) =====
         // dateEl = verstecktes Feld mit YYYY-MM-DD (fuer den Prefill-Submit),
@@ -547,58 +569,251 @@ const heroTitleAfter = accentAt >= 0 ? heroTitleHead.slice(accentAt + heroTitleA
 
         // Flugnummer-Feld nur zeigen, wenn die Abholadresse ein Flughafen ist.
         function updateFlight() {
-          const isAir = fromEl.dataset.airport === '1';
+          const isAir = !!pickedPlace(fromEl)?.isAirport;
           if (flightCell) flightCell.hidden = !isAir;
           if (!isAir && flightInput) flightInput.value = '';
         }
 
-        function loadMaps() {
-          if (window.google?.maps?.places) return Promise.resolve(true);
-          if (mapsPromise) return mapsPromise;
-          mapsPromise = new Promise((resolve) => {
-            const cb = 'hbMapsReady';
-            window[cb] = () => resolve(true);
-            const s = document.createElement('script');
-            s.src = `https://maps.googleapis.com/maps/api/js?key=${GOOGLE_MAPS_KEY}&libraries=places&callback=${cb}`;
-            s.async = true;
-            s.onerror = () => resolve(false);
-            document.head.appendChild(s);
+        // ===== Sitzung fuer die Adresssuche (Turnstile -> Pass) =====
+        const apiLang = form.dataset.lang === 'en' ? 'en' : 'de';
+        const TS_SRC = 'https://challenges.cloudflare.com/turnstile/v0/api.js?render=explicit';
+        const TS_WAIT_STEPS = 200; // x 100 ms = max. 20 s auf das Turnstile-Token
+        let humanPromise = null, sessionPromise = null;
+        const PASS_RETRY_MS = 60000;
+        let siteKey = null, tsToken = null, tsWidget = null, pass = null, passRetryAt = 0;
+        const wait = (ms) => new Promise((r) => setTimeout(r, ms));
+
+        function loadTurnstile() {
+          if (window.turnstile) return Promise.resolve();
+          return new Promise((resolve, reject) => {
+            const sc = document.createElement('script');
+            sc.src = TS_SRC; sc.async = true;
+            sc.onload = resolve; sc.onerror = reject;
+            document.head.appendChild(sc);
           });
-          return mapsPromise;
+        }
+        // Einmalig: Site-Key holen, Turnstile nur MIT Site-Key laden/rendern.
+        function initHuman() {
+          if (!humanPromise) {
+            humanPromise = (async () => {
+              try {
+                const r = await fetch(VGC_API + '/api/session', { method: 'GET' });
+                const d = await r.json().catch(() => ({}));
+                siteKey = (r.ok && d.turnstileSiteKey) || null;
+              } catch { siteKey = null; }
+              const mount = document.getElementById('hb-turnstile');
+              if (!siteKey || !mount) return;
+              try {
+                await loadTurnstile();
+                tsWidget = window.turnstile.render(mount, {
+                  sitekey: siteKey,
+                  appearance: 'interaction-only',
+                  language: apiLang,
+                  callback: (tk) => { tsToken = tk; },
+                  'expired-callback': () => { tsToken = null; },
+                  'error-callback': () => { tsToken = null; },
+                });
+              } catch { tsToken = null; }
+            })();
+          }
+          return humanPromise;
+        }
+        // Pass per POST /api/session (mit geloestem Turnstile-Token bzw. ohne
+        // Site-Key ohne Token). null = keine Adresssuche, Feld bleibt Freitext.
+        function ensurePass() {
+          if (pass) return Promise.resolve(pass);
+          // Nach einem Fehlschlag nicht bei jedem Tastendruck erneut anfragen.
+          if (Date.now() < passRetryAt) return Promise.resolve(null);
+          if (!sessionPromise) {
+            sessionPromise = (async () => {
+              await initHuman();
+              if (siteKey) {
+                for (let i = 0; i < TS_WAIT_STEPS && !tsToken; i++) await wait(100);
+                if (!tsToken) return null;
+              }
+              try {
+                const r = await fetch(VGC_API + '/api/session', {
+                  method: 'POST',
+                  headers: { 'Content-Type': 'application/json' },
+                  body: JSON.stringify(tsToken ? { turnstile_token: tsToken } : {}),
+                });
+                const d = await r.json().catch(() => ({}));
+                if (r.ok && d.pass) pass = d.pass;
+              } catch { /* kein Pass -> Freitext */ }
+              // Token ist verbraucht -> fuer eine spaetere Erneuerung neu loesen lassen
+              tsToken = null;
+              if (tsWidget != null && window.turnstile) { try { window.turnstile.reset(tsWidget); } catch { /* noop */ } }
+              return pass;
+            })().finally(() => {
+              sessionPromise = null;
+              if (!pass) passRetryAt = Date.now() + PASS_RETRY_MS;
+            });
+          }
+          return sessionPromise;
+        }
+        // POST mit Pass; bei abgelaufenem Pass (403 turnstile_required) einmal erneuern.
+        async function apiPost(path, body) {
+          for (let attempt = 0; attempt < 2; attempt++) {
+            const p = await ensurePass();
+            if (!p) return null;
+            try {
+              const r = await fetch(VGC_API + path, {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify({ ...body, lang: apiLang, pass: p }),
+              });
+              const d = await r.json().catch(() => ({}));
+              if (r.status === 403 && d.turnstile_required) { pass = null; continue; }
+              return r.ok ? d : null;
+            } catch { return null; }
+          }
+          return null;
         }
 
-        async function attach(input) {
-          if (input.dataset.bound) return;
-          input.dataset.bound = '1';
-          const ok = await loadMaps();
-          if (!ok || !window.google?.maps?.places) return;
-          const ac = new window.google.maps.places.Autocomplete(input, {
-            fields: ['formatted_address', 'geometry', 'name', 'types'],
-            componentRestrictions: { country: ['at', 'de', 'sk', 'hu', 'cz'] },
-          });
-          ac.addListener('place_changed', () => {
-            const p = ac.getPlace();
-            const loc = p?.geometry?.location;
-            if (loc) { input.dataset.lat = String(loc.lat()); input.dataset.lng = String(loc.lng()); }
-            else { input.dataset.lat = ''; input.dataset.lng = ''; }
-            const types = Array.isArray(p?.types) ? p.types : [];
-            input.dataset.airport = types.includes('airport') ? '1' : '';
-            // Bei POIs/Flughaefen den NAMEN zeigen (z. B. "Flughafen Wien"),
-            // nicht die Buerger-Adresse ("1300 Schwechat"). Sonst geht der
-            // Ortsname verloren und die Flughafen-Erkennung im Widget (Keyword)
-            // greift nach dem Prefill nicht mehr.
-            const isPoi = types.some((t) => ['establishment', 'point_of_interest', 'airport', 'transit_station', 'lodging', 'tourist_attraction'].includes(t));
-            if (p) input.value = (isPoi && p.name) ? p.name : (p.formatted_address || p.name || input.value);
+        // ===== Adressfeld als ARIA-Combobox =====
+        const AC_DEBOUNCE_MS = 250;
+        const AC_MIN_CHARS = 2;
+        const acSearching = form.dataset.acSearching || '';
+        const acEmpty = form.dataset.acEmpty || '';
+        const picked = new WeakMap(); // input -> signierter Ort (places-details)
+        let acSeq = 0;
+
+        function newSessionToken() {
+          try { if (window.crypto?.randomUUID) return window.crypto.randomUUID(); } catch { /* Fallback */ }
+          return 's' + Date.now().toString(36) + Math.random().toString(36).slice(2, 12);
+        }
+        function esc(v) {
+          return String(v ?? '').replace(/[&<>"']/g, (c) => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[c]));
+        }
+        // Gewaehlter Ort nur, solange der Feldtext noch genau seiner Adresse entspricht.
+        function pickedPlace(input) {
+          const pl = input ? picked.get(input) : null;
+          return pl && (input.value || '').trim() === pl.address ? pl : null;
+        }
+
+        const PIN_SVG = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><circle cx="12" cy="10" r="3"/><path d="M12 2a8 8 0 0 0-8 8c0 5.25 8 12 8 12s8-6.75 8-12a8 8 0 0 0-8-8Z"/></svg>';
+        const PLANE_SVG = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M17.8 19.2 16 11l3.5-3.5C21 6 21.5 4 21 3c-1-.5-3 0-4.5 1.5L13 8 4.8 6.2c-.5-.1-.9.1-1.1.5l-.3.5c-.2.5-.1 1 .3 1.3L9 12l-2 3H4l-1 1 3 2 2 3 1-1v-3l3-2 3.5 5.3c.3.4.8.5 1.3.3l.5-.2c.4-.3.6-.7.5-1.2z"/></svg>';
+
+        function attach(input, list) {
+          if (!input || !list || input.dataset.acBound) return;
+          input.dataset.acBound = '1';
+          // Zufaelliger, nicht-adressartiger name bricht die Autofill-Heuristik je Feld.
+          input.name = 'vgc-q-' + Math.random().toString(36).slice(2, 10);
+          if (!list.id) list.id = (input.id || 'hb-addr-' + (++acSeq)) + '-list';
+          input.setAttribute('aria-controls', list.id);
+
+          let items = [], mode = 'closed', active = -1, timer = null, seq = 0, choosing = false;
+          let session = newSessionToken();
+
+          function render() {
+            const open = mode !== 'closed';
+            input.setAttribute('aria-expanded', String(open));
+            if (!open) {
+              list.hidden = true; list.innerHTML = '';
+              input.removeAttribute('aria-activedescendant');
+              return;
+            }
+            if (mode === 'loading' || mode === 'empty') {
+              const txt = mode === 'loading' ? acSearching : acEmpty;
+              list.innerHTML = '<li class="hbook__ac-status' + (mode === 'loading' ? ' is-loading' : '') + '" role="presentation">' + esc(txt) + '</li>';
+            } else {
+              list.innerHTML = items.map((it, i) =>
+                '<li id="' + list.id + '-opt-' + i + '" class="hbook__ac-opt' + (i === active ? ' is-active' : '') + '" role="option" aria-selected="' + (i === active) + '" data-i="' + i + '">' +
+                '<span class="hbook__ac-ico" aria-hidden="true">' + (it.isAirport ? PLANE_SVG : PIN_SVG) + '</span>' +
+                '<span class="hbook__ac-txt"><strong>' + esc(it.name) + '</strong>' + (it.secondary ? '<span>' + esc(it.secondary) + '</span>' : '') + '</span></li>'
+              ).join('') + '<li class="hbook__ac-attr" role="presentation">Google</li>';
+              if (active >= 0) {
+                input.setAttribute('aria-activedescendant', list.id + '-opt-' + active);
+                list.querySelector('.is-active')?.scrollIntoView({ block: 'nearest' });
+              } else input.removeAttribute('aria-activedescendant');
+            }
+            list.hidden = false;
+          }
+          function setMode(next, nextItems) {
+            mode = next; if (nextItems) items = nextItems; active = -1; render();
+          }
+          function close() { clearTimeout(timer); seq++; setMode('closed'); }
+
+          async function search(text) {
+            const mine = ++seq;
+            const d = await apiPost('/api/places-autocomplete', { input: text, session_token: session });
+            if (mine !== seq) return;
+            // Kein Pass / API-Fehler: still schliessen, Feld bleibt Freitext.
+            if (!d) { setMode('closed'); return; }
+            const found = Array.isArray(d.suggestions) ? d.suggestions : [];
+            setMode(found.length ? 'results' : 'empty', found);
+          }
+          async function choose(index) {
+            const it = items[index];
+            if (!it) return;
+            const mine = ++seq;
+            choosing = true;
+            setMode('loading');
+            const d = await apiPost('/api/places-details', { place_id: it.placeId, session_token: session }).finally(() => { choosing = false; });
+            if (mine !== seq) return;
+            const pl = d?.place;
+            session = newSessionToken(); // naechster Suchvorgang = neue Google-Sitzung
+            setMode('closed');
+            if (!pl || !pl.sig || !pl.address) {
+              // Details fehlgeschlagen: Vorschlagstext uebernehmen (Widget loest auf).
+              picked.delete(input);
+              input.value = [it.name, it.secondary].filter(Boolean).join(', ');
+            } else {
+              picked.set(input, pl);
+              input.value = pl.address;
+            }
             if (input === fromEl) updateFlight();
-          });
-          // Manuelle Aenderung entwertet die Koordinaten (Adresse nicht bestaetigt).
+          }
+
+          input.addEventListener('focus', () => { ensurePass(); }, { once: true });
           input.addEventListener('input', () => {
-            input.dataset.lat = ''; input.dataset.lng = ''; input.dataset.airport = '';
+            picked.delete(input);
             if (input === fromEl) updateFlight();
+            clearTimeout(timer);
+            const text = input.value.trim();
+            if (text.length < AC_MIN_CHARS) { close(); return; }
+            // "Suche ..." nur zeigen, wenn eine Sitzung besteht (ohne API kein Flackern).
+            if (pass) setMode('loading');
+            timer = setTimeout(() => search(text), AC_DEBOUNCE_MS);
+          });
+          input.addEventListener('keydown', (e) => {
+            const n = items.length;
+            const nav = mode === 'results' && n > 0;
+            if (e.key === 'ArrowDown' || e.key === 'ArrowUp') {
+              if (!nav) return;
+              e.preventDefault();
+              active = e.key === 'ArrowDown' ? (active + 1) % n : (active <= 0 ? n - 1 : active - 1);
+              render();
+            } else if (e.key === 'Enter' && nav) {
+              e.preventDefault();
+              choose(active >= 0 ? active : 0);
+            } else if (e.key === 'Tab' && nav && active >= 0) {
+              e.preventDefault();
+              choose(active);
+            } else if (e.key === 'Escape' && mode !== 'closed') {
+              e.preventDefault(); e.stopPropagation();
+              close();
+            }
+          });
+          input.addEventListener('blur', () => { if (!choosing) close(); });
+          // mousedown verhindern: Feld behaelt beim Antippen eines Vorschlags den Fokus.
+          list.addEventListener('mousedown', (e) => e.preventDefault());
+          list.addEventListener('click', (e) => {
+            const li = e.target.closest('[data-i]');
+            if (li) choose(Number(li.dataset.i));
+          });
+          list.addEventListener('mousemove', (e) => {
+            const li = e.target.closest('[data-i]');
+            if (li && Number(li.dataset.i) !== active) {
+              list.querySelector('.is-active')?.classList.remove('is-active');
+              active = Number(li.dataset.i);
+              li.classList.add('is-active');
+            }
           });
         }
 
-        [fromEl, toEl].forEach((el) => { if (el) el.addEventListener('focus', () => attach(el), { once: true }); });
+        attach(fromEl, document.getElementById('hb-from-list'));
+        attach(toEl, document.getElementById('hb-to-list'));
 
         function stopCount() { return stopsWrap.querySelectorAll('.hbook__stop').length; }
 
@@ -614,20 +829,24 @@ const heroTitleAfter = accentAt >= 0 ? heroTitleHead.slice(accentAt + heroTitleA
           const input = cell.querySelector('.hbook__stop-input');
           input.id = id; label.setAttribute('for', id);
           cell.querySelector('.hbook__stop-remove').addEventListener('click', () => { cell.remove(); addBtn.hidden = false; });
+          attach(input, cell.querySelector('.hbook__ac'));
           stopsWrap.appendChild(cell);
           input.focus();
-          attach(input);
           if (stopCount() >= MAX_STOPS) addBtn.hidden = true;
         }
         if (addBtn) addBtn.addEventListener('click', addStop);
 
+        // Uebergabe-Punkt: gewaehlter Ort komplett (inkl. Server-Signatur sig,
+        // unveraendert, damit sie gueltig bleibt), sonst nur der Freitext.
         function readField(el) {
           const address = (el.value || '').trim();
           if (!address) return null;
-          const lat = parseFloat(el.dataset.lat), lng = parseFloat(el.dataset.lng);
-          const o = { address };
-          if (Number.isFinite(lat) && Number.isFinite(lng)) { o.lat = lat; o.lng = lng; }
-          if (el.dataset.airport === '1') o.isAirport = true;
+          const pl = pickedPlace(el);
+          if (!pl) return { address };
+          const o = { address: pl.address, lat: pl.lat, lng: pl.lng, placeId: pl.placeId, isAirport: !!pl.isAirport, sig: pl.sig };
+          if (pl.poiName) o.poiName = pl.poiName;
+          if (pl.postalCode) o.postalCode = pl.postalCode;
+          if (pl.city) o.city = pl.city;
           return o;
         }
 
@@ -639,7 +858,7 @@ const heroTitleAfter = accentAt >= 0 ? heroTitleHead.slice(accentAt + heroTitleA
           if (!dropoff) { toEl.focus(); return; }
           // Flugnummer ist Pflicht, wenn die Abholadresse ein Flughafen ist.
           const flightVal = (flightInput?.value || '').trim();
-          if (fromEl.dataset.airport === '1' && !flightVal) {
+          if (pickedPlace(fromEl)?.isAirport && !flightVal) {
             if (flightCell) { flightCell.hidden = false; flightCell.classList.add('hbook__cell--err'); }
             flightInput.addEventListener('input', () => flightCell.classList.remove('hbook__cell--err'), { once: true });
             flightInput.focus();
@@ -774,33 +993,6 @@ const heroTitleAfter = accentAt >= 0 ? heroTitleHead.slice(accentAt + heroTitleA
 <style is:global>
   /* Homepage runs on a warm cream canvas; the hero has a rounded bottom. */
   body { background: var(--color-cream); color: var(--color-ink); }
-
-  /* Google-Places-Autocomplete-Dropdown der Schnellbuchungsleiste. Google
-     haengt das Panel an <body> (ausserhalb des gescopten Astro-CSS), daher
-     global. Erscheint UNTER der Feld-Umrandung (margin-top) im VGC-Look, wie
-     das Datum-/Uhrzeit-Popup. Die "powered by Google"-Zeile bleibt (ToS). */
-  .pac-container {
-    margin-top: 18px;
-    border: 1px solid rgba(20, 15, 10, 0.12);
-    border-radius: 14px;
-    box-shadow: 0 18px 44px -20px rgba(0, 0, 0, 0.45);
-    background: #fff;
-    padding: 6px;
-    font-family: 'Inter', system-ui, -apple-system, sans-serif;
-  }
-  .pac-item {
-    border: none;
-    border-radius: 9px;
-    padding: 9px 12px;
-    font-size: 14px;
-    line-height: 1.4;
-    color: rgba(12, 10, 8, 0.7);
-    cursor: pointer;
-  }
-  .pac-item:hover, .pac-item-selected { background: rgba(196, 106, 45, 0.1); }
-  .pac-item-query { font-size: 14px; color: #0c0a08; font-weight: 600; }
-  .pac-matched { color: #c46a2d; }
-  .pac-icon { margin-top: 2px; }
 </style>
 
 <style>
@@ -1290,6 +1482,53 @@ const heroTitleAfter = accentAt >= 0 ? heroTitleHead.slice(accentAt + heroTitleA
   .hbook__notice-link svg { inline-size: 15px; block-size: 15px; flex: none; }
   .hbook__notice-link--wa { color: #1f7a44; border-color: rgba(31, 122, 68, 0.4); }
   .hbook__notice-link--wa:hover { background: rgba(31, 122, 68, 0.1); border-color: #1f7a44; }
+
+  /* Adressvorschlaege (eigene Liste statt Google-Dropdown). Gleicher Look
+     wie Datum-/Uhrzeit-Popover; die Eintraege entstehen per innerHTML und
+     werden deshalb ueber :global() gestyled. */
+  .hbook__ac {
+    inset-inline-start: 0; inset-inline-end: auto;
+    inline-size: max(100%, 320px); max-inline-size: calc(100vw - 2.5rem);
+    max-block-size: min(340px, 60vh); overflow-y: auto; overscroll-behavior: contain;
+    margin: 0; padding: 6px; list-style: none;
+    scrollbar-width: thin; scrollbar-color: rgba(196, 106, 45, 0.4) transparent;
+  }
+  .hbook__ac :global(.hbook__ac-opt) {
+    display: flex; align-items: flex-start; gap: 10px;
+    padding: 10px 12px; border-radius: 10px; cursor: pointer;
+    transition: background 0.14s ease;
+  }
+  .hbook__ac :global(.hbook__ac-opt.is-active) { background: rgba(196, 106, 45, 0.12); }
+  .hbook__ac :global(.hbook__ac-ico) {
+    flex: none; inline-size: 28px; block-size: 28px; display: grid; place-items: center;
+    border-radius: 8px; background: #faf7f2; color: #c46a2d;
+    transition: background 0.14s ease;
+  }
+  .hbook__ac :global(.hbook__ac-opt.is-active .hbook__ac-ico) { background: #fff; }
+  .hbook__ac :global(.hbook__ac-ico svg) { inline-size: 15px; block-size: 15px; }
+  .hbook__ac :global(.hbook__ac-txt) { display: flex; flex-direction: column; gap: 2px; min-inline-size: 0; }
+  .hbook__ac :global(.hbook__ac-txt strong) {
+    font-family: var(--font-display); font-weight: 600; font-size: 14.5px; line-height: 1.3; color: #0c0a08;
+    overflow-wrap: anywhere;
+  }
+  .hbook__ac :global(.hbook__ac-txt span) { font-size: 12.5px; line-height: 1.35; color: rgba(12, 10, 8, 0.58); overflow-wrap: anywhere; }
+  .hbook__ac :global(.hbook__ac-status) { padding: 12px 14px; font-size: 13.5px; line-height: 1.45; color: rgba(12, 10, 8, 0.62); }
+  .hbook__ac :global(.hbook__ac-status.is-loading) { animation: hbAcPulse 1.1s ease-in-out infinite; }
+  .hbook__ac :global(.hbook__ac-attr) {
+    padding: 6px 12px 2px; text-align: end;
+    font-size: 10.5px; letter-spacing: 0.04em; color: rgba(12, 10, 8, 0.42);
+  }
+  @keyframes hbAcPulse { 50% { opacity: 0.55; } }
+  @media (pointer: coarse) {
+    .hbook__ac :global(.hbook__ac-opt) { padding-block: 12px; }
+  }
+  @media (prefers-reduced-motion: reduce) {
+    .hbook__ac :global(.hbook__ac-opt), .hbook__ac :global(.hbook__ac-ico) { transition: none; }
+    .hbook__ac :global(.hbook__ac-status.is-loading) { animation: none; }
+  }
+  /* Turnstile-Mount: leer und ohne Hoehe, solange Cloudflare keine
+     Interaktion verlangt. */
+  .hbook__ts:empty { display: none; }
 
   @media (max-width: 620px) {
     .hbook__pop { inset-inline-start: 0; inset-inline-end: auto; }
