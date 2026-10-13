@@ -1,0 +1,22 @@
+{
+  "enabledPlugins": {
+    "engineering@synced": true,
+    "code-modernization@synced": true,
+    "design-skills@synced": true,
+    "frontend-design@synced": true,
+    "code-simplifier@synced": true,
+    "searchfit-seo@synced": true,
+    "windsor-ai@synced": false,
+    "adcopilot@synced": false,
+    "adsagent@synced": false,
+    "apodictic@synced": false,
+    "verification-foundation@synced": false,
+    "marketing@synced": false,
+    "finance@synced": false,
+    "animatedwebs@synced": false,
+    "superdesign@synced": false,
+    "design-superpowers@synced": false,
+    "animation-studio@synced": false,
+    "productivity@synced": false
+  }
+}
