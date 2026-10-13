@@ -19,7 +19,7 @@ const L = pick(lang,
     lblNumber: 'Buchungsnummer', lblNumberInquiry: 'Anfragenummer', lblVehicle: 'Fahrzeug', lblFrom: 'Von', lblStop: 'Zwischenstopp', lblTo: 'Nach',
     lblWhen: 'Datum & Uhrzeit', lblArrival: 'Ankunft', lblReturn: 'Rückfahrt', lblReturnRoute: 'Rückfahrt-Strecke', lblPrice: 'Preis', lblPay: 'Zahlung',
     returnIncl: 'inkl. Rückfahrt', approx: 'ca.', custom: 'abweichend',
-    payPaid: 'Bezahlt', payOnsite: 'Zahlung vor Ort', payOpen: 'Zahlung offen', payChecking: 'Zahlung wird bestätigt …', payInquiry: 'Preis folgt mit dem Angebot',
+    payPaid: 'Bezahlt', payOnsite: 'Bar oder Karte vor Ort', payOpen: 'Zahlung offen', payChecking: 'Zahlung wird bestätigt …', payInquiry: 'Preis folgt mit dem Angebot',
     states: {
       neutral: { eyebrow: 'Vielen Dank', heading: 'Vielen Dank.', sub: 'Eine Bestätigung mit allen Details erreicht Sie in Kürze per E-Mail.' },
       confirmed: { eyebrow: 'Buchung bestätigt', heading: 'Ihre Fahrt ist gebucht.', sub: 'Vielen Dank für Ihre Buchung. Die Bestätigung mit allen Details ist per E-Mail unterwegs.' },
@@ -52,7 +52,7 @@ const L = pick(lang,
     lblNumber: 'Booking number', lblNumberInquiry: 'Enquiry number', lblVehicle: 'Vehicle', lblFrom: 'From', lblStop: 'Stop', lblTo: 'To',
     lblWhen: 'Date & time', lblArrival: 'Arrival', lblReturn: 'Return', lblReturnRoute: 'Return route', lblPrice: 'Price', lblPay: 'Payment',
     returnIncl: 'incl. return', approx: 'approx.', custom: 'different',
-    payPaid: 'Paid', payOnsite: 'Payment on site', payOpen: 'Payment pending', payChecking: 'Confirming payment …', payInquiry: 'Price follows with the offer',
+    payPaid: 'Paid', payOnsite: 'Cash or card on site', payOpen: 'Payment pending', payChecking: 'Confirming payment …', payInquiry: 'Price follows with the offer',
     states: {
       neutral: { eyebrow: 'Thank you', heading: 'Thank you.', sub: 'A confirmation with all the details will reach you by email shortly.' },
       confirmed: { eyebrow: 'Booking confirmed', heading: 'Your ride is booked.', sub: 'Thank you for your booking. The confirmation with all the details is on its way to your inbox.' },
@@ -175,6 +175,20 @@ const st = L.states.neutral;
       return '€ ' + v.toLocaleString('de-AT', { minimumFractionDigits: v % 1 ? 2 : 0, maximumFractionDigits: 2 });
     }
 
+    // Adressvergleich wie im Buchungssystem (lib/booking-status.js#normalizeAddress):
+    // das Widget schickt rfrom/rto auch bei einfach gespiegelter Rueckfahrt mit.
+    function normAddr(s) {
+      return String(s || '').normalize('NFKC').toLowerCase()
+        .replace(/[.,;/\\|()–—-]+/g, ' ').replace(/\s+/g, ' ').trim()
+        .replace(/\s(österreich|oesterreich|austria|at)$/, '').trim();
+    }
+    function isCustomReturn(d) {
+      if (!d.rfrom && !d.rto) return false;
+      var pickupMirrored = !d.rfrom || normAddr(d.rfrom) === normAddr(d.to);
+      var dropoffMirrored = !d.rto || normAddr(d.rto) === normAddr(d.from);
+      return !(pickupMirrored && dropoffMirrored);
+    }
+
     // Einheitliches Modell aus URL-Fallback bzw. API-Antwort
     function fromUrl(d) {
       var p = splitDt(d.dt);
@@ -184,7 +198,7 @@ const st = L.states.neutral;
         number: d.bn, kind: kind,
         payment: d.kind === 'inquiry' ? 'none' : (d.pay === 'paid' ? 'paid' : (d.pay === 'processing' ? 'checking' : 'onsite')),
         vehicle: d.veh, from: d.from, to: d.to, stops: d.st || [], date: p.date, time: p.time, arrival: null,
-        ret: d.rt === '1' ? { date: r && r.date, time: r && r.time, custom: !!(d.rfrom || d.rto), pickup: d.rfrom, dropoff: d.rto } : null,
+        ret: d.rt === '1' ? { date: r && r.date, time: r && r.time, custom: isCustomReturn(d), pickup: d.rfrom, dropoff: d.rto } : null,
         price: d.kind === 'inquiry' ? null : d.price
       };
     }
@@ -193,7 +207,9 @@ const st = L.states.neutral;
         number: a.booking_number, kind: a.kind, payment: a.payment,
         vehicle: a.vehicle, from: a.pickup && a.pickup.address, to: a.dropoff && a.dropoff.address,
         stops: a.stops || [], date: a.pickup && a.pickup.date, time: a.pickup && a.pickup.time, arrival: a.arrival_time,
-        ret: a['return'], price: a.price
+        ret: a['return'], price: a.price,
+        // Zahlart-Wortlaut aus dem Buchungssystem (lib/payment-label.js, wie Mail/Widget)
+        paymentLabel: a.payment_label ? a.payment_label[lang] : null
       };
     }
 
@@ -239,7 +255,8 @@ const st = L.states.neutral;
       }
       var price = fmtPrice(m.price);
       if (price) items.push(row(T.lblPrice, price + (m.ret ? ' · ' + T.returnIncl : ''), 'is-price'));
-      var payTxt = { paid: T.payPaid, onsite: T.payOnsite, open: T.payOpen, checking: T.payChecking, none: T.payInquiry }[m.payment] || '';
+      var payTxt = (m.payment === 'onsite' && m.paymentLabel)
+        || { paid: T.payPaid, onsite: T.payOnsite, open: T.payOpen, checking: T.payChecking, none: T.payInquiry }[m.payment] || '';
       if (kind !== 'cancelled') items.push(row(T.lblPay, payTxt, m.payment === 'open' ? 'is-open' : (m.payment === 'paid' ? 'is-paid' : '')));
       items.forEach(function (el) { if (el) rows.appendChild(el); });
       document.getElementById('booking-summary').hidden = false;
