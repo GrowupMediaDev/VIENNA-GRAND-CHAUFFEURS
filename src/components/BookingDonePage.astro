@@ -8,33 +8,78 @@ import { getLang, hrefFor, pick } from '../lib/i18n';
 const lang = getLang(Astro.url);
 const phoneHref = `tel:${CONTACT.phonePrimary.tel}`;
 const homeHref = hrefFor('/', lang);
+
+// Status-Texte je Art. Welche Art gilt, entscheidet das Buchungssystem
+// (GET /api/booking-status, Token aus der Weiterleitung); die URL-Werte sind
+// nur der Fallback, falls die Abfrage nicht klappt.
 const L = pick(lang,
   {
-    title: 'Vielen Dank — Vienna Grand Chauffeurs', desc: 'Vielen Dank für Ihre Buchung bei Vienna Grand Chauffeurs. Wir haben Ihre Anfrage erhalten und melden uns umgehend.',
-    eyebrow: 'Buchung abgeschlossen', heading: 'Vielen Dank für Ihre Buchung.',
-    sub: 'Wir haben Ihre Anfrage erhalten und kümmern uns umgehend darum. Eine Bestätigung mit allen Details erreicht Sie in Kürze.',
+    title: 'Vielen Dank — Vienna Grand Chauffeurs', desc: 'Vielen Dank für Ihre Buchung bzw. Anfrage bei Vienna Grand Chauffeurs.',
     toHome: 'Zur Startseite',
-    lblNumber: 'Buchungsnummer', lblVehicle: 'Fahrzeug', lblFrom: 'Von', lblTo: 'Nach', lblWhen: 'Datum & Uhrzeit', lblPrice: 'Preis', lblPay: 'Zahlung', lblReturn: 'inkl. Rückfahrt',
-    payPaid: 'Bezahlt', payOnsite: 'Zahlung vor Ort', payProcessing: 'Zahlung in Bearbeitung',
-    next: [
-      { title: 'Bestätigung per E-Mail', text: 'Sie erhalten in Kürze eine Bestätigung mit allen Details Ihrer Fahrt.' },
-      { title: 'Wir melden uns', text: 'Bei Rückfragen kontaktiert Sie unser Team persönlich und unkompliziert.' },
-      { title: 'Entspannt ankommen', text: 'Ihr Chauffeur ist pünktlich zur Stelle — Sie müssen sich um nichts kümmern.' },
-    ],
+    lblNumber: 'Buchungsnummer', lblNumberInquiry: 'Anfragenummer', lblVehicle: 'Fahrzeug', lblFrom: 'Von', lblStop: 'Zwischenstopp', lblTo: 'Nach',
+    lblWhen: 'Datum & Uhrzeit', lblArrival: 'Ankunft', lblReturn: 'Rückfahrt', lblReturnRoute: 'Rückfahrt-Strecke', lblPrice: 'Preis', lblPay: 'Zahlung',
+    returnIncl: 'inkl. Rückfahrt', approx: 'ca.', custom: 'abweichend',
+    payPaid: 'Bezahlt', payOnsite: 'Zahlung vor Ort', payOpen: 'Zahlung offen', payChecking: 'Zahlung wird bestätigt …', payInquiry: 'Preis folgt mit dem Angebot',
+    states: {
+      neutral: { eyebrow: 'Vielen Dank', heading: 'Vielen Dank.', sub: 'Eine Bestätigung mit allen Details erreicht Sie in Kürze per E-Mail.' },
+      confirmed: { eyebrow: 'Buchung bestätigt', heading: 'Ihre Fahrt ist gebucht.', sub: 'Vielen Dank für Ihre Buchung. Die Bestätigung mit allen Details ist per E-Mail unterwegs.' },
+      inquiry: { eyebrow: 'Anfrage erhalten', heading: 'Vielen Dank für Ihre Anfrage.', sub: 'Wir prüfen Verfügbarkeit und Preis und senden Ihnen in Kürze ein persönliches Angebot. Gebucht ist damit noch nichts.' },
+      payment_open: { eyebrow: 'Zahlung offen', heading: 'Ihre Fahrt ist reserviert.', sub: 'Die Online-Zahlung ist noch nicht bestätigt. Sobald sie eingeht, erhalten Sie die Buchungsbestätigung per E-Mail. Wurde die Zahlung abgebrochen, rufen Sie uns bitte an.' },
+      checking: { eyebrow: 'Zahlung wird bestätigt', heading: 'Einen Moment, bitte.', sub: 'Wir warten noch auf die Bestätigung Ihrer Online-Zahlung.' },
+      cancelled: { eyebrow: 'Storniert', heading: 'Diese Buchung ist storniert.', sub: 'Bei Fragen erreichen Sie uns jederzeit telefonisch.' },
+    },
+    next: {
+      confirmed: [
+        { title: 'Bestätigung per E-Mail', text: 'Sie erhalten in Kürze eine Bestätigung mit allen Details Ihrer Fahrt.' },
+        { title: 'Wir melden uns', text: 'Bei Rückfragen kontaktiert Sie unser Team persönlich und unkompliziert.' },
+        { title: 'Entspannt ankommen', text: 'Ihr Chauffeur ist pünktlich zur Stelle — Sie müssen sich um nichts kümmern.' },
+      ],
+      inquiry: [
+        { title: 'Anfrage geprüft', text: 'Wir klären Fahrzeug, Verfügbarkeit und Preis für Ihren Termin.' },
+        { title: 'Angebot per E-Mail', text: 'Sie erhalten ein persönliches Angebot, das Sie mit einem Klick annehmen.' },
+        { title: 'Erst dann gebucht', text: 'Fest gebucht ist Ihre Fahrt erst, wenn Sie das Angebot annehmen.' },
+      ],
+      payment_open: [
+        { title: 'Zahlung abschließen', text: 'Die Bestätigung folgt automatisch, sobald die Online-Zahlung eingeht.' },
+        { title: 'Abgebrochen?', text: 'Rufen Sie uns an — wir helfen sofort weiter oder stellen auf Zahlung vor Ort um.' },
+        { title: 'Termin reserviert', text: 'Ihre Fahrt bleibt für Sie vorgemerkt, bis die Zahlung geklärt ist.' },
+      ],
+    },
   },
   {
-    title: 'Thank You — Vienna Grand Chauffeurs', desc: 'Thank you for your booking with Vienna Grand Chauffeurs. We have received your enquiry and will get back to you shortly.',
-    eyebrow: 'Booking complete', heading: 'Thank you for your booking.',
-    sub: 'We have received your enquiry and will take care of it right away. A confirmation with all the details will reach you shortly.',
+    title: 'Thank You — Vienna Grand Chauffeurs', desc: 'Thank you for your booking or enquiry with Vienna Grand Chauffeurs.',
     toHome: 'To the homepage',
-    lblNumber: 'Booking number', lblVehicle: 'Vehicle', lblFrom: 'From', lblTo: 'To', lblWhen: 'Date & time', lblPrice: 'Price', lblPay: 'Payment', lblReturn: 'incl. return',
-    payPaid: 'Paid', payOnsite: 'Payment on site', payProcessing: 'Payment processing',
-    next: [
-      { title: 'Confirmation by email', text: 'You will shortly receive a confirmation with all the details of your journey.' },
-      { title: 'We will be in touch', text: 'If we have any questions, our team will contact you personally and without fuss.' },
-      { title: 'Arrive relaxed', text: 'Your chauffeur will be there on time — you need not worry about a thing.' },
-    ],
+    lblNumber: 'Booking number', lblNumberInquiry: 'Enquiry number', lblVehicle: 'Vehicle', lblFrom: 'From', lblStop: 'Stop', lblTo: 'To',
+    lblWhen: 'Date & time', lblArrival: 'Arrival', lblReturn: 'Return', lblReturnRoute: 'Return route', lblPrice: 'Price', lblPay: 'Payment',
+    returnIncl: 'incl. return', approx: 'approx.', custom: 'different',
+    payPaid: 'Paid', payOnsite: 'Payment on site', payOpen: 'Payment pending', payChecking: 'Confirming payment …', payInquiry: 'Price follows with the offer',
+    states: {
+      neutral: { eyebrow: 'Thank you', heading: 'Thank you.', sub: 'A confirmation with all the details will reach you by email shortly.' },
+      confirmed: { eyebrow: 'Booking confirmed', heading: 'Your ride is booked.', sub: 'Thank you for your booking. The confirmation with all the details is on its way to your inbox.' },
+      inquiry: { eyebrow: 'Enquiry received', heading: 'Thank you for your enquiry.', sub: 'We will check availability and price and send you a personal offer shortly. Nothing has been booked yet.' },
+      payment_open: { eyebrow: 'Payment pending', heading: 'Your ride is reserved.', sub: 'The online payment has not been confirmed yet. As soon as it arrives you will receive the booking confirmation by email. If the payment was cancelled, please give us a call.' },
+      checking: { eyebrow: 'Confirming payment', heading: 'One moment, please.', sub: 'We are still waiting for the confirmation of your online payment.' },
+      cancelled: { eyebrow: 'Cancelled', heading: 'This booking has been cancelled.', sub: 'If you have any questions, just give us a call.' },
+    },
+    next: {
+      confirmed: [
+        { title: 'Confirmation by email', text: 'You will shortly receive a confirmation with all the details of your journey.' },
+        { title: 'We will be in touch', text: 'If we have any questions, our team will contact you personally and without fuss.' },
+        { title: 'Arrive relaxed', text: 'Your chauffeur will be there on time — you need not worry about a thing.' },
+      ],
+      inquiry: [
+        { title: 'Enquiry reviewed', text: 'We check vehicle, availability and price for your date.' },
+        { title: 'Offer by email', text: 'You receive a personal offer that you can accept with one click.' },
+        { title: 'Booked only then', text: 'Your ride is only booked once you accept the offer.' },
+      ],
+      payment_open: [
+        { title: 'Complete the payment', text: 'The confirmation follows automatically once the online payment arrives.' },
+        { title: 'Cancelled?', text: 'Call us — we will help right away or switch to payment on site.' },
+        { title: 'Date reserved', text: 'Your ride stays reserved for you until the payment is settled.' },
+      ],
+    },
   });
+const st = L.states.neutral;
 ---
 {/* Danke-Seite nach der Buchung: nirgends verlinkt, nur ueber den Abschluss
     erreichbar und ohne eigenen Suchwert. `noindex` unterdrueckt im Layout
@@ -43,84 +88,36 @@ const L = pick(lang,
 <Layout title={L.title} description={L.desc} noindex>
   <Nav />
   <main>
-    <section class="abschluss">
+    <section class="abschluss" id="abschluss" data-kind="neutral">
       <div class="abschluss__bg" aria-hidden="true"></div>
       <div class="container-x abschluss__inner">
         <span class="abschluss__check" data-reveal aria-hidden="true">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 12.5l5 5L20 6.5"/></svg>
+          <svg class="abschluss__icon abschluss__icon--ok" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 12.5l5 5L20 6.5"/></svg>
+          <svg class="abschluss__icon abschluss__icon--wait" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="8.5"/><path d="M12 7.5v5l3.2 1.8"/></svg>
+          <svg class="abschluss__icon abschluss__icon--mail" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3.5" y="5.5" width="17" height="13" rx="2"/><path d="M4 7l8 6 8-6"/></svg>
         </span>
-        <div class="abschluss__eyebrow" data-reveal><span class="abschluss__line" aria-hidden="true"></span><span>{L.eyebrow}</span></div>
-        <h1 class="abschluss__title" data-reveal style="--reveal-delay:0.06s">{L.heading}</h1>
-        <p class="abschluss__sub" data-reveal style="--reveal-delay:0.12s">{L.sub}</p>
+        <div class="abschluss__eyebrow" data-reveal><span class="abschluss__line" aria-hidden="true"></span><span id="ab-eyebrow">{st.eyebrow}</span></div>
+        <h1 class="abschluss__title" id="ab-title" data-reveal style="--reveal-delay:0.06s">{st.heading}</h1>
+        <p class="abschluss__sub" id="ab-sub" data-reveal style="--reveal-delay:0.12s" aria-live="polite">{st.sub}</p>
 
         <div class="abschluss__summary" id="booking-summary" hidden data-reveal style="--reveal-delay:0.16s">
           <div class="abschluss__sum-head">
-            <span class="abschluss__sum-label">{L.lblNumber}</span>
+            <span class="abschluss__sum-label" id="bs-num-label">{L.lblNumber}</span>
             <strong class="abschluss__sum-num" id="bs-num"></strong>
           </div>
-          <dl class="abschluss__sum-rows">
-            <div class="abschluss__sum-row" id="bs-veh-row"><dt>{L.lblVehicle}</dt><dd id="bs-veh"></dd></div>
-            <div class="abschluss__sum-row" id="bs-from-row"><dt>{L.lblFrom}</dt><dd id="bs-from"></dd></div>
-            <div class="abschluss__sum-row" id="bs-to-row"><dt>{L.lblTo}</dt><dd id="bs-to"></dd></div>
-            <div class="abschluss__sum-row" id="bs-dt-row"><dt>{L.lblWhen}</dt><dd id="bs-dt"></dd></div>
-            <div class="abschluss__sum-row" id="bs-price-row"><dt>{L.lblPrice}</dt><dd id="bs-price"></dd></div>
-            <div class="abschluss__sum-row" id="bs-pay-row"><dt>{L.lblPay}</dt><dd id="bs-pay"></dd></div>
-          </dl>
+          <dl class="abschluss__sum-rows" id="bs-rows"></dl>
         </div>
 
-        <script is:inline define:vars={{ payPaid: L.payPaid, payOnsite: L.payOnsite, payProcessing: L.payProcessing, returnTxt: L.lblReturn }}>
-          (function () {
-            var params = new URLSearchParams(window.location.search);
-            var KEY = 'vgc_booking_done';
-            var KEYS = ['bn', 'veh', 'from', 'to', 'dt', 'price', 'pay', 'rt'];
-            var p;
-            if (params.get('bn')) {
-              // Frisch von der Widget-Weiterleitung: Werte merken, damit ein
-              // Sprachwechsel (der die Query-Parameter verliert, weil der
-              // Umschalter nur den Pfad wechselt) die Zusammenfassung nicht
-              // verschwinden laesst.
-              var data = {};
-              KEYS.forEach(function (k) { var v = params.get(k); if (v) data[k] = v; });
-              try { sessionStorage.setItem(KEY, JSON.stringify(data)); } catch (e) {}
-              p = params;
-            } else {
-              // Kein Parameter (z.B. nach Sprachwechsel) -> aus sessionStorage.
-              var stored = null;
-              try { stored = JSON.parse(sessionStorage.getItem(KEY) || 'null'); } catch (e) {}
-              p = { get: function (k) { return (stored && stored[k]) || null; } };
-            }
-            var bn = p.get('bn');
-            if (!bn) return;
-            function fill(id, rowId, val) {
-              var el = document.getElementById(id);
-              if (val) { if (el) el.textContent = val; }
-              else { var r = document.getElementById(rowId); if (r) r.hidden = true; }
-            }
-            document.getElementById('bs-num').textContent = bn;
-            fill('bs-veh', 'bs-veh-row', p.get('veh'));
-            fill('bs-from', 'bs-from-row', p.get('from'));
-            fill('bs-to', 'bs-to-row', p.get('to'));
-            fill('bs-dt', 'bs-dt-row', p.get('dt'));
-            var price = p.get('price');
-            if (price) {
-              document.getElementById('bs-price').textContent = '€ ' + price + (p.get('rt') === '1' ? ' · ' + returnTxt : '');
-            } else {
-              document.getElementById('bs-price-row').hidden = true;
-            }
-            var payMap = { paid: payPaid, onsite: payOnsite, processing: payProcessing };
-            document.getElementById('bs-pay').textContent = payMap[p.get('pay')] || payOnsite;
-            document.getElementById('booking-summary').hidden = false;
-          })();
-        </script>
-
-        <ul class="abschluss__next" data-reveal style="--reveal-delay:0.18s">
-          {L.next.map((n) => (
-            <li class="abschluss__step">
-              <h2 class="abschluss__step-title">{n.title}</h2>
-              <p class="abschluss__step-text">{n.text}</p>
-            </li>
-          ))}
-        </ul>
+        {(['confirmed', 'inquiry', 'payment_open'] as const).map((kind) => (
+          <ul class="abschluss__next" data-next={kind} hidden={kind !== 'confirmed'} data-reveal style="--reveal-delay:0.18s">
+            {L.next[kind].map((n) => (
+              <li class="abschluss__step">
+                <h2 class="abschluss__step-title">{n.title}</h2>
+                <p class="abschluss__step-text">{n.text}</p>
+              </li>
+            ))}
+          </ul>
+        ))}
 
         <div class="abschluss__cta" data-reveal style="--reveal-delay:0.24s">
           <a class="abschluss__btn" href={homeHref}>{L.toHome}</a>
@@ -135,6 +132,152 @@ const L = pick(lang,
   <Footer />
 </Layout>
 
+<script is:inline define:vars={{ T: L, lang }}>
+  (function () {
+    // Buchungssystem (vgc-buchung): liefert die Art der Seite. Ohne Token oder
+    // bei Fehler bleibt es bei den Werten aus der Weiterleitung (Fallback).
+    var API = 'https://vgc-buchung-oezdemircagri-7244s-projects.vercel.app/api/booking-status';
+    var KEY = 'vgc_booking_done';
+    var SINGLE = ['bn', 'veh', 'from', 'to', 'dt', 'price', 'pay', 'rt', 't', 'kind', 'rdt', 'rfrom', 'rto'];
+    var params = new URLSearchParams(window.location.search);
+    var data = null;
+    if (params.get('bn')) {
+      // Frisch von der Weiterleitung: merken, damit ein Sprachwechsel (verliert
+      // die Query-Parameter) die Zusammenfassung nicht verschwinden laesst.
+      data = {};
+      SINGLE.forEach(function (k) { var v = params.get(k); if (v) data[k] = v; });
+      var stops = params.getAll('st').filter(Boolean);
+      if (stops.length) data.st = stops;
+      try { sessionStorage.setItem(KEY, JSON.stringify(data)); } catch (e) {}
+    } else {
+      try { data = JSON.parse(sessionStorage.getItem(KEY) || 'null'); } catch (e) { data = null; }
+    }
+    if (!data || !data.bn) return;
+
+    var section = document.getElementById('abschluss');
+    var locale = lang === 'en' ? 'en-GB' : 'de-AT';
+
+    function fmtDate(d) {
+      if (!d || !/^\d{4}-\d{2}-\d{2}$/.test(d)) return d || '';
+      var dt = new Date(d + 'T12:00:00Z');
+      return dt.toLocaleDateString(locale, { weekday: 'short', day: '2-digit', month: '2-digit', year: 'numeric', timeZone: 'UTC' });
+    }
+    function fmtDateTime(date, time) {
+      return [fmtDate(date), time ? String(time).slice(0, 5) : ''].filter(Boolean).join(' · ');
+    }
+    function splitDt(s) {
+      var m = String(s || '').match(/^(\d{4}-\d{2}-\d{2})(?:\s+(\d{1,2}:\d{2}))?/);
+      return m ? { date: m[1], time: m[2] || '' } : { date: s || '', time: '' };
+    }
+    function fmtPrice(n) {
+      var v = Number(n);
+      if (!(v > 0)) return '';
+      return '€ ' + v.toLocaleString('de-AT', { minimumFractionDigits: v % 1 ? 2 : 0, maximumFractionDigits: 2 });
+    }
+
+    // Einheitliches Modell aus URL-Fallback bzw. API-Antwort
+    function fromUrl(d) {
+      var p = splitDt(d.dt);
+      var r = d.rt === '1' ? splitDt(d.rdt) : null;
+      var kind = d.kind === 'inquiry' ? 'inquiry' : (d.pay === 'processing' ? 'checking' : 'confirmed');
+      return {
+        number: d.bn, kind: kind,
+        payment: d.kind === 'inquiry' ? 'none' : (d.pay === 'paid' ? 'paid' : (d.pay === 'processing' ? 'checking' : 'onsite')),
+        vehicle: d.veh, from: d.from, to: d.to, stops: d.st || [], date: p.date, time: p.time, arrival: null,
+        ret: d.rt === '1' ? { date: r && r.date, time: r && r.time, custom: !!(d.rfrom || d.rto), pickup: d.rfrom, dropoff: d.rto } : null,
+        price: d.kind === 'inquiry' ? null : d.price
+      };
+    }
+    function fromApi(a) {
+      return {
+        number: a.booking_number, kind: a.kind, payment: a.payment,
+        vehicle: a.vehicle, from: a.pickup && a.pickup.address, to: a.dropoff && a.dropoff.address,
+        stops: a.stops || [], date: a.pickup && a.pickup.date, time: a.pickup && a.pickup.time, arrival: a.arrival_time,
+        ret: a['return'], price: a.price
+      };
+    }
+
+    function row(label, value, cls) {
+      if (!value) return '';
+      var dt = document.createElement('dt'); dt.textContent = label;
+      var dd = document.createElement('dd'); dd.textContent = value;
+      if (cls) dd.className = cls;
+      var div = document.createElement('div'); div.className = 'abschluss__sum-row';
+      div.appendChild(dt); div.appendChild(dd);
+      return div;
+    }
+
+    function render(m) {
+      var kind = m.kind in T.states ? m.kind : 'confirmed';
+      section.setAttribute('data-kind', kind);
+      var s = T.states[kind];
+      document.getElementById('ab-eyebrow').textContent = s.eyebrow;
+      document.getElementById('ab-title').textContent = s.heading;
+      document.getElementById('ab-sub').textContent = s.sub;
+      var listKind = kind === 'inquiry' ? 'inquiry' : (kind === 'payment_open' || kind === 'checking' ? 'payment_open' : 'confirmed');
+      document.querySelectorAll('[data-next]').forEach(function (ul) { ul.hidden = ul.getAttribute('data-next') !== listKind || kind === 'cancelled'; });
+
+      document.getElementById('bs-num').textContent = m.number;
+      document.getElementById('bs-num-label').textContent = kind === 'inquiry' ? T.lblNumberInquiry : T.lblNumber;
+      var rows = document.getElementById('bs-rows');
+      rows.textContent = '';
+      var items = [
+        row(T.lblVehicle, m.vehicle),
+        row(T.lblFrom, m.from)
+      ];
+      (m.stops || []).forEach(function (stop, i) {
+        items.push(row(T.lblStop + ((m.stops.length > 1) ? ' ' + (i + 1) : ''), stop, 'is-stop'));
+      });
+      items.push(row(T.lblTo, m.to));
+      items.push(row(T.lblWhen, fmtDateTime(m.date, m.time)));
+      if (m.arrival) items.push(row(T.lblArrival, T.approx + ' ' + m.arrival));
+      if (m.ret) {
+        items.push(row(T.lblReturn, fmtDateTime(m.ret.date, m.ret.time) || T.returnIncl));
+        if (m.ret.custom && (m.ret.pickup || m.ret.dropoff)) {
+          items.push(row(T.lblReturnRoute + ' (' + T.custom + ')', [m.ret.pickup, m.ret.dropoff].filter(Boolean).join(' → '), 'is-return'));
+        }
+      }
+      var price = fmtPrice(m.price);
+      if (price) items.push(row(T.lblPrice, price + (m.ret ? ' · ' + T.returnIncl : ''), 'is-price'));
+      var payTxt = { paid: T.payPaid, onsite: T.payOnsite, open: T.payOpen, checking: T.payChecking, none: T.payInquiry }[m.payment] || '';
+      if (kind !== 'cancelled') items.push(row(T.lblPay, payTxt, m.payment === 'open' ? 'is-open' : (m.payment === 'paid' ? 'is-paid' : '')));
+      items.forEach(function (el) { if (el) rows.appendChild(el); });
+      document.getElementById('booking-summary').hidden = false;
+    }
+
+    var model = fromUrl(data);
+    render(model);
+    if (!data.t) {
+      // Ohne Token (alte Links): "Zahlung wird bestaetigt" nicht ewig zeigen.
+      if (model.kind === 'checking') render(Object.assign({}, model, { kind: 'confirmed', payment: 'checking' }));
+      return;
+    }
+
+    // Online-Zahlung gerade erst zurueck: kurz nachfragen, bis der Webhook da ist.
+    var tries = 0;
+    var maxTries = data.pay === 'processing' ? 6 : 1;
+    function ask() {
+      tries += 1;
+      fetch(API + '?bn=' + encodeURIComponent(data.bn) + '&t=' + encodeURIComponent(data.t), { headers: { Accept: 'application/json' } })
+        .then(function (r) { if (!r.ok) throw new Error('HTTP ' + r.status); return r.json(); })
+        .then(function (a) {
+          var m = fromApi(a);
+          if (m.kind === 'payment_open' && tries < maxTries) {
+            render(Object.assign({}, m, { kind: 'checking', payment: 'checking' }));
+            setTimeout(ask, 2500);
+            return;
+          }
+          render(m);
+        })
+        .catch(function () {
+          if (tries < maxTries) { setTimeout(ask, 2500); return; }
+          if (model.kind === 'checking') render(Object.assign({}, model, { kind: 'payment_open', payment: 'open' }));
+        });
+    }
+    ask();
+  })();
+</script>
+
 <style>
   .abschluss { position: relative; isolation: isolate; overflow: hidden; background: #0d0703; color: #fff; }
   .abschluss__bg {
@@ -144,7 +287,7 @@ const L = pick(lang,
   .abschluss__inner {
     position: relative; z-index: 1;
     min-block-size: 100svh; display: flex; flex-direction: column; align-items: center; text-align: center;
-    padding-block: clamp(8rem, 20vh, 13rem) clamp(4rem, 8vh, 6rem);
+    padding-block: clamp(8rem, 20vh, 13rem) calc(clamp(4rem, 8vh, 6rem) + env(safe-area-inset-bottom, 0px));
   }
   .abschluss__check {
     inline-size: clamp(72px, 11vw, 96px); block-size: clamp(72px, 11vw, 96px); border-radius: 999px;
@@ -152,8 +295,24 @@ const L = pick(lang,
     background: linear-gradient(135deg, #c46a2d 0%, #e9b79a 100%);
     box-shadow: 0 20px 50px -18px rgba(196, 106, 45, 0.7);
     margin-block-end: clamp(1.75rem, 3.5vw, 2.5rem);
+    transition: background 0.4s ease, box-shadow 0.4s ease;
   }
-  .abschluss__check svg { inline-size: 46%; block-size: 46%; }
+  .abschluss__icon { inline-size: 46%; block-size: 46%; grid-area: 1 / 1; opacity: 0; transform: scale(0.8); transition: opacity 0.3s ease, transform 0.35s cubic-bezier(0.16, 1, 0.3, 1); }
+  .abschluss[data-kind='neutral'] .abschluss__icon--ok,
+  .abschluss[data-kind='confirmed'] .abschluss__icon--ok,
+  .abschluss[data-kind='inquiry'] .abschluss__icon--mail,
+  .abschluss[data-kind='payment_open'] .abschluss__icon--wait,
+  .abschluss[data-kind='checking'] .abschluss__icon--wait,
+  .abschluss[data-kind='cancelled'] .abschluss__icon--wait { opacity: 1; transform: none; }
+  /* Offene Zahlung / Storno: ruhiger, nicht "fertig"-gruen-golden */
+  .abschluss[data-kind='payment_open'] .abschluss__check,
+  .abschluss[data-kind='checking'] .abschluss__check,
+  .abschluss[data-kind='cancelled'] .abschluss__check {
+    background: transparent; color: #e9b79a; box-shadow: inset 0 0 0 2px rgba(233, 183, 154, 0.6);
+  }
+  .abschluss[data-kind='checking'] .abschluss__icon--wait { animation: abSpin 2.4s linear infinite; }
+  @keyframes abSpin { to { transform: rotate(360deg); } }
+
   .abschluss__eyebrow { display: flex; align-items: center; gap: 15px; margin-block-end: 18px; }
   .abschluss__eyebrow span:not(.abschluss__line) { font-family: var(--font-display); font-weight: 600; font-size: clamp(1.05rem, 2vw, 1.4rem); letter-spacing: -0.5px; text-transform: uppercase; color: #e9b79a; }
   .abschluss__line { inline-size: 48px; block-size: 1.429px; background: #c46a2d; opacity: 0.7; flex: none; }
@@ -165,13 +324,18 @@ const L = pick(lang,
   .abschluss__sum-label { font-family: var(--font-display); font-size: 12px; letter-spacing: 0.12em; text-transform: uppercase; color: #e9b79a; }
   .abschluss__sum-num { font-family: var(--font-display); font-weight: 700; font-size: clamp(1.15rem, 2.4vw, 1.5rem); color: #fff; letter-spacing: 0.02em; }
   .abschluss__sum-rows { margin: 0; padding: clamp(0.4rem, 1vw, 0.6rem) clamp(1.3rem, 2.5vw, 1.8rem) clamp(0.9rem, 1.8vw, 1.2rem); }
-  .abschluss__sum-row { display: flex; align-items: baseline; justify-content: space-between; gap: 18px; padding-block: clamp(0.6rem, 1.2vw, 0.8rem); border-block-end: 1px solid rgba(255, 255, 255, 0.07); }
-  .abschluss__sum-row:last-child { border-block-end: none; }
-  .abschluss__sum-row dt { margin: 0; font-size: 13px; letter-spacing: 0.02em; color: rgba(255, 255, 255, 0.55); flex: none; }
-  .abschluss__sum-row dd { margin: 0; font-family: var(--font-display); font-weight: 600; font-size: 15px; color: #fff; text-align: right; }
-  #bs-price { color: #e9b79a; }
+  .abschluss__sum-rows :global(.abschluss__sum-row) { display: flex; align-items: baseline; justify-content: space-between; gap: 18px; padding-block: clamp(0.6rem, 1.2vw, 0.8rem); border-block-end: 1px solid rgba(255, 255, 255, 0.07); animation: abRowIn 0.35s cubic-bezier(0.16, 1, 0.3, 1) both; }
+  .abschluss__sum-rows :global(.abschluss__sum-row:last-child) { border-block-end: none; }
+  .abschluss__sum-rows :global(dt) { margin: 0; font-size: 13px; letter-spacing: 0.02em; color: rgba(255, 255, 255, 0.55); flex: none; }
+  .abschluss__sum-rows :global(dd) { margin: 0; font-family: var(--font-display); font-weight: 600; font-size: 15px; color: #fff; text-align: right; overflow-wrap: anywhere; font-variant-numeric: tabular-nums; }
+  .abschluss__sum-rows :global(dd.is-stop) { color: rgba(255, 255, 255, 0.86); font-weight: 500; }
+  .abschluss__sum-rows :global(dd.is-price) { color: #e9b79a; }
+  .abschluss__sum-rows :global(dd.is-paid) { color: #9be3b4; }
+  .abschluss__sum-rows :global(dd.is-open) { color: #ffcf8a; }
+  @keyframes abRowIn { from { opacity: 0; transform: translateY(4px); } to { opacity: 1; transform: none; } }
 
   .abschluss__next { list-style: none; margin: clamp(2.5rem, 5vw, 4rem) 0 0; padding: 0; display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 220px), 1fr)); gap: clamp(1rem, 2vw, 1.75rem); inline-size: min(100%, 900px); text-align: left; }
+  .abschluss__next[hidden] { display: none; }
   .abschluss__step { padding: clamp(1.4rem, 2.5vw, 1.9rem); border-radius: 16px; background: rgba(255, 255, 255, 0.04); border: 1px solid rgba(255, 255, 255, 0.1); }
   .abschluss__step-title { font-family: var(--font-display); font-weight: 600; font-size: 1.15rem; color: #fff; margin-block-end: 0.4rem; }
   .abschluss__step-text { margin: 0; font-size: 14.5px; line-height: 1.6; color: rgba(255, 255, 255, 0.62); }
@@ -184,7 +348,23 @@ const L = pick(lang,
   .abschluss__phone svg { inline-size: 18px; block-size: 18px; }
 
   @media (max-width: 640px) {
-    .abschluss__cta { flex-wrap: nowrap; }
+    /* iPhone: die schwebenden Kontakt-Buttons (ContactRail, rechts unten,
+       44 px + 14 px Rand) lagen ueber den Werten der Zusammenfassung. Rechts
+       eine eigene Spalte fuer die Buttons freihalten, Zeilen untereinander
+       (Bezeichnung ueber Wert, lange Adressen umbrechen); Buttons und
+       Seitenende beruecksichtigen den Home-Indikator (safe-area). */
+    .abschluss__inner {
+      padding-inline: 16px calc(14px + 44px + 10px + env(safe-area-inset-right, 0px));
+    }
+    .abschluss__sum-rows :global(.abschluss__sum-row) { flex-direction: column; align-items: flex-start; gap: 3px; }
+    .abschluss__sum-rows :global(dd) { text-align: left; }
+    :global(.crail) { inset-block-end: calc(18px + env(safe-area-inset-bottom, 0px)); }
+    .abschluss__cta { flex-wrap: wrap; }
     .abschluss__btn, .abschluss__phone { padding: 0.85rem 1.4rem; font-size: 0.9rem; }
+  }
+  @media (prefers-reduced-motion: reduce) {
+    .abschluss__icon, .abschluss__check { transition: none; }
+    .abschluss[data-kind='checking'] .abschluss__icon--wait { animation: none; }
+    .abschluss__sum-rows :global(.abschluss__sum-row) { animation: none; }
   }
 </style>
