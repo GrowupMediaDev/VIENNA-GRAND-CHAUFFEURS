@@ -141,6 +141,14 @@ const year = 2026;
     .footer__col { flex-basis: 100%; }
     .footer__col:not(:last-child) { border-block-end: 1px solid rgba(255, 255, 255, 0.1); padding-block-end: 2rem; }
   }
+  /* Phones: die schwebenden Kontakt-Knoepfe (ContactRail) sitzen unten rechts
+     ueber dem Seitenende. Unten so viel Abstand, dass am Ende kein Text und kein
+     Link darunter liegt: 4 Knoepfe = 4 x 44 + 3 x 10 + 18 unten = 224 px + 12 px
+     Luft; Seiten mit Buchungs-Widget zeigen nur einen Knopf: 44 + 18 + 12 = 74 px. */
+  @media (max-width: 640px) {
+    .footer { padding-block-end: calc(236px + env(safe-area-inset-bottom, 0px)); }
+    :global(body:has(#vt-booking)) .footer { padding-block-end: calc(74px + env(safe-area-inset-bottom, 0px)); }
+  }
 </style>
 
 <!-- Delegated so it keeps working regardless of how the footer is rendered.

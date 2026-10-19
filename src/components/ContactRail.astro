@@ -82,6 +82,11 @@ const L = pick(lang,
     :global(body:has(> #vgc-cookie-consent:not([style*="none"]))) .crail {
       inset-block-start: 108px; inset-block-end: auto;
     }
+    /* Solange die Leiste oben steht (Banner offen), lag sie ueber dem rechten
+       Ende des Seitentitels: Titel rechts um die Knopfbreite freihalten. */
+    :global(body:has(> #vgc-cookie-consent:not([style*="none"])):not(:has(#vt-booking)) h1) {
+      padding-inline-end: 44px;
+    }
 
     /* Seiten mit Buchungs-Widget (#vt-booking): vier Buttons lagen ueber
        Feldern und Werten des Formulars. Zusammengeklappt bleibt nur ein
