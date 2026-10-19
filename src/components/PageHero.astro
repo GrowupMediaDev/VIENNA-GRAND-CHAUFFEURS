@@ -6,10 +6,13 @@ interface Props {
   title: string;
   sub?: string;
   align?: 'left' | 'center';
+  /** Wider title measure for long single-word titles (legal pages), so
+   *  compounds like "Geschäftsbedingungen" never overflow the box. */
+  wide?: boolean;
 }
-const { eyebrow, title, sub, align = 'left' } = Astro.props;
+const { eyebrow, title, sub, align = 'left', wide = false } = Astro.props;
 ---
-<section class:list={['phero', align === 'center' && 'phero--center']} aria-labelledby="phero-title">
+<section class:list={['phero', align === 'center' && 'phero--center', wide && 'phero--wide']} aria-labelledby="phero-title">
   <div class="phero__bg" aria-hidden="true"></div>
   <div class="container-x phero__inner">
     <div class="phero__eyebrow"><span class="phero__line" aria-hidden="true"></span><span>{eyebrow}</span></div>
@@ -33,13 +36,18 @@ const { eyebrow, title, sub, align = 'left' } = Astro.props;
   .phero--center .phero__eyebrow { justify-content: center; }
   .phero__eyebrow span:not(.phero__line) { font-family: var(--font-display); font-weight: 600; font-size: 24px; letter-spacing: -1px; text-transform: uppercase; color: #c46a2d; }
   .phero__line { inline-size: 60px; block-size: 1.429px; background: #c46a2d; opacity: 0.6; flex: none; }
-  .phero__title { font-family: var(--font-display); font-weight: 700; font-size: clamp(2.6rem, 6.5vw, 4.75rem); line-height: 0.98; letter-spacing: -0.03em; color: #fff; max-inline-size: 16ch; }
+  .phero__title { font-family: var(--font-display); font-weight: 700; font-size: clamp(2.6rem, 6.5vw, 4.75rem); line-height: 0.98; letter-spacing: -0.03em; color: #fff; max-inline-size: 16ch;
+    /* Never let a long compound run past the hero edge (last-resort break).
+       Hyphenation only on phones (below); wider screens keep whole words,
+       "none" also ignores &shy; so desktop line breaks stay as designed. */
+    -webkit-hyphens: none; hyphens: none; overflow-wrap: break-word; }
+  .phero--wide .phero__title { max-inline-size: 20ch; }
   .phero--center .phero__title { max-inline-size: 18ch; }
   .phero__title :global(span) { color: #c46a2d; }
   .phero__sub { margin: clamp(1.2rem, 2.5vw, 1.75rem) 0 0; font-size: clamp(1rem, 1.3vw, 1.19rem); line-height: 1.7; color: rgba(255, 255, 255, 0.82); max-inline-size: 60ch; }
 
   @media (max-width: 640px) {
     .phero__eyebrow span:not(.phero__line) { font-size: 1.05rem; }
-    .phero__title { font-size: clamp(2.2rem, 11vw, 3rem); }
+    .phero__title { font-size: clamp(2.2rem, 11vw, 3rem); -webkit-hyphens: auto; hyphens: auto; }
   }
 </style>

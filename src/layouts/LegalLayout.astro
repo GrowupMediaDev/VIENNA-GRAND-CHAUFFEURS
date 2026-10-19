@@ -19,7 +19,7 @@ const updatedLabel = pick(lang, 'Zuletzt aktualisiert:', 'Last updated:');
 <Layout title={metaTitle} description={description}>
   <Nav />
   <main>
-    <PageHero eyebrow={eyebrow} title={title} />
+    <PageHero eyebrow={eyebrow} title={title} wide />
     <section class="legal">
       <div class="container-x legal__inner">
         {updated && <p class="legal__updated">{updatedLabel} {updated}</p>}
